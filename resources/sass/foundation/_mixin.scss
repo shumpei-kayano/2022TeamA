@@ -1,20 +1,15 @@
 //Breakpoints
-@mixin mq($breakpoint: medium) {
-    @if $breakpoint == small {
-        @media screen and (max-width: 599px) {
-            @content;
-        }
-    } @else if $breakpoint == medium {
-        @media screen and (max-width: 1023px) {
-            @content;
-        }
-    } @else if $breakpoint == large {
-        @media screen and (min-width: 1024px) {
-            @content;
-        }
-    } @else if $breakpoint == xlarge {
-        @media screen and (min-width: 1920px) {
-            @content;
-        }
+$breakpoints: (
+    "down-lg": "screen and(max-width:1279px)",
+    "down-md": "screen and(max-width:1023px)",
+    "down-sm": "screen and(max-width:599px)",
+    "up-lg": "screen and(min-width:1280px)",
+    "up-md": "screen and(min-width:1024px)",
+    "up-sm": "screen and(min-width:600px)",
+) !default;
+
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints,$breakpoint)} {
+        @content;
     }
 }
