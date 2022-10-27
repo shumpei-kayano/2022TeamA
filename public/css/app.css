@@ -16,6 +16,7 @@ body {
   padding: 0;
   position: relative;
   line-height: 1.75;
+  background-color: #f6f6f6;
 }
 
 img {
@@ -42,5 +43,81 @@ a:hover {
 
 * {
   box-sizing: border-box;
+}
+
+.c-container {
+  padding: 16px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.p-gnav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  border-top: 1px solid #c9c9c9;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-gnav ul {
+  margin: 16px auto;
+  padding: 0;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.p-gnav ul li {
+  width: 20%;
+}
+
+.p-gnav a {
+  color: #354260;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-gnav a:hover {
+  text-decoration: none;
+}
+
+.p-gnav a:before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.p-gnav__home:before {
+  background-image: url("/images/icon_home.svg");
+}
+
+.p-gnav__coupon:before {
+  background-image: url("/images/icon_coupon.svg");
+}
+
+.p-gnav__gatcha:before {
+  background-image: url("/images/icon_gatcha.svg");
+}
+
+.p-gnav__badge:before {
+  background-image: url("/images/icon_badge.svg");
+}
+
+.p-gnav__account:before {
+  background-image: url("/images/icon_account.svg");
 }
 

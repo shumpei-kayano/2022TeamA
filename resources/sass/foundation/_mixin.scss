@@ -1,11 +1,11 @@
 //Breakpoints
 $breakpoints: (
-    "down-lg": "screen and(max-width:1279px)",
-    "down-md": "screen and(max-width:1023px)",
-    "down-sm": "screen and(max-width:599px)",
-    "up-lg": "screen and(min-width:1280px)",
-    "up-md": "screen and(min-width:1024px)",
-    "up-sm": "screen and(min-width:600px)",
+    "down-lg": "screen and (max-width:1279px)",
+    "down-md": "screen and (max-width:1023px)",
+    "down-sm": "screen and (max-width:599px)",
+    "up-lg": "screen and (min-width:1280px)",
+    "up-md": "screen and (min-width:1024px)",
+    "up-sm": "screen and (min-width:600px)",
 ) !default;
 
 @mixin mq($breakpoint) {
