@@ -109,8 +109,8 @@ a:hover {
   background-image: url("/images/icon_coupon.svg");
 }
 
-.p-gnav__gatcha:before {
-  background-image: url("/images/icon_gatcha.svg");
+.p-gnav__gacha:before {
+  background-image: url("/images/icon_gacha.svg");
 }
 
 .p-gnav__badge:before {
