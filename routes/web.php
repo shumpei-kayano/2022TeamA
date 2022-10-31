@@ -53,6 +53,11 @@ Route::get('store/index', function () {
     return view('store.index');
 });
 
+//近所のおすすめスポット
+Route::get('spot/index', function () {
+    return view('spot.index');
+});
+
 //クチコミ
 Route::get('review/person', function () {
     return view('review.person');
