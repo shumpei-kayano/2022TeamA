@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <p>ここにコンテンツが入ります</p>
+        <h1>クチコミ投稿</h1>
     </div>
 </body>
 

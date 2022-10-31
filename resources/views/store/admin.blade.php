@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <p>ここにコンテンツが入ります</p>
+        <h1>店舗情報管理</h1>
     </div>
 </body>
 

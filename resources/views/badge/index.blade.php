@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <p>ここにコンテンツが入ります</p>
+        <p>バッジ</p>
     </div>
 </body>
 

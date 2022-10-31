@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <p>ここにコンテンツが入ります</p>
+       <h1>新規登録</h1>
     </div>
 </body>
 
