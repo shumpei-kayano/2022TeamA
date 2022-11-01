@@ -121,3 +121,8 @@ a:hover {
   background-image: url("/images/icon_account.svg");
 }
 
+.p-welcome__logo {
+  width: 200px;
+  margin: 0 auto 16px;
+}
+

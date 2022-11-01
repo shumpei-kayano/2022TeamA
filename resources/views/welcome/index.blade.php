@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <h1>ログイン画面</h1>
+        <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
     </div>
 </body>
 
