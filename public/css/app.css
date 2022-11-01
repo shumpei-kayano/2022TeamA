@@ -69,6 +69,19 @@ a:hover {
   margin-bottom: 16px;
 }
 
+.c-btn {
+  display: block;
+  background-color: #cb4778;
+  color: white;
+  width: 50%;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.c-btn--pink {
+  margin: 32px auto 16px;
+}
+
 .p-gnav {
   position: fixed;
   bottom: 0;
@@ -141,5 +154,9 @@ a:hover {
 .p-welcome__logo {
   width: 200px;
   margin: 0 auto 16px;
+}
+
+.p-welcome__sineup {
+  text-align: center;
 }
 
