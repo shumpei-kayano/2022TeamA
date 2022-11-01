@@ -71,15 +71,46 @@ a:hover {
 
 .c-btn {
   display: block;
-  background-color: #cb4778;
-  color: white;
+  margin: 32px auto 16px;
   width: 50%;
   padding: 8px;
   border-radius: 8px;
 }
 
 .c-btn--pink {
-  margin: 32px auto 16px;
+  background-color: #cb4778;
+  color: white;
+}
+
+.c-btn--navy {
+  background-color: #354260;
+  color: white;
+}
+
+.c-back {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 16px auto;
+  background-image: url("/images/back-icon.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 24px;
+}
+
+.c-back:hover {
+  text-decoration: none;
+}
+
+.c-header {
+  background: #F9F9F9;
+  border-bottom: 1px solid #c9c9c9;
+  text-align: center;
+  position: relative;
+}
+
+.c-header h4 {
+  margin: 16px auto;
 }
 
 .p-gnav {
@@ -158,5 +189,15 @@ a:hover {
 
 .p-welcome__sineup {
   text-align: center;
+}
+
+.p-add__text {
+  text-align: center;
+  font-size: 16px;
+  margin: 40px auto;
+}
+
+.p-add__btn {
+  margin: 120px auto;
 }
 
