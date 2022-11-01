@@ -17,6 +17,7 @@
     <li><a href="/person/index" target="_blank">ホーム</a></li>
     <li><a href="/account/index" target="_blank">アカウント</a></li>
     <li><a href="/account/setting" target="_blank">アカウント設定</a></li>
+    <li><a href="/notice/setting" target="_blank">お知らせ</a></li>
     <li><a href="/tourist/index" target="_blank">各店舗</a></li>
     <li><a href="/store/index" target="_blank">店舗詳細</a></li>
     <li><a href="/spot/index" target="_blank">近所のおすすめスポット</a></li>

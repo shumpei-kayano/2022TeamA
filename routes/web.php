@@ -43,6 +43,11 @@ Route::get('account/setting', function () {
     return view('account.setting');
 });
 
+//お知らせ
+Route::get('notice/index', function () {
+    return view('notice.index');
+});
+
 //各店舗
 Route::get('tourist/index', function () {
     return view('tourist.index');
