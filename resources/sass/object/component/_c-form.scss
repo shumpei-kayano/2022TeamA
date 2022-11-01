@@ -1,0 +1,19 @@
+.c-form {
+    input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid $gray;
+        border-radius: 8px;
+
+    }
+
+    label {
+        display: block;
+        color: $plat_navy;
+        font-size: 12px;
+    }
+
+    &__group {
+        margin-bottom: 16px;
+    }
+}

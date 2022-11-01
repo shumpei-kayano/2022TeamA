@@ -21,6 +21,18 @@
     </nav>
     <div class="c-container">
         <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
+        <form action="" class="c-form">
+        <div class="c-form__group">
+            <label for="">ニックネーム</label><input type="text">
+        </div>
+
+        <div class="c-form__group">
+            <label for="">パスワード</label><input type="password">
+        </div>
+
+
+
+        </form>
     </div>
 </body>
 
