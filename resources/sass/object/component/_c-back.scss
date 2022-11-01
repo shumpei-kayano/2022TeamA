@@ -1,0 +1,14 @@
+
+.c-back{
+    position:absolute;
+    bottom:0;
+    left:0;
+    margin:16px auto ;
+    background-image: url("/images/back-icon.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left:24px;
+    &:hover{
+        text-decoration: none;
+    }
+}

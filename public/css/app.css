@@ -87,6 +87,32 @@ a:hover {
   color: white;
 }
 
+.c-back {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 16px auto;
+  background-image: url("/images/back-icon.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 24px;
+}
+
+.c-back:hover {
+  text-decoration: none;
+}
+
+.c-header {
+  background: #F9F9F9;
+  border-bottom: 1px solid #c9c9c9;
+  text-align: center;
+  position: relative;
+}
+
+.c-header h4 {
+  margin: 16px auto;
+}
+
 .p-gnav {
   position: fixed;
   bottom: 0;
@@ -163,5 +189,49 @@ a:hover {
 
 .p-welcome__sineup {
   text-align: center;
+}
+
+.p-account__phot {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.p-account__top {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+}
+
+.p-account__nickname {
+  font-size: 24px;
+  font-weight: bold;
+  color: #354260;
+}
+
+.p-account__nav {
+  display: block;
+  border-bottom: 1px solid lightgray;
+  background-image: url("/images/_arrow.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding: 16px;
+}
+
+.p-account__navgroup {
+  margin-top: 16px;
+  margin-bottom: 64px;
+}
+
+.p-add__text {
+  text-align: center;
+  font-size: 16px;
+  margin: 40px auto;
+}
+
+.p-add__btn {
+  margin: 120px auto;
 }
 
