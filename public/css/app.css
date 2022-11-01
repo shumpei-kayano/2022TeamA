@@ -71,15 +71,15 @@ a:hover {
 
 .c-btn {
   display: block;
-  background-color: #cb4778;
-  color: white;
+  margin: 32px auto 16px;
   width: 50%;
   padding: 8px;
   border-radius: 8px;
 }
 
 .c-btn--pink {
-  margin: 32px auto 16px;
+  background-color: #cb4778;
+  color: white;
 }
 
 .p-gnav {
