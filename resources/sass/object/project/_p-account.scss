@@ -1,0 +1,31 @@
+.p-account{
+    &__phot{
+        width: 64px;
+        height: 64px;
+        border-radius: 32px;
+        overflow: hidden;
+    }
+    &__top{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 8px;
+    }
+    &__nickname{
+        font-size: 24px;
+        font-weight: bold;
+        color: $plat_navy;
+    }
+    &__nav{
+        display: block;
+        border-bottom: 1px solid lightgray;
+        background-image:url("/images/_arrow.jpg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        padding: 16px;
+    }
+    &__navgroup{
+        margin-top: 16px;
+        margin-bottom: 64px;
+    }
+}
