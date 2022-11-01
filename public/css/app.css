@@ -82,6 +82,11 @@ a:hover {
   color: white;
 }
 
+.c-btn--navy {
+  background-color: #354260;
+  color: white;
+}
+
 .p-gnav {
   position: fixed;
   bottom: 0;
