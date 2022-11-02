@@ -10,27 +10,44 @@
 
 <body>
     <div class="c-container">
-    <div class="p-badge__section">
-<section>
-    <div class="p-badge__title"><h3>ガチャを回した回数</h3></div>
+<section class="p-badge__section">
+    <h3 class="p-badge__title">ガチャを回した回数</h3>
     <div class="p-badge__group">
     <div class ="p-badge__item">
-    <div class="p-badge__img">
-    <img src="/images/badge_5gacha_off_02.png" alt="5ガチャ">
-    <img src="/images/badge_20gacha_off_04.png" alt="5ガチャ">
-    <img src="/images/badge_50gacha_off_06.png" alt="5ガチャ">
-    <img src="/images/badge_100gacha_off_08.png" alt="5ガチャ">
-    <div class="p-badge__name">
-    <p>5ガチャ</p>
-    <div class="p-badge__date">
-{{--  日付はデータベースから取ってくる  --}}
+    <p class="p-badge__img">
+    <img src="/images/badge_5gacha_off_02.png" alt="5ガチャ"></p>
+
+    <p class="p-badge__name">5ガチャ</p>
+    <p class="p-badge__date">2022.11.02</p>
+
     </div>
+    <div class ="p-badge__item">
+    <p class="p-badge__img">
+    <img src="/images/badge_5gacha_off_02.png" alt="5ガチャ"></p>
+
+    <p class="p-badge__name">5ガチャ</p>
+    <p class="p-badge__date">2022.11.02</p>
+
     </div>
+    <div class ="p-badge__item">
+    <p class="p-badge__img">
+    <img src="/images/badge_5gacha_off_02.png" alt="5ガチャ"></p>
+
+    <p class="p-badge__name">5ガチャ</p>
+    <p class="p-badge__date">2022.11.02</p>
+
     </div>
+    <div class ="p-badge__item">
+    <p class="p-badge__img">
+    <img src="/images/badge_5gacha_off_02.png" alt="5ガチャ"></p>
+
+    <p class="p-badge__name">5ガチャ</p>
+    <p class="p-badge__date">2022.11.02</p>
+
     </div>
     </div>
 </section>
-    </div>
+             </div>
     <nav class="p-gnav">
         <ul>
             <li><a href="" class="p-gnav__home">ホーム</a></li>

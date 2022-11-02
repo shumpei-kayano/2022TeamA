@@ -270,3 +270,12 @@ a:hover {
   background-color: red;
 }
 
+.p-badge__group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-badge__item {
+  width: 33%;
+}
+
