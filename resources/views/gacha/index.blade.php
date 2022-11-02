@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <h1>ガチャ</h1>
+        <div class="p-gacha-top">asca</div>
     </div>
 </body>
 
