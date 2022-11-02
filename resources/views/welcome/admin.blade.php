@@ -11,17 +11,22 @@
 <body>
 
     <nav class="p-gnav">
-        <ul>
-            <li><a href="" class="p-gnav__home">ホーム</a></li>
-            <li><a href="" class="p-gnav__coupon">クーポン</a></li>
-            <li><a href="" class="p-gnav__gacha">ガチャ</a></li>
-            <li><a href="" class="p-gnav__badge">バッジ</a></li>
-            <li><a href="" class="p-gnav__account">アカウント</a></li>
-        </ul>
     </nav>
-    <div class="c-container">
-       <h1>管理者ログイン</h1>
+    <div class="p-admin-top"><div class="p-admin-top__box">
+        <p class="p-admin-top__logo"><img src="/images/admin-logo.png" alt="管理者ログイン"></p>
+        <form action="" class="c-form">
+        <div class="c-form__group">
+            <label for="">メールアドレス</label><input type="text">
+        </div>
+
+        <div class="c-form__group">
+            <label for="">パスワード</label><input type="password">
+        </div>
+
+        <button type="submit" class="c-btn c-btn--pink">ログイン</button>
+    </form>  
     </div>
+</div>
 </body>
 
 </html>
