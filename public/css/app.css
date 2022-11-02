@@ -273,9 +273,36 @@ a:hover {
 .p-badge__group {
   display: flex;
   flex-wrap: wrap;
+  gap: 0 16px;
 }
 
 .p-badge__item {
-  width: 33%;
+  width: calc((100% - 64px) / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-badge__img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0;
+}
+
+.p-badge__date {
+  margin: 8px;
+}
+
+.p-badge__name {
+  margin: 0;
+}
+
+.p-badge__title {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+
+.p-badge__section {
+  border-bottom: 1px solid #c9c9c9;
 }
 
