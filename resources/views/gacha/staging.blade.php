@@ -20,7 +20,14 @@
         </ul>
     </nav>
     <div class="c-container">
-        <video src="/images/gatcha_animation.mp4" autoplay muted></video>
+        <div class="p-gacha-top">
+        <div class="vid_contents">
+        <video class="vid_main" video src="/images/gatcha_animation.mp4" autoplay muted></video>
+        <div class="p-gacha__handle">
+            <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
+        </div>
+        </div>
+    </div>
     </div>
 </body>
 
