@@ -267,7 +267,63 @@ a:hover {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background-color: red;
+}
+
+.p-gacha__handle {
+  width: 100%;
+  height: 400px;
+  background-image: url("/images/bg_gacha-handle.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.p-gacha__handle--slideup {
+  animation: slideup forwards 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.p-gacha__circle {
+  width: 256px;
+  height: 256px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 97px;
+  left: calc(50% - 130px);
+}
+
+.p-gacha__map {
+  width: 100%;
+  height: 100vh;
+}
+
+.p-gacha__map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+div.vid_contents {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  background: #e6e6e6;
+}
+
+video.vid_main {
+  width: 100%;
+  max-width: 280px;
+}
+
+@keyframes slideup {
+  0% {
+    transform: translateY(500px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .p-badge__group {
