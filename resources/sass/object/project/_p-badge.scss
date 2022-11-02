@@ -1,0 +1,12 @@
+.p-badge{
+    &__group{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item{
+        width: 200px;
+        background-color: red;
+    }
+
+
+}
