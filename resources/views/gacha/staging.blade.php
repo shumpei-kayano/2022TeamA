@@ -20,7 +20,7 @@
         </ul>
     </nav>
     <div class="c-container">
-        <h1>ガチャ演出</h1>
+        <video src="/images/gatcha_animation.mp4" autoplay muted></video>
     </div>
 </body>
 
