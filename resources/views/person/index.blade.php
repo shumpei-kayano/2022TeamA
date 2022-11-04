@@ -24,7 +24,7 @@
 
         <div class="c-hukidashi">
             <p class="c-hukidashi__username"> ニックネーム</p>
-            <div class="c-hukidashi__flem">
+            <div class="c-hukidashi__flame">
                 <div class="c-hukidashi__header">
                     <h3 class="c-hukidashi__tittle">店舗名</h3>
                     <div class="c-hukidashi__star">★★★☆☆</div>
@@ -39,7 +39,7 @@
         </div>
         <div class="c-hukidashi--other">
             <p class="c-hukidashi__username"> ニックネーム</p>
-            <div class="c-hukisashi__flem">
+            <div class="c-hukidashi--other__flame">
                 <div class="c-hukidashi__header">
                     <h3 class="c-hukidashi__tittle">店舗名</h3>
                     <div class="c-hukidashi__star">★★★☆☆</div>
