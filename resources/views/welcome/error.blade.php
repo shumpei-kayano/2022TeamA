@@ -31,7 +31,7 @@
     <div class="c-modal">
         <div class="c-modal__box">
             <p class="c-modal__title">ログインエラー</p>
-            <p class="c-modal__text">ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい</p>
+            <p class="c-modal__text">ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。</p>
             <button type="submit" class="c-btn c-btn--navy">OK</button>
         </div>
     </div>
