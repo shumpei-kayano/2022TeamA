@@ -23,6 +23,11 @@ Route::get('welcome/index', function () {
     return view('welcome.index');
 });
 
+//ログインエラー
+Route::get('welcome/error', function () {
+    return view('welcome.error');
+});
+
 //新規登録
 Route::get('person/add', function () {
     return view('person.add');
