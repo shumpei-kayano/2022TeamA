@@ -19,7 +19,7 @@
             <li><a href="" class="p-gnav__account">アカウント</a></li>
         </ul>
     </nav>
-    <div class="c-container">
+    <div class="c-container u-padding-top--0">
         <div class="p-gacha-top">
 
             <video video src="/images/gatcha_animation.mp4" autoplay muted></video>
