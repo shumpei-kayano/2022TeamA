@@ -1,0 +1,106 @@
+.c-hukidashi {
+    &__flem {
+        box-sizing: border-box;
+        border: 1px solid #C9C9C9;
+        border-radius: 16px 0px 10px 16px;
+        color: $gray;
+        display: block;
+    }
+
+    p {
+        color: #4A4A4A;
+        text-align: right;
+        font-size: 10px;
+    }
+
+
+    &--other {
+        &__flem {
+            border: 1px solid #C9C9C9;
+            border-radius: 0px 16px 16px 10px;
+            // transform: matrix(-1, 0, 0, 1, 0, 0);
+            margin-top: 8px;
+
+        }
+
+        p {
+            color: #4A4A4A;
+            text-align: left;
+            font-size: 10px;
+        }
+    }
+
+    &__username {
+        height: 24px;
+        margin-top: 24px;
+        margin-bottom: 0px;
+        padding: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__tittle {
+        margin-top: 0 16px;
+        display: flex;
+        width: 128px;
+        color: black;
+        margin: 16px;
+    }
+
+    &__star {
+        text-align: right;
+        margin: 16px 0;
+        width: 128px;
+        color: gold;
+        margin-right: 8px;
+    }
+
+    &__honbun {
+        color: black;
+        margin: 16px;
+        margin-top: 0;
+    }
+
+    &__good {
+        display: flex;
+        // text-align: right;
+        margin-right: 16px;
+        justify-content: flex-end;
+    }
+
+    &__good__icon {
+        // text-align: right;
+        // margin-right: 16px;
+    }
+
+    &__goodnumber {
+        color: $plat_pink;
+        font-size: 32px;
+        font-weight: 700;
+        // text-align: right;
+        // margin-right: 16px;
+    }
+
+    &__edit {
+        justify-content: flex-end;
+        display: flex;
+
+        img {
+            width: 16px;
+            height: 16px;
+        }
+
+        padding-top: 8px;
+    }
+
+    &__date {
+        font-size: 8px;
+        text-align: center;
+        height: 32px;
+        margin-top: 32px;
+    }
+
+}
