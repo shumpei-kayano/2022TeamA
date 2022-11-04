@@ -1,18 +1,22 @@
 .c-btn {
     display: block;
     margin: 32px auto 16px;
-    width: 50%;
-    padding: 8px;
+    width: 100%;
+    padding: 12px;
     border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    &--50p {
+        width: 50%;
+    }
 
     &--pink {
-    background-color: $plat_pink;
-    color: white;
+        background-color: $plat_pink;
+        color: white;
     }
     // navy
-    &--navy{
-    background-color: $plat_navy;
-    color: white;
+    &--navy {
+        background-color: $plat_navy;
+        color: white;
     }
-
 }

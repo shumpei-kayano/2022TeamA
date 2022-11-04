@@ -12,17 +12,17 @@
     <div class="c-container">
         <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
         <form action="" class="c-form">
-        <div class="c-form__group">
-            <label for="">ニックネーム</label><input type="text">
-        </div>
+            <div class="c-form__group">
+                <label for="">ニックネーム</label><input type="text">
+            </div>
 
-        <div class="c-form__group">
-            <label for="">パスワード</label><input type="password">
-        </div>
+            <div class="c-form__group">
+                <label for="">パスワード</label><input type="password">
+            </div>
 
-        <button type="submit" class="c-btn c-btn--pink">ログイン</button>
+            <button type="submit" class="c-btn c-btn--pink c-btn--50p">ログイン</button>
 
-        <p class="p-welcome__sineup"><a href="">新規会員登録</a></p>
+            <p class="p-welcome__sineup"><a href="">新規会員登録</a></p>
 
 
 
