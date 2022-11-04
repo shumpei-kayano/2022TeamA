@@ -3,9 +3,12 @@
         width: 100%;
         min-height: 100vh;
         position: relative;
+
         video {
             background-color: black;
             width: 100%;
+            position: absolute;
+            transform: translateY(-100px);
         }
     }
 
@@ -32,6 +35,11 @@
         position: absolute;
         top: 97px;
         left: calc(50% - 130px);
+        animation: wakka infinite 5s linear;
+
+        &:hover {
+            animation: wakka infinite 1s linear;
+        }
     }
 
     &__map {
@@ -43,6 +51,17 @@
             height: 100%;
         }
     }
+
+    &__mawasu {
+        width: 80px;
+        height: 66px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 195px;
+        left: calc(50% - 42px);
+        animation: bounce infinite alternate 0.5s $ease-in-out-quint;
+    }
 }
 
 @keyframes slideup {
@@ -52,5 +71,25 @@
 
     100% {
         transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(120%);
+    }
+
+    100% {
+        transform: scale(80%);
+    }
+}
+
+@keyframes wakka {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
     }
 }

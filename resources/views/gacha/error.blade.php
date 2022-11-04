@@ -14,7 +14,7 @@
         <ul>
             <li><a href="" class="p-gnav__home">ホーム</a></li>
             <li><a href="" class="p-gnav__coupon">クーポン</a></li>
-              <li><a href="" class="p-gnav__gacha">ガチャ</a></li>
+            <li><a href="" class="p-gnav__gacha">ガチャ</a></li>
             <li><a href="" class="p-gnav__badge">バッジ</a></li>
             <li><a href="" class="p-gnav__account">アカウント</a></li>
         </ul>
@@ -25,12 +25,21 @@
                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6674.726977339957!2d131.6073871096625!3d33.23077951304794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1667368193255!5m2!1sja!2sjp"
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="p-gacha__handle p-gacha__handle--slideup">
+                <div class="p-gacha__handle">
                     <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="c-modal">
+        <div class="c-modal__box">
+            <p class="c-modal__title">制限回数オーバー</p>
+            <p class="c-modal__text">このエリアで回すことができるガチャの制限数を越えました。他のエリアでお試し下さい。</p>
+            <button type="submit" class="c-btn c-btn--navy">OK</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
