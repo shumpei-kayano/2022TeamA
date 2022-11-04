@@ -298,6 +298,8 @@ a:hover {
 .p-gacha-top video {
   background-color: black;
   width: 100%;
+  position: absolute;
+  transform: translateY(-100px);
 }
 .p-gacha__handle {
   width: 100%;
