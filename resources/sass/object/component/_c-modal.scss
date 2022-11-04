@@ -1,0 +1,53 @@
+.c-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    animation: fade-in forwards 0.5s $ease-in-out-quint;
+
+    &__box {
+        width: 320px;
+        min-height: 240px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+        padding: 0 12px 8px;
+        animation: scaleup forwards 0.5s $ease-in-sine;
+    }
+
+    &__title {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__text {
+        padding: 12px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleup {
+    0% {
+        transform: scale(50%);
+    }
+
+    100% {
+        transform: scale(100%);
+    }
+}
