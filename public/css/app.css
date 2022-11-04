@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap");
-html {
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;
+
+700&display=swap);html {
   height: -webkit-fill-available;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 100%;
@@ -35,6 +36,7 @@ select {
 a {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -49,6 +51,7 @@ a:hover {
   max-width: 480px;
   margin: 0 auto;
 }
+
 .c-container--pc {
   max-width: 1280px;
 }
@@ -59,11 +62,13 @@ a:hover {
   border: 1px solid #c9c9c9;
   border-radius: 8px;
 }
+
 .c-form label {
   display: block;
   color: #354260;
   font-size: 12px;
 }
+
 .c-form__group {
   margin-bottom: 16px;
 }
@@ -77,13 +82,16 @@ a:hover {
   font-size: 16px;
   cursor: pointer;
 }
+
 .c-btn--50p {
   width: 50%;
 }
+
 .c-btn--pink {
   background-color: #cb4778;
   color: white;
 }
+
 .c-btn--navy {
   background-color: #354260;
   color: white;
@@ -99,6 +107,7 @@ a:hover {
   background-position: left center;
   padding-left: 24px;
 }
+
 .c-back:hover {
   text-decoration: none;
 }
@@ -109,6 +118,7 @@ a:hover {
   text-align: center;
   position: relative;
 }
+
 .c-header h4 {
   margin: 16px auto;
 }
@@ -126,6 +136,7 @@ a:hover {
   top: 0;
   left: 0;
 }
+
 .c-modal__box {
   width: 320px;
   min-height: 240px;
@@ -135,11 +146,13 @@ a:hover {
   padding: 0 12px 8px;
   animation: scaleup forwards 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
+
 .c-modal__title {
   font-size: 24px;
   text-align: center;
   font-weight: bold;
 }
+
 .c-modal__text {
   padding: 12px;
   padding-top: 0;
@@ -150,18 +163,22 @@ a:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes scaleup {
   0% {
     transform: scale(50%);
   }
+
   100% {
     transform: scale(100%);
   }
 }
+
 .p-gnav {
   position: fixed;
   bottom: 0;
@@ -174,6 +191,7 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+
 .p-gnav ul {
   margin: 16px auto;
   padding: 0;
@@ -183,9 +201,11 @@ a:hover {
   justify-content: space-around;
   list-style: none;
 }
+
 .p-gnav ul li {
   width: 20%;
 }
+
 .p-gnav a {
   color: #354260;
   font-size: 12px;
@@ -193,9 +213,11 @@ a:hover {
   flex-direction: column;
   align-items: center;
 }
+
 .p-gnav a:hover {
   text-decoration: none;
 }
+
 .p-gnav a:before {
   content: "";
   display: block;
@@ -205,18 +227,23 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .p-gnav__home:before {
   background-image: url("/images/icon_home.svg");
 }
+
 .p-gnav__coupon:before {
   background-image: url("/images/icon_coupon.svg");
 }
+
 .p-gnav__gacha:before {
   background-image: url("/images/icon_gacha.svg");
 }
+
 .p-gnav__badge:before {
   background-image: url("/images/icon_badge.svg");
 }
+
 .p-gnav__account:before {
   background-image: url("/images/icon_account.svg");
 }
@@ -225,6 +252,7 @@ a:hover {
   width: 200px;
   margin: 0 auto 16px;
 }
+
 .p-welcome__sineup {
   text-align: center;
 }
@@ -235,17 +263,20 @@ a:hover {
   border-radius: 32px;
   overflow: hidden;
 }
+
 .p-account__top {
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 8px;
 }
+
 .p-account__nickname {
   font-size: 24px;
   font-weight: bold;
   color: #354260;
 }
+
 .p-account__nav {
   display: block;
   border-bottom: 1px solid lightgray;
@@ -254,6 +285,7 @@ a:hover {
   background-position: right center;
   padding: 16px;
 }
+
 .p-account__navgroup {
   margin-top: 16px;
   margin-bottom: 64px;
@@ -264,6 +296,7 @@ a:hover {
   font-size: 16px;
   margin: 40px auto;
 }
+
 .p-add__btn {
   margin: 120px auto;
 }
@@ -277,6 +310,7 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+
 .p-admin-top__box {
   width: 480px;
   background-color: white;
@@ -284,6 +318,7 @@ a:hover {
   border-radius: 8px;
   padding: 16px 64px;
 }
+
 .p-admin-top__logo {
   width: 240px;
   height: 280px;
@@ -295,12 +330,14 @@ a:hover {
   min-height: 100vh;
   position: relative;
 }
+
 .p-gacha-top video {
   background-color: black;
   width: 100%;
   position: absolute;
   transform: translateY(-100px);
 }
+
 .p-gacha__handle {
   width: 100%;
   height: 400px;
@@ -311,9 +348,11 @@ a:hover {
   bottom: 0;
   left: 0;
 }
+
 .p-gacha__handle--slideup {
   animation: slideup forwards 1s cubic-bezier(0.86, 0, 0.07, 1);
 }
+
 .p-gacha__circle {
   width: 256px;
   height: 256px;
@@ -323,14 +362,17 @@ a:hover {
   top: 97px;
   left: calc(50% - 130px);
 }
+
 .p-gacha__map {
   width: 100%;
   height: 100vh;
 }
+
 .p-gacha__map iframe {
   width: 100%;
   height: 100%;
 }
+
 .p-gacha__mawasu {
   width: 80px;
   height: 66px;
@@ -339,45 +381,64 @@ a:hover {
   position: absolute;
   top: 195px;
   left: calc(50% - 42px);
+  animation: bounce infinite alternate 0.5s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 @keyframes slideup {
   0% {
     transform: translateY(500px);
   }
+
   100% {
     transform: translateY(0);
   }
 }
+
+@keyframes bounce {
+  0% {
+    transform: scale(120%);
+  }
+
+  100% {
+    transform: scale(80%);
+  }
+}
+
 .p-badge__group {
   display: flex;
   flex-wrap: wrap;
   gap: 0 16px;
 }
+
 .p-badge__item {
   width: calc((100% - 64px) / 3);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .p-badge__img {
   width: 100px;
   height: 100px;
   margin-bottom: 0;
 }
+
 .p-badge__date {
   margin: 0;
   font-size: 10px;
   color: #c9c9c9;
 }
+
 .p-badge__name {
   margin: 0;
   font-size: 16px;
 }
+
 .p-badge__title {
   margin-top: 16px;
   margin-bottom: 0px;
 }
+
 .p-badge__section {
   border-bottom: 1px solid #c9c9c9;
   padding-bottom: 32px;
@@ -387,3 +448,4 @@ a:hover {
 .u-padding-top--0 {
   padding-top: 0;
 }
+

@@ -55,6 +55,7 @@
         position: absolute;
         top: 195px;
         left: calc(50% - 42px);
+        animation: bounce infinite alternate 0.5s $ease-in-out-quint;
     }
 }
 
@@ -65,5 +66,15 @@
 
     100% {
         transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(120%);
+    }
+
+    100% {
+        transform: scale(80%);
     }
 }
