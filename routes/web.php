@@ -88,7 +88,7 @@ Route::get('gacha/staging', function () {
     return view('gacha.staging');
 });
 
-//ガチャ演出
+//ガチャエラー
 Route::get('gacha/error', function () {
     return view('gacha.error');
 });
