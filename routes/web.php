@@ -88,6 +88,11 @@ Route::get('gacha/staging', function () {
     return view('gacha.staging');
 });
 
+//ガチャ演出
+Route::get('gacha/error', function () {
+    return view('gacha.error');
+});
+
 //クーポン
 Route::get('coupon/index', function () {
     return view('coupon.index');
