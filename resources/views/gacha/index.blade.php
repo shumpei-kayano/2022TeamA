@@ -27,6 +27,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="p-gacha__handle p-gacha__handle--slideup">
                     <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
+                    <p class="p-gacha__mawasu"><img src="/images/ガチャ回す.png" alt="ガチャ回す"></p>
                 </div>
             </div>
         </div>
