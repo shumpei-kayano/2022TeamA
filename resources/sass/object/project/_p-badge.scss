@@ -4,35 +4,40 @@
         flex-wrap: wrap;
         gap: 0 16px;
     }
+
     &__item {
-        width:calc(( 100% - 64px) / 3);
+        width: calc((100% - 64px) / 3);
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    &__img{
+    &__img {
         width: 100px;
         height: 100px;
         margin-bottom: 0;
 
     }
 
-    &__date{
-        margin: 8px;
-    }
-
-    &__name{
+    &__date {
         margin: 0;
+        font-size: 10px;
+        color: $gray
     }
 
-    &__title{
+    &__name {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    &__title {
         margin-top: 16px;
         margin-bottom: 0px;
     }
 
-    &__section{
+    &__section {
         border-bottom: 1px solid $gray;
+        padding-bottom: 32px;
+        margin-bottom: 32px;
     }
 }
-
