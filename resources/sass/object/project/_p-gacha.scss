@@ -33,6 +33,11 @@
         position: absolute;
         top: 97px;
         left: calc(50% - 130px);
+        animation: wakka infinite 5s linear;
+
+        &:hover {
+            animation: wakka infinite 1s linear;
+        }
     }
 
     &__map {
@@ -74,5 +79,15 @@
 
     100% {
         transform: scale(80%);
+    }
+}
+
+@keyframes wakka {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
     }
 }
