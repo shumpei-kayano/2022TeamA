@@ -3,6 +3,10 @@
         width: 100%;
         min-height: 100vh;
         position: relative;
+        video {
+            background-color: black;
+            width: 100%;
+        }
     }
 
     &__handle {
@@ -39,18 +43,6 @@
             height: 100%;
         }
     }
-}
-
-div.vid_contents {
-    width: 100%;
-    text-align: center;
-    margin: auto;
-    background: #e6e6e6;
-}
-
-video.vid_main {
-    width: 100%;
-    max-width: 280px;
 }
 
 @keyframes slideup {
