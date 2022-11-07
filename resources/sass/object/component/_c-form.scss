@@ -15,6 +15,21 @@
 
     &__group {
         margin-bottom: 16px;
+        &--time{
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin: 16px 0px 24px;
+            label{
+                padding: 0;
+            }
+            input{
+                width: 440px;
+                flex: 1;
+            }
+        }
     }
-
+&--admin{
+    width: 100%;
+}
 }

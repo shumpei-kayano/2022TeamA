@@ -22,7 +22,15 @@
     &--small{
         margin: 16px auto 8px;
         padding: 8px;
-    display: inline-block;
-    width:inherit;
+        display: inline-block;
+        width:inherit;
+    }
+    &--update{
+        align-items: center;
+        text-align: center;
+        width: 100px;
+        &:hover{
+            text-decoration: none;
+        }
     }
 }
