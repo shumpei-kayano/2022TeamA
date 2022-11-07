@@ -1,0 +1,66 @@
+.c-coupon {
+    &__top {
+        width: 320px;
+        height: 32px;
+        margin: auto;
+
+    }
+
+    &__box {
+        width: 320px;
+        background-color: white;
+        border: 2px solid #C9C9C9;
+        border-radius: 8px;
+        margin: auto;
+        margin-top: 16px;
+        padding: 0 16px;
+    }
+
+    &__use {
+        color: #CB4778;
+        font-size: 12px;
+    }
+
+    // &__btn {
+    //     width: 80px;
+    //     height: 24px;
+    //     background-color: $plat_navy;
+    //     color: white;
+    //     border-radius: 4px;
+    // }
+
+    &__address {
+        font-size: 12px;
+        margin-top: 48px;
+        margin-bottom: -24px;
+    }
+}
+
+// .c-coupon__text {
+//     display: flex;
+
+//     &__store {
+//         font-size: 24px;
+//     }
+
+//     &__btn {
+//         width: 80px;
+//         height: 24px;
+//         background-color: $plat_navy;
+//         color: white;
+//         border-radius: 4px;
+//     }
+// }
+.c-coupon__a {
+    float: right;
+
+    &__btn {
+        width: 80px;
+        height: 24px;
+        background-color: $plat_navy;
+        color: white;
+        border-radius: 4px;
+        float: left;
+        margin: 8px;
+    }
+}
