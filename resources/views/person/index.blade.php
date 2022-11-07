@@ -22,54 +22,56 @@
     <div class="c-container">
 
 
-        <div class="c-hukidashi">
+        <div class="c-hukidashi c-hukidashi--a">
+            <p class="c-hukidashi__photo">
+                <img src="/images/phot-account.jpg">
+            </p>
 
-            <div class="c-hukidashi--a">
+
+
+
+            <div class="c-fukidashi__container">
                 <p class="c-hukidashi__username"> ニックネーム</p>
-                <div class="c-hukidashi__container">
-                    <p class="c-hukidashi__photo">
-                        <img src="/images/phot-account.jpg">
-                    </p>
-                    <div class="c-hukidashi__frame">
-                        <div class="c-hukidashi__header">
-                            <h3 class="c-hukidashi__tittle">店舗名</h3>
-                            <div class="c-hukidashi__star">★★★☆☆</div>
-                        </div>
-                        <div class="c-hukidashi__honbun">
-                            職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
-                        </div>
+                <div class="c-hukidashi__frame">
+                    <div class="c-hukidashi__header">
+                        <h3 class="c-hukidashi__tittle">店舗名</h3>
+                        <div class="c-hukidashi__star">★★★☆☆</div>
                     </div>
+                    <p class="c-hukidashi__honbun">
+                        職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
+                    </p>
                 </div>
             </div>
-        </div>
-        <div class="c-hukidashi__date">
-            2022/10/29
-        </div>
-        <div class="c-hukidashi--other">
 
-            <div class="c-hukidashi--b">
+        </div>
+        <p class="c-hukidashi__date">
+            2022/10/29
+        </p>
+        <div class="c-hukidashi c-hukidashi--b">
+            <p class="c-hukidashi__photo">
+                <img src="/images/phot-account.jpg">
+            </p>
+            <div class="c-fukidashi__container">
                 <p class="c-hukidashi__username"> ニックネーム</p>
-                <div class="c-hukidashi__container">
-                    <p class="c-hukidashi__photo">
-                        <img src="/images/phot-account.jpg">
-                    </p>
-                    <div class="c-hukidashi__frame">
-                        <div class="c-hukidashi__header">
-                            <h3 class="c-hukidashi__tittle">店舗名</h3>
-                            <div class="c-hukidashi__star">★★★☆☆</div>
+
+
+                <div class="c-hukidashi__frame">
+                    <div class="c-hukidashi__header">
+                        <h3 class="c-hukidashi__tittle">店舗名</h3>
+                        <div class="c-hukidashi__star">★★★☆☆</div>
+                    </div>
+                    <div class="c-hukidashi__honbun">
+                        職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
+                    </div>
+                    <div class="c-hukidashi__good">
+                        <div class="c-hukidashi__good__icon">
+                            <img src="/images/good-icon.png" alt="いいねアイコン">
                         </div>
-                        <div class="c-hukidashi__honbun">
-                            職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
-                        </div>
-                        <div class="c-hukidashi__good">
-                            <div class="c-hukidashi__good__icon">
-                                <img src="/images/good-icon.png" alt="いいねアイコン">
-                            </div>
-                            <div class="c-hukidashi__goodnumber">
-                                50
-                            </div>
+                        <div class="c-hukidashi__goodnumber">
+                            50
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

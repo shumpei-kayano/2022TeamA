@@ -1,11 +1,19 @@
 .c-hukidashi {
+    display: flex;
+    gap: 16px;
+    &.c-hukidashi--a {
+        flex-direction: row-reverse;
+    }
+
+    &.c-hukidashi--b {
+        flex-direction: row;
+    }
     &__frame {
         box-sizing: border-box;
         border: 1px solid #c9c9c9;
         border-radius: 16px;
         color: $gray;
         display: block;
-
         .c-hukidashi--a & {
             border-top-right-radius: 0;
         }
@@ -15,28 +23,16 @@
         }
     }
 
-
-
     &__username {
         height: 24px;
-        margin-top: 24px;
+        margin-top: 0;
         margin-bottom: 0px;
         padding: 0;
-        color: #4A4A4A;
+        color: #4a4a4a;
         font-size: 10px;
-
         .c-hukidashi--a & {
             text-align: right;
         }
-
-        .c-hukidashi--b & {
-            text-align: left;
-        }
-    }
-
-    &__container {
-        display: flex;
-        gap: 8px;
     }
 
     &__photo {
@@ -46,8 +42,7 @@
         overflow: hidden;
         margin: 0;
         padding: 0;
-        flex-shrink: 1;
-
+        flex-shrink: 0;
 
         .c-hukidashi--a & {
             flex-direction: row-reverse;
@@ -63,6 +58,7 @@
         margin-top: 0 16px;
         display: flex;
         width: 128px;
+        font-size: 16px;
         color: black;
         margin: 16px;
     }
@@ -78,6 +74,7 @@
     &__honbun {
         color: black;
         margin: 16px;
+        font-size: 14px;
         margin-top: 0;
     }
 
@@ -91,7 +88,6 @@
             width: 32px;
             height: 32px;
         }
-
     }
 
     &__goodnumber {
@@ -121,5 +117,4 @@
         height: 32px;
         margin-top: 32px;
     }
-
 }
