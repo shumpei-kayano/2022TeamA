@@ -13,7 +13,7 @@
 
     &__box {
         width: 320px;
-        min-height: 240px;
+
         background-color: white;
         border-radius: 8px;
         box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
@@ -31,6 +31,25 @@
         padding: 12px;
         padding-top: 0;
         padding-bottom: 0;
+    }
+
+    &__top {
+        color: #CB4778;
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+        margin: 16px 0 0;
+    }
+
+    &__use {
+        color: #354260;
+        font-size: 14px;
+        text-align: center;
+        margin: 5px 0 20px;
+    }
+
+    &__sineup {
+        text-align: center;
     }
 }
 
@@ -51,5 +70,32 @@
 
     100% {
         transform: scale(100%);
+    }
+}
+
+.c-modal__flex {
+    display: flex;
+    gap: 8px;
+    margin-bottom: -16px;
+
+
+    &__img {
+        width: 200px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    &__coupon {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1em;
+        margin: 0 0 10px 0;
+    }
+
+    &__store {
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }

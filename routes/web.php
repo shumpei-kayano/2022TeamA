@@ -98,6 +98,11 @@ Route::get('gacha/error', function () {
     return view('gacha.error');
 });
 
+//クーポン獲得
+Route::get('gacha/get', function () {
+    return view('gacha.get');
+});
+
 //クーポン
 Route::get('coupon/index', function () {
     return view('coupon.index');
