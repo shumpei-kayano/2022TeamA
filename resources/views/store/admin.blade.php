@@ -9,18 +9,15 @@
 </head>
 
 <body>
+    <div class="p-admin__header">
+        <img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ">
+        <div class="p-admin__logout">
+            <p>店舗名</p>
+            <a class="c-btn c-btn--small c-btn--navy">ログアウト</a>
+        </div>
+    </div>
+    <div class="c-container--pc">
 
-    <nav class="p-gnav">
-        <ul>
-            <li><a href="" class="p-gnav__home">ホーム</a></li>
-            <li><a href="" class="p-gnav__coupon">クーポン</a></li>
-            <li><a href="" class="p-gnav__gacha">ガチャ</a></li>
-            <li><a href="" class="p-gnav__badge">バッジ</a></li>
-            <li><a href="" class="p-gnav__account">アカウント</a></li>
-        </ul>
-    </nav>
-    <div class="c-container">
-        <h1>店舗情報管理</h1>
     </div>
 </body>
 

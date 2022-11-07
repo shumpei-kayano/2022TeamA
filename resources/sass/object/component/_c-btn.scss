@@ -19,4 +19,10 @@
         background-color: $plat_navy;
         color: white;
     }
+    &--small{
+        margin: 16px auto 8px;
+        padding: 8px;
+    display: inline-block;
+    width:inherit;
+    }
 }
