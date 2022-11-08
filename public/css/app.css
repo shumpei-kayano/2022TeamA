@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap);
 html {
   height: -webkit-fill-available;
   font-family: "Noto Sans JP", sans-serif;
@@ -119,6 +119,30 @@ a:hover {
 }
 .c-btn--update:hover {
   text-decoration: none;
+}
+.c-btn--tab {
+  width: 320px;
+  height: 32px;
+  border: 2px solid #354260;
+  display: flex;
+  border-radius: 16px;
+  background-color: white;
+  margin: auto;
+  align-items: center;
+  overflow: hidden;
+}
+.c-btn--tab a {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #354260;
+}
+.c-btn--tab a.is-active {
+  background-color: #354260;
+  color: white;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
 }
 
 .c-back {
@@ -326,7 +350,8 @@ a:hover {
 .c-modal__flex__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-modal__flex__text {
   flex: 1;
