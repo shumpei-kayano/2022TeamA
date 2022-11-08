@@ -35,7 +35,7 @@
             <p class="c-modal__use">有効期限：2022.10.31</p>
             <div class="c-modal__flex">
                 <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="獲得クーポン"></p>
-                <div>
+                <div class="c-modal__flex__text">
                     <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
                     <p class="c-modal__flex__store">the LOUNGE</p>
                 </div>

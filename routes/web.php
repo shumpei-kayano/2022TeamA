@@ -108,6 +108,16 @@ Route::get('coupon/index', function () {
     return view('coupon.index');
 });
 
+//クーポン確認
+Route::get('coupon/confirmation', function () {
+    return view('coupon.confirmation');
+});
+
+//クーポン使用
+Route::get('coupon/use', function () {
+    return view('coupon.use');
+});
+
 //クチコミ投稿
 Route::get('post/index', function () {
     return view('post.index');
