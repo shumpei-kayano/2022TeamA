@@ -76,7 +76,7 @@
 .c-modal__flex {
     display: flex;
     gap: 8px;
-    margin-bottom: -16px;
+    //margin-bottom: -16px;
 
     &__img {
         width: 80px;
@@ -112,5 +112,6 @@
     }
     &__address {
         font-size: 12px;
+        margin: 0;
     }
 }

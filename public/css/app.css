@@ -22,16 +22,6 @@ img {
   max-width: 100%;
 }
 
-input,
-button,
-textarea,
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-}
-
 a {
   text-decoration: none;
 }
@@ -61,6 +51,12 @@ a:hover {
   border: 1px solid #c9c9c9;
   border-radius: 8px;
 }
+.c-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+}
 .c-form label {
   display: block;
   color: #354260;
@@ -71,6 +67,7 @@ a:hover {
 }
 .c-form__group--time {
   display: flex;
+  flex: 1;
   gap: 8px;
   align-items: center;
   margin: 16px 0px 24px;
@@ -81,9 +78,6 @@ a:hover {
 .c-form__group--time input {
   width: 100%;
   flex: 1;
-}
-.c-form__group--select {
-  width: 100%;
 }
 .c-form--admin {
   width: 100%;
@@ -111,9 +105,10 @@ a:hover {
 }
 .c-btn--small {
   margin: 16px auto 8px;
-  padding: 8px;
+  padding: 8px 16px;
   display: inline-block;
   width: inherit;
+  font-size: 11px;
 }
 .c-btn--update {
   align-items: center;
@@ -341,7 +336,6 @@ a:hover {
 .c-modal__flex {
   display: flex;
   gap: 8px;
-  margin-bottom: -16px;
 }
 .c-modal__flex__img {
   width: 80px;
@@ -376,6 +370,7 @@ a:hover {
 }
 .c-modal__flex__address {
   font-size: 12px;
+  margin: 0;
 }
 
 .c-coupon__top {
@@ -400,29 +395,6 @@ a:hover {
   font-size: 12px;
   margin-top: 48px;
   margin-bottom: -24px;
-}
-
-.c-coupon__a {
-  float: right;
-}
-.c-coupon__a__detail {
-  width: 80px;
-  height: 24px;
-  background-color: #354260;
-  color: white;
-  border-radius: 4px;
-  float: left;
-  margin: 8px;
-}
-.c-coupon__a__review {
-  width: 102px;
-  height: 23px;
-  background-color: #354260;
-  color: white;
-  border-radius: 4px;
-  margin: 8px;
-  font-size: 10px;
-  position: absolute 0 8px;
 }
 
 .p-gnav {
@@ -628,18 +600,23 @@ a:hover {
 }
 .p-admin__contenthedder {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  width: 100%;
 }
 .p-admin__contenthedder p {
-  padding-left: 160px;
+  padding-left: 735px;
 }
 .p-admin__contenthedder h1 {
   color: #354260;
 }
+.p-admin__contenthedder img {
+  width: 24px;
+  height: 24px;
+}
 .p-admin__time {
   display: flex;
-  gap: 160px;
+  gap: 16px;
 }
 .p-admin__map {
   width: 100%;
@@ -648,6 +625,12 @@ a:hover {
 .p-admin__map iframe {
   width: 100%;
   height: 100%;
+}
+.p-admin__photo {
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  align-items: center;
 }
 
 .p-gacha-top {
