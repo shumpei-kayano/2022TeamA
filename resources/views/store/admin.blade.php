@@ -26,14 +26,18 @@
         </div>
         <div class="p-admin__content">
             <div class="p-admin__contentbox">
-                <div class="p-admin__contenthedder">
-                    <h1>店舗情報</h1>
-                    <p>平均スコア</p>
-                    <img src="/images/star.png" alt="">
-                    <img src="/images/star.png" alt="">
-                    <img src="/images/star.png" alt="">
-                    <img src="/images/star.black.png" alt="">
-                    <img src="/images/star.black.png" alt="">
+                <div class="p-admin__contentheader">
+                    <div class="p-admin__tittle">
+                        <h1>店舗情報</h1>
+                        <div class="p-admin__star">
+                            <p>平均スコア</p>
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.black.png" alt="">
+                            <img src="/images/star.black.png" alt="">
+                        </div>
+                    </div>
                 </div>
                 <form action="" class="c-form">
                     <div class="c-form--admin">

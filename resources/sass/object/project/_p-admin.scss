@@ -97,16 +97,16 @@
         margin:  0 auto;
         width: 90%;
     }
-&__contenthedder{
+&__contentheader{
     display: flex;
-    justify-content: flex-end;
+    // justify-content: flex-end;
     align-items: center;
     width: 100%;
     p{
-    padding-left: 735px;
-}
-h1{
-    color: $plat_navy;
+    // padding-left: 735px;
+    }
+    h1{
+        color: $plat_navy;
 }
 img{
     width: 24px;
@@ -134,5 +134,17 @@ img{
     padding: 0;
     align-items: center;
 }
-
+&__star{
+    display: flex;
+    align-items: center;
+    p{
+        margin-right: 16px;
+    }
+}
+&__tittle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 }
