@@ -51,6 +51,12 @@ a:hover {
   border: 1px solid #c9c9c9;
   border-radius: 8px;
 }
+.c-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+}
 .c-form select {
   width: 100%;
   padding: 8px;
@@ -601,19 +607,15 @@ a:hover {
   margin: 0 auto;
   width: 90%;
 }
-.p-admin__contenthedder {
+.p-admin__contentheader {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   width: 100%;
 }
-.p-admin__contenthedder p {
-  padding-left: 735px;
-}
-.p-admin__contenthedder h1 {
+.p-admin__contentheader h1 {
   color: #354260;
 }
-.p-admin__contenthedder img {
+.p-admin__contentheader img {
   width: 24px;
   height: 24px;
 }
@@ -634,6 +636,19 @@ a:hover {
   gap: 8px;
   padding: 0;
   align-items: center;
+}
+.p-admin__star {
+  display: flex;
+  align-items: center;
+}
+.p-admin__star p {
+  margin-right: 16px;
+}
+.p-admin__tittle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .p-gacha-top {
@@ -749,6 +764,11 @@ a:hover {
   border-bottom: 1px solid #c9c9c9;
   padding-bottom: 32px;
   margin-bottom: 32px;
+}
+
+.p-post__star img {
+  width: 40px;
+  height: 40px;
 }
 
 .u-padding-top--0 {
