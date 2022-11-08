@@ -24,9 +24,12 @@
                 padding: 0;
             }
             input{
-                width: 440px;
+                width: 100%;
                 flex: 1;
             }
+        }
+        &--select{
+            width: 100%;
         }
     }
 &--admin{

@@ -10,7 +10,7 @@
 
 <body>
     <div class="p-admin__header">
-        <p class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></p>
+        <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
             <p>店舗名</p>
             <p><a class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
@@ -65,14 +65,20 @@
                             <label for="">駐車場</label><input type="text">
                         </div>
                         <div class="c-form__group">
-                            <p>エリア名選択<span class="req">※</span></p>
-                            <select name="op">
-                                <option value="---">---</option>
-                                <option value="Option A">Option A</option>
-                                <option value="Option B">Option B</option>
-                                <option value="Option C">Option C</option>
-                                <option value="Option D">Option D</option>
-                            </select>
+                            <label>エリア名選択
+                                {{--  <span class="req">※</span>  --}}
+                            </label>
+                            <div class="c-form__group--select">
+                                <select name="op">
+                                    <option value="-----------">
+                                        ---------------------------------------------------------</option>
+                                    <option value="Option A">Option aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
+                                    <option value="Option B">Option B</option>
+                                    <option value="Option C">Option C</option>
+                                    <option value="Option D">Option D</option>
+                                    {{--  データベースから引っ張ってくる  --}}
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <p><a class="c-btn c-btn--update c-btn--navy">更新する</a></p>

@@ -28,11 +28,11 @@
             padding: 32px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
     }
     &__logo{
         width: 270px;
         display: block;
-        background-color: red;
     }
     &__logout{
         display: flex;
@@ -104,10 +104,14 @@
     p{
     padding-left: 160px;
 }
+h1{
+    color: $plat_navy;
+}
 }
 &__time{
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap:160px;
 }
 &__map{
     width: 100%;
