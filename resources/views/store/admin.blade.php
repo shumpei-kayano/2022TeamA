@@ -61,13 +61,13 @@
                         <label for="">写真</label>
                         <div class="p-admin__photo">
                             <div class="c-form__group">
-                                <input type="file">
+                                <img src="/images/lunch.png" alt="">
                             </div>
-                            <div class="c-form__group"><input type="file">
+                            <div class="c-form__group"> <img src="/images/cake.png" alt="">
                             </div>
-                            <div class="c-form__group"><input type="file">
+                            <div class="c-form__group"> <img src="/images/gaikan.png" alt="">
                             </div>
-                            <div class="c-form__group"><input type="file">
+                            <div class="c-form__group"> <img src="/images/plus.png" alt="">
                             </div>
                         </div>
                         <div class="p-admin__time">
