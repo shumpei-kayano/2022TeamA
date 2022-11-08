@@ -21,13 +21,17 @@
     </nav>
     <div class="c-container">
         <div class="c-coupon">
-            <p class="c-coupon__top"><img src="/images/使用可能バー.png" alt="使用可能バー"></p>
-
+            <div class="c-btn--tab">
+                <a class="is-active" href="">使用可能</a>
+                <a href="">使用済み</a>
+            </div>
             <div class="c-coupon__box">
                 <p class="c-coupon__use">有効期限：2022.10.30</p>
                 <div class="c-modal__flex">
-                    <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="クーポン"></p>
-                    <div>
+                    <p class="c-modal__flex__img">
+                        <img src="/images/coupon.jpg" alt="クーポン">
+                    </p>
+                    <div class="c-modal__flex__text">
                         <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
                         <p class="c-modal__flex__store">the LOUNGE</p>
                     </div>
@@ -43,8 +47,8 @@
         <div class="c-coupon__box">
             <p class="c-coupon__use">有効期限：2022.11.20</p>
             <div class="c-modal__flex">
-                <p class="c-modal__flex__img"><img src="/images/生ビール.jpg" alt="生ビール"></p>
-                <div>
+                <p class="c-modal__flex__img"><img src="/images/Beer.jpg" alt="生ビール"></p>
+                <div class="c-modal__flex__text">
                     <p class="c-modal__flex__coupon">生ビール1杯無料</p>
                     <p class="c-modal__flex__store">ROUTE 502 COFFEE</p>
                 </div>
