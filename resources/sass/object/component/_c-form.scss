@@ -6,7 +6,12 @@
         border-radius: 8px;
 
     }
-
+    select{
+        width: 100%;
+        padding: 8px;
+        border: 1px solid $gray;
+        border-radius: 8px;
+    }
     label {
         display: block;
         color: $plat_navy;
@@ -17,6 +22,7 @@
         margin-bottom: 16px;
         &--time{
             display: flex;
+            flex: 1;
             gap: 8px;
             align-items: center;
             margin: 16px 0px 24px;
@@ -28,9 +34,7 @@
                 flex: 1;
             }
         }
-        &--select{
-            width: 100%;
-        }
+      
     }
 &--admin{
     width: 100%;

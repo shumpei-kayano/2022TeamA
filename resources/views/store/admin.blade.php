@@ -28,7 +28,12 @@
             <div class="p-admin__contentbox">
                 <div class="p-admin__contenthedder">
                     <h1>店舗情報</h1>
-                    <p>平均スコア★★★☆☆</p>
+                    <p>平均スコア</p>
+                    <img src="/images/star.png" alt="">
+                    <img src="/images/star.png" alt="">
+                    <img src="/images/star.png" alt="">
+                    <img src="/images/star.black.png" alt="">
+                    <img src="/images/star.black.png" alt="">
                 </div>
                 <form action="" class="c-form">
                     <div class="c-form--admin">
@@ -53,6 +58,18 @@
                         <div class="c-form__group">
                             <label for="">サービス内容</label><input type="text">
                         </div>
+                        <label for="">写真</label>
+                        <div class="p-admin__photo">
+                            <div class="c-form__group">
+                                <input type="file">
+                            </div>
+                            <div class="c-form__group"><input type="file">
+                            </div>
+                            <div class="c-form__group"><input type="file">
+                            </div>
+                            <div class="c-form__group"><input type="file">
+                            </div>
+                        </div>
                         <div class="p-admin__time">
                             <div class="c-form__group--time">
                                 <label for="">営業開始時間</label><input type="text">
@@ -68,23 +85,21 @@
                             <label>エリア名選択
                                 {{--  <span class="req">※</span>  --}}
                             </label>
-                            <div class="c-form__group--select">
-                                <select name="op">
-                                    <option value="-----------">
-                                        ---------------------------------------------------------</option>
-                                    <option value="Option A">Option aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
-                                    <option value="Option B">Option B</option>
-                                    <option value="Option C">Option C</option>
-                                    <option value="Option D">Option D</option>
-                                    {{--  データベースから引っ張ってくる  --}}
-                                </select>
-                            </div>
+                            <select name="op">
+                                <option value="-----------">
+                                    ---------------------------------------------------------</option>
+                                <option value="Option A">Option aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
+                                <option value="Option B">Option B</option>
+                                <option value="Option C">Option C</option>
+                                <option value="Option D">Option D</option>
+                                {{--  データベースから引っ張ってくる  --}}
+                            </select>
                         </div>
                     </div>
                     <p><a class="c-btn c-btn--update c-btn--navy">更新する</a></p>
             </div>
         </div>
     </div>
-</body>1
+</body>
 
 </html>
