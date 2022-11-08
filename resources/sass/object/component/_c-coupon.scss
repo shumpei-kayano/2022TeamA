@@ -1,9 +1,11 @@
 .c-coupon {
     &__top {
-        width: 320px;
-        height: 32px;
-        margin: auto;
-
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .c-btn--small{
+            margin-right: 0;
+        }
     }
 
     &__box {
@@ -23,9 +25,10 @@
 
     &__address {
         font-size: 12px;
-        margin-top: 48px;
-        margin-bottom: -24px;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
+
 }
 
 // .c-coupon__a {

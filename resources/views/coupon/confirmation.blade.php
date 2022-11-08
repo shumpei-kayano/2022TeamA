@@ -36,11 +36,11 @@
                         <p class="c-modal__flex__store">the LOUNGE</p>
                     </div>
                 </div>
-                <div class="c-coupon__a">
-                    <button type="submit" class="c-coupon__a__detail">詳細を見る</button>
+                <div class="c-coupon__top">
+                    <p class="c-coupon__address">大分市別府市鉄輪499-18</p>
+                    <a class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
                 </div>
-                <p class="c-coupon__address">大分市別府市鉄輪499-18</p>
-                <button type="submit" class="c-btn c-btn--navy">このクーポンを使う</button>
+                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
             </div>
         </div>
 
@@ -53,11 +53,11 @@
                     <p class="c-modal__flex__store">ROUTE 502 COFFEE</p>
                 </div>
             </div>
-            <div class="c-coupon__a">
-                <button type="submit" class="c-coupon__a__detail">詳細を見る</button>
+            <div class="c-coupon__top">
+                <p class="c-coupon__address">大分県臼杵市市浜1129-3</p>
+                <a class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
             </div>
-            <p class="c-coupon__address">大分県臼杵市市浜1129-3</p>
-            <button type="submit" class="c-btn c-btn--navy">このクーポンを使う</button>
+            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
         </div>
     </div>
     <div class="c-modal">
