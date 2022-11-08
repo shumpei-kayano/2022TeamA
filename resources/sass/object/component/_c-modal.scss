@@ -99,11 +99,18 @@
         font-weight: bold;
         line-height: 1em;
         margin: 0 0 10px 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
     }
 
     &__store {
         font-size: 14px;
         margin-top: 0;
         margin-bottom: 0;
+    }
+    &__address {
+        font-size: 12px;
     }
 }

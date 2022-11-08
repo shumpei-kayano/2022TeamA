@@ -118,6 +118,11 @@ Route::get('coupon/use', function () {
     return view('coupon.use');
 });
 
+//クーポン使用済み
+Route::get('coupon/used', function () {
+    return view('coupon.used');
+});
+
 //クチコミ投稿
 Route::get('post/index', function () {
     return view('post.index');

@@ -31,7 +31,7 @@
 .c-coupon__a {
     float: right;
 
-    &__btn {
+    &__detail {
         width: 80px;
         height: 24px;
         background-color: $plat_navy;
@@ -39,5 +39,15 @@
         border-radius: 4px;
         float: left;
         margin: 8px;
+    }
+    &__review{
+        width: 102px;
+        height: 23px;
+        background-color: $plat_navy;
+        color: white;
+        border-radius: 4px;
+        margin: 8px;
+        font-size: 10px;
+        position: absolute 0 8px;
     }
 }

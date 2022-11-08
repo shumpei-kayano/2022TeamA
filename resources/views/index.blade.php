@@ -32,6 +32,7 @@
             <li><a href="/coupon/index" target="_blank">クーポン</a></li>
             <li><a href="/coupon/confirmation" target="_blank">クーポン確認</a></li>
             <li><a href="/coupon/use" target="_blank">クーポン使用</a></li>
+            <li><a href="/coupon/used" target="_blank">クーポン使用済み</a></li>
             <li><a href="/post/index" target="_blank">クチコミ投稿</a></li>
             <li><a href="/badge/index" target="_blank">バッジ</a></li>
             <li><a href="/welcome/admin" target="_blank">管理者ログイン</a></li>

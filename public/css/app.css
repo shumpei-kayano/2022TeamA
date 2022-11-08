@@ -79,8 +79,11 @@ a:hover {
   padding: 0;
 }
 .c-form__group--time input {
-  width: 440px;
+  width: 100%;
   flex: 1;
+}
+.c-form__group--select {
+  width: 100%;
 }
 .c-form--admin {
   width: 100%;
@@ -361,11 +364,18 @@ a:hover {
   font-weight: bold;
   line-height: 1em;
   margin: 0 0 10px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .c-modal__flex__store {
   font-size: 14px;
   margin-top: 0;
   margin-bottom: 0;
+}
+.c-modal__flex__address {
+  font-size: 12px;
 }
 
 .c-coupon__top {
@@ -395,7 +405,7 @@ a:hover {
 .c-coupon__a {
   float: right;
 }
-.c-coupon__a__btn {
+.c-coupon__a__detail {
   width: 80px;
   height: 24px;
   background-color: #354260;
@@ -403,6 +413,16 @@ a:hover {
   border-radius: 4px;
   float: left;
   margin: 8px;
+}
+.c-coupon__a__review {
+  width: 102px;
+  height: 23px;
+  background-color: #354260;
+  color: white;
+  border-radius: 4px;
+  margin: 8px;
+  font-size: 10px;
+  position: absolute 0 8px;
 }
 
 .p-gnav {
@@ -538,11 +558,11 @@ a:hover {
   padding: 32px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .p-admin__logo {
   width: 270px;
   display: block;
-  background-color: red;
 }
 .p-admin__logout {
   display: flex;
@@ -614,9 +634,12 @@ a:hover {
 .p-admin__contenthedder p {
   padding-left: 160px;
 }
+.p-admin__contenthedder h1 {
+  color: #354260;
+}
 .p-admin__time {
   display: flex;
-  justify-content: space-between;
+  gap: 160px;
 }
 .p-admin__map {
   width: 100%;
