@@ -1,11 +1,11 @@
-
-.c-header{
+.c-header {
     background: #F9F9F9;
     border-bottom: 1px solid $gray;
     text-align: center;
     position: relative;
-    h4{
-        margin:16px auto ;
-    }
-    }
+    min-height: 36px;
 
+    h4 {
+        margin: 16px auto;
+    }
+}

@@ -3,17 +3,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .c-btn--small{
+
+        .c-btn--small {
             margin-right: 0;
         }
     }
 
     &__box {
-        width: 320px;
+        width: 100%;
         background-color: white;
         border: 2px solid #C9C9C9;
         border-radius: 8px;
-        margin: auto;
+
         margin-top: 16px;
         padding: 0 16px;
     }
@@ -30,27 +31,3 @@
     }
 
 }
-
-// .c-coupon__a {
-//     margin-right: auto;
-
-//     &__detail {
-//         width: 80px;
-//         height: 24px;
-//         background-color: $plat_navy;
-//         color: white;
-//         border-radius: 4px;
-//         float: left;
-//         margin: 8px;
-//     }
-//     &__review{
-//         width: 102px;
-//         height: 23px;
-//         background-color: $plat_navy;
-//         color: white;
-//         border-radius: 4px;
-//         margin: 8px;
-//         font-size: 10px;
-//         position: absolute 0 8px;
-//     }
-// }
