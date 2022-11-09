@@ -49,12 +49,16 @@
                         <label for="">写真</label>
                         <p>下記より1つ選んでください</p>
                         <div class="p-admin__photo--check c-form--check">
-                            <div class="c-form__group"><input type="checkbox" class="p-admin__photocheck" name="riyu"
-                                    value="1" checked="checked"><img src="/images/lunch.png" alt=""></div>
-                            <div class="c-form__group"><input type="checkbox" class="p-admin__photocheck" name="riyu"
-                                    value="1"><img src="/images/cakeoff.png" alt=""></div>
-                            <div class="c-form__group"><input type="checkbox" class="p-admin__photocheck" name="riyu"
-                                    value="1"><img src="/images/gaikanoff.png" alt=""></div>
+                            <div class="c-form__group"><input type="radio" class="p-admin__photocheck" name="riyu"
+                                    value="1" id="check" checked><label for="check"><img
+                                        src="/images/lunch.png" alt=""></label>
+                            </div>
+                            <div class="c-form__group"><input type="radio" class="p-admin__photocheck" name="riyu"
+                                    value="1" id="check1"><label for="check1"><img src="/images/cake.png"
+                                        alt=""></label></div>
+                            <div class="c-form__group"><input type="radio" class="p-admin__photocheck" name="riyu"
+                                    value="1" id="check2"><label for="check2"><img src="/images/gaikan.png"
+                                        alt=""></label></div>
                         </div>
                         <div class="c-form__group">
                             <label for="">掲載終了日時</label>
@@ -68,7 +72,7 @@
                     <div class="c-form--check">
                         <label>掲載を一時停止</label>
 
-                        <input type="checkbox" name="riyu" value="1" checked="checked">掲載を一時停止する
+                        <input type="checkbox" name="riyu" value="1">掲載を一時停止する
                     </div>
                 </form>
 
