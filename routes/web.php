@@ -152,3 +152,8 @@ Route::get('coupon/admin', function () {
 Route::get('review/admin', function () {
     return view('review.admin');
 });
+
+//モーダルテスト
+Route::get('modal', function () {
+    return view('modal');
+});
