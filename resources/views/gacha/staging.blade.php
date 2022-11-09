@@ -39,8 +39,8 @@
                 <p class="c-modal__flex__store">the LOUNGE</p>
             </div>
         </div>
-        <button type="submit" class="c-btn c-btn--navy">クーポン一覧へ</button>
-        <p class="c-modal__sineup"><a href="">店舗情報を見る</a></p>
+        <button type="submit" class="c-btn c-btn--navy" onclick="location.href='/coupon/index'">クーポン一覧へ</button>
+        <p class="c-modal__sineup"><a href="/store/index">店舗情報を見る</a></p>
     </dialog>
     <script>
         //  映像終了後にモーダルオープン
