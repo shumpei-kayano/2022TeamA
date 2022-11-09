@@ -63,8 +63,8 @@
                         <div class="c-form__group">
                             <label for="">掲載終了日時</label>
 
-                            <input type="date" id="start" name="trip-start" value="2022-11-01" min="2023-03-31"
-                                max="2018-12-31">
+                            <input type="date" id="start" name="trip-start" value="2022-11-01" min="2022-11-01"
+                                max="2023-03-31">
                         </div>
 
 
