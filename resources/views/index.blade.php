@@ -28,7 +28,6 @@
             <li><a href="/gacha/index" target="_blank">ガチャ</a></li>
             <li><a href="/gacha/staging" target="_blank">ガチャ演出</a></li>
             <li><a href="/gacha/error" target="_blank">ガチャエラー</a></li>
-            <li><a href="/gacha/get" target="_blank">クーポン獲得</a></li>
             <li><a href="/coupon/index" target="_blank">クーポン</a></li>
             <li><a href="/coupon/confirmation" target="_blank">クーポン確認</a></li>
             <li><a href="/coupon/use" target="_blank">クーポン使用</a></li>
