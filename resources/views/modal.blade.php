@@ -20,13 +20,6 @@
         </ul>
     </nav>
     <div class="c-container">
-        <!--  <div class="c-modal">
-            <div class="c-modal__box">
-                <p class="c-modal__title">制限回数オーバー</p>
-                <p class="c-modal__text">このエリアで回すことができるガチャの制限数を越えました。他のエリアでお試し下さい。</p>
-                <button type="submit" class="c-btn c-btn--navy">OK</button>
-            </div>
-        </div> -->
         <a id="btn-open">モーダルを開く</a>
         <p><img src="/images/lunch.png" alt=""></p>
         <dialog id="dialog-1" class="c-modal__box">
@@ -37,7 +30,7 @@
     </div>
     <script>
         // 開くボタンが押されたときの処理
-        const dialog = document.getElementById('dialog-1');
+        const dialog = document.getElementById('dialog');
         document.getElementById('btn-open').addEventListener('click', (event) => {
             dialog.showModal();
         });
