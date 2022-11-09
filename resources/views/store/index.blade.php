@@ -36,12 +36,12 @@
         </section>
         <section class="c-store__section">
             <div class="c-coupon__top">
-                <p class="c-coupon__address">ここから約1.2Km <br>
-                    住所</p>
+                <p class="c-coupon__address">ここから約1.2Km </p>
                 <a class="c-btn c-btn--navy c-btn--small">このお店までの経路を見る</a>
             </div>
         </section>
         <section class="c-store__section">
+            <p class="c-store__item">住所</p>
             <p class="c-store__text">〒874-0000 <br>
                 大分県別府市 Resort & Spa 2F <br>
                 ANA InterContinental</p>
@@ -58,7 +58,8 @@
         </section>
         <section class="c-store__section">
             <p class="c-store__item">ホームページ</p>
-            <p class="c-store__text">https://anaicbeppu.com/dining/the-lounge/</p>
+            <a class="c-store__text"
+                href="https://anaicbeppu.com/dining/the-lounge/">https://anaicbeppu.com/dining/the-lounge/</a>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">営業時間</p>

@@ -36,12 +36,12 @@
         </section>
         <section class="c-store__section">
             <div class="c-coupon__top">
-                <p class="c-coupon__address">ここから約1.7Km <br>
-                    住所</p>
+                <p class="c-coupon__address">ここから約1.7Km</p>
                 <a class="c-btn c-btn--navy c-btn--small">このお店までの経路を見る</a>
             </div>
         </section>
         <section class="c-store__section">
+            <p class="c-store__item">住所</p>
             <p class="c-store__text">〒874-0000 <br>
                 大分県豊後大野市千歳町下山878-3</p>
             <div class="p-admin__map">
@@ -57,7 +57,8 @@
         </section>
         <section class="c-store__section">
             <p class="c-store__item">ホームページ</p>
-            <p class="c-store__text">https://www.instagram.com/greenbrown_oita/</p>
+            <a class="c-store__text"
+                href="https://www.instagram.com/greenbrown_oita/">https://www.instagram.com/greenbrown_oita/</a>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">営業時間</p>
