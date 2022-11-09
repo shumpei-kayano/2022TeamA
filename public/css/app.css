@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap);
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap");
 html {
   height: -webkit-fill-available;
   font-family: "Noto Sans JP", sans-serif;
@@ -33,6 +34,12 @@ a:hover {
   box-sizing: border-box;
 }
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5x);
+  -webkit-backdrop-filter: blur(5px); /* Safari 用 */
+}
+
 .c-container {
   padding: 16px 16px 64px;
   width: 100%;
@@ -46,6 +53,12 @@ a:hover {
 }
 
 .c-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+}
+.c-form textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #c9c9c9;
@@ -102,6 +115,9 @@ a:hover {
 .c-btn--navy {
   background-color: #354260;
   color: white;
+}
+.c-btn--navy.is-inactive {
+  background-color: #c9c9c9;
 }
 .c-btn--small {
   margin: 16px auto 8px;
@@ -278,7 +294,7 @@ a:hover {
   z-index: 200;
   justify-content: center;
   align-items: center;
-  animation: fade-in forwards 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  animation: fade-in forwards 0.25s cubic-bezier(0.86, 0, 0.07, 1);
   top: 0;
   left: 0;
 }
@@ -288,7 +304,7 @@ a:hover {
   border-radius: 8px;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
   padding: 0 12px 8px;
-  animation: scaleup forwards 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+  animation: scaleup forwards 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 .c-modal__title {
   font-size: 24px;
@@ -347,8 +363,7 @@ a:hover {
 .c-modal__flex__img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .c-modal__flex__text {
   flex: 1;
@@ -601,19 +616,15 @@ a:hover {
   margin: 0 auto;
   width: 90%;
 }
-.p-admin__contenthedder {
+.p-admin__contentheader {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   width: 100%;
 }
-.p-admin__contenthedder p {
-  padding-left: 735px;
-}
-.p-admin__contenthedder h1 {
+.p-admin__contentheader h1 {
   color: #354260;
 }
-.p-admin__contenthedder img {
+.p-admin__contentheader img {
   width: 24px;
   height: 24px;
 }
@@ -634,6 +645,19 @@ a:hover {
   gap: 8px;
   padding: 0;
   align-items: center;
+}
+.p-admin__star {
+  display: flex;
+  align-items: center;
+}
+.p-admin__star p {
+  margin-right: 16px;
+}
+.p-admin__tittle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .p-gacha-top {
@@ -749,6 +773,11 @@ a:hover {
   border-bottom: 1px solid #c9c9c9;
   padding-bottom: 32px;
   margin-bottom: 32px;
+}
+
+.p-post__star img {
+  width: 40px;
+  height: 40px;
 }
 
 .u-padding-top--0 {

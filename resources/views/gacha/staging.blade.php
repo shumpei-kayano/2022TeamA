@@ -29,6 +29,27 @@
 
         </div>
     </div>
+    <dialog id="dialog" class="c-modal__box">
+        <p class="c-modal__top">クーポンゲット</p>
+        <p class="c-modal__use">有効期限：2022.10.31</p>
+        <div class="c-modal__flex">
+            <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="獲得クーポン"></p>
+            <div class="c-modal__flex__text">
+                <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
+                <p class="c-modal__flex__store">the LOUNGE</p>
+            </div>
+        </div>
+        <button type="submit" class="c-btn c-btn--navy" onclick="location.href='/coupon/index'">クーポン一覧へ</button>
+        <p class="c-modal__sineup"><a href="/store/index">店舗情報を見る</a></p>
+    </dialog>
+    <script>
+        //  映像終了後にモーダルオープン
+        const video = document.querySelector('video');
+
+        video.addEventListener('ended', (event) => {
+            dialog.showModal();
+        });
+    </script>
 </body>
 
 </html>

@@ -18,6 +18,9 @@
     &--navy {
         background-color: $plat_navy;
         color: white;
+        &.is-inactive{
+            background-color: $gray;
+        }
     }
     &--small{
         margin: 16px auto 8px;

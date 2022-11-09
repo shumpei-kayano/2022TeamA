@@ -98,11 +98,6 @@ Route::get('gacha/error', function () {
     return view('gacha.error');
 });
 
-//クーポン獲得
-Route::get('gacha/get', function () {
-    return view('gacha.get');
-});
-
 //クーポン
 Route::get('coupon/index', function () {
     return view('coupon.index');
@@ -151,4 +146,9 @@ Route::get('coupon/admin', function () {
 //クチコミ管理
 Route::get('review/admin', function () {
     return view('review.admin');
+});
+
+//モーダルテスト
+Route::get('modal', function () {
+    return view('modal');
 });

@@ -60,7 +60,8 @@
                             <label for="">ホームページ</label><input type="text">
                         </div>
                         <div class="c-form__group">
-                            <label for="">サービス内容</label><input type="text">
+                            <label for=" ">サービス内容</label>
+                            <textarea id="servicecontent" name="servicecontent" rows="5" cols="33"></textarea>
                         </div>
                         <label for="">写真</label>
                         <div class="p-admin__photo">
