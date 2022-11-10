@@ -1,30 +1,49 @@
-.p-account{
-    &__phot{
+.p-account {
+    &__phot {
         width: 64px;
         height: 64px;
         border-radius: 32px;
         overflow: hidden;
+
+
     }
-    &__top{
+
+    &__top {
         display: flex;
         justify-content: start;
         align-items: center;
         gap: 8px;
+
+        &--set {
+
+            width: 100%;
+            text-align: center;
+
+            img {
+                width: 64px;
+                height: 64px;
+                border-radius: 32px;
+                overflow: hidden;
+            }
+        }
     }
-    &__nickname{
+
+    &__nickname {
         font-size: 24px;
         font-weight: bold;
         color: $plat_navy;
     }
-    &__nav{
+
+    &__nav {
         display: block;
         border-bottom: 1px solid lightgray;
-        background-image:url("/images/_arrow.jpg");
+        background-image: url("/images/_arrow.jpg");
         background-repeat: no-repeat;
         background-position: right center;
         padding: 16px;
     }
-    &__navgroup{
+
+    &__navgroup {
         margin-top: 16px;
         margin-bottom: 64px;
     }

@@ -13,7 +13,30 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <h1>アカウント設定</h1>
+        <div class="c-header">
+            <a href="" class="c-back">戻る</a>
+            <h4>アカウント設定</h4>
+        </div>
+        <div class="p-account__top--set">
+            <p class="p-account__phot--set"><img src="/images/phot-account.jpg" alt="アバター画像"></p>
+        </div>
+
+        <form action="" class="c-form">
+            <div class="c-form__group">
+                <label for="">メールアドレス</label><input type="email">
+            </div>
+
+            <div class="c-form__group">
+                <label for="">ニックネーム(半角英数)</label><input type="text">
+            </div>
+
+            <div class="c-form__group">
+                <label for="">パスワード</label><input type="password">
+            </div>
+
+            <div class="p-add__btn">
+                <button type="submit" class="c-btn c-btn--navy">更新する</button>
+            </div>
     </div>
 </body>
 
