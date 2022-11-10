@@ -10,6 +10,7 @@
 
 <body>
     <div class="c-container">
+        <a id="btn-open">ログインエラー</a>
         <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
         <form action="" class="c-form">
             <div class="c-form__group">
@@ -24,10 +25,34 @@
 
             <p class="p-welcome__sineup"><a href="">新規会員登録</a></p>
 
+            @component('components.modal')
+                @slot('title')
+                    <p class="c-modal__title">ログインエラー</p>
+                @endslot
+                @slot('content')
+                    <div class="c-modal__flex__text">
+                        ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
+                    </div>
+                @endslot
+                @slot('button')
+                    <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>
+                @endslot
+            @endcomponent
 
 
         </form>
     </div>
+    <script>
+        // 開くボタンが押されたときの処理
+        const dialog = document.getElementById('dialog');
+        document.getElementById('btn-open').addEventListener('click', (event) => {
+            dialog.showModal();
+        });
+        // OKが押されたときの処理
+        dialog.querySelector('.c-btn').addEventListener('click', () => {
+            dialog.close();
+        });
+    </script>
 </body>
 
 </html>

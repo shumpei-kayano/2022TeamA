@@ -15,11 +15,11 @@
     <div class="c-container">
         <a id="btn-open">モーダルを開く</a>
         <p><img src="/images/lunch.png" alt=""></p>
-        <dialog id="dialog" class="c-modal__box">
-            <p class="c-modal__title">制限回数オーバー</p>
-            <p class="c-modal__text">このエリアで回すことができるガチャの制限数を越えました。他のエリアでお試し下さい。</p>
-            <button type="submit" class="c-btn c-btn--navy">OK</button>
-        </dialog>
+        @component('components.modal')
+            @slot('text')
+                aa
+            @endslot
+        @endcomponent
     </div>
     <script>
         // 開くボタンが押されたときの処理
