@@ -123,11 +123,7 @@
 
             </div>
         </div>
-        @component('components.gnav')
-        @endcomponent
-        <div class="c-container">
-            <h1>クチコミ管理</h1>
-        </div>
+    </div>
 </body>
 
 </html>
