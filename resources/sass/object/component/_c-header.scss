@@ -15,7 +15,6 @@
         min-height: 36px;
         text-align: right;  
         margin-bottom: 32px;
-        background-color: red;
         img{     
         width: 32px;
         height: 32px;
@@ -25,14 +24,17 @@
     }
     &__notice{
         position: absolute;
-        top:0;
-        right:0;
+        top:-2px;
+        right:-2px;
         z-index: 100;
-        p{
-            font-size: 24px;
-            color: $plat_pink;
-            margin: 0;
-            padding: 0;
-        }
+        background-color: $plat_pink;
+        min-width: 16px;
+        height: 16px;
+        color: white;
+        font-size: 8px;
+        border-radius: 8px;
+        padding: 0 8px;
+
+         
     }
 }

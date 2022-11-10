@@ -16,7 +16,7 @@
         <div class="c-header__bell">
             <img src="/images/bell.png">
             <div class="c-header__notice">
-                <p>●</p>
+                1
             </div>
 
         </div>
