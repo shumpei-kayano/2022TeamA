@@ -11,6 +11,12 @@
         border-bottom: 1px solid $gray;
         padding-bottom: 10px;
         margin-bottom: 0;
+
+        &--edit{
+        padding: 10px;
+        margin: 0;
+
+        }
     }
 
     &__text {
