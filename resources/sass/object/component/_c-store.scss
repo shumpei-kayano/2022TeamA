@@ -22,10 +22,22 @@
     &__text {
         font-size: 20px;
         margin: 0;
+
+        &--addcheck{
+        margin: 0;
+        padding-top:8px ;
+        font-weight: bold;
+        }
     }
 
     &__item {
         font-size: 12px;
         margin: 0px;
+
+        &--addcheck{
+            font-size: 12px;
+            margin: 0px;
+            padding-top: 24px;
+        }
     }
 }

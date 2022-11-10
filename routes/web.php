@@ -48,6 +48,12 @@ Route::get('account/setting', function () {
     return view('account.setting');
 });
 
+//新規登録確認
+Route::get('person/addcheck', function () {
+    return view('person.addcheck');
+});
+
+
 //お知らせ
 Route::get('notice/index', function () {
     return view('notice.index');
