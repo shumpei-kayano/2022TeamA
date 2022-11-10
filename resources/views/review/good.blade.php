@@ -13,7 +13,122 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <h1>いいね一覧</h1>
+        <div class="c-header">
+            <a href="" class="c-back">戻る</a>
+            <h4>いいね一覧 </h4>
+        </div>
+        <p class="c-hukidashi__date">
+            2022/10/29
+        </p>
+        <div class="c-hukidashi c-hukidashi--b">
+            <div class="c-hukidashi--good">
+                <p class="c-hukidashi__photo">
+                    <img src="/images/phot-account.jpg">
+                </p>
+                <div class="c-fukidashi__container">
+                    <p class="c-hukidashi__username"> ニックネーム</p>
+                    <div class="c-hukidashi__frame">
+                        <div class="c-hukidashi__header">
+                            <h3 class="c-hukidashi__tittle">店舗名</h3>
+                            <div class="c-hukidashi__star--a">
+                                <div class="p-admin__star--spot">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.black.png" alt="">
+                                    <img src="/images/star.black.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-hukidashi__honbun">
+                            職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
+                        </div>
+                        <div class="c-hukidashi__good">
+                            <div class="c-hukidashi__good__icon">
+                                <img src="/images/good-icon.png" alt="いいねアイコン">
+                            </div>
+                            <div class="c-hukidashi__goodnumber">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-hukidashi c-hukidashi--b">
+            <div class="c-hukidashi--good">
+                <p class="c-hukidashi__photo">
+                    <img src="/images/phot-account.jpg">
+                </p>
+                <div class="c-fukidashi__container">
+                    <p class="c-hukidashi__username"> ニックネーム</p>
+                    <div class="c-hukidashi__frame">
+                        <div class="c-hukidashi__header">
+                            <h3 class="c-hukidashi__tittle">店舗名</h3>
+                            <div class="c-hukidashi__star--a">
+                                <div class="p-admin__star--spot">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.black.png" alt="">
+                                    <img src="/images/star.black.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-hukidashi__honbun">
+                            職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
+                        </div>
+                        <div class="c-hukidashi__good">
+                            <div class="c-hukidashi__good__icon">
+                                <img src="/images/good-icon.png" alt="いいねアイコン">
+                            </div>
+                            <div class="c-hukidashi__goodnumber">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="c-hukidashi__date">
+            2022/10/29
+        </p>
+        <div class="c-hukidashi c-hukidashi--b">
+            <div class="c-hukidashi--good">
+                <p class="c-hukidashi__photo">
+                    <img src="/images/phot-account.jpg">
+                </p>
+                <div class="c-fukidashi__container">
+                    <p class="c-hukidashi__username"> ニックネーム</p>
+                    <div class="c-hukidashi__frame">
+                        <div class="c-hukidashi__header">
+                            <h3 class="c-hukidashi__tittle">店舗名</h3>
+                            <div class="c-hukidashi__star--a">
+                                <div class="p-admin__star--spot">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.png" alt="">
+                                    <img src="/images/star.black.png" alt="">
+                                    <img src="/images/star.black.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-hukidashi__honbun">
+                            職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
+                        </div>
+                        <div class="c-hukidashi__good">
+                            <div class="c-hukidashi__good__icon">
+                                <img src="/images/good-icon.png" alt="いいねアイコン">
+                            </div>
+                            <div class="c-hukidashi__goodnumber">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
