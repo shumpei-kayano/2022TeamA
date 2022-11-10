@@ -17,6 +17,16 @@
 
         margin-top: 16px;
         padding: 0 16px;
+
+        &--spot {
+            margin-top: 0;
+            width: 100%;
+            background-color: white;
+            border: 2px solid #C9C9C9;
+            border-radius: 8px;
+            padding: 0 16px;
+
+        }
     }
 
     &__use {

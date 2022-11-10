@@ -126,5 +126,11 @@
         text-align: center;
         height: 32px;
         margin-top: 32px;
+
+        &--spot {
+            text-align: left;
+            font-size: 8px;
+            margin: 32px auto 0;
+        }
     }
 }
