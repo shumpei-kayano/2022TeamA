@@ -8,4 +8,31 @@
     h4 {
         margin: 16px auto;
     }
+    &__bell{
+        background: #F9F9F9;
+        border-bottom: 1px solid $gray;
+        position: relative;
+        min-height: 36px;
+        text-align: right;  
+        margin-bottom: 32px;
+        background-color: red;
+        img{     
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+        } 
+       
+    }
+    &__notice{
+        position: absolute;
+        top:0;
+        right:0;
+        z-index: 100;
+        p{
+            font-size: 24px;
+            color: $plat_pink;
+            margin: 0;
+            padding: 0;
+        }
+    }
 }

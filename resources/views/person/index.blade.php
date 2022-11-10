@@ -13,16 +13,20 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
+        <div class="c-header__bell">
+            <img src="/images/bell.png">
+            <div class="c-header__notice">
+                <p>●</p>
+            </div>
 
-
+        </div>
+        <p class="c-hukidashi__date">
+            2022/10/29
+        </p>
         <div class="c-hukidashi c-hukidashi--a">
             <p class="c-hukidashi__photo">
                 <img src="/images/phot-account.jpg">
             </p>
-
-
-
-
             <div class="c-fukidashi__container">
                 <p class="c-hukidashi__username"> ニックネーム</p>
                 <div class="c-hukidashi__frame">
@@ -84,16 +88,6 @@
                 </div>
             </div>
         </div>
-        <div class="c-hukidashi__edit">
-            <div class="c-hukidashi__edit_icon">
-                <img src="/images/pencil.png">編集
-            </div>
-            <div class="c-hukidashi__delete_icon">
-                <img src="/images/gomibako.png">削除
-            </div>
-        </div>
-
-
     </div>
 </body>
 
