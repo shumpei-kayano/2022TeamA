@@ -31,6 +31,7 @@
                         <h1>クチコミ</h1>
                     </div>
 
+<<<<<<< HEAD
                     <div class="p-admin__a">
                         <div class="c-form__group">
                             <label>これまでに使用されたクーポン:</label>
@@ -123,6 +124,12 @@
 
             </div>
         </div>
+=======
+    @component('components.gnav')
+    @endcomponent
+    <div class="c-container">
+        <h1>クチコミ管理</h1>
+>>>>>>> a4f7e4d42ef1afa78e004adbb12f2c54243b493d
     </div>
 </body>
 

@@ -10,15 +10,8 @@
 
 <body>
 
-    <nav class="p-gnav">
-        <ul>
-            <li><a href="" class="p-gnav__home">ホーム</a></li>
-            <li><a href="" class="p-gnav__coupon">クーポン</a></li>
-            <li><a href="" class="p-gnav__gacha">ガチャ</a></li>
-            <li><a href="" class="p-gnav__badge">バッジ</a></li>
-            <li><a href="" class="p-gnav__account">アカウント</a></li>
-        </ul>
-    </nav>
+    @component('components.gnav')
+    @endcomponent
     <div class="c-container">
         <p>このお店はいかがでしたか？<br>
             味・雰囲気・コスパなどの感想や、お店の良かった点を教えて下さい。</p>
