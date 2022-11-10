@@ -28,7 +28,15 @@
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
                         <h3 class="c-hukidashi__tittle">店舗名</h3>
-                        <div class="c-hukidashi__star">★★★☆☆</div>
+                        <div class="c-hukidashi__star--a">
+                            <div class="p-admin__star--spot">
+                                <img src="/images/star.png" alt="">
+                                <img src="/images/star.png" alt="">
+                                <img src="/images/star.png" alt="">
+                                <img src="/images/star.black.png" alt="">
+                                <img src="/images/star.black.png" alt="">
+                            </div>
+                        </div>
                     </div>
                     <p class="c-hukidashi__honbun">
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
@@ -51,7 +59,15 @@
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
                         <h3 class="c-hukidashi__tittle">店舗名</h3>
-                        <div class="c-hukidashi__star">★★★☆☆</div>
+                        <div class="c-hukidashi__star--a">
+                            <div class="p-admin__star--spot">
+                                <img src="/images/star.png" alt="">
+                                <img src="/images/star.png" alt="">
+                                <img src="/images/star.png" alt="">
+                                <img src="/images/star.black.png" alt="">
+                                <img src="/images/star.black.png" alt="">
+                            </div>
+                        </div>
                     </div>
                     <div class="c-hukidashi__honbun">
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
