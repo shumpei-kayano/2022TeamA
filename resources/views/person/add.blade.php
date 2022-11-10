@@ -10,41 +10,32 @@
 
 <body>
 
-    {{--  <nav class="p-gnav">
-        <ul>
-            <li><a href="" class="p-gnav__home">ホーム</a></li>
-            <li><a href="" class="p-gnav__coupon">クーポン</a></li>
-            <li><a href="" class="p-gnav__gacha">ガチャ</a></li>
-            <li><a href="" class="p-gnav__badge">バッジ</a></li>
-            <li><a href="" class="p-gnav__account">アカウント</a></li>
-        </ul>
-    </nav>  --}}
 
     <div class="c-container">
         <div class="c-header">
-        <a href="" class="c-back">戻る</a>
-        <h4>新規会員登録</h4>
+            <a href="" class="c-back">戻る</a>
+            <h4>新規会員登録</h4>
         </div>
-    
-    <div class="p-add__text">全ての項目を入力して、会員登録を行って下さい</div>
 
-    <form action="" class="c-form">
-    <div class="c-form__group">
-        <label for="">メールアドレス</label><input type="email">
-    </div>
+        <div class="p-add__text">全ての項目を入力して、会員登録を行って下さい</div>
 
-    <div class="c-form__group">
-        <label for="">ニックネーム(半角英数)</label><input type="text">
-    </div>
+        <form action="" class="c-form">
+            <div class="c-form__group">
+                <label for="">メールアドレス</label><input type="email">
+            </div>
 
-    <div class="c-form__group">
-        <label for="">パスワード</label><input type="password">
-    </div>
+            <div class="c-form__group">
+                <label for="">ニックネーム(半角英数)</label><input type="text">
+            </div>
 
-    <div class="p-add__btn">
-    <button type="submit" class="c-btn c-btn--navy">新規会員登録</button>
+            <div class="c-form__group">
+                <label for="">パスワード</label><input type="password">
+            </div>
+
+            <div class="p-add__btn">
+                <button type="submit" class="c-btn c-btn--navy">新規会員登録</button>
+            </div>
     </div>
-</div>
 </body>
 
 </html>

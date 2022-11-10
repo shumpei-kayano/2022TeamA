@@ -13,7 +13,30 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <h1>通知</h1>
+        <div class="c-header">
+            <a href="" class="c-back">戻る</a>
+            <h4>お知らせ一覧</h4>
+        </div>
+        <section class="c-store__section">
+            <p class="p-notice__date">2022.09.27</p>
+            <p class="p-notice__text">3日間で使用期限を迎えるクーポンがあります。</p>
+        </section>
+        <section class="c-store__section">
+            <p class="p-notice__date">2022.09.27</p>
+            <p class="p-notice__text">おめでとうございます！新しいバッジを獲得しました。</p>
+        </section>
+        <section class="c-store__section">
+            <p class="p-notice__date">2022.09.27</p>
+            <p class="p-notice__text">yuk*****さんがあなたのクチコミにいいねしました。</p>
+        </section>
+        <section class="c-store__section">
+            <p class="p-notice__date">2022.09.27</p>
+            <p class="p-notice__text">初めて訪れる街です。ガチャを回してお得なクーポンをゲットしよう。</p>
+        </section>
+        <section class="c-store__section">
+            <p class="p-notice__date">2022.09.27</p>
+            <p class="p-notice__text">3日で使用期限を迎えるクーポンがあります。</p>
+        </section>
     </div>
 </body>
 

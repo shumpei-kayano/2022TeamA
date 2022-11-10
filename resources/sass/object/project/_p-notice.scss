@@ -1,0 +1,10 @@
+.p-notice{
+    &__date{
+        font-size: 12px;
+        color:$gray ;
+    }
+    &__text{
+        font-size: 16px;
+        margin: 0;
+    }
+}

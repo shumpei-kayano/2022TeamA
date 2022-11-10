@@ -1,5 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap);
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap");
 html {
   height: -webkit-fill-available;
   font-family: "Noto Sans JP", sans-serif;
@@ -64,6 +64,12 @@ dialog::backdrop {
   border: 1px solid #c9c9c9;
   border-radius: 8px;
 }
+.c-form--check {
+  font-size: 16px;
+}
+.c-form--check input {
+  width: 24px;
+}
 .c-form select {
   width: 100%;
   padding: 8px;
@@ -77,6 +83,7 @@ dialog::backdrop {
 }
 .c-form__group {
   margin-bottom: 16px;
+  position: relative;
 }
 .c-form__group--time {
   display: flex;
@@ -94,6 +101,7 @@ dialog::backdrop {
 }
 .c-form--admin {
   width: 100%;
+  color: #354260;
 }
 
 .c-btn {
@@ -135,7 +143,7 @@ dialog::backdrop {
   text-decoration: none;
 }
 .c-btn--tab {
-  width: 320px;
+  width: 100%;
   height: 32px;
   border: 2px solid #354260;
   display: flex;
@@ -178,6 +186,7 @@ dialog::backdrop {
   border-bottom: 1px solid #c9c9c9;
   text-align: center;
   position: relative;
+  min-height: 36px;
 }
 .c-header h4 {
   margin: 16px auto;
@@ -232,6 +241,9 @@ dialog::backdrop {
 .c-hukidashi__header {
   display: flex;
   justify-content: space-between;
+}
+.c-hukidashi__header--a {
+  width: 100%;
 }
 .c-hukidashi__tittle {
   margin-top: 0 16px;
@@ -363,7 +375,8 @@ dialog::backdrop {
 .c-modal__flex__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-modal__flex__text {
   flex: 1;
@@ -386,6 +399,10 @@ dialog::backdrop {
 .c-modal__flex__address {
   font-size: 12px;
   margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .c-coupon__top {
@@ -397,11 +414,10 @@ dialog::backdrop {
   margin-right: 0;
 }
 .c-coupon__box {
-  width: 320px;
+  width: 100%;
   background-color: white;
   border: 2px solid #C9C9C9;
   border-radius: 8px;
-  margin: auto;
   margin-top: 16px;
   padding: 0 16px;
 }
@@ -413,6 +429,28 @@ dialog::backdrop {
   font-size: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.c-store {
+  width: 100%;
+  margin: 0;
+}
+.c-store__name {
+  font-size: 32px;
+  margin: 0;
+}
+.c-store__section {
+  border-bottom: 1px solid #c9c9c9;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+.c-store__text {
+  font-size: 20px;
+  margin: 0;
+}
+.c-store__item {
+  font-size: 12px;
+  margin: 0px;
 }
 
 .p-gnav {
@@ -616,10 +654,17 @@ dialog::backdrop {
   margin: 0 auto;
   width: 90%;
 }
+.p-admin__contentbox--a {
+  display: flex;
+  justify-content: space-between;
+}
 .p-admin__contentheader {
   display: flex;
   align-items: center;
   width: 100%;
+}
+.p-admin__contentheader--a h1 {
+  color: #354260;
 }
 .p-admin__contentheader h1 {
   color: #354260;
@@ -646,9 +691,21 @@ dialog::backdrop {
   padding: 0;
   align-items: center;
 }
+.p-admin__photo--check {
+  display: flex;
+  gap: 8px;
+}
 .p-admin__star {
   display: flex;
   align-items: center;
+}
+.p-admin__star--a {
+  text-align: right;
+  padding: 16px;
+}
+.p-admin__star--a img {
+  width: 24px;
+  height: 24px;
 }
 .p-admin__star p {
   margin-right: 16px;
@@ -658,6 +715,39 @@ dialog::backdrop {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+.p-admin__historynumber p {
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+.p-admin__a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.p-admin__a label,
+.p-admin__a p {
+  color: #354260;
+}
+.p-admin__photocheck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.p-admin__photocheck:checked + label img {
+  opacity: 1;
+}
+.p-admin__photocheck:not(:checked) + label img {
+  opacity: 0.5;
+}
+.p-admin__review {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 64px;
 }
 
 .p-gacha-top {
@@ -778,6 +868,20 @@ dialog::backdrop {
 .p-post__star img {
   width: 40px;
   height: 40px;
+}
+
+.p-store__star img {
+  width: 20px;
+  height: 20px;
+}
+
+.p-notice__date {
+  font-size: 12px;
+  color: #c9c9c9;
+}
+.p-notice__text {
+  font-size: 16px;
+  margin: 0;
 }
 
 .u-padding-top--0 {
