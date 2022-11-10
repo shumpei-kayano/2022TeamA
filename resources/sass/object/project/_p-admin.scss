@@ -219,6 +219,11 @@
         gap: 8px;
         margin: 0;
         padding: 0;
+
+        label,
+        p {
+            color: $plat_navy;
+        }
     }
 
     &__photocheck {

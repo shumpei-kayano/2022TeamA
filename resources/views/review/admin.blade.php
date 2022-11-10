@@ -33,7 +33,7 @@
 
                     <div class="p-admin__a">
                         <div class="c-form__group">
-                            <label>これまでに使用されたクーポン:</label>
+                            <label>これまでに投稿されたクチコミ総数</label>
                         </div>
                         <div class="p-admin__historynumber">
                             <p>48</p>
