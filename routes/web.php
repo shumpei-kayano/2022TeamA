@@ -19,9 +19,7 @@ Route::get('/', function () {
 
 
 //ログイン画面
-Route::get('welcome/index', function () {
-    return view('welcome.index');
-});
+Route::get('welcome/index', 'PersonController@out');
 
 //ログインエラー
 Route::get('welcome/error', function () {
@@ -29,24 +27,16 @@ Route::get('welcome/error', function () {
 });
 
 //新規登録
-Route::get('person/add', function () {
-    return view('person.add');
-});
+Route::get('person/add', 'PersonController@add');
 
 //ホーム
-Route::get('person/index', function () {
-    return view('person.index');
-});
+Route::POST('person/index', 'PersonController@create');
 
 //アカウント
-Route::get('account/index', function () {
-    return view('account.index');
-});
+Route::get('account/index', 'PersonController@show');
 
 //アカウント設定
-Route::get('account/setting', function () {
-    return view('account.setting');
-});
+Route::get('account/setting', 'AccountController@set');
 
 //新規登録確認
 Route::get('person/addcheck', function () {
@@ -55,19 +45,13 @@ Route::get('person/addcheck', function () {
 
 
 //お知らせ
-Route::get('notice/index', function () {
-    return view('notice.index');
-});
+Route::get('notice/index', 'NoticeController@show');
 
 //各店舗
-Route::get('tourist/index', function () {
-    return view('tourist.index');
-});
+Route::get('tourist/index', 'AccountController@spot');
 
 //店舗詳細
-Route::get('store/index', function () {
-    return view('store.index');
-});
+Route::get('store/index', 'AccountController@store');
 
 //近所のおすすめスポット
 Route::get('spot/index', function () {
@@ -75,29 +59,19 @@ Route::get('spot/index', function () {
 });
 
 //クチコミ
-Route::get('review/person', function () {
-    return view('review.person');
-});
+Route::get('review/person', 'AccountController@update');
 
 //クチコミ編集
-Route::get('review/edit', function () {
-    return view('review.edit');
-});
+Route::get('review/edit', 'AccountController@edit');
 
 //いいね一覧
-Route::get('review/good', function () {
-    return view('review.good');
-});
+Route::get('review/good', 'AccountController@show');
 
 //ガチャ
-Route::get('gacha/index', function () {
-    return view('gacha.index');
-});
+Route::get('gacha/index', 'GachaController@see');
 
 //ガチャ演出
-Route::get('gacha/staging', function () {
-    return view('gacha.staging');
-});
+Route::get('gacha/staging', 'GachaController@play');
 
 //ガチャエラー
 Route::get('gacha/error', function () {
@@ -105,9 +79,7 @@ Route::get('gacha/error', function () {
 });
 
 //クーポン
-Route::get('coupon/index', function () {
-    return view('coupon.index');
-});
+Route::get('coupon/index', 'GachaController@get');
 
 //クーポン確認
 Route::get('coupon/confirmation', function () {
