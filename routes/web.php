@@ -33,6 +33,8 @@ Route::get('person/index', 'PersonController@good');
 //アカウント
 Route::get('account/index', 'PersonController@show');
 Route::get('account/index', 'PersonController@limit');
+// Route::get('account/set', 'AccountController@set');
+
 
 //アカウント設定
 Route::get('account/setting', 'AccountController@set');
@@ -72,6 +74,8 @@ Route::get('review/good', 'AccountController@good');
 
 //ガチャ
 Route::get('gacha/index', 'GachaController@see');
+Route::get('gacha/view', 'GachaController@view');
+
 
 //ガチャ演出
 Route::get('gacha/staging', 'GachaController@play');

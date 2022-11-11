@@ -19,9 +19,9 @@ class GachaController extends Controller
     }
 
     public function get(){
-        
+
     }
     public function view(){
-        return view('gacha/view');
+        return view('gacha/index');
     }
 }

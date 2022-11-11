@@ -22,13 +22,13 @@ class PersonController extends Controller
         
     }
     public function show(){
-        return view('person/show');
+        return view('account.index');
     }
     public function limit(){
         
     }
     public function see(){
-        return view('person/see');
+        return view('person.see');
     }
 
 }
