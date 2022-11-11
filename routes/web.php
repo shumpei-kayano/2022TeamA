@@ -34,9 +34,8 @@ Route::get('person/add', function () {
 });
 
 //ホーム
-Route::get('person/index', function () {
-    return view('person.index');
-});
+Route::get('person/index', 'PersonController@home');
+Route::get('person/index', 'PersonController@good');
 
 //アカウント
 Route::get('account/index', function () {
@@ -130,29 +129,30 @@ Route::get('post/index', function () {
 });
 
 //バッジ
-Route::get('badge/index', function () {
-    return view('badge.index');
-});
+Route::get('badge/index','BadgeController@see');
 
 //管理者ログイン
-Route::get('welcome/admin', function () {
-    return view('welcome.admin');
-});
+Route::get('welcome/admin', 'AdminController@watch');
+Route::get('welcome/admin', 'AdminController@in');
+
 
 //店舗情報管理
-Route::get('store/admin', function () {
-    return view('store.admin');
-});
+Route::get('store/admin', 'AdminController@enter');
+Route::get('store/admin', 'AdminController@show');
+Route::get('store/admin', 'AdminController@edit');
+Route::get('store/admin', 'AdminController@update');
 
 //クーポン管理
-Route::get('coupon/admin', function () {
-    return view('coupon.admin');
-});
+Route::get('coupon/admin', 'AdminController@look');
+Route::get('coupon/admin', 'AdminController@see');
+Route::get('coupon/admin', 'AdminController@rewrite');
+Route::get('coupon/admin', 'AdminController@set');
+Route::get('coupon/admin', 'AdminController@add');
+Route::get('coupon/admin', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin', function () {
-    return view('review.admin');
-});
+Route::get('review/admin','AdminContoroller@view');
+
 
 //モーダルテスト
 Route::get('modal', function () {
