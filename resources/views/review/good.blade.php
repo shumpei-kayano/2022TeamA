@@ -14,7 +14,7 @@
     @endcomponent
     <div class="c-container">
         <div class="c-header">
-            <a href="" class="c-back">戻る</a>
+            <a href="{{ route('account/index') }}" class="c-back">戻る</a>
             <h4>いいね一覧 </h4>
         </div>
         <p class="c-hukidashi__date">

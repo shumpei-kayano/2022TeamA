@@ -17,12 +17,17 @@
             <p class="p-account__phot"><img src="/images/phot-account.jpg" alt="アバター画像"></p>
             <p class="p-account__nickname">ニックネーム</p>
         </div>
-        <div class="p-account__navgroup"><a class="p-account__nav">投稿したクチコミ</a>
-            <a class="p-account__nav">いいねしたクチコミ</a>
-            <a class="p-account__nav">訪れたスポット</a>
-            <a class="p-account__nav">アカウント設定</a>
+        <div class="p-account__navgroup">
+            <a href="{{ route('account/review') }}" class="p-account__nav">投稿したクチコミ</a>
+            {{--  reviewsテーブルからデータを引っ張ってくる  --}}
+            <a href="{{ route('review/good') }}" class="p-account__nav">いいねしたクチコミ</a>
+            {{--  goodsテーブルから引っ張ってくる  --}}
+            <a href="{{ route('tourist/index') }}" class="p-account__nav">訪れたスポット</a>
+            {{--  ticketsテーブルから引っ張ってくる  --}}
+            <a href="{{ route('account/setting') }}" class="p-account__nav">アカウント設定</a>
+            {{--  userテーブルから引っ張ってくる  --}}
         </div>
-        <button type="submit" class="c-btn c-btn--navy">ログアウト</button>
+        <a href="{{ route('welcome/index') }}"><button type="submit" class="c-btn c-btn--navy">ログアウト</button></a>
     </div>
 </body>
 

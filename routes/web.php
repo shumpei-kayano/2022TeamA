@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 //ログイン画面
-Route::get('welcome/index', 'PersonController@out');
+Route::get('welcome/index', 'PersonController@out')->name('welcome/index');
 
 //新規登録
 Route::get('person/add', 'PersonController@add');
@@ -31,13 +31,13 @@ Route::get('person/index', 'PersonController@home');
 Route::get('person/index', 'PersonController@good');
 
 //アカウント
-Route::get('account/index', 'PersonController@show');
+Route::get('account/index', 'PersonController@show')->name('account/index');
 // Route::get('account/index', 'PersonController@limit');
 // Route::get('account/set', 'AccountController@set');
 
 
 //アカウント設定
-Route::get('account/setting', 'AccountController@set');
+Route::get('account/setting', 'AccountController@set')->name('account/setting');
 
 //新規登録確認
 Route::get('person/addcheck', function () {
@@ -49,7 +49,7 @@ Route::get('person/addcheck', function () {
 Route::get('notice/index', 'NoticeController@show');
 
 //各店舗
-Route::get('tourist/index', 'AccountController@spot');
+Route::get('tourist/index', 'AccountController@spot')->name('tourist/index');
 
 //店舗詳細
 Route::get('store/index', 'AccountController@store');
@@ -60,16 +60,17 @@ Route::get('store/index', 'CouponController@store');
 Route::get('spot/index', 'CouponConttroller@spot');
 
 //クチコミ
+Route::get('account/review', 'AccountController@review')->name('account/review');
 Route::get('review/person', 'AccountController@update');
 // Route::get('review/person', 'AccountController@delete');
 // Route::get('review/person', 'AccountController@remove');
 
 //クチコミ編集
-Route::get('review/edit', 'AccountController@edit');
+Route::get('review/edit', 'AccountController@edit')->name('review/edit');
 
 //いいね一覧
-Route::get('review/good', 'AccountController@show');
-Route::get('review/good', 'AccountController@good');
+Route::get('review/good', 'AccountController@show')->name('review/good');
+// Route::get('review/good', 'AccountController@good');
 
 
 //ガチャ

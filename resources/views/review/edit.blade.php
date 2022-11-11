@@ -14,7 +14,7 @@
     @endcomponent
     <div class="c-container">
         <div class="c-header">
-            <a href="" class="c-back">戻る</a>
+            <a href="{{ route('account/review') }}" class="c-back">戻る</a>
             <h4>クチコミ編集</h4>
         </div>
         <section class="c-store__section--edit">

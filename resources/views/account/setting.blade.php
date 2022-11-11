@@ -14,7 +14,7 @@
     @endcomponent
     <div class="c-container">
         <div class="c-header">
-            <a href="" class="c-back">戻る</a>
+            <a href="{{ route('account/index') }}" class="c-back">戻る</a>
             <h4>アカウント設定</h4>
         </div>
         <div class="p-account__top--set">

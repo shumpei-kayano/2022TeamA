@@ -14,12 +14,13 @@
     @endcomponent
     <div class="c-container">
         <div class="c-header">
-            <a href="" class="c-back">戻る</a>
+            <a href="{{ route('account/index') }}" class="c-back">戻る</a>
             <h4>訪れたスポット</h4>
         </div>
         <p class="c-hukidashi__date--spot">
             2022/10/29
         </p>
+        {{--  各お店を押したら店舗詳細に飛ぶ。まだルート記述してないです。11/11。河野  --}}
         <div class="c-coupon__box--spot">
             <div class="c-modal__flex">
                 <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="クーポン"></p>

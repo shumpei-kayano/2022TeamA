@@ -14,7 +14,7 @@
     @endcomponent
     <div class="c-container">
         <div class="c-header">
-            <a href="" class="c-back">戻る</a>
+            <a href="{{ route('account/index') }}" class="c-back">戻る</a>
             <h4>投稿したクチコミ</h4>
         </div>
         <p class="c-hukidashi__date">
@@ -47,7 +47,9 @@
         </div>
         <div class="c-hukidashi__edit">
             <div class="c-hukidashi__edit_icon">
-                <img src="/images/pencil.png">編集
+                <a href="{{ route('review/edit') }}"><img src="/images/pencil.png">編集</a>
+                {{--  reviewsテーブルからデータを引っ張ってくる  --}}
+
             </div>
             <div class="c-hukidashi__delete_icon">
                 <img src="/images/gomibako.png">削除
@@ -82,7 +84,7 @@
         </div>
         <div class="c-hukidashi__edit">
             <div class="c-hukidashi__edit_icon">
-                <img src="/images/pencil.png">編集
+                <a href="{{ route('review/edit') }}"><img src="/images/pencil.png">編集</a>
             </div>
             <div class="c-hukidashi__delete_icon">
                 <img src="/images/gomibako.png">削除
