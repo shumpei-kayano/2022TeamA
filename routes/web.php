@@ -32,8 +32,12 @@ Route::get('person/add', 'PersonController@add');
 //ホーム
 Route::POST('person/index', 'PersonController@create');
 
+Route::get('person/index', 'PersonController@home');
+Route::get('person/index', 'PersonController@good');
+
 //アカウント
 Route::get('account/index', 'PersonController@show');
+Route::get('account/index', 'PersonController@limit');
 
 //アカウント設定
 Route::get('account/setting', 'AccountController@set');
@@ -52,26 +56,31 @@ Route::get('tourist/index', 'AccountController@spot');
 
 //店舗詳細
 Route::get('store/index', 'AccountController@store');
+Route::get('store/index', 'CouponController@store');
+
 
 //近所のおすすめスポット
-Route::get('spot/index', function () {
-    return view('spot.index');
-});
+Route::get('spot/index', 'CouponConttroller@spot');
 
 //クチコミ
 Route::get('review/person', 'AccountController@update');
+Route::get('review/person', 'AccountController@delete');
+Route::get('review/person', 'AccountController@remove');
 
 //クチコミ編集
 Route::get('review/edit', 'AccountController@edit');
 
 //いいね一覧
 Route::get('review/good', 'AccountController@show');
+Route::get('review/good', 'AccountController@good');
+
 
 //ガチャ
 Route::get('gacha/index', 'GachaController@see');
 
 //ガチャ演出
 Route::get('gacha/staging', 'GachaController@play');
+Route::get('gacha/staging', 'GachaController@stag');
 
 //ガチャエラー
 Route::get('gacha/error', function () {
@@ -80,6 +89,12 @@ Route::get('gacha/error', function () {
 
 //クーポン
 Route::get('coupon/index', 'GachaController@get');
+
+Route::get('coupon/index', 'CouponController@see');
+Route::get('coupon/index', 'CouponController@caution');
+Route::post('coupon/index', 'CouponController@use');
+Route::post('coupon/index', 'CouponController@review');
+
 
 //クーポン確認
 Route::get('coupon/confirmation', function () {
@@ -97,34 +112,33 @@ Route::get('coupon/used', function () {
 });
 
 //クチコミ投稿
-Route::get('post/index', function () {
-    return view('post.index');
-});
+Route::get('post/index', 'CouponController@view');
+Route::post('post/index', 'CouponController@post');
 
 //バッジ
-Route::get('badge/index', function () {
-    return view('badge.index');
-});
+Route::get('badge/index','BadgeController@see');
+
 
 //管理者ログイン
-Route::get('welcome/admin', function () {
-    return view('welcome.admin');
-});
+Route::get('welcome/admin', 'AdminController@watch');
+Route::get('welcome/admin', 'AdminController@in');
 
 //店舗情報管理
-Route::get('store/admin', function () {
-    return view('store.admin');
-});
+Route::get('store/admin', 'AdminController@enter');
+Route::get('store/admin', 'AdminController@show');
+Route::get('store/admin', 'AdminController@edit');
+Route::get('store/admin', 'AdminController@update');
 
 //クーポン管理
-Route::get('coupon/admin', function () {
-    return view('coupon.admin');
-});
+Route::get('coupon/admin', 'AdminController@look');
+Route::get('coupon/admin', 'AdminController@see');
+Route::get('coupon/admin', 'AdminController@rewrite');
+Route::get('coupon/admin', 'AdminController@set');
+Route::get('coupon/admin', 'AdminController@add');
+Route::get('coupon/admin', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin', function () {
-    return view('review.admin');
-});
+Route::get('review/admin','AdminContoroller@view');
 
 //モーダルテスト
 Route::get('modal', function () {
