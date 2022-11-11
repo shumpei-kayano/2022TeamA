@@ -6,6 +6,13 @@
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.25s $ease-in-sine;
+    &:hover {
+        filter: brightness(150%);
+        text-decoration: none;
+    }
 
     &--50p {
         width: 50%;

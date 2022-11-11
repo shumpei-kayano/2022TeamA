@@ -30,9 +30,7 @@
                     <p class="c-modal__title">ログインエラー</p>
                 @endslot
                 @slot('content')
-                    <div class="c-modal__flex__text">
-                        ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
-                    </div>
+                    ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
                 @endslot
                 @slot('button')
                     <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>

@@ -27,9 +27,7 @@
                             <p class="c-modal__title">制限回数オーバー</p>
                         @endslot
                         @slot('content')
-                            <div class="c-modal__flex__text">
-                                このエリアで回すことができるガチャの制限数を越えました。他のエリアでお試し下さい。
-                            </div>
+                            このエリアで回すことができるガチャの制限数を越えました。他のエリアでお試し下さい。
                         @endslot
                         @slot('button')
                             <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>

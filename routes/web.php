@@ -23,11 +23,6 @@ Route::get('welcome/index', function () {
     return view('welcome.index');
 });
 
-//ログインエラー
-Route::get('welcome/error', function () {
-    return view('welcome.error');
-});
-
 //新規登録
 Route::get('person/add', function () {
     return view('person.add');
@@ -97,11 +92,6 @@ Route::get('gacha/index', function () {
 //ガチャ演出
 Route::get('gacha/staging', function () {
     return view('gacha.staging');
-});
-
-//ガチャエラー
-Route::get('gacha/error', function () {
-    return view('gacha.error');
 });
 
 //クーポン

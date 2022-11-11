@@ -13,7 +13,6 @@
     <div class="c-container">
         <ul>
             <li><a href="/welcome/index" target="_blank">ログイン画面</a></li>
-            <li><a href="/welcome/error" target="_blank">ログインエラー</a></li>
             <li><a href="/person/add" target="_blank">新規登録</a></li>
             <li><a href="/person/addcheck" target="_blank">新規登録確認</a></li>
             <li><a href="/person/index" target="_blank">ホーム</a></li>
@@ -28,7 +27,6 @@
             <li><a href="/review/good" target="_blank">いいね一覧</a></li>
             <li><a href="/gacha/index" target="_blank">ガチャ</a></li>
             <li><a href="/gacha/staging" target="_blank">ガチャ演出</a></li>
-            <li><a href="/gacha/error" target="_blank">ガチャエラー</a></li>
             <li><a href="/coupon/index" target="_blank">クーポン</a></li>
             <li><a href="/coupon/confirmation" target="_blank">クーポン確認</a></li>
             <li><a href="/coupon/use" target="_blank">クーポン使用</a></li>

@@ -53,20 +53,33 @@
             <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
         </div>
     </div>
-    <div class="c-modal">
-        <div class="c-modal__box">
-            <p class="c-modal__top">この画面を店舗スタッフに提示してください。</p>
+    @component('components.modal')
+        @slot('title')
+            <p class="c-modal__title c-modal__title--pink">この画面を店舗スタッフに提示してください。
+            </p>
+        @endslot
+        @slot('content')
             <div class="c-modal__flex">
-                <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="獲得クーポン"></p>
-                <div class="c-modal__flex__text">
-                    <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
-                    <p class="c-modal__flex__store">the LOUNGE</p>
-                </div>
+                <p class="c-modal__flex__img">
+                    <img src="/images/coupon.jpg" alt="クーポン">
+                </p>
+
+                <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+
             </div>
-            <button type="submit" class="c-btn c-btn--navy">クチコミを書く</button>
-            <p class="c-modal__sineup"><a href="">後で書く</a></p>
-        </div>
-    </div>
+        @endslot
+        @slot('button')
+            <a type="submit" class="c-btn c-btn--navy u-margin-top--0">クチコミを書く</a>
+            <a href="">後で書く</a>
+        @endslot
+    @endcomponent
+    <script>
+        // モーダルオープン
+        const dialog = document.getElementById('dialog');
+        window.onload = function onLoad() {
+            dialog.showModal();
+        }
+    </script>
 </body>
 
 </html>

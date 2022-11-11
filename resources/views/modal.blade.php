@@ -16,8 +16,24 @@
         <a id="btn-open">モーダルを開く</a>
         <p><img src="/images/lunch.png" alt=""></p>
         @component('components.modal')
-            @slot('text')
-                aa
+            @slot('title')
+                <p class="c-modal__title c-modal__title--pink">クーポンゲット
+                    <small>有効期限：2022.10.30</small>
+                </p>
+            @endslot
+            @slot('content')
+                <div class="c-modal__flex">
+                    <p class="c-modal__flex__img">
+                        <img src="/images/coupon.jpg" alt="クーポン">
+                    </p>
+
+                    <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+
+                </div>
+            @endslot
+            @slot('button')
+                <a type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</a>
+                <a href="">店舗情報を見る</a>
             @endslot
         @endcomponent
     </div>

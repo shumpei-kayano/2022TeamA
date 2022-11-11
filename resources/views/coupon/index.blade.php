@@ -55,29 +55,29 @@
             <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
         </div>
     </div>
-    //確認画面
+
     @component('components.modal')
         @slot('title')
-            <p class="c-modal__top">本当に使用しますか</p>
-            <p class="c-modal__use">このクーポンは一回のみ使用できます。</p>
+            <p class="c-modal__title c-modal__title--pink">本当に使用しますか
+                <small>このクーポンは一回のみ使用できます。</small>
+            </p>
         @endslot
         @slot('content')
             <div class="c-modal__flex">
                 <p class="c-modal__flex__img">
                     <img src="/images/coupon.jpg" alt="クーポン">
                 </p>
-                <div class="c-modal__flex__text">
-                    <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
-                    <p class="c-modal__flex__store">the LOUNGE</p>
-                </div>
+
+                <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+
             </div>
         @endslot
         @slot('button')
             <button id="c-btn" type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポンを使う</button>
-            <p class="c-modal__sineup"><a href="">後で</a></p>
+            <a href="">後で</a>
         @endslot
     @endcomponent
-    //確認画面の表示
+
     <script>
         // このクーポンを使うボタンが押されたときの処理
         const dialog = document.getElementById('dialog');
@@ -89,29 +89,8 @@
             dialog.close();
         });
     </script>
-    //クーポン使用画面
-    @component('components.modal')
-        @slot('title')
-            <p class="c-modal__top">この画面を店舗スタッフに提示して下さい。</p>
-        @endslot
-        @slot('content')
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img">
-                    <img src="/images/coupon.jpg" alt="クーポン">
-                </p>
-                <div class="c-modal__flex__text">
-                    <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
-                    <p class="c-modal__flex__store">the LOUNGE</p>
-                </div>
-            </div>
-        @endslot
-        @slot('button')
-            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クチコミを書く</button>
-            <p class="c-modal__sineup"><a href="">後で書く</a></p>
-        @endslot
-    @endcomponent
 
-    //クーポン使用画面の表示
+
     <script>
         // クーポンを使うボタンが押されたときの処理
         const dialog = document.getElementById('dialog');
