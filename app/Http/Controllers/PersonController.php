@@ -16,7 +16,7 @@ class PersonController extends Controller
         
     }
     public function home(){
-        
+        return view('person.index');
     }
     public function good(){
         

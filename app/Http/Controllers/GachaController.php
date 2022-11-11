@@ -25,4 +25,8 @@ class GachaController extends Controller
     {
         return view('gacha.index');
     }
+    public function show()
+    {
+        return view('gacha.index');
+    }
 }

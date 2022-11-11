@@ -25,10 +25,10 @@ Route::get('welcome/index', 'PersonController@out')->name('welcome/index');
 Route::get('person/add', 'PersonController@add');
 
 //ホーム
-Route::POST('person/index', 'PersonController@create');
+// Route::POST('person/index', 'PersonController@create')->name('person/index');
 
-Route::get('person/index', 'PersonController@home');
-Route::get('person/index', 'PersonController@good');
+Route::get('person/index', 'PersonController@home')->name('person/home');
+// Route::get('person/index', 'PersonController@good');
 
 //アカウント
 Route::get('account/index', 'PersonController@show')->name('account/index');
@@ -74,8 +74,11 @@ Route::get('review/good', 'AccountController@show')->name('review/good');
 
 
 //ガチャ
-Route::get('gacha/index', 'GachaController@see');
-Route::get('gacha/view', 'GachaController@view');
+// Route::get('gacha/index', 'GachaController@see');
+// Route::get('gacha/view', 'GachaController@view');
+
+Route::get('gacha/index', 'GachaController@show')->name('gacha/index');
+
 
 
 //ガチャ演出
@@ -83,12 +86,15 @@ Route::get('gacha/staging', 'GachaController@play');
 Route::get('gacha/staging', 'GachaController@stag');
 
 //クーポン
-Route::get('coupon/index', 'GachaController@get');
+// Route::get('coupon/index', 'GachaController@get');
 
-Route::get('coupon/index', 'CouponController@see');
-Route::get('coupon/index', 'CouponController@caution');
-Route::post('coupon/index', 'CouponController@use');
-Route::post('coupon/index', 'CouponController@review');
+// Route::get('coupon/index', 'CouponController@see');
+// Route::get('coupon/index', 'CouponController@caution');
+// Route::post('coupon/index', 'CouponController@use');
+// Route::post('coupon/index', 'CouponController@review');
+
+Route::get('coupon/index', 'CouponController@show')->name('coupon/index');
+
 
 
 //クーポン確認
@@ -111,7 +117,7 @@ Route::get('post/index', 'CouponController@view');
 Route::post('post/index', 'CouponController@post');
 
 //バッジ
-Route::get('badge/index','BadgeController@see');
+Route::get('badge/index','BadgeController@see')->name('badge/index');
 
 
 //管理者ログイン
