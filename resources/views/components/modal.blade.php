@@ -6,4 +6,5 @@
     <div class="c-modal__button">
         {{ $button }}
     </div>
+
 </dialog>

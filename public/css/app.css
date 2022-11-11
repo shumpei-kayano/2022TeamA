@@ -40,6 +40,18 @@ dialog::backdrop {
   -webkit-backdrop-filter: blur(5px); /* Safari 用 */
 }
 
+/* 現れている最中と、消えている最中は、0.5秒 */
+.v-enter-active,
+.v-leave-active {
+  transition: 0.5s;
+}
+
+/* 現れる前の状態と、消えたときの状態は、透明度0で、下へ20移動*/
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+
 .c-container {
   padding: 16px 16px 64px;
   width: 100%;

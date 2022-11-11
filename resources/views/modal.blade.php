@@ -15,10 +15,18 @@
     <div class="c-container">
         <a id="btn-open">モーダルを開く</a>
         <p><img src="/images/lunch.png" alt=""></p>
+
         @component('components.modal')
             @slot('title')
-                <p class="c-modal__title c-modal__title--pink">クーポンゲット
-                    <small>有効期限：2022.10.30</small>
+                <p class="c-modal__title c-modal__title--pink">
+                    <transition>
+                        <span v-if="couponUsed" key="used">
+                            この画面を店舗スタッフに提示して下さい。
+                        </span>
+                        <span v-else key="use">
+                            本当に使用しますか<small>このクーポンは一回のみ使用できます。</small>
+                        </span>
+                    </transition>
                 </p>
             @endslot
             @slot('content')
@@ -32,11 +40,34 @@
                 </div>
             @endslot
             @slot('button')
-                <a type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</a>
-                <a href="">店舗情報を見る</a>
+                <transition>
+                    <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
+                        key="used">クチコミを書く</button>
+                    <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                        key="use">クーポンを使う</button>
+                </transition>
+                <transition>
+                    <a href="" v-if="couponUsed" key="used">後で書く</a>
+                    <a href="" v-else key="use">後で</a>
+                </transition>
             @endslot
         @endcomponent
+
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#dialog',
+            data: {
+                couponUsed: false
+            },
+            methods: {
+                useCoupon: function() {
+                    this.couponUsed = true
+                }
+            }
+        })
+    </script>
     <script>
         // 開くボタンが押されたときの処理
         const dialog = document.getElementById('dialog');
@@ -44,9 +75,9 @@
             dialog.showModal();
         });
         // OKが押されたときの処理
-        dialog.querySelector('.c-btn').addEventListener('click', () => {
+        /* dialog.querySelector('.c-btn').addEventListener('click', () => {
             dialog.close();
-        });
+        }); */
     </script>
 </body>
 
