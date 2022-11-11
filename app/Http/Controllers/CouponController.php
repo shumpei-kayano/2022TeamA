@@ -11,7 +11,7 @@ class CouponController extends Controller
     }
     public function see()
     {
-        return view('coupon/see');
+        return view('coupon.index');
     }
     public function caution()
     {
@@ -21,10 +21,10 @@ class CouponController extends Controller
     }
     public function review()
     {
-        return view('coupon/view');
+        return view('post.index');
     }
     public function show()
     {
-        return view('coupon/show');
+        return view('coupon.index');
     }
 }
