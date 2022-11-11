@@ -73,34 +73,44 @@
             </div>
         @endslot
         @slot('button')
-            <button id="c-btn" type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポンを使う</button>
-            <a href="">後で</a>
+            <transition>
+                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
+                    key="used">クチコミを書く</button>
+                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                    key="use">クーポンを使う</button>
+            </transition>
+            <transition>
+                <a href="" v-if="couponUsed" key="used">後で書く</a>
+                <a href="" v-else key="use">後で</a>
+            </transition>
         @endslot
     @endcomponent
 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
-        // このクーポンを使うボタンが押されたときの処理
+        new Vue({
+            el: '#dialog',
+            data: {
+                couponUsed: false
+            },
+            methods: {
+                useCoupon: function() {
+                    this.couponUsed = true
+                }
+            }
+        })
+    </script>
+    <script>
+        // 開くボタンが押されたときの処理
         const dialog = document.getElementById('dialog');
         document.getElementById('btn-open').addEventListener('click', (event) => {
             dialog.showModal();
         });
-        // 後で押されたときの処理
-        dialog.querySelector('.c-modal__sineup').addEventListener('click', () => {
+        // OKが押されたときの処理
+        /* dialog.querySelector('.c-btn').addEventListener('click', () => {
             dialog.close();
-        });
-    </script>
-
-
-    <script>
-        // クーポンを使うボタンが押されたときの処理
-        const dialog = document.getElementById('dialog');
-        document.getElementById('c-btn').addEventListener('click', (event) => {
-            dialog.showModal();
-        });
-        // 後で書くが押されたときの処理
-        dialog.querySelector('.c-modal__sineup').addEventListener('click', () => {
-            dialog.close();
-        });
+        }); */
     </script>
 </body>
 
