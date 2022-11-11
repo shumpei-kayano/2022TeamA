@@ -58,8 +58,15 @@
 
     @component('components.modal')
         @slot('title')
-            <p class="c-modal__title c-modal__title--pink">本当に使用しますか
-                <small>このクーポンは一回のみ使用できます。</small>
+            <p class="c-modal__title c-modal__title--pink">
+                <transition>
+                    <span v-if="couponUsed" key="used">
+                        この画面を店舗スタッフに提示して下さい。
+                    </span>
+                    <span v-else key="use">
+                        本当に使用しますか<small>このクーポンは一回のみ使用できます。</small>
+                    </span>
+                </transition>
             </p>
         @endslot
         @slot('content')
