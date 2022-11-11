@@ -10,7 +10,7 @@ class PersonController extends Controller
 
     }
     public function add(){
-        
+        return view('person/add');
     }
     public function create(){
         
@@ -22,10 +22,13 @@ class PersonController extends Controller
         
     }
     public function show(){
-        
+        return view('person/show');
     }
     public function limit(){
         
+    }
+    public function see(){
+        return view('person/see');
     }
 
 }
