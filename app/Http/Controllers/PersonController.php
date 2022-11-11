@@ -27,8 +27,8 @@ class PersonController extends Controller
     public function limit(){
         
     }
-    // public function see(){
-    //     return view('person.see');
-    // }
+    public function see(){
+        return view('person.index');
+    }
 
 }
