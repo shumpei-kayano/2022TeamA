@@ -13,13 +13,14 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <div class="c-header__bell">
-            <img src="/images/bell.png">
-            <div class="c-header__notice">
-                1
+        <a href="{{ route('notice/index') }}">
+            <div class="c-header__bell">
+                <img src="/images/bell.png">
+                <div class="c-header__notice">
+                    1
+                </div>
             </div>
-
-        </div>
+        </a>
         <p class="c-hukidashi__date">
             2022/10/29
         </p>

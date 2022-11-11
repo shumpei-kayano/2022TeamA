@@ -46,7 +46,7 @@ Route::get('person/addcheck', function () {
 
 
 //お知らせ
-Route::get('notice/index', 'NoticeController@show');
+Route::get('notice/index', 'NoticeController@show')->name('notice/index');
 
 //各店舗
 Route::get('tourist/index', 'AccountController@spot')->name('tourist/index');
