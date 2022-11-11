@@ -27,4 +27,12 @@ class CouponController extends Controller
     {
         return view('coupon.index');
     }
+    public function store()
+    {
+        return view('store.index');
+    }
+    public function used()
+    {
+        return view('coupon.used');
+    }
 }

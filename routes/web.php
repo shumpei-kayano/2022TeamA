@@ -52,8 +52,8 @@ Route::get('notice/index', 'NoticeController@show')->name('notice/index');
 Route::get('tourist/index', 'AccountController@spot')->name('tourist/index');
 
 //店舗詳細
-Route::get('store/index', 'AccountController@store');
-Route::get('store/index', 'CouponController@store');
+// Route::get('store/index', 'AccountController@store');
+Route::get('store/index', 'CouponController@store')->name('store/index');
 
 
 //近所のおすすめスポット
@@ -108,9 +108,7 @@ Route::get('coupon/use', function () {
 });
 
 //クーポン使用済み
-Route::get('coupon/used', function () {
-    return view('coupon.used');
-});
+Route::get('coupon/used','CouponController@used')->name('coupon/used');
 
 //クチコミ投稿
 Route::get('post/index', 'CouponController@view');

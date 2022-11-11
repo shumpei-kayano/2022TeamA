@@ -17,8 +17,8 @@
     <div class="c-container">
         <div class="c-coupon">
             <div class="c-btn--tab">
-                <a class="is-active" href="">使用可能</a>
-                <a href="">使用済み</a>
+                <a class="is-active" href="{{ route('coupon/index') }}">使用可能</a>
+                <a href="{{ route('coupon/used') }}">使用済み</a>
             </div>
             <div class="c-coupon__box">
                 <p class="c-coupon__use">有効期限：2022.10.30</p>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="c-coupon__top">
                     <p class="c-coupon__address">大分市別府市鉄輪499-18</p>
-                    <a class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+                    <a href="{{ route('store/index') }}" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
                 </div>
                 <button id="btn-open" type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
             </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="c-coupon__top">
                 <p class="c-coupon__address">大分県臼杵市市浜1129-3</p>
-                <a class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+                <a href="{{ route('store/index') }}"class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
             </div>
             <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
         </div>

@@ -15,8 +15,8 @@
     <div class="c-container">
         <div class="c-coupon">
             <div class="c-btn--tab">
-                <a href="">使用可能</a>
-                <a class="is-active" href="">使用済み</a>
+                <a href="{{ route('coupon/index') }}">使用可能</a>
+                <a class="is-active" href="{{ route('coupon/used') }}">使用済み</a>
             </div>
             <div class="c-coupon__box">
                 <div class="c-coupon__top">
