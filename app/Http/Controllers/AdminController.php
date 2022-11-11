@@ -7,43 +7,43 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function watch(){
-        return view('admin/watch');
+        return view('welcome.admin');
     }
     public function in(){
-        return view('admin/in');
+        return view('welcome.admin');
     }
     public function enter(){
         
     }
     public function show(){
-        return view('admin/show');
+        return view('store.admin');
     }
     public function edit(){
-        return view('admin/edit');
+        return view('store.admin');
     }
     public function update(){
         
     }
     public function look(){
-        return view('admin/look');
+        return view('coupon.admin');
     }
     public function see(){
-        return view('admin/see');
+        return view('coupon.admin');
     }
     public function rewrite(){
-        return view('admin/rewrite');
+        return view('coupon.admin');
     }
     public function set(){
         
     }
     public function add(){
-        return view('admin/add');
+        return view('coupon.admin');
     }
     public function create(){
         
     }
     public function view(){
-        return view('admin/view');
+        return view('review.admin');
     }
 
 }
