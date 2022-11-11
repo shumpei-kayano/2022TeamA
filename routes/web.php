@@ -125,21 +125,22 @@ Route::get('welcome/admin', 'AdminController@watch');
 Route::get('welcome/admin', 'AdminController@in');
 
 //店舗情報管理
-Route::get('store/admin', 'AdminController@enter');
-Route::get('store/admin', 'AdminController@show');
-Route::get('store/admin', 'AdminController@edit');
-Route::get('store/admin', 'AdminController@update');
+
+Route::get('store/admin', 'AdminController@show')->name('store/admin');
+// Route::get('store/admin', 'AdminController@edit');
+// Route::get('store/admin', 'AdminController@update');
+// Route::get('store/admin', 'AdminController@enter');
 
 //クーポン管理
-Route::get('coupon/admin', 'AdminController@look');
-Route::get('coupon/admin', 'AdminController@see');
-Route::get('coupon/admin', 'AdminController@rewrite');
-Route::get('coupon/admin', 'AdminController@set');
-Route::get('coupon/admin', 'AdminController@add');
-Route::get('coupon/admin', 'AdminController@create');
+Route::get('coupon/admin', 'AdminController@see')->name('coupon/admin');
+// Route::get('coupon/admin', 'AdminController@look');
+// Route::get('coupon/admin', 'AdminController@rewrite');
+// Route::get('coupon/admin', 'AdminController@set');
+// Route::get('coupon/admin', 'AdminController@add');
+// Route::get('coupon/admin', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin','AdminContoroller@view');
+Route::get('review/admin','AdminController@view')->name('review/admin');
 
 //モーダルテスト
 Route::get('modal', function () {
