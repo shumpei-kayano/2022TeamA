@@ -33,7 +33,7 @@ Route::get('person/index', 'PersonController@good');
 //アカウント
 Route::get('account/index', 'PersonController@show');
 Route::get('account/index', 'PersonController@limit');
-// Route::get('account/set', 'AccountController@set');
+Route::get('account/set', 'AccountController@set');
 
 
 //アカウント設定
@@ -61,8 +61,8 @@ Route::get('spot/index', 'CouponConttroller@spot');
 
 //クチコミ
 Route::get('review/person', 'AccountController@update');
-Route::get('review/person', 'AccountController@delete');
-Route::get('review/person', 'AccountController@remove');
+// Route::get('review/person', 'AccountController@delete');
+// Route::get('review/person', 'AccountController@remove');
 
 //クチコミ編集
 Route::get('review/edit', 'AccountController@edit');
