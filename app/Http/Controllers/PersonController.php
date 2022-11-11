@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class PersonController extends Controller
 {
     public function out(){
-
+        return view('welcome.index');
     }
     public function add(){
-        return view('person/add');
+        return view('person.add');
     }
     public function create(){
         
@@ -27,8 +27,8 @@ class PersonController extends Controller
     public function limit(){
         
     }
-    public function see(){
-        return view('person.see');
-    }
+    // public function see(){
+    //     return view('person.see');
+    // }
 
 }

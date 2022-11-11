@@ -32,8 +32,8 @@ Route::get('person/index', 'PersonController@good');
 
 //アカウント
 Route::get('account/index', 'PersonController@show');
-Route::get('account/index', 'PersonController@limit');
-Route::get('account/set', 'AccountController@set');
+// Route::get('account/index', 'PersonController@limit');
+// Route::get('account/set', 'AccountController@set');
 
 
 //アカウント設定
