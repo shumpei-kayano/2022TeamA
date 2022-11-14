@@ -38,6 +38,7 @@
             <li><a href="/coupon/admin" target="_blank">クーポン管理</a></li>
             <li><a href="/review/admin" target="_blank">クチコミ管理</a></li>
             <li><a href="/modal" target="_blank">モーダルテスト</a></li>
+            <li><a href="/map" target="_blank">Google Mapテスト</a></li>
         </ul>
     </div>
 </body>

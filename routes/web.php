@@ -146,3 +146,8 @@ Route::get('review/admin', 'AdminController@view')->name('review/admin');
 Route::get('modal', function () {
     return view('modal');
 });
+
+//地図テスト
+Route::get('map', function () {
+    return view('map');
+});
