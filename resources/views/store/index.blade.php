@@ -16,7 +16,9 @@
                 <a href="" class="c-back">クーポン一覧</a>
             </div>
             <p class="c-store u-magin--top--0"><img src="/images/Interior.jpg" alt="内装"></p>
-            <p class="c-store__name">the LOUNGE</p>
+            @foreach ($items as $item)
+                <p class="c-store__name">{{ $item->store_name }}</p>
+            @endforeach
             <div class="p-store__star">
                 <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">

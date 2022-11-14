@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Store;
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
@@ -29,7 +30,8 @@ class CouponController extends Controller
     }
     public function store()
     {
-        return view('store.index');
+        $items = Store::all();
+        return view('store.index', ['items' => $items]);
     }
     public function used()
     {
