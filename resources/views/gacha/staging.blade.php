@@ -45,11 +45,39 @@
         @endslot
     @endcomponent
     <script>
+        function gachaRandom() {
+            let num = Math.floor(Math.random() * 5) + 1;
+            let gachaName = "ガチャ"
+            switch (num) {
+                case 1:
+                    gachaName = "ガチャ1が当たりました";
+                    break;
+                case 2:
+                    gachaName = "ガチャ2が当たりました";
+                    break;
+                case 3:
+                    gachaName = "ガチャ3が当たりました";
+                    break;
+                case 4:
+                    gachaName = "ガチャ4が当たりました";
+                    break;
+                case 5:
+                    gachaName = "ガチャ5が当たりました";
+                    break;
+                default:
+                    gachaName = "エラーが出ました";
+
+            }
+            alert(gachaName);
+        }
+
         //  映像終了後にモーダルオープン
         const video = document.querySelector('video');
 
         video.addEventListener('ended', (event) => {
-            dialog.showModal();
+            //dialog.showModal();
+            gachaRandom();
+
         });
     </script>
 </body>
