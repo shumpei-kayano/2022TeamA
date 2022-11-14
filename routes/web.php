@@ -151,3 +151,6 @@ Route::get('modal', function () {
 Route::get('map', function () {
     return view('map');
 });
+//セッションテスト
+Route::get('SessionTest','HelloController@ses_get');
+Route::post('SessionTest','HelloController@ses_put');
