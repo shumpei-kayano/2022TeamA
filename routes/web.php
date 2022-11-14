@@ -108,14 +108,16 @@ Route::get('coupon/use', function () {
 });
 
 //クーポン使用済み
-Route::get('coupon/used','CouponController@used')->name('coupon/used');
+Route::get('coupon/used', 'CouponController@used')->name('coupon/used');
 
 //クチコミ投稿
-Route::get('post/index', 'CouponController@view');
-Route::post('post/index', 'CouponController@post');
+// Route::get('post/index', 'CouponController@view');
+// Route::post('post/index', 'CouponController@post');
+Route::get('post/index', 'CouponController@edit')->name('post/index');
+
 
 //バッジ
-Route::get('badge/index','BadgeController@see')->name('badge/index');
+Route::get('badge/index', 'BadgeController@see')->name('badge/index');
 
 
 //管理者ログイン
@@ -138,7 +140,7 @@ Route::get('coupon/admin', 'AdminController@see')->name('coupon/admin');
 // Route::get('coupon/admin', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin','AdminController@view')->name('review/admin');
+Route::get('review/admin', 'AdminController@view')->name('review/admin');
 
 //モーダルテスト
 Route::get('modal', function () {

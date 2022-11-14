@@ -21,7 +21,7 @@
             <div class="c-coupon__box">
                 <div class="c-coupon__top">
                     <p class="c-coupon__use">2022.7.15に使用済み</p>
-                    <a class="c-btn c-btn--navy c-btn--small">クチコミを書く</a>
+                    <a class="c-btn c-btn--navy c-btn--small" href="{{ route('post/index') }}">クチコミを書く</a>
                 </div>
                 <div class="c-modal__flex">
                     <p class="c-modal__flex__img"><img src="/images/Beer.jpg" alt="生ビール"></p>

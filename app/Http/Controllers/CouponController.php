@@ -35,4 +35,8 @@ class CouponController extends Controller
     {
         return view('coupon.used');
     }
+    public function edit()
+    {
+        return view('post.index');
+    }
 }
