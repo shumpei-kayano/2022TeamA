@@ -18,6 +18,8 @@
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
         </div>
+        <p>緯度：<span id="latitude"></span><span>度</span></p>
+        <p>経度：<span id="longitude"></span><span>度</span></p>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&callback=initMap" async
         defer></script>
@@ -35,6 +37,8 @@
                     position: latlng, //マーカーの位置（必須）
                     map: map //マーカーを表示する地図
                 });
+                document.getElementById("latitude").innerHTML = lat;
+                document.getElementById("longitude").innerHTML = lng;
             }
 
             function fail(error) {
