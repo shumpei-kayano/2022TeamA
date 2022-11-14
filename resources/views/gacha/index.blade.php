@@ -21,7 +21,10 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="p-gacha__handle p-gacha__handle--slideup">
                     <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
-                    <p class="p-gacha__mawasu"><img src="/images/turn.png" alt="ガチャ回す"></p>
+                    <p class="p-gacha__mawasu"><a href="{{ route('gacha/staging') }}"><img src="/images/turn.png"
+                                alt="ガチャ回す"></a>
+
+                    </p>
                     @component('components.modal')
                         @slot('title')
                             <p class="c-modal__title">制限回数オーバー</p>

@@ -82,8 +82,8 @@ Route::get('gacha/index', 'GachaController@show')->name('gacha/index');
 
 
 //ガチャ演出
-Route::get('gacha/staging', 'GachaController@play');
-Route::get('gacha/staging', 'GachaController@stag');
+Route::get('gacha/staging', 'GachaController@play')->name('gacha/staging');
+// Route::get('gacha/staging', 'GachaController@stag');
 
 //クーポン
 // Route::get('coupon/index', 'GachaController@get');

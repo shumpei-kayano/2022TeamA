@@ -12,6 +12,7 @@ class GachaController extends Controller
 
     public function play()
     {
+        return view('gacha.staging');
     }
 
     public function stag()
