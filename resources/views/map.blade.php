@@ -13,23 +13,23 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <div class="p-gacha__map" id="googleMap">{{-- <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6674.726977339957!2d131.6073871096625!3d33.23077951304794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1667368193255!5m2!1sja!2sjp"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+        <div class="p-gacha__map" id="googleMap">
+            {{-- ここに地図が入る --}}
         </div>
-        <p>緯度：<span id="latitude"></span><span>度</span></p>
-        <p>経度：<span id="longitude"></span><span>度</span></p>
-        <p>あなたがいるのは「<span id="currentArea">・・・</span><span>」です。</span></p>
+        <p id="latlng"></p>
+        <p id="res"></p>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&callback=initMap" async
         defer></script>
+
     <script>
         function initMap() {
+
             function success(pos) {
+
                 var lat = pos.coords.latitude;
                 var lng = pos.coords.longitude;
-                var latlng = new google.maps.LatLng(lat, lng); //中心の緯度, 経度
+                var latlng = new google.maps.LatLng(lat, lng);
                 var map = new google.maps.Map(document.getElementById('googleMap'), {
                     zoom: 17,
                     center: latlng
@@ -38,17 +38,48 @@
                     position: latlng, //マーカーの位置（必須）
                     map: map //マーカーを表示する地図
                 });
-                document.getElementById("latitude").innerHTML = lat;
-                document.getElementById("longitude").innerHTML = lng;
+                document.getElementById("latlng").innerHTML = latlng;
+                //
+                var polArray = [{
+                        lat: 33.23498,
+                        lng: 131.60622
+                    },
+                    {
+                        lat: 33.23334,
+                        lng: 131.60942
+                    },
+
+
+                    {
+                        lat: 33.2307,
+                        lng: 131.60731
+                    },
+                    {
+                        lat: 33.23227,
+                        lng: 131.6045
+                    },
+                ];
+                var polygonObj = new google.maps.Polygon({
+                    paths: polArray,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.5,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.25,
+                    map: map
+                });
+                var res = google.maps.geometry.poly.containsLocation(latlng, polygonObj);
+                var msg = "";
+                if (res) {
+                    msg = "エリア「大原周辺」範囲内にいます。"
+                } else {
+                    msg = "エリアの範囲外にいます。"
+                }
+                document.getElementById("res").innerHTML = msg;
             }
 
             function fail(error) {
                 alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
-                var latlng = new google.maps.LatLng(35.6812405, 139.7649361); //東京駅
-                var map = new google.maps.Map(document.getElementById('maps'), {
-                    zoom: 10,
-                    center: latlng
-                });
             }
             navigator.geolocation.getCurrentPosition(success, fail);
         }
