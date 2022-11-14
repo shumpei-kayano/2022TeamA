@@ -20,6 +20,7 @@
         </div>
         <p>緯度：<span id="latitude"></span><span>度</span></p>
         <p>経度：<span id="longitude"></span><span>度</span></p>
+        <p>あなたがいるのは「<span id="currentArea">・・・</span><span>」です。</span></p>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&callback=initMap" async
         defer></script>
