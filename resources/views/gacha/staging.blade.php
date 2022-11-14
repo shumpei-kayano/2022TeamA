@@ -39,8 +39,9 @@
             </div>
         @endslot
         @slot('button')
-            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button>
-            <a href="">店舗詳細を見る</a>
+            <a href="{{ route('coupon/index') }}">
+                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
         @endslot
     @endcomponent
     <script>
