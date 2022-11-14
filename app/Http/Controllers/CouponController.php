@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Store;
+use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CouponController extends Controller
 {
@@ -26,7 +28,8 @@ class CouponController extends Controller
     }
     public function show()
     {
-        return view('coupon.index');
+        $stores = DB::table('stores')->get();
+        return view('coupon.index', compact('stores'));
     }
     public function store()
     {
