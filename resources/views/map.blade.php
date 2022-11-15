@@ -19,8 +19,10 @@
         <p id="latlng"></p>
         <p id="res"></p>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&callback=initMap" async
-        defer></script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&callback=initMap&libraries=geometry"
+        async defer></script>
 
     <script>
         function initMap() {
@@ -30,6 +32,7 @@
                 var lat = pos.coords.latitude;
                 var lng = pos.coords.longitude;
                 var latlng = new google.maps.LatLng(lat, lng);
+
                 var map = new google.maps.Map(document.getElementById('googleMap'), {
                     zoom: 17,
                     center: latlng
@@ -57,7 +60,7 @@
                     {
                         lat: 33.23227,
                         lng: 131.6045
-                    },
+                    }
                 ];
                 var polygonObj = new google.maps.Polygon({
                     paths: polArray,
@@ -68,8 +71,9 @@
                     fillOpacity: 0.25,
                     map: map
                 });
-                var res = google.maps.geometry.poly.containsLocation(latlng, polygonObj);
+
                 var msg = "";
+                var res = google.maps.geometry.poly.containsLocation(latlng, polygonObj);
                 if (res) {
                     msg = "エリア「大原周辺」範囲内にいます。"
                 } else {
