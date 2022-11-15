@@ -16,77 +16,103 @@
         <div class="p-gacha__map" id="googleMap">
             {{-- ここに地図が入る --}}
         </div>
+        <button id="move">マーカー移動</button>
         <p id="latlng"></p>
         <p id="res"></p>
     </div>
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&callback=initMap&libraries=geometry"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&libraries=geometry"
         async defer></script>
 
     <script>
-        function initMap() {
+        function success(pos) {
+            var map;
+            var marker;
+            var polygonObj;
+            var latlng;
+            var polArray = [{
+                    lat: 33.23498,
+                    lng: 131.60622
+                },
+                {
+                    lat: 33.23334,
+                    lng: 131.60942
+                },
 
-            function success(pos) {
 
+                {
+                    lat: 33.2307,
+                    lng: 131.60731
+                },
+                {
+                    lat: 33.23227,
+                    lng: 131.6045
+                }
+            ];
+            //初期化
+            function initialize() {
                 var lat = pos.coords.latitude;
                 var lng = pos.coords.longitude;
-                var latlng = new google.maps.LatLng(lat, lng);
-
-                var map = new google.maps.Map(document.getElementById('googleMap'), {
+                latlng = new google.maps.LatLng(lat, lng);
+                var options = {
                     zoom: 17,
                     center: latlng
-                });
-                var marker = new google.maps.Marker({
-                    position: latlng, //マーカーの位置（必須）
-                    map: map //マーカーを表示する地図
-                });
-                document.getElementById("latlng").innerHTML = latlng;
-                //
-                var polArray = [{
-                        lat: 33.23498,
-                        lng: 131.60622
-                    },
-                    {
-                        lat: 33.23334,
-                        lng: 131.60942
-                    },
-
-
-                    {
-                        lat: 33.2307,
-                        lng: 131.60731
-                    },
-                    {
-                        lat: 33.23227,
-                        lng: 131.6045
-                    }
-                ];
-                var polygonObj = new google.maps.Polygon({
+                };
+                map = new google.maps.Map(document.getElementById("googleMap"), options);
+                addPolygon();
+                addMarker(latlng);
+            }
+            //ポリゴン追加
+            function addPolygon() {
+                polygonObj = new google.maps.Polygon({
                     paths: polArray,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.5,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 0.8,
                     strokeWeight: 2,
-                    fillColor: '#FF0000',
+                    fillColor: "#FF0000",
                     fillOpacity: 0.25,
                     map: map
                 });
+            }
+            //マーカー移動
+            function addMarker(pos) {
 
-                var msg = "";
-                var res = google.maps.geometry.poly.containsLocation(latlng, polygonObj);
+                latlng = new google.maps.LatLng(pos.lat, pos.lng);
+                var res = google.maps.geometry.poly.containsLocation(pos, polygonObj);
+                console.log(res);
                 if (res) {
                     msg = "エリア「大原周辺」範囲内にいます。"
                 } else {
                     msg = "エリアの範囲外にいます。"
                 }
-                document.getElementById("res").innerHTML = msg;
+                document.getElementById("latlng").innerHTML = latlng;
+                document.getElementById("res").innerText = msg;
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                });
+
             }
 
-            function fail(error) {
-                alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
+            function moveMarker(callback) {
+                marker.setMap(null);
+                callback({
+                    lat: 33.229498,
+                    lng: 131.606412
+                });
             }
-            navigator.geolocation.getCurrentPosition(success, fail);
+            initialize();
+            document.getElementById('move').addEventListener('click', (event) => {
+                moveMarker(addMarker);
+            });
+
         }
+
+        function fail(error) {
+            alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, fail);
     </script>
 </body>
 
