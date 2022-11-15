@@ -154,3 +154,7 @@ Route::get('map', function () {
 //セッションテスト
 Route::get('SessionTest','HelloController@ses_get');
 Route::post('SessionTest','HelloController@ses_put');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
