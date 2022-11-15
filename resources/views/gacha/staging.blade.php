@@ -22,7 +22,7 @@
 
         </div>
     </div>
-    @component('components.modal')
+    {{--  @component('components.modal')
         @slot('title')
             <p class="c-modal__title c-modal__title--pink">クーポンゲット
                 <small>有効期限：2022.10.30</small>
@@ -43,43 +43,140 @@
                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
             <a href="{{ route('store/index') }}">店舗詳細を見る</a>
         @endslot
-    @endcomponent
-    <script>
-        function gachaRandom() {
-            let num = Math.floor(Math.random() * 5) + 1;
-            let gachaName = "ガチャ"
-            switch (num) {
-                case 1:
-                    gachaName = "ガチャ1が当たりました";
-                    break;
-                case 2:
-                    gachaName = "ガチャ2が当たりました";
-                    break;
-                case 3:
-                    gachaName = "ガチャ3が当たりました";
-                    break;
-                case 4:
-                    gachaName = "ガチャ4が当たりました";
-                    break;
-                case 5:
-                    gachaName = "ガチャ5が当たりました";
-                    break;
-                default:
-                    gachaName = "エラーが出ました";
+    @endcomponent  --}}
 
-            }
-            alert(gachaName);
-        }
+    <dialog id="dialog1" class="c-modal__box">
+        <p class="c-modal__title c-modal__title--pink">1が当たりました
+            <small>有効期限：2022.10.30</small>
+        </p>
+        <div class="c-modal__content">
+            <div class="c-modal__flex">
+                <p class="c-modal__flex__img">
+                    <img src="/images/coupon.jpg" alt="クーポン">
+                </p>
+                <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+            </div>
+        </div>
+        <div class="c-modal__button">
+            <a href="{{ route('coupon/index') }}">
+                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
+        </div>
+        //ダイアログ2
+        <dialog id="dialog2" class="c-modal__box">
+            <p class="c-modal__title c-modal__title--pink">2が当たりました
+                <small>有効期限：2022.10.30</small>
+            </p>
+            <div class="c-modal__content">
+                <div class="c-modal__flex">
+                    <p class="c-modal__flex__img">
+                        <img src="/images/coupon.jpg" alt="クーポン">
+                    </p>
+                    <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+                </div>
+            </div>
+            <div class="c-modal__button">
+                <a href="{{ route('coupon/index') }}">
+                    <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+                <a href="{{ route('store/index') }}">店舗詳細を見る</a>
+            </div>
+            //ダイアログ3
+            <dialog id="dialog3" class="c-modal__box">
+                <p class="c-modal__title c-modal__title--pink">3が当たりました
+                    <small>有効期限：2022.10.30</small>
+                </p>
+                <div class="c-modal__content">
+                    <div class="c-modal__flex">
+                        <p class="c-modal__flex__img">
+                            <img src="/images/coupon.jpg" alt="クーポン">
+                        </p>
+                        <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+                    </div>
+                </div>
+                <div class="c-modal__button">
+                    <a href="{{ route('coupon/index') }}">
+                        <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+                    <a href="{{ route('store/index') }}">店舗詳細を見る</a>
+                </div>
+                //ダイアログ4
+                <dialog id="dialog4" class="c-modal__box">
+                    <p class="c-modal__title c-modal__title--pink">4が当たりました
+                        <small>有効期限：2022.10.30</small>
+                    </p>
+                    <div class="c-modal__content">
+                        <div class="c-modal__flex">
+                            <p class="c-modal__flex__img">
+                                <img src="/images/coupon.jpg" alt="クーポン">
+                            </p>
+                            <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+                        </div>
+                    </div>
+                    <div class="c-modal__button">
+                        <a href="{{ route('coupon/index') }}">
+                            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+                        <a href="{{ route('store/index') }}">店舗詳細を見る</a>
+                    </div>
+                    //ダイアログ5
+                    <dialog id="dialog5" class="c-modal__box">
+                        <p class="c-modal__title c-modal__title--pink">5が当たりました
+                            <small>有効期限：2022.10.30</small>
+                        </p>
+                        <div class="c-modal__content">
+                            <div class="c-modal__flex">
+                                <p class="c-modal__flex__img">
+                                    <img src="/images/coupon.jpg" alt="クーポン">
+                                </p>
+                                <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+                            </div>
+                        </div>
+                        <div class="c-modal__button">
+                            <a href="{{ route('coupon/index') }}">
+                                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+                            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
+                        </div>
 
-        //  映像終了後にモーダルオープン
-        const video = document.querySelector('video');
 
-        video.addEventListener('ended', (event) => {
-            //dialog.showModal();
-            gachaRandom();
+                        <script>
+                            function gachaRandom() {
+                                let num = Math.floor(Math.random() * 5) + 1;
+                                let gachaName = "ガチャ"
+                                var dialog1 = document.getElementById('dialog1');
+                                var dialog2 = document.getElementById('dialog2');
+                                var dialog3 = document.getElementById('dialog3');
+                                var dialog4 = document.getElementById('dialog4');
+                                var dialog5 = document.getElementById('dialog5');
+                                switch (num) {
+                                    case 1:
+                                        dialog1.showModal();
+                                        break;
+                                    case 2:
+                                        dialog2.showModal();
+                                        break;
+                                    case 3:
+                                        dialog3.showModal();
+                                        break;
+                                    case 4:
+                                        dialog4.showModal();
+                                        break;
+                                    case 5:
+                                        dialog5.showModal();
+                                        break;
+                                    default:
+                                        gachaName = "エラーが出ました";
 
-        });
-    </script>
+                                }
+                                //alert(gachaName);
+                            }
+
+                            //  映像終了後にモーダルオープン
+                            const video = document.querySelector('video');
+
+                            video.addEventListener('ended', (event) => {
+
+                                gachaRandom();
+
+                            });
+                        </script>
 </body>
 
 </html>
