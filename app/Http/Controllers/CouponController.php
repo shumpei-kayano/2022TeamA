@@ -28,8 +28,10 @@ class CouponController extends Controller
     }
     public function show()
     {
-        $stores = DB::table('stores')->get();
-        return view('coupon.index', compact('stores'));
+        // $stores = DB::table('stores')->get();
+        // return view('coupon.index', compact('stores'));
+        $tickets=Ticket::where('user_id','=','2')->get();
+        return view('coupon.index', ['tickets'=>$tickets]);
     }
     public function store()
     {

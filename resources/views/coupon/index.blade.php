@@ -27,11 +27,9 @@
                         <img src="/images/coupon.jpg" alt="クーポン">
                     </p>
                     <div class="c-modal__flex__text">
-                        <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
-                        @foreach ($stores as $store)
-                            {{-- <option value="{{ $store->id }}"> --}}
-                            <p class="c-modal__flex__store">{{ $store->store_name }}</p>
-                            {{-- </option> --}}
+                        @foreach ($tickets as $ticket)
+                            <p class="c-modal__flex__coupon">{{ $ticket->coupon->coupon_name }}</p>
+                            <p class="c-modal__flex__store"> {{ $ticket->store->store_name }}</p>
                         @endforeach
                     </div>
                 </div>
