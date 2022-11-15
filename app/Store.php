@@ -13,4 +13,7 @@ class Store extends Model
     public function tickets(){
         return $this->hasmany('App\Ticket');
     }
+    public function coupons(){
+        return $this->hasmany('App\Coupon');
+    }
 }
