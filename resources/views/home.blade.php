@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -23,9 +25,10 @@
                     <div class="p-add__text">ようこそ！<br>新規登録が完了しました！</div>
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="c-btn c-btn--navy">
-                                {{ __('ホーム画面へ') }}
-                            </button>
+                            <a href="{{ route('person/home') }}">
+                                <button type="submit" class="c-btn c-btn--navy">
+                                    {{ __('ホーム画面へ') }}
+                                </button></a>
                         </div>
                     </div>
                 </div>
