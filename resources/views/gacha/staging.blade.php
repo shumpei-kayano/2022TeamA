@@ -26,7 +26,7 @@
     {{--  ダイアログ1  --}}
     <dialog id="dialog" class="c-modal__box">
         <p class="c-modal__title c-modal__title--pink">クーポンが当たりました
-            <small> 有効期限有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
+            <small> 有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
         </p>
         <div class="c-modal__content">
             <div class="c-modal__flex">
@@ -45,7 +45,7 @@
         <div class="c-modal__button">
             <a href="{{ route('coupon/index') }}">
                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
+            <a href="{{ route('store/index', ['id' => $coupons->store_id]) }}">店舗詳細を見る</a>
         </div>
     </dialog>
     {{--  ダイアログ2  --}}

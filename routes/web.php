@@ -53,7 +53,7 @@ Route::get('tourist/index', 'AccountController@spot')->name('tourist/index');
 
 //店舗詳細
 // Route::get('store/index', 'AccountController@store');
-Route::get('store/index', 'CouponController@store')->name('store/index');
+Route::get('store/index/{id}', 'CouponController@store')->name('store/index');
 
 
 //近所のおすすめスポット

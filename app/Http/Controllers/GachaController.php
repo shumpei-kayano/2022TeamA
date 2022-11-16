@@ -15,7 +15,7 @@ class GachaController extends Controller
 
     public function play()
     {
-        $msg="別府";
+        $msg="大分";
         if($msg == "大分"){
             $erea=1;
         }else if($msg == "別府"){
