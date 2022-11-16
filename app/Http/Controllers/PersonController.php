@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Review;
+use App\Store;
+use App\User;
 
 class PersonController extends Controller
 {
@@ -13,7 +16,10 @@ class PersonController extends Controller
         return view('auth.register');
     }
     public function create(){
-        
+        // $reviews=Review::all();
+        // $reviews=Review::orderBy('posted_data')->all();
+        $reviews = Review::orderBy('posted_date','desc')->get();
+        return view('person.index',['reviews'=>$reviews]);
     }
     public function home(){
         return view('person.index');

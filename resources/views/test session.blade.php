@@ -1,34 +1,83 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 
-<head lang="ja">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/app.css" rel="stylesheet">
+<head>
+    <title>SessionTest</title>
+    <style>
+        body {
+            font-size: 16pt;
+            color: #999;
+            margin: 5px;
+        }
+
+        h1 {
+            font-size: 50pt;
+            text-align: right;
+            color: #f6f6f6;
+            margin: -20px 0px -30px 0px;
+            letter-spacing: -4pt;
+        }
+
+        ul {
+            font-size: 12pt;
+        }
+
+        hr {
+            margin: 25px 100px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .menutitle {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 0px;
+        }
+
+        .content {
+            margin: 10px;
+        }
+
+        .footer {
+            text-align: right;
+            font-size: 10pt;
+            margin: 10px;
+            border-bottom: solid 1px #ccc;
+            color: #ccc;
+        }
+
+        th {
+            background-color: #999;
+            color: fff;
+            padding: 5px 10px;
+        }
+
+        td {
+            border: solid 1px #aaa;
+            color: #999;
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>SessionTest</h1>
+    @section('menubar')
+        <h2 class="menutitle">※メニュー</h2>
+        <ul>
+            <li>セッションページ
+            </li>
+        </ul>
+        <hr size="1">
+        <div class="content">
+            <p>{{ $session_data }}</p>
+            <form action="/SessionTest" method="post">
+                @csrf
+                <input type="text" name="input">
+                <input type="submit" value="send">
+            </form>
+        </div>
+        <div class="footer">
+            copyright 2020 tuyano.
+        </div>
+    </body>
 
-    @yield('a')
-    @yield('b')
-
-    <script>
-        // 開くボタンが押されたときの処理
-        const dialog = document.getElementById('dialog');
-        document.getElementById('btn-open').addEventListener('click', (event) => {
-            dialog.showModal();
-        });
-        // OKが押されたときの処理
-        dialog.querySelector('.c-btn').addEventListener('click', () => {
-            dialog.close();
-        });
-        // ボタンを押した時の処理
-        window.onload = function() {
-            // 位置情報を取得する
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        };
-    </script>
-</body>
-
-</html>
+    </html>
