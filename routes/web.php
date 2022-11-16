@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('welcome/index', 'PersonController@out')->name('welcome/index');
 
 //新規登録
-Route::get('person/add', 'PersonController@add');
+Route::get('register', 'PersonController@add');
 
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
@@ -53,7 +53,7 @@ Route::get('tourist/index', 'AccountController@spot')->name('tourist/index');
 
 //店舗詳細
 // Route::get('store/index', 'AccountController@store');
-Route::get('store/index', 'CouponController@store')->name('store/index');
+Route::get('store/index/{id}', 'CouponController@store')->name('store/index');
 
 
 //近所のおすすめスポット

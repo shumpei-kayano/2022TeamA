@@ -15,10 +15,15 @@
             <div class="c-header">
                 <a href="" class="c-back">クーポン一覧</a>
             </div>
-            <p class="c-store u-magin--top--0"><img src="/images/Interior.jpg" alt="内装"></p>
-            @foreach ($items as $item)
-                <p class="c-store__name">{{ $item->store_name }}</p>
-            @endforeach
+            <p class="c-store u-magin--top--0">
+                <img src={{ $items->picture1 }} alt="内装">
+                <img src={{ $items->picture2 }} alt="">
+                <img src={{ $items->picture3 }} alt="">
+                <img src={{ $items->picture4 }} alt="">
+            </p>
+            {{--  @foreach ($items as $item)  --}}
+            <p class="c-store__name">{{ $items->store_name }}</p>
+            {{--  @endforeach  --}}
             <div class="p-store__star">
                 <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
@@ -29,15 +34,14 @@
         </section>
         <section class="c-store__section">
             <div class="c-coupon__top">
-                <p class="c-coupon__address">ここから約1.2Km </p>
+                {{--  <p class="c-coupon__address">ここから約1.2Km </p>  --}}
                 <a class="c-btn c-btn--navy c-btn--small">このお店までの経路を見る</a>
             </div>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">住所</p>
-            <p class="c-store__text">〒874-0000 <br>
-                大分県別府市 Resort & Spa 2F <br>
-                ANA InterContinental</p>
+            {{--  <p class="c-store__text">〒874-0000 <br>  --}}
+            {{ $items->address }}
             <div class="p-admin__map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13348.960939626255!2d131.60939519999997!3d33.2340092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1667803739558!5m2!1sja!2sjp"
@@ -47,26 +51,23 @@
         </section>
         <section class="c-store__section">
             <p class="c-store__item">電話番号</p>
-            <p class="c-store__text">0977-76-8258</p>
+            <p class="c-store__text">{{ $items->tel }}</p>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">ホームページ</p>
-            <a class="c-store__text"
-                href="https://anaicbeppu.com/dining/the-lounge/">https://anaicbeppu.com/dining/the-lounge/</a>
+            <a class="c-store__text" href="{{ $items->link }}">{{ $items->link }}</a>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">営業時間</p>
-            <p class="c-store__text">月曜〜火曜 14:00~17:00 <br>
-                土曜日、日曜日、祝日 休み</p>
+            <p class="c-store__text">{{ $items->start_time }}~{{ $items->end_time }}</p>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">駐車場</p>
-            <p class="c-store__text">140台</p>
+            <p class="c-store__text">{{ $items->parking }}</p>
         </section>
         <section class="c-store__section">
             <p class="c-store__item">サービス内容</p>
-            <p class="c-store__text">2階ロビーフロアにある「ザ・ラウンジ」では、当リゾートホテルオリジナルのアフタヌーンティーやバリスタが淹れるコーヒー、シンガポール発のラグジュアリーブランドTWG
-                Teaの香り高いティーやハーブティーなどをお楽しみいただけます。</p>
+            <p class="c-store__text">{{ $items->service }}</p>
         </section>
         <div class="c-coupon__box">
             <div class="c-modal__flex">
