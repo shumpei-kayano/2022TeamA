@@ -65,7 +65,8 @@
     &__tittle {
         margin-top: 0 16px;
         display: flex;
-        width: 128px;
+        // width: 128px;
+        width: 50%;
         font-size: 16px;
         color: black;
         margin: 16px;
@@ -138,4 +139,8 @@
         display: flex;
         gap:8px;
     }
+    // &__visited{
+    //     font-size: 8px;
+    //     text-align: right;
+    // }
 }
