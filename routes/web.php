@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('welcome/index', 'PersonController@out')->name('welcome/index');
 
 //新規登録
-Route::get('person/add', 'PersonController@add');
+Route::get('register', 'PersonController@add');
 
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
