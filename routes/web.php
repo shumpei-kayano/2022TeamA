@@ -29,6 +29,8 @@ Route::get('register', 'PersonController@add');
 
 Route::get('person/index', 'PersonController@home')->name('person/index');
 Route::get('person/home', 'PersonController@create')->name('person/home');
+Route::get('home/good', 'PersonController@good')->name('home/good');
+
 
 // Route::get('person/index', 'PersonController@good');
 

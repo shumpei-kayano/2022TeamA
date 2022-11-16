@@ -22,10 +22,13 @@
             </div>
         </a>
         @foreach ($reviews as $review)
+            {{--  @if ($review->user_id == 2)  --}}
             <p class="c-hukidashi__date">
                 {{ $review->posted_date }}
             </p>
-            <div class="c-hukidashi c-hukidashi--a">
+            <div
+                class="c-hukidashi @if ($review->user_id == 3) c-hukidashi--a
+                    @else c-hukidashi--b @endif">
                 <p class="c-hukidashi__photo">
                     <img src={{ $review->user->icon_photo }}>
                 </p>
@@ -46,11 +49,61 @@
                         </div>
                         <p class="c-hukidashi__honbun">{{ $review->comment }}</p>
                         {{--  <p class="c-hukidashi__visited">訪問日{{ $review->visited }}</p>  --}}
+                        @if (!($review->user_id == 3))
+                            {{--  色ついてない  --}}
+                            <div class="c-hukidashi__good">
+                                <div class="c-hukidashi__good__icon " id="goodicon">
+                                    <a href="{{ route('home/good') }}"> <img src="/images/good-icon.png"
+                                            alt="いいねアイコン"></a>
+                                </div>
+                                <div class="c-hukidashi__goodnumber">
+                                    50
+                                </div>
+                            </div>
+                            {{--  色ついてる  --}}
+                            {{--  <div class="c-hukidashi__good show">
+                                <div class="c-hukidashi__good__icon ">
+                                    <img src="/images/good-icon-on.png" alt="いいねアイコン" id="goodicon">
+                                </div>
+                                <div class="c-hukidashi__goodnumber">
+                                    50
+                                </div>
+                            </div>  --}}
+                        @endif
                     </div>
                 </div>
             </div>
+            {{--  @else
+                <p class="c-hukidashi__date">
+                    {{ $review->posted_date }}
+                </p>
+                <div class="c-hukidashi c-hukidashi--b">
+                    <p class="c-hukidashi__photo">
+                        <img src={{ $review->user->icon_photo }}>
+                    </p>
+                    <div class="c-fukidashi__container">
+                        <p class="c-hukidashi__username">{{ $review->user->name }}</p>
+                        <div class="c-hukidashi__frame">
+                            <div class="c-hukidashi__header">
+                                <h3 class="c-hukidashi__tittle"> {{ $review->store->store_name }}</h3>
+                                <div class="c-hukidashi__star--a">
+                                    <div class="p-admin__star--spot">
+                                        <img src="/images/star.png" alt="">
+                                        <img src="/images/star.png" alt="">
+                                        <img src="/images/star.png" alt="">
+                                        <img src="/images/star.black.png" alt="">
+                                        <img src="/images/star.black.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="c-hukidashi__honbun">{{ $review->comment }}</p>
+                            {{--  <p class="c-hukidashi__visited">訪問日{{ $review->visited }}</p>  --}}
+            {{--  </div>
+                    </div>
+                </div>
+            @endif  --}}
         @endforeach
-        <p class="c-hukidashi__date">
+        {{--  <p class="c-hukidashi__date">
             2022/10/29
         </p>
         <div class="c-hukidashi c-hukidashi--b">
@@ -87,9 +140,19 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
+            </div>  --}}
+        {{--  </div>  --}}
     </div>
-</body>
+    <script>
+        var trigger = document.getElementById('goodicon');
+        if (trigger) {
+            trigger.addEventListener('click', function() {
+                var target = document.getElementById('goodicon');
+                target.classList.toggle('show');
+            }, false);
+        }
+        /* update 2020-01-15*/
+    </script>
+    < /body>
 
 </html>

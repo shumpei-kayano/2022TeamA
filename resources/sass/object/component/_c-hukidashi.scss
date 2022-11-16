@@ -90,11 +90,16 @@
         // text-align: right;
         margin-right: 16px;
         justify-content: flex-end;
-
         img {
             width: 32px;
             height: 32px;
         }
+    }
+    &__good__icon{
+        &.show{
+            background-color: red;
+        }
+        
     }
 
     &__goodnumber {

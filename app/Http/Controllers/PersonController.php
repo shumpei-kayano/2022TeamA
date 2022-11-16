@@ -25,7 +25,7 @@ class PersonController extends Controller
         return view('person.index');
     }
     public function good(){
-        
+        return redirect()->route('home.good');
     }
     public function show(){
         return view('account.index');
