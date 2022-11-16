@@ -16,4 +16,7 @@ class Store extends Model
     public function coupons(){
         return $this->hasmany('App\Coupon');
     }
+    public function reviews(){
+        return $this->hasmany('App\Review');
+    }
 }

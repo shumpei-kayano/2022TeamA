@@ -21,7 +21,9 @@
                 <label for="">パスワード</label><input type="password">
             </div>
 
-            <button type="submit" class="c-btn c-btn--pink c-btn--50p">ログイン</button>
+
+            <button type="submit" class="c-btn c-btn--pink c-btn--50p"> <a
+                    href="{{ route('person/home') }}">ログイン</a></button>
 
             <p class="p-welcome__sineup"><a href="">新規会員登録</a></p>
 

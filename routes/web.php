@@ -27,7 +27,9 @@ Route::get('register', 'PersonController@add');
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
 
-Route::get('person/index', 'PersonController@home')->name('person/home');
+Route::get('person/index', 'PersonController@home')->name('person/index');
+Route::get('person/home', 'PersonController@create')->name('person/home');
+
 // Route::get('person/index', 'PersonController@good');
 
 //アカウント
