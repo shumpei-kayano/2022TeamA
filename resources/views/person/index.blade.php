@@ -63,7 +63,7 @@
 
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
-                        <h3 class="c-hukidashi__tittle">店舗名</h3>
+                        <h3 class="c-hukidashi__tittle">店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名</h3>
                         <div class="c-hukidashi__star--a">
                             <div class="p-admin__star--spot">
                                 <img src="/images/star.png" alt="">

@@ -13,7 +13,7 @@ class PersonController extends Controller
         return view('welcome.index');
     }
     public function add(){
-        return view('person.add');
+        return view('auth.register');
     }
     public function create(){
         // $reviews=Review::all();

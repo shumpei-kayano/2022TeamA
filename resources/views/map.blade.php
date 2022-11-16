@@ -29,7 +29,8 @@
             var map;
             var marker;
             var polygonObj;
-            var latlng;
+            var intPos;
+            var exPos;
             var polArray = [{
                     lat: 33.23498,
                     lng: 131.60622
@@ -51,13 +52,22 @@
             ];
             //初期化
             function initialize() {
+                //現在地
                 var lat = pos.coords.latitude;
                 var lng = pos.coords.longitude;
-                latlng = new google.maps.LatLng(lat, lng);
+                var latlng = new google.maps.LatLng(lat, lng);
+                intPos = latlng;
+                //別の場所
+                var exlat = 33.229498;
+                var exlng = 131.606412;
+                var exlatlng = new google.maps.LatLng(exlat, exlng);
+                exPos = exlatlng;
+                //
                 var options = {
                     zoom: 17,
                     center: latlng
                 };
+                var inInArea;
                 map = new google.maps.Map(document.getElementById("googleMap"), options);
                 addPolygon();
                 addMarker(latlng);
@@ -76,34 +86,44 @@
             }
             //マーカー移動
             function addMarker(pos) {
-
-                latlng = new google.maps.LatLng(pos.lat, pos.lng);
+                //latlng = new google.maps.LatLng(pos.lat, pos.lng);
                 var res = google.maps.geometry.poly.containsLocation(pos, polygonObj);
-                console.log(res);
                 if (res) {
+                    isInArea = true;
                     msg = "エリア「大原周辺」範囲内にいます。"
                 } else {
+                    isInArea = false;
                     msg = "エリアの範囲外にいます。"
                 }
-                document.getElementById("latlng").innerHTML = latlng;
+                document.getElementById("latlng").innerHTML = pos;
                 document.getElementById("res").innerText = msg;
                 marker = new google.maps.Marker({
                     position: pos,
                     map: map,
                 });
-
             }
 
-            function moveMarker(callback) {
+            function moveMarker() {
                 marker.setMap(null);
-                callback({
+                if (isInArea) {
+                    //範囲内にいる時の処理
+                    console.log(isInArea);
+                    addMarker(exPos);
+                } else {
+                    //範囲外にいる時の処理
+                    console.log(isInArea);
+                    addMarker(intPos);
+                }
+
+                /* callback({
                     lat: 33.229498,
                     lng: 131.606412
-                });
+                }); */
+
             }
             initialize();
             document.getElementById('move').addEventListener('click', (event) => {
-                moveMarker(addMarker);
+                moveMarker();
             });
 
         }
