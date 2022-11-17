@@ -1,7 +1,7 @@
 .c-hukidashi {
     display: flex;
     gap: 8px;
-
+    margin-bottom: 48px;
     &.c-hukidashi--a {
         flex-direction: row-reverse;
     }
@@ -9,14 +9,24 @@
     &.c-hukidashi--b {
         flex-direction: row;
     }
+    &__date {
+        font-size: 12px;
+        text-align: center;
+        margin: 32px auto;
 
+        &--spot {
+            text-align: left;
+            font-size: 8px;
+            margin: 32px auto 0;
+        }
+    }
     &__frame {
         box-sizing: border-box;
         border: 1px solid #c9c9c9;
         border-radius: 16px;
         color: $gray;
         display: block;
-
+        padding: 0 16px;
         .c-hukidashi--a & {
             border-top-right-radius: 0;
         }
@@ -27,12 +37,9 @@
     }
 
     &__username {
-        height: 24px;
-        margin-top: 0;
-        margin-bottom: 0px;
         padding: 0;
         color: #4a4a4a;
-        font-size: 10px;
+        font-size: 12px;
 
         .c-hukidashi--a & {
             text-align: right;
@@ -56,53 +63,63 @@
     &__header {
         display: flex;
         justify-content: space-between;
-
-        &--a {
-            width: 100%;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid $gray;
+    }
+    &__visit {
+        font-size: 11px;
+        margin: 0;
+        color: $gray-darker;
+    }
+    &__stars {
+        display: flex;
+        gap: 1px;
+        img {
+            width: 16px;
+            height: 16px;
         }
     }
-
     &__tittle {
-        margin-top: 0 16px;
-        display: flex;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 700;
         color: black;
-        margin: 16px;
-    }
-
-    &__star {
-        text-align: right;
-        margin: 16px 0;
-        width: 128px;
-        color: gold;
-        margin-right: 8px;
     }
 
     &__honbun {
         color: black;
-        margin: 16px;
         font-size: 14px;
-        margin-top: 0;
+        margin-bottom: 16px;
     }
 
     &__good {
         display: flex;
-        // text-align: right;
-        margin-right: 16px;
         justify-content: flex-end;
-
-        img {
-            width: 32px;
-            height: 32px;
+        margin-bottom: 8px;
+        a {
+            color: $plat_pink;
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            text-align: right;
+            padding-left: 32px;
+            background-image: url("/images/good-icon.png");
+            background-repeat: no-repeat;
+            background-size: 28px;
+            background-position: left center;
+            &:hover {
+                text-decoration: none;
+            }
         }
-    }
-
-    &__goodnumber {
-        color: $plat_pink;
-        font-size: 24px;
-        font-weight: 700;
-        // text-align: right;
-        // margin-right: 16px;
+        &.show {
+            a {
+                background-image: url("/images/good-icon-on.png");
+            }
+        }
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &__edit {
@@ -118,18 +135,6 @@
         padding-top: 8px;
     }
 
-    &__date {
-        font-size: 8px;
-        text-align: center;
-        height: 32px;
-        margin-top: 32px;
-
-        &--spot {
-            text-align: left;
-            font-size: 8px;
-            margin: 32px auto 0;
-        }
-    }
     &--good {
         margin-bottom: 32px;
         display: flex;

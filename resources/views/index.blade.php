@@ -39,6 +39,7 @@
             <li><a href="/review/admin" target="_blank">クチコミ管理</a></li>
             <li><a href="/modal" target="_blank">モーダルテスト</a></li>
             <li><a href="/map" target="_blank">Google Mapテスト</a></li>
+            <li><a href="/hukidashi" target="_blank">吹き出しテスト</a></li>
             <li><a href="/SessionTest" target="_blank">sessionテスト</a></li>
         </ul>
     </div>
