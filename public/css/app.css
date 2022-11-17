@@ -414,6 +414,10 @@ dialog::backdrop {
   font-weight: 700;
 }
 
+.c-hukidashi__good.disabled {
+  pointer-events: none;
+}
+
 .c-hukidashi__edit {
   justify-content: flex-end;
   display: flex;
