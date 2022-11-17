@@ -10,7 +10,7 @@ use App\User;
 class PersonController extends Controller
 {
     public function out(){
-        return view('welcome.index');
+        return view('login');
     }
     public function add(){
         return view('auth.register');

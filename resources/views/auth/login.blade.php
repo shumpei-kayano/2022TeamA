@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
-@section('content')
-    {{--  <div class="container">
+{{--  <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -75,85 +74,75 @@
                         </form>
                     </div>  --}}
 
-    <head lang="ja">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/css/app.css" rel="stylesheet">
-    </head>
+<head lang="ja">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/app.css" rel="stylesheet">
+</head>
 
-    <body>
+<body>
 
-        <div class="c-container">
-            <a id="btn-open">ログインエラー</a>
-            <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
-            <form method="POST" action="{{ route('login') }}" class="c-form">
-                @csrf
+    <div class="c-container">
+        <a id="btn-open">ログインエラー</a>
+        <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
+        <form method="POST" action="{{ route('login') }}" class="c-form">
+            @csrf
 
-                <div class="c-form__group">
-                    <label for="name">{{ __('ニックネーム') }}</label>
-
-                    <div class="c-form__group">
-                        <input id="name" type="name" class="form-control @error('name') is-invalid @enderror"
-                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                    </div>
-                </div>
+            <div class="c-form__group">
+                <label for="name">{{ __('ニックネーム') }}</label>
 
                 <div class="c-form__group">
-                    <label for="password">{{ __('パスワード') }}</label>
-
-                    <div class="c-form__group">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                            name="password" required autocomplete="current-password">
-                    </div>
+                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror"
+                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                 </div>
+            </div>
+
+            <div class="c-form__group">
+                <label for="password">{{ __('パスワード') }}</label>
 
                 <div class="c-form__group">
-                    <div class="c-form__group">
-                        <button type="submit" class="c-btn c-btn--pink c-btn--50p">
-                            {{ __('ログイン') }}
-                        </button>
-                        {{--  <p class="p-welcome__sineup"><a href="">新規会員登録</a></p>  --}}
-                        {{--  Route::get('person/add');  --}}
-                        <a href="{{ route('register') }}" <p class="p-welcome__sineup"><a href="">{{ __('新規会員登録') }}
-                                </p></a>
-                            {{--  @if (Route::get('person/add'))
-                        <p class="p-welcome__sineup"><a href="">{{ __('新規会員登録') }}</p></a>
-                    @endif  --}}
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="current-password">
+                </div>
+            </div>
+
+            <div class="c-form__group">
+                <div class="c-form__group">
+                    <button type="submit" class="c-btn c-btn--pink c-btn--50p">
+                        {{ __('ログイン') }}
+                    </button>
+                    <div class="c-form__group c-form__group--a">
+                        <a href="{{ route('register') }}" <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p></a>
                     </div>
                 </div>
+            </div>
 
-                @component('components.modal')
-                    @slot('title')
-                        <p class="c-modal__title">ログインエラー</p>
-                    @endslot
-                    @slot('content')
-                        ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
-                    @endslot
-                    @slot('button')
-                        <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>
-                    @endslot
-                @endcomponent
-        </div>
+            @component('components.modal')
+                @slot('title')
+                    <p class="c-modal__title">ログインエラー</p>
+                @endslot
+                @slot('content')
+                    ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
+                @endslot
+                @slot('button')
+                    <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>
+                @endslot
+            @endcomponent
         </form>
-        <script>
-            // 開くボタンが押されたときの処理
-            const dialog = document.getElementById('dialog');
-            document.getElementById('btn-open').addEventListener('click', (event) => {
-                dialog.showModal();
-            });
-            // OKが押されたときの処理
-            dialog.querySelector('.c-btn').addEventListener('click', () => {
-                dialog.close();
-            });
-        </script>
-        </div>
-        </div>
-        </div>
-    @endsection
-    {{--  </div>
-    </div>  --}}
+    </div>
 
+    <script>
+        // 開くボタンが押されたときの処理
+        const dialog = document.getElementById('dialog');
+        document.getElementById('btn-open').addEventListener('click', (event) => {
+            dialog.showModal();
+        });
+        // OKが押されたときの処理
+        dialog.querySelector('.c-btn').addEventListener('click', () => {
+            dialog.close();
+        });
+    </script>
 </body>
 
 </html>

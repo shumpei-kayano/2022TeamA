@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 //ログイン画面
-Route::get('welcome/index', 'PersonController@out')->name('welcome/index');
+Route::get('login', 'PersonController@out')->name('login');
 
 //新規登録
 Route::get('register', 'PersonController@add');
