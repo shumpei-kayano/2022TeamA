@@ -94,31 +94,32 @@
     }
 
     &__good {
-        display: flex;
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
         justify-content: flex-end;
-        margin-bottom: 8px;
-        a {
-            color: $plat_pink;
-            font-size: 24px;
-            font-weight: 700;
-            display: block;
-            text-align: right;
-            padding-left: 32px;
+        margin-bottom: 16px;
+        cursor: pointer;
+        input {
+            display: none;
+            &:checked + .c-hukidashi__good-icon {
+                background-image: url("/images/good-icon-on.png");
+                animation: jump forwards 0.25s $ease-out-quint;
+            }
+        }
+        &-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 4px;
             background-image: url("/images/good-icon.png");
             background-repeat: no-repeat;
-            background-size: 28px;
-            background-position: left center;
-            &:hover {
-                text-decoration: none;
-            }
+            background-size: cover;
         }
-        &.show {
-            a {
-                background-image: url("/images/good-icon-on.png");
-            }
-        }
-        &:hover {
-            text-decoration: none;
+        &-num {
+            color: $plat_purple;
+            line-height: 1;
+            font-size: 24px;
+            font-weight: 700;
         }
     }
 
@@ -144,4 +145,15 @@
     //     font-size: 8px;
     //     text-align: right;
     // }
+}
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

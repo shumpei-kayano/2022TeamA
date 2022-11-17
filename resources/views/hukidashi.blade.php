@@ -38,9 +38,12 @@
                     <div class="c-hukidashi__honbun">
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
                     </div>
-                    <div class="c-hukidashi__good">
-                        <a href="">50</a>
-                    </div>
+                    <label class="c-hukidashi__good">
+                        <input type="checkbox" class="warning">
+                        <span class="c-hukidashi__good-icon"></span>
+                        <span class="c-hukidashi__good-num">50</span>
+                    </label>
+
                 </div>
             </div>
         </div>
@@ -66,19 +69,17 @@
                     <div class="c-hukidashi__honbun">
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
                     </div>
-                    <div class="c-hukidashi__good">
-                        <div class="c-hukidashi__good__icon">
-                            <img src="/images/good-icon.png" alt="いいねアイコン">
-                        </div>
-                        <div class="c-hukidashi__goodnumber">
-                            50
-                        </div>
-                    </div>
+                    <label class="c-hukidashi__good">
+                        <input type="checkbox" class="warning">
+                        <span class="c-hukidashi__good-icon"></span>
+                        <span class="c-hukidashi__good-num">50</span>
+                    </label>
                 </div>
             </div>
         </div>
 
     </div>
+
 </body>
 
 </html>
