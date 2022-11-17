@@ -10,7 +10,7 @@
 
 <div class="c-container">
     <div class="c-header">
-        <a href="" class="c-back">戻る</a>
+        <a href="{{ route('login') }}" class="c-back">戻る</a>
         <h4>新規会員登録</h4>
     </div>
 
