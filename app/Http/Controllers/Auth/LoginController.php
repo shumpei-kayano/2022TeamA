@@ -44,6 +44,6 @@ class LoginController extends Controller
     }
 
     public function redirectPath(){
-        return '/person/index';
+        return '/person/home';
     }
 }
