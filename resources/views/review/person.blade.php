@@ -22,73 +22,68 @@
         </p>
 
         <div class="c-hukidashi c-hukidashi--a">
+
             <div class="c-fukidashi__container">
+
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
-                        <h3 class="c-hukidashi__tittle">店舗名</h3>
-                        <div class="c-hukidashi__header--a">
-                            <div class="c-hukidashi__star--a">
-                                <div class="p-admin__star--spot">
-                                    <img src="/images/star.png" alt="">
-                                    <img src="/images/star.png" alt="">
-                                    <img src="/images/star.png" alt="">
-                                    <img src="/images/star.black.png" alt="">
-                                    <img src="/images/star.black.png" alt="">
-                                </div>
-                            </div>
+                        <p class="c-hukidashi__visited">訪問日：2022/10/29</p>
+                        <div class="c-hukidashi__stars">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.black.png" alt="">
+                            <img src="/images/star.black.png" alt="">
                         </div>
                     </div>
+                    <h3 class="c-hukidashi__tittle">店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名</h3>
                     <p class="c-hukidashi__honbun">
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
                     </p>
+
                 </div>
             </div>
-
         </div>
         <div class="c-hukidashi__edit">
-            <div class="c-hukidashi__edit_icon">
-                <a href="{{ route('review/edit') }}"><img src="/images/pencil.png">編集</a>
-                {{--  reviewsテーブルからデータを引っ張ってくる  --}}
 
-            </div>
-            <div class="c-hukidashi__delete_icon">
-                <img src="/images/gomibako.png">削除
-            </div>
+            <a href="{{ route('review/edit') }}" class="c-hukidashi__edit-edit">編集</a>
+            {{--  reviewsテーブルからデータを引っ張ってくる  --}}
+            <a href="" class="c-hukidashi__edit-delete">削除</a>
+
         </div>
         <p class="c-hukidashi__date">
             2022/10/29
         </p>
 
         <div class="c-hukidashi c-hukidashi--a">
+
             <div class="c-fukidashi__container">
+
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
-                        <h3 class="c-hukidashi__tittle">店舗名</h3>
-                        <div class="c-hukidashi__header--a">
-                            <div class="c-hukidashi__star--a">
-                                <div class="p-admin__star--spot">
-                                    <img src="/images/star.png" alt="">
-                                    <img src="/images/star.png" alt="">
-                                    <img src="/images/star.png" alt="">
-                                    <img src="/images/star.black.png" alt="">
-                                    <img src="/images/star.black.png" alt="">
-                                </div>
-                            </div>
+                        <p class="c-hukidashi__visited">訪問日：2022/10/29</p>
+                        <div class="c-hukidashi__stars">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.png" alt="">
+                            <img src="/images/star.black.png" alt="">
+                            <img src="/images/star.black.png" alt="">
                         </div>
                     </div>
+                    <h3 class="c-hukidashi__tittle">店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名</h3>
                     <p class="c-hukidashi__honbun">
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
                     </p>
+
                 </div>
             </div>
         </div>
         <div class="c-hukidashi__edit">
-            <div class="c-hukidashi__edit_icon">
-                <a href="{{ route('review/edit') }}"><img src="/images/pencil.png">編集</a>
-            </div>
-            <div class="c-hukidashi__delete_icon">
-                <img src="/images/gomibako.png">削除
-            </div>
+
+            <a href="{{ route('review/edit') }}" class="c-hukidashi__edit-edit">編集</a>
+            {{--  reviewsテーブルからデータを引っ張ってくる  --}}
+            <a href="" class="c-hukidashi__edit-delete">削除</a>
+
         </div>
     </div>
 </body>

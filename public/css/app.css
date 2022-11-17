@@ -305,7 +305,7 @@ dialog::backdrop {
   border-radius: 16px;
   color: #c9c9c9;
   display: block;
-  padding: 0 16px;
+  padding: 0 16px 16px;
 }
 
 .c-hukidashi--a .c-hukidashi__frame {
@@ -386,7 +386,6 @@ dialog::backdrop {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 16px;
   cursor: pointer;
 }
 
@@ -419,12 +418,32 @@ dialog::backdrop {
   justify-content: flex-end;
   display: flex;
   gap: 8px;
-  padding-top: 8px;
+  margin-top: -32px;
 }
 
-.c-hukidashi__edit img {
-  width: 16px;
-  height: 16px;
+.c-hukidashi__edit a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #354260;
+}
+
+.c-hukidashi__edit a:before {
+  content: "";
+  display: block;
+  flex: 1;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.c-hukidashi__edit a.c-hukidashi__edit-edit:before {
+  background-image: url("/images/pencil.png");
+}
+
+.c-hukidashi__edit a.c-hukidashi__edit-delete:before {
+  background-image: url("/images/gomibako.png");
 }
 
 .c-hukidashi--good {
