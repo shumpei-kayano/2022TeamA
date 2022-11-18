@@ -42,7 +42,7 @@ class LoginController extends Controller
     {
     return 'name';
     }
-
+    
     public function redirectPath(){
         return '/person/home';
     }

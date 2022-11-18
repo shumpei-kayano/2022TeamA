@@ -17,11 +17,13 @@
             <a href="" class="c-back">戻る</a>
             <h4>お知らせ一覧</h4>
         </div>
-        <section class="c-store__section">
-            <p class="p-notice__date">2022.09.27</p>
-            <p class="p-notice__text">3日間で使用期限を迎えるクーポンがあります。</p>
-        </section>
-        <section class="c-store__section">
+        @foreach ($notices as $notice)
+            <section class="c-store__section">
+                <p class="p-notice__date">{{ $notice->notice }}</p>
+                <p class="p-notice__text">{{ $notice->alert->comment }}</p>
+            </section>
+        @endforeach
+        {{--  <section class="c-store__section">
             <p class="p-notice__date">2022.09.27</p>
             <p class="p-notice__text">おめでとうございます！新しいバッジを獲得しました。</p>
         </section>
@@ -36,7 +38,7 @@
         <section class="c-store__section">
             <p class="p-notice__date">2022.09.27</p>
             <p class="p-notice__text">3日で使用期限を迎えるクーポンがあります。</p>
-        </section>
+        </section>  --}}
     </div>
 </body>
 

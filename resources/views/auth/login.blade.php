@@ -84,7 +84,7 @@
 <body>
 
     <div class="c-container">
-        <a id="btn-open">ログインエラー</a>
+        {{--  <a id="btn-open">ログインエラー</a>  --}}
         <p class="p-welcome__logo"><img src="/images/logo-plat.png" alt="plat"></p>
         <form method="POST" action="{{ route('login') }}" class="c-form">
             @csrf
@@ -95,8 +95,16 @@
                 <div class="c-form__group">
                     <input id="name" type="name" class="form-control @error('name') is-invalid @enderror"
                         name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
+
+
 
             <div class="c-form__group">
                 <label for="password">{{ __('パスワード') }}</label>
@@ -104,6 +112,12 @@
                 <div class="c-form__group">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                         name="password" required autocomplete="current-password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
 
@@ -114,23 +128,25 @@
                     </button>
                     <div class="c-form__group c-form__group--a">
                         <a href="{{ route('register') }}"></a>
-                        <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p></a>
+                        <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
                     </div>
                 </div>
             </div>
+    </div>
 
-            @component('components.modal')
-                @slot('title')
-                    <p class="c-modal__title">ログインエラー</p>
-                @endslot
-                @slot('content')
-                    ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
-                @endslot
-                @slot('button')
-                    <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>
-                @endslot
-            @endcomponent
-        </form>
+    {{-- ログインエラーホップアップ
+      @component('components.modal')
+        @slot('title')
+            <p class="c-modal__title">ログインエラー</p>
+        @endslot
+        @slot('content')
+            ニックネーム、またはパスワードが間違っています。ご確認の上、再度お試し下さい。
+        @endslot
+        @slot('button')
+            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">OK</button>
+        @endslot
+    @endcomponent
+    </form>
     </div>
 
     <script>
@@ -143,7 +159,7 @@
         dialog.querySelector('.c-btn').addEventListener('click', () => {
             dialog.close();
         });
-    </script>
+    </script>  --}}
 </body>
 
 </html>
