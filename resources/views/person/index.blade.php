@@ -21,11 +21,10 @@
                 </div>
             </div>
         </a>
-        <<<<<<< HEAD @foreach ($reviews as $review)
-            {{--  @if ($review->user_id == 2)  --}}
-            =======
-            {{-- @foreach ($reviews as $review)
->>>>>>> 14d986a4edfadf8233adcfe508ec4c8a0dd9ecbc
+        {{--  @if ($review->user_id == 2)  --}}
+
+        {{-- @foreach ($reviews as $review)
+
             <p class="c-hukidashi__date">
                 {{ $review->posted_date }}
             </p>
@@ -51,18 +50,18 @@
                         <h3 class="c-hukidashi__tittle"> {{ $review->store->store_name }}</h3>
                         <p class="c-hukidashi__honbun">{{ $review->comment }}</p>
                         {{--  <p class="c-hukidashi__visited">訪問日{{ $review->visited }}</p>  --}}
-            @if (!($review->user_id == 3))
-                {{--  色ついてない  --}}
-                <div class="c-hukidashi__good">
-                    <div class="c-hukidashi__good__icon " id="goodicon">
-                        <a href="{{ route('home/good') }}"> <img src="/images/good-icon.png" alt="いいねアイコン"></a>
-                    </div>
-                    <div class="c-hukidashi__goodnumber">
-                        50
-                    </div>
+        @if (!($review->user_id == 3))
+            {{--  色ついてない  --}}
+            <div class="c-hukidashi__good">
+                <div class="c-hukidashi__good__icon " id="goodicon">
+                    <a href="{{ route('home/good') }}"> <img src="/images/good-icon.png" alt="いいねアイコン"></a>
                 </div>
-                {{--  色ついてる  --}}
-                {{--  <div class="c-hukidashi__good show">
+                <div class="c-hukidashi__goodnumber">
+                    50
+                </div>
+            </div>
+            {{--  色ついてる  --}}
+            {{--  <div class="c-hukidashi__good show">
                                 <div class="c-hukidashi__good__icon ">
                                     <img src="/images/good-icon-on.png" alt="いいねアイコン" id="goodicon">
                                 </div>
@@ -70,7 +69,7 @@
                                     50
                                 </div>
                             </div>  --}}
-            @endif
+        @endif
     </div>
     </div>
     </div>
@@ -143,19 +142,8 @@
                     </label>
                 </div>
             </div>
-        </div> --}}
-        {{--  </div>  --}}
+        </div>
     </div>
-    <script>
-        var trigger = document.getElementById('goodicon');
-        if (trigger) {
-            trigger.addEventListener('click', function() {
-                var target = document.getElementById('goodicon');
-                target.classList.toggle('show');
-            }, false);
-        }
-        /* update 2020-01-15*/
-    </script>
-    < /body>
+</body>
 
 </html>
