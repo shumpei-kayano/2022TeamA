@@ -71,7 +71,7 @@
                         職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
                     </p>
                     <div class="c-hukidashi__footer">
-                        <label class="c-hukidashi__good">
+                        <label class="c-hukidashi__good disabled">
                             <input type="checkbox" class="warning">
                             <span class="c-hukidashi__good-icon"></span>
                             <span class="c-hukidashi__good-num">50</span>
