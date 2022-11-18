@@ -60,24 +60,23 @@
 
 <body>
     <h1>SessionTest</h1>
-    @section('menubar')
-        <h2 class="menutitle">※メニュー</h2>
-        <ul>
-            <li>セッションページ
-            </li>
-        </ul>
-        <hr size="1">
-        <div class="content">
-            <p>{{ $session_data }}</p>
-            <form action="/SessionTest" method="post">
-                @csrf
-                <input type="text" name="input">
-                <input type="submit" value="send">
-            </form>
-        </div>
-        <div class="footer">
-            copyright 2020 tuyano.
-        </div>
-    </body>
+    <h2 class="menutitle">※メニュー</h2>
+    <ul>
+        <li>セッションページ
+        </li>
+    </ul>
+    <hr size="1">
+    <div class="content">
+        <p>{{ $session_data }}</p>
+        <form action="/SessionTest" method="post">
+            @csrf
+            <input type="text" name="input">
+            <input type="submit" value="send">
+        </form>
+    </div>
+    <div class="footer">
+        copyright 2020 tuyano.
+    </div>
+</body>
 
-    </html>
+</html>

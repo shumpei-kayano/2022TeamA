@@ -17,50 +17,49 @@
     <div class="c-container">
         <div class="c-coupon">
             <div class="c-btn--tab">
+                {{--  @foreach ($tickets as $ticket)  --}}
                 <a class="is-active" href="{{ route('coupon/index') }}">使用可能</a>
+                {{--  @endforeach  --}}
+                {{--  @foreach ($tickets as $ticket)  --}}
+                {{--  @if ($ticket->flg == 1)  --}}
                 <a href="{{ route('coupon/used') }}">使用済み</a>
+                {{--  @endif  --}}
+                {{--  @endforeach  --}}
             </div>
-            <div class="c-coupon__box">
-                <p class="c-coupon__use">有効期限：2022.10.30</p>
-                <div class="c-modal__flex">
-                    <p class="c-modal__flex__img">
-                        <img src="/images/coupon.jpg" alt="クーポン">
-                    </p>
-                    <div class="c-modal__flex__text">
-                        @foreach ($tickets as $ticket)
-                            <p class="c-modal__flex__coupon">{{ $ticket->coupon->coupon_name }}</p>
-                            <p class="c-modal__flex__store"> {{ $ticket->store->store_name }}</p>
-                        @endforeach
+            @foreach ($tickets as $ticket)
+                @if ($ticket->flg == 0)
+                    <div class="c-coupon__box">
+
+                        <small class="c-coupon__use">
+                            有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
+                        <div class="c-modal__flex">
+                            <p class="c-modal__flex__img">
+                                <img src={{ $ticket->coupon->coupon_photo }}>
+                            </p>
+                            <div class="c-modal__flex__text">
+
+                                <p class="c-modal__flex__coupon">{{ $ticket->coupon->coupon_name }}</p>
+                                <p class="c-modal__flex__store"> {{ $ticket->store->store_name }}</p>
+
+                            </div>
+                        </div>
+                        <div class="c-coupon__top">
+                            <p class="c-coupon__address">{{ $ticket->store->address }}</p>
+                            {{--  <a href="{{ route('store/index') }}" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>  --}}
+                            <a href={{ route('store/index', ['id' => $ticket->coupon->store_id]) }}
+                                class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+                        </div>
+                        <button id="btn-open" type="submit"
+                            class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
                     </div>
-                </div>
-                <div class="c-coupon__top">
-                    <p class="c-coupon__address">大分市別府市鉄輪499-18</p>
-                    {{--  <a href="{{ route('store/index') }}" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>  --}}
-                    <a href="" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
-
-                </div>
-                <button id="btn-open" type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
-            </div>
+                @endif
+            @endforeach
         </div>
 
-        <div class="c-coupon__box">
-            <p class="c-coupon__use">有効期限：2022.11.20</p>
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img"><img src="/images/Beer.jpg" alt="生ビール"></p>
-                <div class="c-modal__flex__text">
-                    <p class="c-modal__flex__coupon">生ビール1杯無料</p>
-                    <p class="c-modal__flex__store">ROUTE 502 COFFEE</p>
-                </div>
-            </div>
-            <div class="c-coupon__top">
-                <p class="c-coupon__address">大分県臼杵市市浜1129-3</p>
-                {{--  <a href="{{ route('store/index') }}"class="c-btn c-btn--navy c-btn--small">詳細を見る</a>  --}}
-                <a href=""class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
-
-            </div>
-            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
-        </div>
     </div>
+
+
+
 
     @component('components.modal')
         @slot('title')
@@ -99,7 +98,7 @@
         @endslot
     @endcomponent
 
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
         new Vue({

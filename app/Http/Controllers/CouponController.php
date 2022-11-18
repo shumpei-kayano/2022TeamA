@@ -30,7 +30,7 @@ class CouponController extends Controller
     {
         // $stores = DB::table('stores')->get();
         // return view('coupon.index', compact('stores'));
-        $tickets=Ticket::where('user_id','=','2')->get();
+        $tickets=Ticket::where('user_id','=','1')->get();
         return view('coupon.index', ['tickets'=>$tickets]);
     }
     public function store($id)
@@ -41,7 +41,8 @@ class CouponController extends Controller
     }
     public function used()
     {
-        return view('coupon.used');
+        $tickets=Ticket::where('user_id','=','1')->get();
+        return view('coupon.used', ['tickets'=>$tickets]);
     }
     public function edit()
     {
