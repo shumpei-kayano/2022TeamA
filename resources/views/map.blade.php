@@ -16,7 +16,8 @@
         <div class="p-gacha__map" id="googleMap">
             {{-- ここに地図が入る --}}
         </div>
-        <button id="move">マーカー移動</button>
+        <button id="go-kannawa">鉄輪に移動</button>
+        <button id="go-ohara">大原に移動</button>
         <p id="latlng"></p>
         <p id="res"></p>
     </div>
@@ -31,7 +32,8 @@
             var polygonObj;
             var intPos;
             var exPos;
-            var polArray = [{
+            var oharaPos;
+            var oharaArea = [{
                     lat: 33.23498,
                     lng: 131.60622
                 },
@@ -39,8 +41,6 @@
                     lat: 33.23334,
                     lng: 131.60942
                 },
-
-
                 {
                     lat: 33.2307,
                     lng: 131.60731
@@ -50,32 +50,40 @@
                     lng: 131.6045
                 }
             ];
-            //初期化
-            function initialize() {
-                //現在地
+            var kannawaPos;
+            var kannawaArea = [{
+                    lat: 33.31615,
+                    lng: 131.4758
+                },
+                {
+                    lat: 33.31619,
+                    lng: 131.47793
+                },
+                {
+                    lat: 33.31534,
+                    lng: 131.47773
+                },
+                {
+                    lat: 33.31534,
+                    lng: 131.47559
+                }
+            ];
+            //大原に移動
+            function ohara() {
+                //大原周辺
                 var lat = pos.coords.latitude;
                 var lng = pos.coords.longitude;
                 var latlng = new google.maps.LatLng(lat, lng);
-                intPos = latlng;
-                //別の場所
-                var exlat = 33.229498;
-                var exlng = 131.606412;
-                var exlatlng = new google.maps.LatLng(exlat, exlng);
-                exPos = exlatlng;
+                oharaPos = latlng;
                 //
                 var options = {
                     zoom: 17,
                     center: latlng
                 };
-                var inInArea;
+
                 map = new google.maps.Map(document.getElementById("googleMap"), options);
-                addPolygon();
-                addMarker(latlng);
-            }
-            //ポリゴン追加
-            function addPolygon() {
                 polygonObj = new google.maps.Polygon({
-                    paths: polArray,
+                    paths: oharaArea,
                     strokeColor: "#FF0000",
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
@@ -83,49 +91,59 @@
                     fillOpacity: 0.25,
                     map: map
                 });
+                addMarker(latlng);
+                document.getElementById("latlng").innerHTML = latlng;
+                document.getElementById("res").innerText = "エリア「大原周辺」範囲内にいます。";
             }
+            //鉄輪に移動
+            function kannawa() {
+                //鉄輪
+                var lat = 33.315699;
+                var lng = 131.476847;
+                var latlng = new google.maps.LatLng(lat, lng);
+                kannawaPos = latlng;
+                //
+                var options = {
+                    zoom: 18,
+                    center: latlng
+                };
+
+                map = new google.maps.Map(document.getElementById("googleMap"), options);
+                polygonObj = new google.maps.Polygon({
+                    paths: kannawaArea,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#FF0000",
+                    fillOpacity: 0.25,
+                    map: map
+                });
+                addMarker(latlng);
+                document.getElementById("latlng").innerHTML = latlng;
+                document.getElementById("res").innerText = "エリア「鉄輪」範囲内にいます。";
+            }
+
+
+
+
             //マーカー移動
             function addMarker(pos) {
-                //latlng = new google.maps.LatLng(pos.lat, pos.lng);
-                var res = google.maps.geometry.poly.containsLocation(pos, polygonObj);
-                if (res) {
-                    isInArea = true;
-                    msg = "エリア「大原周辺」範囲内にいます。"
-                } else {
-                    isInArea = false;
-                    msg = "エリアの範囲外にいます。"
-                }
-                document.getElementById("latlng").innerHTML = pos;
-                document.getElementById("res").innerText = msg;
+                /* var res = google.maps.geometry.poly.containsLocation(pos, polygonObj); */
                 marker = new google.maps.Marker({
                     position: pos,
                     map: map,
                 });
             }
-
-            function moveMarker() {
-                marker.setMap(null);
-                if (isInArea) {
-                    //範囲内にいる時の処理
-                    console.log(isInArea);
-                    addMarker(exPos);
-                } else {
-                    //範囲外にいる時の処理
-                    console.log(isInArea);
-                    addMarker(intPos);
-                }
-
-                /* callback({
-                    lat: 33.229498,
-                    lng: 131.606412
-                }); */
-
-            }
-            initialize();
-            document.getElementById('move').addEventListener('click', (event) => {
-                moveMarker();
+            //初期化
+            ohara();
+            //鉄輪に行くボタン
+            document.getElementById('go-kannawa').addEventListener('click', (event) => {
+                kannawa();
             });
-
+            //大原に行くボタン
+            document.getElementById('go-ohara').addEventListener('click', (event) => {
+                ohara();
+            });
         }
 
         function fail(error) {
