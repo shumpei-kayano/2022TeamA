@@ -77,17 +77,18 @@
         @slot('content')
             <div class="c-modal__flex">
                 <p class="c-modal__flex__img">
-                    <img src="/images/coupon.jpg" alt="クーポン">
+                    <img src={{ $ticket->coupon->coupon_photo }} alt="クーポン">
                 </p>
 
-                <p class="c-modal__flex__text">ハロウィン限定アフタヌーンティー50%OFF<small>the LOUNGE</small></p>
+                <p class="c-modal__flex__text">
+                    {{ $ticket->coupon->coupon_name }}<small>{{ $ticket->store->store_name }}</small></p>
 
             </div>
         @endslot
         @slot('button')
             <transition>
-                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
-                    key="used">クチコミを書く</button>
+                <a href="{{ route('post/index') }}" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
+                    key="used">クチコミを書く</a>
                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
                     key="use">クーポンを使う</button>
             </transition>
