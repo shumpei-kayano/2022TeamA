@@ -15,7 +15,7 @@
             <li><a href="login" target="_blank">ログイン画面</a></li>
             <li><a href="register" target="_blank">新規登録</a></li>
             <li><a href="/person/addcheck" target="_blank">新規登録確認</a></li>
-            <li><a href="/person/index" target="_blank">ホーム</a></li>
+            <li><a href="/person/home" target="_blank">ホーム</a></li>
             <li><a href="/account/index" target="_blank">アカウント</a></li>
             <li><a href="/account/setting" target="_blank">アカウント設定</a></li>
             <li><a href="/notice/index" target="_blank">お知らせ</a></li>
