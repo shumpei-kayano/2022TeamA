@@ -12,7 +12,7 @@
 
     <div class="c-container">
         <ul>
-            <li><a href="/welcome/index" target="_blank">ログイン画面</a></li>
+            <li><a href="login" target="_blank">ログイン画面</a></li>
             <li><a href="register" target="_blank">新規登録</a></li>
             <li><a href="/person/addcheck" target="_blank">新規登録確認</a></li>
             <li><a href="/person/index" target="_blank">ホーム</a></li>
@@ -39,6 +39,7 @@
             <li><a href="/review/admin" target="_blank">クチコミ管理</a></li>
             <li><a href="/modal" target="_blank">モーダルテスト</a></li>
             <li><a href="/map" target="_blank">Google Mapテスト</a></li>
+            <li><a href="/hukidashi" target="_blank">吹き出しテスト</a></li>
             <li><a href="/SessionTest" target="_blank">sessionテスト</a></li>
         </ul>
     </div>

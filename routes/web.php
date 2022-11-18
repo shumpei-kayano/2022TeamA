@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 //ログイン画面
-Route::get('welcome/index', 'PersonController@out')->name('welcome/index');
+Route::get('login', 'PersonController@out')->name('login');
 
 //新規登録
 Route::get('register', 'PersonController@add');
@@ -155,9 +155,14 @@ Route::get('modal', function () {
 Route::get('map', function () {
     return view('map');
 });
+
+//吹き出しテスト
+Route::get('hukidashi', function () {
+    return view('hukidashi');
+});
 //セッションテスト
-Route::get('SessionTest','HelloController@ses_get');
-Route::post('SessionTest','HelloController@ses_put');
+Route::get('SessionTest', 'HelloController@ses_get');
+Route::post('SessionTest', 'HelloController@ses_put');
 
 Auth::routes();
 
