@@ -42,7 +42,6 @@
             text-align: center;
         }
 
-
         &--time {
             display: flex;
             flex: 1;
@@ -59,19 +58,19 @@
                 flex: 1;
             }
         }
-
-
     }
 
     &--admin {
         width: 100%;
 
-
-
-
         color: $plat_navy;
-
     }
+}
 
-
+.invalid-feedback {
+    color: $plat_pink;
+    font-size: 14px;
+    margin: 16px 0;
+    display: block;
+    text-align: center;
 }
