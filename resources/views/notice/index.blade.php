@@ -19,7 +19,7 @@
         </div>
         @foreach ($notices as $notice)
             <section class="c-store__section">
-                <p class="p-notice__date">{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}</p>
+                <p class="p-notice__date">{{ $notice->notice }}</p>
                 <p class="p-notice__text">{{ $notice->alert->comment }}</p>
             </section>
         @endforeach
