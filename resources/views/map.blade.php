@@ -71,8 +71,11 @@
             //大原に移動
             function ohara() {
                 //大原周辺
-                var lat = pos.coords.latitude;
-                var lng = pos.coords.longitude;
+                /* var lat = pos.coords.latitude;
+                var lng = pos.coords.longitude; */
+                /* ↑現在地を取得する場合はこっち */
+                var lat = 33.231344;
+                var lng = 131.606886;
                 var latlng = new google.maps.LatLng(lat, lng);
                 oharaPos = latlng;
                 //
