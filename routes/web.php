@@ -98,6 +98,8 @@ Route::get('gacha/staging', 'GachaController@play')->name('gacha/staging');
 // Route::post('coupon/index', 'CouponController@review');
 
 Route::get('coupon/index', 'CouponController@show')->name('coupon/index');
+// Route::get('coupon/use', 'CouponController@show')->name('coupon/index');
+
 
 
 

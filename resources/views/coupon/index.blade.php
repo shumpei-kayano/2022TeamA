@@ -35,7 +35,9 @@
                 </div>
                 <div class="c-coupon__top">
                     <p class="c-coupon__address">大分市別府市鉄輪499-18</p>
-                    <a href="{{ route('store/index') }}" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+                    {{--  <a href="{{ route('store/index') }}" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>  --}}
+                    <a href="" class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+
                 </div>
                 <button id="btn-open" type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
             </div>
@@ -52,7 +54,9 @@
             </div>
             <div class="c-coupon__top">
                 <p class="c-coupon__address">大分県臼杵市市浜1129-3</p>
-                <a href="{{ route('store/index') }}"class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+                {{--  <a href="{{ route('store/index') }}"class="c-btn c-btn--navy c-btn--small">詳細を見る</a>  --}}
+                <a href=""class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
+
             </div>
             <button type="submit" class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
         </div>
