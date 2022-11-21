@@ -23,16 +23,16 @@
                     2022/10/29
                 </p>  --}}
                 {{--  各お店を押したら店舗詳細に飛ぶ。まだルート記述してないです。11/11。河野  --}}
-                <div class="c-coupon__box--spot">
-                    <div class="c-modal__flex">
-                        <p class="c-modal__flex__img"><img src={{ $ticket->coupon->coupon_photo }} alt="クーポン"></p>
-                        <div class="c-modal__flex__text">
-                            <p class="c-modal__flex__coupon">{{ $ticket->store->store_name }}</p>
-                            <p class="c-modal__flex__store">{{ $ticket->store->address }}</p>
-                            <p class="c-modal__flex__address">
-                                {{ $ticket->store->service }}</p>
+
+                <div class="c-store__card">
+                    <a href="">
+                        <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }} alt="クーポン"></p>
+                        <div class="c-store__card-desc">
+                            <h3>{{ $ticket->store->store_name }}</h3>
+                            <p>{{ $ticket->store->address }}</p>
+                            <p>{{ $ticket->store->service }}</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endif
         @endforeach
