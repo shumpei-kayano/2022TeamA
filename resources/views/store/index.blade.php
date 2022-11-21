@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link href="/css/app.css" rel="stylesheet">
 </head>
 
@@ -16,10 +17,10 @@
                 <a href="" class="c-back">クーポン一覧</a>
             </div>
             <p class="c-store u-magin--top--0">
-                <img src={{ $items->picture1 }} alt="内装">
-                <img src={{ $items->picture2 }} alt="">
-                <img src={{ $items->picture3 }} alt="">
-                <img src={{ $items->picture4 }} alt="">
+                <img src={{ $items->picture1 }} alt="PHOTO">
+                <img src={{ $items->picture2 }} alt="PHOTO">
+                <img src={{ $items->picture3 }} alt="PHOTO">
+                <img src={{ $items->picture4 }} alt="PHOTO">
             </p>
             {{--  @foreach ($items as $item)  --}}
             <p class="c-store__name">{{ $items->store_name }}</p>
@@ -92,7 +93,21 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
+    <script type="module">
+
+ 
+  var slider = tns({
+    container: '.c-store',
+    items: 1,
+    slideBy: 'page',
+    controls:false,
+    nav:false,
+    autoplay: true,
+    autoplayButtonOutput:false
+  });
+  </script>
 </body>
 
 </html>
