@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Review;
+use App\Store;
+use Illuminate\Support\Facades\DB;
 use App\Ticket;
 
 class AccountController extends Controller
@@ -26,8 +28,11 @@ class AccountController extends Controller
     public function remove(){
         return view('account/remove');
     }
-    public function edit(){
-        return view('review.edit');
+    public function edit($id){
+        // return view('review.edit');
+
+        $reviews =  DB::table('reviews')->find($id);
+        return view('review.edit', ['reviews' => $reviews]);
     }
     public function show(){
         return view('review.good');

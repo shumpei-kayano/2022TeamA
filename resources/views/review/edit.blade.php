@@ -19,7 +19,7 @@
         </div>
         <section class="c-store__section--edit">
             <p class="c-store__item">店舗名</p>
-            <p class="c-store__text">the LOUGE</p>
+            <p class="c-store__text">{{ $reviews->store->store_name }}</p>
         </section>
         <section class="c-store__section--edit">
             <p class="c-store__item">訪問日</p>

@@ -70,7 +70,8 @@ Route::get('review/person', 'AccountController@update');
 // Route::get('review/person', 'AccountController@remove');
 
 //クチコミ編集
-Route::get('review/edit', 'AccountController@edit')->name('review/edit');
+// Route::get('review/edit', 'AccountController@edit')->name('review/edit');
+Route::get('review/edit/{id}', 'AccountController@edit')->name('review/edit');
 
 //いいね一覧
 Route::get('review/good', 'AccountController@show')->name('review/good');
