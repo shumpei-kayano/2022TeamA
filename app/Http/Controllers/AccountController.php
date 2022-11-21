@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Review;
 
 class AccountController extends Controller
 {
@@ -13,7 +14,9 @@ class AccountController extends Controller
         return view('tourist.index');
     }
     public function update(){
-        return view('review.person');
+        $reviews=Review::where('user_id','=','2')->get();
+        return view('review.person', ['reviews'=>$reviews]);
+
     }
     public function delete(){
         return view('review.edit');
@@ -35,5 +38,6 @@ class AccountController extends Controller
     }
     public function review(){
         return view('review.person');
+
     }
 }
