@@ -99,24 +99,6 @@
     &__good {
         display: flex;
         justify-content: flex-end;
-        img {
-            width: 32px;
-            height: 32px;
-        }
-    }
-    &__good__icon{
-        &.show{
-            background-color: red;
-        }
-        
-    }
-
-    &__goodnumber {
-        color: $plat_pink;
-        font-size: 24px;
-        font-weight: 700;
-        // text-align: right;
-        // margin-right: 16px;
         align-items: center;
         cursor: pointer;
         input {
