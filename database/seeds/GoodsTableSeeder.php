@@ -41,13 +41,6 @@ class GoodsTableSeeder extends Seeder
          DB::table('goods')->insert($param);
 
          $param=[
-            'review_id'=>'2',
-            'user_id'=>'4',
-         ];
-         DB::table('goods')->insert($param);
-
-
-         $param=[
             'review_id'=>'3',
             'user_id'=>'1',
          ];
@@ -75,11 +68,7 @@ class GoodsTableSeeder extends Seeder
             'review_id'=>'4',
             'user_id'=>'3',
          ];
-
-
-
-
-         
+         DB::table('goods')->insert($param);
 
     }
 }
