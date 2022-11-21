@@ -36,7 +36,7 @@
             <div class="c-coupon__top">
                 {{--  <p class="c-coupon__address">ここから約1.2Km </p>  --}}
                 <a class="c-btn c-btn--navy c-btn--small"
-                    href="https://www.google.com/maps/dir/?api=1&destination={{ $items->latitude }},{{ $items->longitude }}"
+                    href="https://maps.google.com/maps?saddr=現在地&daddr={{ $items->store_name }}"
                     target="_blank">このお店までの経路を見る</a>
                 <p></p>
             </div>

@@ -12,7 +12,7 @@ class StoresTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'store_name' => 'じんた',
+            'store_name' => 'もも炭火焼 じんた',
             'address' => '大分県大分市要町1-14',
             'link' => 'https://jinta.oita.jp',
             'tel' => '097-574-8429',
@@ -33,7 +33,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'おめでたい',
+            'store_name' => '大分ラーメンおめでたい 大分駅前店',
             'address' => '大分県大分市末広1丁目1-5末光ビル',
             'link' => 'https://omedetai.info/',
             'tel' => '080-2782-2151',
@@ -54,7 +54,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'みのりみのる',
+            'store_name' => 'カフェ&ダイニングみのりみのるおおいた店',
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 1F',
             'link' => 'https://www.minoriminoru.jp/',
             'tel' => '097-535-8623',
@@ -75,7 +75,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ヒョンチャンプルコギ',
+            'store_name' => 'ヒョンチャンプルコギ 大分シティ店',
             'address' => '大分県大分市要町1-14 JR大分シティ 1F 豊後にわさきいっぷく横丁',
             'link' => 'https://y266617.gorp.jp/',
             'tel' => '0978-513-2850',
@@ -96,7 +96,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ふくや',
+            'store_name' => 'ラーメン工房 ふくや 大分駅前店',
             'address' => '大分県大分市末広町1丁目1-25',
             'link' => 'https://fukuya-ramen.com/',
             'tel' => '097-538-5165',
@@ -117,7 +117,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ホテルショコラ',
+            'store_name' => 'ホテルショコラ アミュプラザおおいた店',
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 1F',
             'link' => ' https://hotelchocolat.co.jp/',
             'tel' => '097-574-6166',
@@ -138,7 +138,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ナナズグリーンティー',
+            'store_name' => "nana's green tea アミュプラザおおいた店",
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 2F',
             'link' => 'http://www.nanasgreentea.com/',
             'tel' => '097-574-8088',
@@ -159,7 +159,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'きくたろう',
+            'store_name' => '菓匠きくたろう アミュプラザおおいた店',
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 1F',
             'link' => 'https://kikutaro.shop/?gclid=EAIaIQobChMIhteb0PeB-wIVgcuWCh04wA8zEAAYASAAEgK4UfD_BwE',
             'tel' => '097-513-1220',
@@ -180,7 +180,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '亜李蘭',
+            'store_name' => '亜李蘭別邸 大分駅南店',
             'address' => '大分県大分市東大道1-3-1 アクロスプラザ大分駅南 1F',
             'link' => 'https://ariran-group.com/index.html',
             'tel' => '097-529-6679',
@@ -201,7 +201,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '目利きの銀次',
+            'store_name' => '目利きの銀次 大分南口駅前店',
             'address' => '大分県大分市東大道1-3-1 KCAアクロスプラザ大分駅南 1F',
             'link' => ' https://www.monteroza.co.jp/brand/gin/',
             'tel' => '097-544-9088',
@@ -222,7 +222,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ドトールコーヒー',
+            'store_name' => 'ドトールコーヒーショップ 大分駅前店',
             'address' => '大分県大分市末広町1-1-33',
             'link' => ' https://www.doutor.co.jp/',
             'tel' => '097-534-2900',
@@ -243,7 +243,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '串カツ田中',
+            'store_name' => '串カツ田中 アミュプラザおおいた店',
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 1F',
             'link' => ' https://kushi-tanaka.com/',
             'tel' => '097-574-5582',
@@ -264,7 +264,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'トランドール',
+            'store_name' => 'トランドール 大分駅店',
             'address' => '大分県大分市要町1-1',
             'link' => ' https://www.traindor.com/shop/?id=oita',
             'tel' => '097-513-8088',
@@ -285,7 +285,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '与八郎 Cafe&Sweets',
+            'store_name' => '与八郎Cafe&Sweets',
             'address' => '大分県別府市鉄輪風呂本1組',
             'link' => ' https://www.instagram.com/yohachiro_cafesweets/',
             'tel' => '0977-27-7002',
