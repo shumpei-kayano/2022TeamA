@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Review;
+use App\Ticket;
 
 class AccountController extends Controller
 {
@@ -11,7 +12,8 @@ class AccountController extends Controller
         return view('account.setting');
     }
     public function spot(){
-        return view('tourist.index');
+        $tickets=Ticket::where('user_id','=','1')->get();
+        return view('tourist.index', ['tickets'=>$tickets]);
     }
     public function update(){
         $reviews=Review::where('user_id','=','2')->get();
