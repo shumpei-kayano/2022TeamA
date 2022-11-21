@@ -162,6 +162,13 @@ Route::get('map', function () {
 Route::get('hukidashi', function () {
     return view('hukidashi');
 });
+
+
+//店舗テスト
+Route::get('store', function () {
+    return view('store');
+});
+
 //セッションテスト
 Route::get('SessionTest', 'HelloController@ses_get');
 Route::post('SessionTest', 'HelloController@ses_put');
