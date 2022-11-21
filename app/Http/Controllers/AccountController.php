@@ -7,6 +7,8 @@ use App\Review;
 use App\Store;
 use Illuminate\Support\Facades\DB;
 use App\Ticket;
+use App\Good;
+use App\User;
 
 class AccountController extends Controller
 {
@@ -35,7 +37,8 @@ class AccountController extends Controller
         return view('review.edit', ['reviews' => $reviews]);
     }
     public function show(){
-        return view('review.good');
+        $goods=Good::where('user_id','=','1')->get();
+        return view('review.good',['goods'=>$goods]);
     }
     public function good(){
 
