@@ -20,7 +20,6 @@
                 <img src={{ $items->picture1 }} alt="PHOTO">
                 <img src={{ $items->picture2 }} alt="PHOTO">
                 <img src={{ $items->picture3 }} alt="PHOTO">
-                <img src={{ $items->picture4 }} alt="PHOTO">
             </p>
             {{--  @foreach ($items as $item)  --}}
             <p class="c-store__name">{{ $items->store_name }}</p>
@@ -36,7 +35,10 @@
         <section class="c-store__section">
             <div class="c-coupon__top">
                 {{--  <p class="c-coupon__address">ここから約1.2Km </p>  --}}
-                <a class="c-btn c-btn--navy c-btn--small">このお店までの経路を見る</a>
+                <a class="c-btn c-btn--navy c-btn--small"
+                    href="https://www.google.com/maps/dir/?api=1&destination={{ $items->latitude }},{{ $items->longitude }}"
+                    target="_blank">このお店までの経路を見る</a>
+                <p></p>
             </div>
         </section>
         <section class="c-store__section">
