@@ -27,7 +27,7 @@
             <a href="{{ route('account/setting') }}" class="p-account__nav">アカウント設定</a>
             {{--  userテーブルから引っ張ってくる  --}}
         </div>
-        <a href="{{ route('welcome/index') }}"><button type="submit" class="c-btn c-btn--navy">ログアウト</button></a>
+        <a href="{{ route('login') }}"><button type="submit" class="c-btn c-btn--navy">ログアウト</button></a>
     </div>
 </body>
 
