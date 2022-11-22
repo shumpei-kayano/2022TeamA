@@ -47,7 +47,8 @@ class AccountController extends Controller
         return view('account.index');
     }
     public function review(){
-        return view('review.person');
+        $reviews=Review::where('user_id','=','2')->get();
+        return view('review.person',['reviews'=>$reviews]);
 
     }
 }

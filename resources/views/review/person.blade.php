@@ -33,11 +33,12 @@
                             <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}
                             </p>
                             <div class="c-hukidashi__stars">
-                                <img src="/images/star.png" alt="">
-                                <img src="/images/star.png" alt="">
-                                <img src="/images/star.png" alt="">
-                                <img src="/images/star.black.png" alt="">
-                                <img src="/images/star.black.png" alt="">
+                                @for ($i = 0; $i < $review->star; $i++)
+                                    <img src="/images/star.png" alt="">
+                                @endfor
+                                @for ($i = 0; $i < 5 - $review->star; $i++)
+                                    <img src="/images/star.black.png" alt="">
+                                @endfor
                             </div>
                         </div>
                         <h3 class="c-hukidashi__tittle">{{ $review->store->store_name }}</h3>
