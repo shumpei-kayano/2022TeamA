@@ -6,6 +6,7 @@ use App\Store;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CouponController extends Controller
 {
@@ -30,9 +31,18 @@ class CouponController extends Controller
     {
         // $stores = DB::table('stores')->get();
         // return view('coupon.index', compact('stores'));
-        $tickets = Ticket::where('user_id', '=', '1')->get();
-        return view('coupon.index', ['tickets' => $tickets]);
+        $tickets=Ticket::where('user_id','=','1')->get();
+        return view('coupon.index', ['tickets'=>$tickets]);
     }
+
+    public function used()
+    {
+        $tickets=Ticket::where('user_id','=','3')->get();
+        // $cond = ['user_id' => 2, 'flg' =>1];
+        // $tickets=Ticket::where($cond)->get();
+        return view('coupon.used', ['tickets'=>$tickets]);
+    }
+
     public function store($id)
     {
         //$items = Store::where('id', '=', $id)->get();
@@ -41,8 +51,8 @@ class CouponController extends Controller
     }
     public function used()
     {
-        $tickets = Ticket::where('user_id', '=', '1')->get();
-        return view('coupon.used', ['tickets' => $tickets]);
+        $tickets=Ticket::where('user_id','=','1')->get();
+        return view('coupon.used', ['tickets'=>$tickets]);
     }
     public function edit()
     {
