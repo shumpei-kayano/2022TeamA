@@ -30,8 +30,8 @@ class AccountController extends Controller
     }
     public function edit($id){
         // return view('review.edit');
-
-        $reviews =  DB::table('reviews')->find($id);
+        // $reviews =  DB::table('reviews')->find($id);
+        $reviews=Review::where('id','=',$id)->get();
         return view('review.edit', ['reviews' => $reviews]);
     }
     public function show(){
