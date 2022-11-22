@@ -56,15 +56,16 @@
                     {{--  @else  --}}
                     {{--    --}}
                     {{--  @endif  --}}
-                @else
+                @elseif($ticket->flg == 1)
                     {{--  <div class="c-coupon__era">  --}}
                     @php
                         $era = '使用できるクーポンはありません';
                     @endphp
+                    {{ $era }}
                     {{--  </div>  --}}
                 @endif
             @endforeach
-            {{ $era }}
+
         </div>
 
     </div>
