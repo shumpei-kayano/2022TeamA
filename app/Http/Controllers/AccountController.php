@@ -8,7 +8,7 @@ use App\Store;
 use Illuminate\Support\Facades\DB;
 use App\Ticket;
 use App\Good;
-use App\User;
+
 
 class AccountController extends Controller
 {

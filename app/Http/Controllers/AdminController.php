@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Good;
 class AdminController extends Controller
 {
     public function watch(){
@@ -43,7 +43,8 @@ class AdminController extends Controller
         
     }
     public function view(){
-        return view('review.admin');
+        $goods=Good::where('user_id','=','3')->get();
+        return view('review.admin',['goods'=>$goods]);
     }
 
 }
