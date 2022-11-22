@@ -16,8 +16,8 @@
 
     &__section {
         border-bottom: 1px solid $gray;
-        padding-bottom: 10px;
-        margin-bottom: 0;
+        padding: 0 0 16px 0;
+        margin-bottom: 16px;
 
         &--edit {
             padding: 10px;
@@ -26,7 +26,7 @@
     }
 
     &__text {
-        font-size: 20px;
+        font-size: 18px;
         margin: 0;
 
         &--addcheck {
@@ -37,8 +37,9 @@
     }
 
     &__item {
-        font-size: 12px;
-        margin: 0px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
 
         &--addcheck {
             font-size: 12px;

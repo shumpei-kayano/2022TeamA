@@ -47,7 +47,7 @@
             {{ $items->address }}
             <div class="p-admin__map">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13348.960939626255!2d131.60939519999997!3d33.2340092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1667803739558!5m2!1sja!2sjp"
+                    src="https://www.google.com/maps/embed/v1/place?q={{ $items->store_name }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
                     width="360" height="150" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -72,28 +72,24 @@
             <p class="c-store__item">サービス内容</p>
             <p class="c-store__text">{{ $items->service }}</p>
         </section>
-        <div class="c-coupon__box">
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="クーポン"></p>
-                <div class="c-modal__flex__text">
-                    <p class="c-modal__flex__coupon">cafe Green Brown</p>
-                    <p class="c-modal__flex__store">大分市別府市鉄輪499-18</p>
-                    <p class="c-modal__flex__address">
-                        白いスタイリッシュな建物が目印のカフェ。メニューのほとんどを陶芸作家が手掛あああああああああああああああああああああああああああああああああああ</p>
+
+
+
+
+        <div class="c-store__card">
+            <a href="">
+                <p class="c-store__card-img"><img src="/images/coupon.jpg" alt="クーポン"></p>
+                <div class="c-store__card-desc">
+                    <h3>cafe Green Brown</h3>
+                    <p>大分市別府市鉄輪499-18</p>
+                    <p>白いスタイリッシュな建物が目印のカフェ。メニューのほとんどを陶芸作家が手掛あああああああああああああああああああああああああああああああああああ</p>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="c-coupon__box">
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img"><img src="/images/lunch.png" alt="クーポン"></p>
-                <div class="c-modal__flex__text">
-                    <p class="c-modal__flex__coupon">つばめ食堂</p>
-                    <p class="c-modal__flex__store">大分県大分市玉沢335-3</p>
-                    <p class="c-modal__flex__address">
-                        ここでいただけるのは、地元の無農薬野菜・有機野菜をたっぷり使ったプレートラあああああああああああああああああああああああああああああああああああああああああああ</p>
-                </div>
-            </div>
-        </div>
+
+
+
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
