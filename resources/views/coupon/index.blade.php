@@ -28,6 +28,7 @@
             </div>
             @foreach ($tickets as $ticket)
                 @if ($ticket->flg == 0)
+                    {{--  @if (!isset($ticket))  --}}
                     <div class="c-coupon__box">
 
                         <small class="c-coupon__use">
@@ -52,8 +53,18 @@
                         <button id="btn-open" type="submit"
                             class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
                     </div>
+                    {{--  @else  --}}
+                    {{--    --}}
+                    {{--  @endif  --}}
+                @else
+                    {{--  <div class="c-coupon__era">  --}}
+                    @php
+                        $era = '使用できるクーポンはありません';
+                    @endphp
+                    {{--  </div>  --}}
                 @endif
             @endforeach
+            {{ $era }}
         </div>
 
     </div>

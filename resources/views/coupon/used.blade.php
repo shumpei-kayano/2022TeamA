@@ -82,8 +82,17 @@
                             </div>
                         </div>
                     </div>  --}}
+                    {{--  @endif  --}}
+                @else
+                    {{--  <div class="c-coupon__era">  --}}
+                    @php
+                        $era = '使用済みのクーポンはありません';
+                    @endphp
+                    {{--  </div>  --}}
                 @endif
             @endforeach
+            {{ $era }}
+
         </div>
     </div>
 </body>
