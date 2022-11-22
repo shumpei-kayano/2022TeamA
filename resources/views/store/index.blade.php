@@ -73,19 +73,50 @@
             <p class="c-store__text">{{ $items->service }}</p>
         </section>
 
+        <section class="c-store__section">
+            <p class="c-store__item">近くの施設</p>
+            {{-- <div class="c-store__card">
+                <a href="">
+                    <p class="c-store__card-img"><img src="/images/coupon.jpg" alt="クーポン"></p>
+                    <div class="c-store__card-desc">
+                        <h3>cafe Green Brown</h3>
+                        <p>大分市別府市鉄輪499-18</p>
+                        <p>白いスタイリッシュな建物が目印のカフェ。メニューのほとんどを陶芸作家が手掛あああああああああああああああああああああああああああああああああああ</p>
+                    </div>
+                </a>
+            </div> --}}
+            <ol>
+                @php
+                    $counter = 0;
+                    $rands = [];
+                    $min = 1;
+                    $max = 5;
+                    for ($i = $min; $i <= $max; $i++) {
+                        while (true) {
+                            /** 一時的な乱数を作成 */
+                            $tmp = mt_rand($min, $max);
+                    
+                            /*
+                             * 乱数配列に含まれているならwhile続行、
+                             * 含まれてないなら配列に代入してbreak
+                             */
+                            if (!in_array($tmp, $rands)) {
+                                array_push($rands, $tmp);
+                                break;
+                            }
+                        }
+                    }
+                @endphp
+                @while ($counter < $max)
+                    <li>{{ $rands[$counter] }}</li>
+                    @php
+                        $counter++;
+                    @endphp
+                @endwhile
+            </ol>
+        </section>
 
 
-
-        <div class="c-store__card">
-            <a href="">
-                <p class="c-store__card-img"><img src="/images/coupon.jpg" alt="クーポン"></p>
-                <div class="c-store__card-desc">
-                    <h3>cafe Green Brown</h3>
-                    <p>大分市別府市鉄輪499-18</p>
-                    <p>白いスタイリッシュな建物が目印のカフェ。メニューのほとんどを陶芸作家が手掛あああああああああああああああああああああああああああああああああああ</p>
-                </div>
-            </a>
-        </div>
 
 
 
