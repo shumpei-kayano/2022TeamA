@@ -25,11 +25,17 @@
             <p class="c-store__name">{{ $items->store_name }}</p>
             {{--  @endforeach  --}}
             <div class="p-store__star">
+                @for ($i = 0; $i < $items->star; $i++)
+                    <img src="/images/star.png" alt="">
+                @endfor
+                @for ($i = 0; $i < 5 - $items->star; $i++)
+                    <img src="/images/star.black.png" alt="">
+                @endfor
+                {{--  <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
-                <img src="/images/star.png" alt="">
-                <img src="/images/star.black.png" alt="">
+                <img src="/images/star.black.png" alt="">  --}}
             </div>
         </section>
         <section class="c-store__section">
