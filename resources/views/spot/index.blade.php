@@ -27,11 +27,17 @@
             <p class="c-store u-magin--top--0"><img src="/images/exterior.jpg" alt="外装"></p>
             <p class="c-store__name">cafe Green Brown</p>
             <div class="p-store__star">
+                @for ($i = 0; $i < $items->star; $i++)
+                    <img src="/images/star.png" alt="">
+                @endfor
+                @for ($i = 0; $i < 5 - $items->star; $i++)
+                    <img src="/images/star.black.png" alt="">
+                @endfor
+                {{--  <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
                 <img src="/images/star.png" alt="">
-                <img src="/images/star.png" alt="">
-                <img src="/images/star.black.png" alt="">
+                <img src="/images/star.black.png" alt="">  --}}
             </div>
         </section>
         <section class="c-store__section">
