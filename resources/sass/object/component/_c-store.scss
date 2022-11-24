@@ -28,7 +28,7 @@
     &__text {
         font-size: 18px;
         margin: 0;
-
+        word-break: break-all;
         &--addcheck {
             margin: 0;
             padding-top: 8px;
@@ -54,7 +54,9 @@
         border-radius: 8px;
         margin-top: 16px;
         padding: 16px;
-
+        &:has(a:hover) {
+            border-color: $plat_navy;
+        }
         a {
             display: flex;
             gap: 16px;
