@@ -13,7 +13,6 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container u-padding-top--0">
-        <a id="btn-open">制限回数オーバー</a>
         <div class="p-gacha-top">
             <div id="googleMap" class="p-gacha__map">
                 {{--  <iframe
