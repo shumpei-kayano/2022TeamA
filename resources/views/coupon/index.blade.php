@@ -17,20 +17,14 @@
     <div class="c-container">
         <div class="c-coupon">
             <div class="c-btn--tab">
-                {{--  @foreach ($tickets as $ticket)  --}}
                 <a class="is-active" href="{{ route('coupon/index') }}">使用可能</a>
-                {{--  @endforeach  --}}
-                {{--  @foreach ($tickets as $ticket)  --}}
-                {{--  @if ($ticket->flg == 1)  --}}
                 <a href="{{ route('coupon/used') }}">使用済み</a>
-                {{--  @endif  --}}
-                {{--  @endforeach  --}}
             </div>
-            {{--  @foreach ($tickets as $ticket)  --}}
-            {{--  @if ($ticket->flg == 0)  --}}
             @if (isset($tickets))
                 @if ($tickets->isEmpty())
-                    <p>使用できるクーポンはありません</p>
+                    <div class="c-coupon__moji">
+                        <p>使用可能なクーポンはありません</p>
+                    </div>
                 @else
                     @foreach ($tickets as $ticket)
                         <div class="c-coupon__box">
@@ -94,47 +88,9 @@
                                 </transition>
                             @endslot
                         @endcomponent
-
-
-                        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-                        <script>
-                            new Vue({
-                                el: '#dialog',
-                                data: {
-                                    couponUsed: false
-                                },
-                                methods: {
-                                    useCoupon: function() {
-                                        this.couponUsed = true
-                                    }
-                                }
-                            })
-                        </script>
-                        <script>
-                            // 開くボタンが押されたときの処理
-                            const dialog = document.getElementById('dialog');
-                            document.getElementById('btn-open').addEventListener('click', (event) => {
-                                dialog.showModal();
-                            });
-                            // OKが押されたときの処理
-                            /* dialog.querySelector('.c-btn').addEventListener('click', () => {
-                                dialog.close();
-                            }); */
-                        </script>
                     @endforeach
-                    {{--  @else  --}}
-                    {{--    --}}
-                    {{--  @endif  --}}
-                    {{--  @elseif($ticket->flg == 1)  --}}
-                    {{--  <div class="c-coupon__era">  --}}
-                    {{--  @php
-                        $era = '使用できるクーポンはありません';
-                    @endphp
-                    {{ $era }}  --}}
-                    {{--  </div>  --}}
                 @endif
             @endif
-            {{--  @endforeach  --}}
 
         </div>
 
@@ -142,6 +98,31 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#dialog',
+            data: {
+                couponUsed: false
+            },
+            methods: {
+                useCoupon: function() {
+                    this.couponUsed = true
+                }
+            }
+        })
+    </script>
+    <script>
+        // 開くボタンが押されたときの処理
+        const dialog = document.getElementById('dialog');
+        document.getElementById('btn-open').addEventListener('click', (event) => {
+            dialog.showModal();
+        });
+        // OKが押されたときの処理
+        /* dialog.querySelector('.c-btn').addEventListener('click', () => {
+            dialog.close();
+        }); */
+    </script>
 
 </body>
 
