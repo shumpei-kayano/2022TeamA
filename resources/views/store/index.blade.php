@@ -80,20 +80,46 @@
         </section>
 
         <section class="c-store__section">
-            <p style="color: red">この店舗の IDは{{ $items->id }}
-            </p>
             <p class="c-store__item">近くの施設</p>
+            @php
+                $related1 = DB::table('stores')->find($items->related1);
+                $related2 = DB::table('stores')->find($items->related2);
+                $related3 = DB::table('stores')->find($items->related3);
+            @endphp
+            {{-- 近くの施設1 --}}
             <div class="c-store__card">
-                <a href="">
-                    <p class="c-store__card-img"><img src="/images/coupon.jpg" alt="クーポン"></p>
+                <a href={{ route('store/index', ['id' => $related1->id]) }}>
+                    <p class="c-store__card-img"><img src={{ $related1->picture1 }} alt="クーポン"></p>
                     <div class="c-store__card-desc">
-                        <h3>cafe Green Brown</h3>
-                        <p>大分市別府市鉄輪499-18</p>
-                        <p>白いスタイリッシュな建物が目印のカフェ。メニューのほとんどを陶芸作家が手掛あああああああああああああああああああああああああああああああああああ</p>
+                        <h3>{{ $related1->store_name }}</h3>
+                        <p>{{ $related1->address }}</p>
+                        <p>{{ $related1->service }}</p>
                     </div>
                 </a>
             </div>
-           
+            {{-- 近くの施設2 --}}
+            <div class="c-store__card">
+                <a href={{ route('store/index', ['id' => $related2->id]) }}>
+                    <p class="c-store__card-img"><img src={{ $related2->picture1 }} alt="クーポン"></p>
+                    <div class="c-store__card-desc">
+                        <h3>{{ $related2->store_name }}</h3>
+                        <p>{{ $related2->address }}</p>
+                        <p>{{ $related2->service }}</p>
+                    </div>
+                </a>
+            </div>
+            {{-- 近くの施設3 --}}
+            <div class="c-store__card">
+                <a href={{ route('store/index', ['id' => $related3->id]) }}>
+                    <p class="c-store__card-img"><img src={{ $related3->picture1 }} alt="クーポン"></p>
+                    <div class="c-store__card-desc">
+                        <h3>{{ $related3->store_name }}</h3>
+                        <p>{{ $related3->address }}</p>
+                        <p>{{ $related3->service }}</p>
+                    </div>
+                </a>
+            </div>
+
         </section>
 
 

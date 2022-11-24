@@ -94,33 +94,6 @@
                                 </transition>
                             @endslot
                         @endcomponent
-
-
-                        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-                        <script>
-                            new Vue({
-                                el: '#dialog',
-                                data: {
-                                    couponUsed: false
-                                },
-                                methods: {
-                                    useCoupon: function() {
-                                        this.couponUsed = true
-                                    }
-                                }
-                            })
-                        </script>
-                        <script>
-                            // 開くボタンが押されたときの処理
-                            const dialog = document.getElementById('dialog');
-                            document.getElementById('btn-open').addEventListener('click', (event) => {
-                                dialog.showModal();
-                            });
-                            // OKが押されたときの処理
-                            /* dialog.querySelector('.c-btn').addEventListener('click', () => {
-                                dialog.close();
-                            }); */
-                        </script>
                     @endforeach
                     {{--  @else  --}}
                     {{--    --}}
@@ -141,7 +114,31 @@
     </div>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#dialog',
+            data: {
+                couponUsed: false
+            },
+            methods: {
+                useCoupon: function() {
+                    this.couponUsed = true
+                }
+            }
+        })
+    </script>
+    <script>
+        // 開くボタンが押されたときの処理
+        const dialog = document.getElementById('dialog');
+        document.getElementById('btn-open').addEventListener('click', (event) => {
+            dialog.showModal();
+        });
+        // OKが押されたときの処理
+        /* dialog.querySelector('.c-btn').addEventListener('click', () => {
+            dialog.close();
+        }); */
+    </script>
 
 </body>
 
