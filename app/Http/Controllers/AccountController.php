@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 use App\Review;
 use App\Store;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Ticket;
 use App\Good;
+use Illuminate\Support\Facades\Validator;
 
 
 class AccountController extends Controller
 {
-    public function set(){
-        return view('account.setting');
-    }
+   
     public function spot(){
         $tickets=Ticket::where('user_id','=','1')->get();
         return view('tourist.index', ['tickets'=>$tickets]);
     }
     public function update(){
-        $reviews=Review::where('user_id','=','2')->get();
+        $id=Auth::id();
+        $reviews=Review::where('user_id','=',$id)->get();
         return view('review.person', ['reviews'=>$reviews]);
 
     }
@@ -35,6 +36,18 @@ class AccountController extends Controller
         // $reviews =  DB::table('reviews')->find($id);
         $reviews=Review::where('id','=',$id)->get();
         return view('review.edit', ['reviews' => $reviews]);
+    }
+    public function edited(Request $request){
+         //バリデーション
+         $validator = Validator::make($request->all(), Review::$rules);
+         //バリデーション:エラー
+         if ($validator->fails()) {
+             return redirect('/')
+                 ->withInput()
+                 ->withErrors($validator);
+         }
+         Review::reviewUpdate($request);
+         return redirect('/');
     }
     public function show(){
         $goods=Good::where('user_id','=','1')->get();

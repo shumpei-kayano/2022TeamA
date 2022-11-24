@@ -74,6 +74,8 @@ Route::get('review/person', 'AccountController@update')->middleware('auth');
 //クチコミ編集
 // Route::get('review/edit', 'AccountController@edit')->name('review/edit');
 Route::get('review/edit/{id}', 'AccountController@edit')->name('review/edit')->middleware('auth');
+Route::POST('review/edited', 'AccountController@edited')->name('review/edited')->middleware('auth');
+
 
 //いいね一覧
 Route::get('review/good', 'AccountController@show')->name('review/good')->middleware('auth');

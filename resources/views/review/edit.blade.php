@@ -42,15 +42,15 @@
                 <form action="" class="c-form">
                     <div class="c-form__group">
                         <p class="c-store__item">クチコミ</p>
-                        <textarea rows="10" cols="33"></textarea>
+                        <textarea rows="10" cols="33" name="review"></textarea>
                     </div>
-
+                    <input type="hidden" name="id" value="{{ $review->id }}">
                     <button type="submit" class="c-btn c-btn--navy">更新する</button>
-
-                </form>
             </section>
         @endforeach
     </div>
+
+    </form>
 
 </body>
 

@@ -104,6 +104,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
             @endforeach
         </form>
     </div>
