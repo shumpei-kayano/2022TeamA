@@ -35,7 +35,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '大分ラーメンおめでたい 大分駅前店',
+            'store_name' => 'おめでたい 大分駅前店',
             'address' => '大分県大分市末広1丁目1-5末光ビル',
             'link' => 'https://omedetai.info/',
             'tel' => '080-2782-2151',
@@ -58,7 +58,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'カフェ&ダイニングみのりみのるおおいた店',
+            'store_name' => 'みのりみのるお おいた店',
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 1F',
             'link' => 'https://www.minoriminoru.jp/',
             'tel' => '097-535-8623',
@@ -104,7 +104,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ラーメン工房 ふくや 大分駅前店',
+            'store_name' => 'ふくや 大分駅前店',
             'address' => '大分県大分市末広町1丁目1-25',
             'link' => 'https://fukuya-ramen.com/',
             'tel' => '097-538-5165',
@@ -311,7 +311,7 @@ class StoresTableSeeder extends Seeder
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '与八郎Cafe&Sweets',
+            'store_name' => '与八郎Cafe＆Sweets',
             'address' => '大分県別府市鉄輪風呂本1組',
             'link' => ' https://www.instagram.com/yohachiro_cafesweets/',
             'tel' => '0977-27-7002',
