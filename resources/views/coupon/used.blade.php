@@ -30,20 +30,20 @@
                     </div>
                 @else
                     @foreach ($tickets as $ticket)
-                        <div class="c-coupon__box">
-                            <div class="c-coupon__top">
-                                {{--  <p class="c-coupon__use">2022.7.15に使用済み</p>  --}}
+                        <div class="c-store__card">
+                            <div class="c-store__card-header">
                                 <a class="c-btn c-btn--navy c-btn--small" href="{{ route('post/index') }}">クチコミを書く</a>
                             </div>
-                            <div class="c-modal__flex">
-                                <p class="c-modal__flex__img"><img src={{ $ticket->coupon->coupon_photo }}>
+                            <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
+                                <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
+                                        alt="クーポン">
                                 </p>
-                                <div class="c-modal__flex__text">
-                                    <p class="c-modal__flex__coupon">{{ $ticket->coupon->coupon_name }}</p>
-                                    <p class="c-modal__flex__store">{{ $ticket->store->store_name }}</p>
-                                    <p class="c-modal__flex__address">{{ $ticket->store->address }}</p>
+                                <div class="c-store__card-desc">
+                                    <h3>{{ $ticket->store->store_name }}</h3>
+                                    <h4>{{ $ticket->coupon->coupon_name }}</h4>
+                                    <p>{{ $ticket->store->address }}</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 @endif

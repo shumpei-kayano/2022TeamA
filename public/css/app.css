@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;
 
 700&display=swap);@charset "UTF-8";
 html {
@@ -174,7 +173,7 @@ dialog::backdrop {
 
 .c-btn--navy {
   background-color: #354260;
-  color: white;
+  color: white !important;
 }
 
 .c-btn--navy.is-inactive {
@@ -717,6 +716,17 @@ dialog::backdrop {
   color: black;
 }
 
+.c-store__card-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.c-store__card-header .c-btn {
+  margin: 0;
+}
+
 .c-store__card-img {
   width: 100px;
   height: 100px;
@@ -738,7 +748,6 @@ dialog::backdrop {
 .c-store__card-desc h3 {
   margin: 0;
   font-size: 20px;
-  margin-bottom: 0;
   font-weight: 600;
   line-height: 1.25;
   overflow: hidden;
@@ -753,6 +762,13 @@ dialog::backdrop {
   line-height: 1;
   margin-bottom: 16px;
   padding: 0;
+}
+
+.c-store__card-desc h4 {
+  margin: 8px 0 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .c-store__card-desc p {

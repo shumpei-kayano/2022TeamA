@@ -65,6 +65,15 @@
                 color: black;
             }
         }
+        &-header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+            .c-btn {
+                margin: 0;
+            }
+        }
         &-img {
             width: 100px;
             height: 100px;
@@ -82,7 +91,6 @@
             h3 {
                 margin: 0;
                 font-size: 20px;
-                margin-bottom: 0;
                 font-weight: 600;
                 line-height: 1.25;
                 overflow: hidden;
@@ -96,6 +104,12 @@
                     margin-bottom: 16px;
                     padding: 0;
                 }
+            }
+            h4 {
+                margin: 8px 0 0 0;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.25;
             }
             p {
                 font-size: 12px;
