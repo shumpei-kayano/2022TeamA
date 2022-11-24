@@ -52,7 +52,14 @@
             </div>
             <div class="c-hukidashi__edit">
 
+
+                {{--  <form action="{{ route('review/edit', ['id' => $review->id]) }}" method="POST">
+                    @csrf  --}}
                 <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>
+                {{--  </form>  --}}
+
+
+                {{--  <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>  --}}
                 {{--  reviewsテーブルからデータを引っ張ってくる  --}}
                 <a href="" class="c-hukidashi__edit-delete">削除</a>
 
