@@ -23,7 +23,6 @@ class CreateStoresTable extends Migration
             $table->string('picture1');
             $table->string('picture2');
             $table->string('picture3');
-            $table->string('picture4');
             $table->time('bussiness_hours');
             $table->string('parking');
             $table->string('area_id');

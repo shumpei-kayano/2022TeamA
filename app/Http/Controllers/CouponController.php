@@ -37,23 +37,25 @@ class CouponController extends Controller
         $tickets=Ticket::where($cond)->get();
         // dd($tickets);
         return view('coupon.index', ['tickets'=>$tickets]);
+        $tickets = Ticket::where('user_id', '=', '1')->get();
+        return view('coupon.index', ['tickets' => $tickets]);
     }
 
     public function used()
     {
-        $tickets=Ticket::where('user_id','=','3')->get();
+        $tickets = Ticket::where('user_id', '=', '3')->get();
         // $cond = ['user_id' => 2, 'flg' =>1];
         // $tickets=Ticket::where($cond)->get();
-        return view('coupon.used', ['tickets'=>$tickets]);
+        return view('coupon.used', ['tickets' => $tickets]);
     }
 
     public function store($id)
     {
-        // $items = Store::where('id','=',$id)->get();
+        //$items = Store::where('id', '=', $id)->get();
         $items = DB::table('stores')->find($id);
         return view('store.index', ['items' => $items]);
     }
-    
+
     public function edit()
     {
         return view('post.index');
