@@ -12,47 +12,43 @@
 
     @component('components.gnav')
     @endcomponent
-
-    <form action="{{ route('review/edited') }}" method="POST">
-        @csrf
-        <div class="c-container">
-            <div class="c-header">
-                <a href="{{ route('account/review') }}" class="c-back">戻る</a>
-                <h4>クチコミ編集</h4>
-            </div>
-            {{--  {{ dd($reviews) }}  --}}
-            @foreach ($reviews as $review)
-                <section class="c-store__section--edit">
-                    <p class="c-store__item">店舗名</p>
-                    <p class="c-store__text">{{ $review->store->store_name }}</p>
-                </section>
-                <section class="c-store__section--edit">
-                    <p class="c-store__item">訪問日</p>
-                    <p class="c-store__text">{{ $review->visited }}</p>
-                </section>
-                <section class="c-store__section--edit">
-                    <div class="p-post__star">
-                        <p class="c-store__item">満足度</p>
-                        <p class="c-store__text">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                        </p>
-                    </div>
-                </section>
-                <section class="c-store__section--edit">
-
+    <div class="c-container">
+        <div class="c-header">
+            <a href="{{ route('account/review') }}" class="c-back">戻る</a>
+            <h4>クチコミ編集</h4>
+        </div>
+        @foreach ($reviews as $review)
+            <section class="c-store__section--edit ">
+                <p class="c-store__item">店舗名</p>
+                <p class="c-form__group">{{ $review->store->store_name }}</p>
+            </section>
+            <section class="c-store__section--edit c-form">
+                <p class="c-store__item">訪問日</p>
+                <p class="c-form__group"><input type="date">
+            </section>
+            <section class="c-store__section--edit">
+                <div class="p-post__star">
+                    <p class="c-store__item">満足度</p>
+                    <p class="c-store__text">
+                        <img src="/images/star.black.png" alt="">
+                        <img src="/images/star.black.png" alt="">
+                        <img src="/images/star.black.png" alt="">
+                        <img src="/images/star.black.png" alt="">
+                        <img src="/images/star.black.png" alt="">
+                    </p>
+                </div>
+            </section>
+            <section class="c-store__section--edit">
+                <form action="" class="c-form">
                     <div class="c-form__group">
                         <p class="c-store__item">クチコミ</p>
                         <textarea rows="10" cols="33" name="review"></textarea>
                     </div>
                     <input type="hidden" name="id" value="{{ $review->id }}">
                     <button type="submit" class="c-btn c-btn--navy">更新する</button>
-                </section>
-            @endforeach
-        </div>
+            </section>
+        @endforeach
+    </div>
 
     </form>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Good;
+use App\Review;
 class AdminController extends Controller
 {
     public function watch(){
@@ -16,7 +17,9 @@ class AdminController extends Controller
         
     }
     public function show(){
-        return view('store.admin');
+        $reviews = Review::selectRaw('round(AVG(star)) as count_review')
+        ->get();
+        return view('store.admin',['reviews'=>$reviews]);
     }
     public function edit(){
         return view('store.admin');

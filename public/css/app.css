@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;
 
 700&display=swap);@charset "UTF-8";
 html {
@@ -633,6 +634,12 @@ dialog::backdrop {
   font-size: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.c-coupon__moji p {
+  color: #354260;
+  text-align: center;
+  font-weight: bold;
 }
 
 .c-store {

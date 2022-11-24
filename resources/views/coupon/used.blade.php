@@ -23,76 +23,31 @@
                 <a class="is-active" href="{{ route('coupon/used') }}">使用済み</a>
 
             </div>
-            @foreach ($tickets as $ticket)
-                @if ($ticket->flg == 1)
-                    <div class="c-coupon__box">
-                        <div class="c-coupon__top">
-                            {{--  <p class="c-coupon__use">2022.7.15に使用済み</p>  --}}
-                            <a class="c-btn c-btn--navy c-btn--small" href="{{ route('post/index') }}">クチコミを書く</a>
-                        </div>
-                        <div class="c-modal__flex">
-                            <p class="c-modal__flex__img"><img src={{ $ticket->coupon->coupon_photo }}>
-                            </p>
-                            <div class="c-modal__flex__text">
-                                <p class="c-modal__flex__coupon">{{ $ticket->coupon->coupon_name }}</p>
-                                <p class="c-modal__flex__store">{{ $ticket->store->store_name }}</p>
-                                <p class="c-modal__flex__address">{{ $ticket->store->address }}</p>
-                            </div>
-                        </div>
+            @if (isset($tickets))
+                @if ($tickets->isEmpty())
+                    <div class="c-coupon__moji">
+                        <p>使用済みのクーポンはありません</p>
                     </div>
-                    {{--  <div class="c-coupon__box">
-                        <div class="c-coupon__top">
-                            <p class="c-coupon__use">2022.7.15に使用済み</p>
-                            <a class="c-btn c-btn--navy is-inactive c-btn--small">クチコミを書く</a>
-                        </div>
-                        <div class="c-modal__flex">
-                            <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="クーポン"></p>
-                            <div class="c-modal__flex__text">
-                                <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
-                                <p class="c-modal__flex__store">the LOUNGE</p>
-                                <p class="c-modal__flex__address">大分市別府市鉄輪499-18</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-coupon__box">
-                        <div class="c-coupon__top">
-                            <p class="c-coupon__use">2022.7.15に使用済み</p>
-                            <a class="c-btn c-btn--navy is-inactive c-btn--small">クチコミを書く</a>
-                        </div>
-                        <div class="c-modal__flex">
-                            <p class="c-modal__flex__img"><img src="/images/coupon.jpg" alt="クーポン"></p>
-                            <div class="c-modal__flex__text">
-                                <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>
-                                <p class="c-modal__flex__store">the LOUNGE</p>
-                                <p class="c-modal__flex__address">大分市別府市鉄輪499-18</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-coupon__box">
-                        <div class="c-coupon__top">
-                            <p class="c-coupon__use">2022.7.15に使用済み</p>
-                            <a class="c-btn c-btn--navy c-btn--small">クチコミを書く</a>
-                        </div>
-                        <div class="c-modal__flex">
-                            <p class="c-modal__flex__img"><img src="/images/Beer.jpg" alt="生ビール"></p>
-                            <div class="c-modal__flex__text">
-                                <p class="c-modal__flex__coupon">生ビール1杯無料</p>
-                                <p class="c-modal__flex__store">ROUTE 502 COFFEE</p>
-                                <p class="c-modal__flex__address">大分県臼杵市市浜1129-3</p>
-                            </div>
-                        </div>
-                    </div>  --}}
-                    {{--  @endif  --}}
                 @else
-                    {{--  <div class="c-coupon__era">  --}}
-                    @php
-                        $era = '使用済みのクーポンはありません';
-                    @endphp
-                    {{--  </div>  --}}
+                    @foreach ($tickets as $ticket)
+                        <div class="c-coupon__box">
+                            <div class="c-coupon__top">
+                                {{--  <p class="c-coupon__use">2022.7.15に使用済み</p>  --}}
+                                <a class="c-btn c-btn--navy c-btn--small" href="{{ route('post/index') }}">クチコミを書く</a>
+                            </div>
+                            <div class="c-modal__flex">
+                                <p class="c-modal__flex__img"><img src={{ $ticket->coupon->coupon_photo }}>
+                                </p>
+                                <div class="c-modal__flex__text">
+                                    <p class="c-modal__flex__coupon">{{ $ticket->coupon->coupon_name }}</p>
+                                    <p class="c-modal__flex__store">{{ $ticket->store->store_name }}</p>
+                                    <p class="c-modal__flex__address">{{ $ticket->store->address }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 @endif
-            @endforeach
-            {{ $era }}
-
+            @endif
         </div>
     </div>
 </body>
