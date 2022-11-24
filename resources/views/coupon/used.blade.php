@@ -25,7 +25,9 @@
             </div>
             @if (isset($tickets))
                 @if ($tickets->isEmpty())
-                    <p>使用済みのクーポンはありません</p>
+                    <div class="c-coupon__moji">
+                        <p>使用済みのクーポンはありません</p>
+                    </div>
                 @else
                     @foreach ($tickets as $ticket)
                         <div class="c-coupon__box">
