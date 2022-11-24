@@ -580,6 +580,7 @@ dialog::backdrop {
 .c-store__text {
   font-size: 18px;
   margin: 0;
+  word-break: break-all;
 }
 .c-store__text--addcheck {
   margin: 0;
