@@ -1,6 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap);
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap");
 html {
   height: -webkit-fill-available;
   font-family: "Noto Sans JP", sans-serif;
@@ -477,7 +477,8 @@ dialog::backdrop {
 .c-modal__flex__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-modal__flex__text {
   margin: 0;
@@ -546,6 +547,11 @@ dialog::backdrop {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+.c-coupon__moji p {
+  color: #354260;
+  text-align: center;
+  font-weight: bold;
+}
 
 .c-store {
   width: 100%;
@@ -557,7 +563,8 @@ dialog::backdrop {
 }
 .c-store img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-store__name {
   font-size: 32px;
@@ -618,7 +625,8 @@ dialog::backdrop {
 .c-store__card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-store__card-desc {
   flex: 1;
