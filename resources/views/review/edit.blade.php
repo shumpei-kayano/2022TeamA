@@ -42,16 +42,7 @@
                             <label for="star2">★</label>
                             <input id="star1" type="radio" name="rate" value="1">
                             <label for="star1">★</label>
-
                         </div>
-                        {{--  <p class="c-store__text">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                        </p>  --}}
-
                     </div>
                 </section>
                 <section class="c-store__section--edit">

@@ -677,7 +677,6 @@ dialog::backdrop {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  gap: 8px;
 }
 .c-star input[type=radio] {
   display: none;
@@ -690,7 +689,7 @@ dialog::backdrop {
   color: #d9d9d9;
   cursor: pointer;
   font-size: 48px;
-  padding: 0;
+  padding: 4px;
   line-height: 1;
 }
 .c-star label:hover {
