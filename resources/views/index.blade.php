@@ -33,7 +33,7 @@
             <li><a href="/coupon/used" target="_blank">クーポン使用済み</a></li>
             <li><a href="/post/index" target="_blank">クチコミ投稿</a></li>
             <li><a href="/badge/index" target="_blank">バッジ</a></li>
-            <li><a href="/welcome/admin" target="_blank">管理者ログイン</a></li>
+            <li><a href="/admin/login" target="_blank">管理者ログイン</a></li>
             <li><a href="/store/admin" target="_blank">店舗情報管理</a></li>
             <li><a href="/coupon/admin" target="_blank">クーポン管理</a></li>
             <li><a href="/review/admin" target="_blank">クチコミ管理</a></li>

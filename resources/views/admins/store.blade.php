@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head lang="ja">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +13,7 @@
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
             <p>店舗名</p>
-            <p><a class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
+            <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
     <div class="c-container--pc">
@@ -26,22 +29,14 @@
                 <div class="p-admin__contentheader">
                     <div class="p-admin__tittle">
                         <h1>店舗情報</h1>
-                        @foreach ($reviews as $reviews)
-                            <div class="p-admin__star">
-                                <p>平均スコア</p>
-                                @for ($i = 0; $i < $reviews->count_review; $i++)
-                                    <img src="/images/star.png" alt="">
-                                @endfor
-                                @for ($i = 0; $i < 5 - $reviews->count_review; $i++)
-                                    <img src="/images/star.black.png" alt="">
-                                @endfor
-                                {{--  <img src="/images/star.png" alt="">
+                        <div class="p-admin__star">
+                            <p>平均スコア</p>
+                            <img src="/images/star.png" alt="">
                             <img src="/images/star.png" alt="">
                             <img src="/images/star.png" alt="">
                             <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">  --}}
-                            </div>
-                        @endforeach
+                            <img src="/images/star.black.png" alt="">
+                        </div>
                     </div>
                 </div>
                 <form action="" class="c-form">
@@ -83,33 +78,32 @@
                         <div class="p-admin__time">
                             <div class="c-form__group--time">
                                 <label for="">営業開始時間</label><input type="text">
+                                <div class="c-form__group--time">
+                                    <label for="">営業終了時間</label><input type="text">
+                                </div>
                             </div>
-                            <div class="c-form__group--time">
-                                <label for="">営業終了時間</label><input type="text">
+                            <div class="c-form__group">
+                                <label for="">駐車場</label><input type="text">
+                            </div>
+                            <div class="c-form__group">
+                                <label>エリア名選択
+                                    {{--  <span class="req">※</span>  --}}
+                                </label>
+                                <select name="op">
+                                    <option value="-----------">
+                                        ---------------------------------------------------------</option>
+                                    <option value="Option A">Option aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
+                                    <option value="Option B">Option B</option>
+                                    <option value="Option C">Option C</option>
+                                    <option value="Option D">Option D</option>
+                                    {{--  データベースから引っ張ってくる  --}}
+                                </select>
                             </div>
                         </div>
-                        <div class="c-form__group">
-                            <label for="">駐車場</label><input type="text">
-                        </div>
-                        <div class="c-form__group">
-                            <label>エリア名選択
-                                {{--  <span class="req">※</span>  --}}
-                            </label>
-                            <select name="op">
-                                <option value="-----------">
-                                    ---------------------------------------------------------</option>
-                                <option value="Option A">Option aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
-                                <option value="Option B">Option B</option>
-                                <option value="Option C">Option C</option>
-                                <option value="Option D">Option D</option>
-                                {{--  データベースから引っ張ってくる  --}}
-                            </select>
-                        </div>
+                        <p><a class="c-btn c-btn--update c-btn--navy">更新する</a></p>
                     </div>
-                    <p><a class="c-btn c-btn--update c-btn--navy">更新する</a></p>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
