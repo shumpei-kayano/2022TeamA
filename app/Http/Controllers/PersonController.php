@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Review;
 use App\Store;
-use App\User;
+use App\Models\User;
 use App\Good;
 
 class PersonController extends Controller

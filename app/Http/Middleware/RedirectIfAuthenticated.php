@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
+
 class RedirectIfAuthenticated
 {
     /**
@@ -27,11 +28,11 @@ class RedirectIfAuthenticated
                     return redirect()->route('admins.store');
                 }
                 break;
-    
+
             default:
                 if (Auth::guard($guard)->check()) {
                     // return redirect()->route('welcome.homeindex');
-                    return redirect()->route('admin.login');
+                    return redirect()->route('person/home');
                 }
                 break;
         }

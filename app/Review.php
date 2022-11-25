@@ -14,14 +14,17 @@ class Review extends Model
     //     'store_id' => 'required',
     //     'posted_date' => 'required',
     // ];
-    public function store(){
+    public function store()
+    {
         return $this->belongsTo('App\Store');
     }
 
-    public function user(){
-        return $this->belongsTo('App\User');
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
-    public function goods(){
+    public function goods()
+    {
         return $this->hasmany('App\Good');
     }
     // public static function reviewUpdate(Request $request)
@@ -35,5 +38,5 @@ class Review extends Model
     //     $review->save();
     // }
 
-    protected $fillable=['user_id','visited','comment','store_id','posted_date','star'];
+    protected $fillable = ['user_id', 'visited', 'comment', 'store_id', 'posted_date', 'star'];
 }

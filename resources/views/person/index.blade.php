@@ -22,6 +22,7 @@
             </div>
         </a>
         <form action="home/good" method="POST">
+
             @foreach ($reviews as $review)
                 <input type="hidden" name="id" value="$review->id">
                 <p class="c-hukidashi__date">
@@ -31,7 +32,7 @@
                     class="c-hukidashi @if ($review->user_id == 3) c-hukidashi--a
             @else c-hukidashi--b @endif">
                     <p class="c-hukidashi__photo">
-                        <img src={{ $review->user->icon_photo }}>
+                        {{-- <img src="{{ $review->user->icon_photo }}"> --}}
                     </p>
                     <div class="c-fukidashi__container">
                         <p class="c-hukidashi__username">{{ $review->user->name }}</p>
@@ -116,7 +117,7 @@
 </html>
 
 
-<div class="c-hukidashi__footer">
+{{-- <div class="c-hukidashi__footer">
     <label class="c-hukidashi__good">
         <form action="home/good" method="POST">
             <input type="hidden" name="id" value="$review->id">
@@ -125,4 +126,4 @@
             <span class="c-hukidashi__good-num">50</span>
         </form>
     </label>
-</div>
+</div> --}}
