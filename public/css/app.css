@@ -673,6 +673,33 @@ dialog::backdrop {
   -webkit-line-clamp: 2;
 }
 
+.c-star {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.c-star input[type=radio] {
+  display: none;
+}
+.c-star input[type=radio]:checked ~ label {
+  color: #eec94a;
+}
+.c-star label {
+  position: relative;
+  color: #d9d9d9;
+  cursor: pointer;
+  font-size: 48px;
+  padding: 0;
+  line-height: 1;
+}
+.c-star label:hover {
+  color: #eec94a;
+}
+.c-star label:hover ~ label {
+  color: #eec94a;
+}
+
 .p-gnav {
   position: fixed;
   bottom: 0;
