@@ -17,17 +17,16 @@
     <div class="c-container">
         <div class="c-coupon">
             <div class="c-btn--tab">
-                {{--  @foreach ($tickets as $ticket)  --}}
                 <a class="is-active" href="{{ route('coupon/index') }}">使用可能</a>
-                {{--  @endforeach  --}}
-                {{--  @foreach ($tickets as $ticket)  --}}
-                {{--  @if ($ticket->flg == 1)  --}}
                 <a href="{{ route('coupon/used') }}">使用済み</a>
-                {{--  @endif  --}}
-                {{--  @endforeach  --}}
             </div>
-            @foreach ($tickets as $ticket)
-                @if ($ticket->flg == 0)
+
+            @if ($tickets->isEmpty())
+                <div class="c-coupon__moji">
+                    <p>使用可能なクーポンはありません</p>
+                </div>
+            @else
+                @foreach ($tickets as $ticket)
                     <div class="c-coupon__box">
 
                         <small class="c-coupon__use">
@@ -52,52 +51,51 @@
                         <button id="btn-open" type="submit"
                             class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
                     </div>
-                @endif
-            @endforeach
+                    @component('components.modal')
+                        @slot('title')
+                            <p class="c-modal__title c-modal__title--pink">
+                                <transition>
+                                    <span v-if="couponUsed" key="used">
+                                        この画面を店舗スタッフに提示して下さい。
+                                    </span>
+                                    <span v-else key="use">
+                                        本当に使用しますか<small>このクーポンは一回のみ使用できます。</small>
+                                    </span>
+                                </transition>
+                            </p>
+                        @endslot
+                        @slot('content')
+                            <div class="c-modal__flex">
+                                <p class="c-modal__flex__img">
+                                    <img src={{ $ticket->coupon->coupon_photo }} alt="クーポン">
+                                </p>
+
+                                <p class="c-modal__flex__text">
+                                    {{ $ticket->coupon->coupon_name }}<small>{{ $ticket->store->store_name }}</small></p>
+
+                            </div>
+                        @endslot
+                        @slot('button')
+                            <transition>
+                                <a href="{{ route('post/index') }}" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
+                                    key="used">クチコミを書く</a>
+                                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                                    key="use">クーポンを使う</button>
+                            </transition>
+                            <transition>
+                                <a href="" v-if="couponUsed" key="used">後で書く</a>
+                                <a href="" v-else key="use">後で</a>
+                            </transition>
+                        @endslot
+                    @endcomponent
+                @endforeach
+            @endif
+
+
         </div>
 
     </div>
 
-
-
-
-    @component('components.modal')
-        @slot('title')
-            <p class="c-modal__title c-modal__title--pink">
-                <transition>
-                    <span v-if="couponUsed" key="used">
-                        この画面を店舗スタッフに提示して下さい。
-                    </span>
-                    <span v-else key="use">
-                        本当に使用しますか<small>このクーポンは一回のみ使用できます。</small>
-                    </span>
-                </transition>
-            </p>
-        @endslot
-        @slot('content')
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img">
-                    <img src={{ $ticket->coupon->coupon_photo }} alt="クーポン">
-                </p>
-
-                <p class="c-modal__flex__text">
-                    {{ $ticket->coupon->coupon_name }}<small>{{ $ticket->store->store_name }}</small></p>
-
-            </div>
-        @endslot
-        @slot('button')
-            <transition>
-                <a href="{{ route('post/index') }}" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
-                    key="used">クチコミを書く</a>
-                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
-                    key="use">クーポンを使う</button>
-            </transition>
-            <transition>
-                <a href="" v-if="couponUsed" key="used">後で書く</a>
-                <a href="" v-else key="use">後で</a>
-            </transition>
-        @endslot
-    @endcomponent
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -125,6 +123,7 @@
             dialog.close();
         }); */
     </script>
+
 </body>
 
 

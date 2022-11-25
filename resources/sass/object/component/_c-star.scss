@@ -1,0 +1,25 @@
+.c-star {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    input[type="radio"] {
+        display: none;
+        &:checked ~ label {
+            color: $plat_yellow;
+        }
+    }
+    label {
+        position: relative;
+        color: $gray_light;
+        cursor: pointer;
+        font-size: 48px;
+        padding: 4px;
+        line-height: 1;
+        &:hover {
+            color: $plat_yellow;
+            & ~ label {
+                color: $plat_yellow;
+            }
+        }
+    }
+}

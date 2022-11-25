@@ -26,7 +26,7 @@
     // navy
     &--navy {
         background-color: $plat_navy;
-        color: white;
+        color: white !important;
 
         &.is-inactive {
             background-color: $gray;

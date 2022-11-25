@@ -20,7 +20,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://www.oitadrip.jp/zwp/wp-content/uploads/2022/02/jinta1-1024x683.jpg',
             'picture2' => 'https://www.tts01.jp/api_img/contents/shopinfo/apo01/fc7b18064a340766ce151ef404e975e5_01_01.jpg',
             'picture3' => 'https://stat.ameba.jp/user_images/20220731/08/abcenter/23/e1/j/o0900067515153996206.jpg?caw=800',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -29,11 +28,14 @@ class StoresTableSeeder extends Seeder
             'review_count' => '12',
             'star' => '3',
             'end_time' => '0:00',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '2',
+            'related2' => '3',
+            'related3' => '4'
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '大分ラーメンおめでたい 大分駅前店',
+            'store_name' => 'おめでたい 大分駅前店',
             'address' => '大分県大分市末広1丁目1-5末光ビル',
             'link' => 'https://omedetai.info/',
             'tel' => '080-2782-2151',
@@ -41,7 +43,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://oita-journey.com/wp-content/uploads/2022/07/4E73DC91-A885-4475-81E7-D900E48DFD9F-800x600.jpeg',
             'picture2' => 'https://trinita-kouenkai.net/wp01/wp-content/uploads/2020/11/omedetai_2.jpg',
             'picture3' => 'https://www.oitadrip.jp/zwp/wp-content/uploads/2020/11/3-3.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -50,11 +51,14 @@ class StoresTableSeeder extends Seeder
             'review_count' => '8',
             'star' => '4',
             'end_time' => '23:30',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '3',
+            'related2' => '4',
+            'related3' => '5'
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'カフェ&ダイニングみのりみのるおおいた店',
+            'store_name' => 'みのりみのるお おいた店',
             'address' => '大分県大分市要町1-14 アミュプラザおおいた 1F',
             'link' => 'https://www.minoriminoru.jp/',
             'tel' => '097-535-8623',
@@ -62,7 +66,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://phrase-oita.com/wp-content/uploads/2018/12/20181212114.jpg',
             'picture2' => 'https://www.zennoh.or.jp/shop/upload_files/minoriminoru_oita_2.jpg',
             'picture3' => 'https://media-cdn.tripadvisor.com/media/photo-s/1d/95/54/8e/caption.jpg',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -72,6 +75,9 @@ class StoresTableSeeder extends Seeder
             'star' => '4',
             'end_time' => '22:00',
             'start_time' => '10:00',
+            'related1' => '4',
+            'related2' => '5',
+            'related3' => '6'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -83,7 +89,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://images.keizai.biz/oita_keizai/headline/1655946910_photo.jpg',
             'picture2' => 'https://www.tts01.jp/api_img/contents/shopinfo/apo01/320ffd223d8e08df177612614a5b39b8_01_01.jpg',
             'picture3' => 'https://prtimes.jp/i/55529/13/resize/d55529-13-f1947974660c870e3e2e-0.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -93,10 +98,13 @@ class StoresTableSeeder extends Seeder
             'star' => '3',
             'end_time' => '20:00',
             'start_time' => '10:00',
+            'related1' => '5',
+            'related2' => '6',
+            'related3' => '7'
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => 'ラーメン工房 ふくや 大分駅前店',
+            'store_name' => 'ふくや 大分駅前店',
             'address' => '大分県大分市末広町1丁目1-25',
             'link' => 'https://fukuya-ramen.com/',
             'tel' => '097-538-5165',
@@ -104,7 +112,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://phrase-oita.com/manage/wp-content/uploads/2016/05/20210402246.jpg',
             'picture2' => 'https://cospashima.com/wp-content/uploads/2020/01/suehiromachi-fukuya_09.jpg',
             'picture3' => 'https://tblg.k-img.com/restaurant/images/Rvw/90031/640x640_rect_90031639.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -113,7 +120,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '7',
             'star' => '4',
             'end_time' => '22:00',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '6',
+            'related2' => '7',
+            'related3' => '8'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -125,7 +135,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://www.oitadrip.jp/zwp/wp-content/uploads/2021/06/hotel2-1-1024x683.jpg',
             'picture2' => 'https://www.oitadrip.jp/zwp/wp-content/uploads/2021/06/hotel3-1024x683.jpg',
             'picture3' => 'https://cdn.shopify.com/s/files/1/0026/0233/6326/files/S__12886018.jpg?v=1622797779',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -134,7 +143,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '2',
             'star' => '3',
             'end_time' => '20:00',
-            'start_time' => '10:00'
+            'start_time' => '10:00',
+            'related1' => '7',
+            'related2' => '8',
+            'related3' => '9'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -146,7 +158,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://cdn.4travel.jp/img/thumbnails/imk/tips_pict/18/83/80/650x450_18838068.jpg',
             'picture2' => 'https://images.keizai.biz/hamakei/headline/1342504917_photo.jpg',
             'picture3' => 'https://www.shigotoba.net/_img/casestudy/space/99382ADEFC1CAF43750A14B2966447642.jpg',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -155,7 +166,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '4',
             'star' => '10',
             'end_time' => '20:00',
-            'start_time' => '10:00'
+            'start_time' => '10:00',
+            'related1' => '8',
+            'related2' => '9',
+            'related3' => '10'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -167,7 +181,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://sweetsinfonews.com/wp-content/uploads/2022/08/img_630215396dce6.jpg',
             'picture2' => 'https://tabicoffret.com/assets_c/2019/05/IMG_6736-thumb-autox933-113351.jpg',
             'picture3' => 'https://www.kikutaro.net/uploads/1/1/7/2/117232879/kiku-210405-i09-2_orig.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -177,6 +190,9 @@ class StoresTableSeeder extends Seeder
             'star' => '3',
             'end_time' => '20:00',
             'start_time' => '10:00',
+            'related1' => '9',
+            'related2' => '10',
+            'related3' => '11'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -188,7 +204,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://rimage.hitosara.com/gg/image/0006048348/0006048348E1.jpg',
             'picture2' => 'https://blog-imgs-115.fc2.com/o/i/t/oitatabearuki/resize1037.jpg',
             'picture3' => 'https://ooita.goguynet.jp/wp-content/uploads/sites/19/2018/06/7bf325019410e4d8a846f40f31db6927-768x318.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -197,7 +212,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '6',
             'star' => '3',
             'end_time' => '23:00',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '10',
+            'related2' => '11',
+            'related3' => '12'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -209,7 +227,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://rimage.gnst.jp/rest/img/2598z7480000/s_0qng.jpg?t=1652249075&g=670',
             'picture2' => 'https://phrase-oita.com/wp-content/uploads/2016/12/20161227107.jpg',
             'picture3' => 'https://tblg.k-img.com/restaurant/images/Rvw/74836/640x640_rect_74836562.jpg',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -219,6 +236,9 @@ class StoresTableSeeder extends Seeder
             'star' => '3',
             'end_time' => '0:00',
             'start_time' => '17:00',
+            'related1' => '11',
+            'related2' => '12',
+            'related3' => '13',
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -230,7 +250,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://media-cdn.tripadvisor.com/media/photo-s/0d/c0/14/d6/dsc-4716-largejpg.jpg',
             'picture2' => 'https://livedoor.blogimg.jp/oita_morning/imgs/9/e/9ef5f4d8.jpg',
             'picture3' => 'https://d2j6doapa7j1ze.cloudfront.net/upload_picture/S1432026042970_1.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -240,6 +259,9 @@ class StoresTableSeeder extends Seeder
             'star' => '4',
             'end_time' => '22:00',
             'start_time' => '7:00',
+            'related1' => '12',
+            'related2' => '13',
+            'related3' => '14'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -251,7 +273,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://images.keizai.biz/oita_keizai/photonews/1568273406_b.jpg',
             'picture2' => 'https://phrase-oita.com/wp-content/uploads/2019/08/201908221814.jpg',
             'picture3' => 'https://paypaygourmet-pctr.c.yimg.jp/hhwo1Z4ujz3lqiHcC_Zvvwfod3F-tH-IhS4xrpYuy2PBIP6C0rieDxLjxRzL7GYmsdOtuAgv1C_9rIn40LdysjHu_68wDV2TO8TWGhwzhs77YYiF1k1F9_3RPBg9J8qlIzHUm2DLwJN765o83Z84dQ==',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -260,7 +281,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '12',
             'star' => '4',
             'end_time' => '0:00',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '13',
+            'related2' => '1',
+            'related3' => '2'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -272,7 +296,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://tabelog.com/restaurant/images/Rvw/53957/640x640_rect_53957158.jpg',
             'picture2' => 'https://stat.ameba.jp/user_images/20200205/05/motoyuki2013/89/8d/j/o1080081014707958624.jpg',
             'picture3' => 'https://www.traindor.com/breads/img/meal/mv.jpg',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '1',
             'perfecture_id' => '44',
@@ -282,10 +305,13 @@ class StoresTableSeeder extends Seeder
             'star' => '3',
             'end_time' => '21:00',
             'start_time' => '6:30',
+            'related1' => '1',
+            'related2' => '2',
+            'related3' => '3'
         ];
         DB::table('stores')->insert($param);
         $param = [
-            'store_name' => '与八郎Cafe&Sweets',
+            'store_name' => '与八郎Cafe＆Sweets',
             'address' => '大分県別府市鉄輪風呂本1組',
             'link' => ' https://www.instagram.com/yohachiro_cafesweets/',
             'tel' => '0977-27-7002',
@@ -293,7 +319,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://phrase-oita.com/wp-content/uploads/2016/08/201608261418.jpg',
             'picture2' => 'https://beppu-yufu-hita.goguynet.jp/wp-content/uploads/sites/171/2021/09/9A9C5394-7040-4BC3-94B6-B18150D081A9.jpeg',
             'picture3' => 'https://phrase-oita.com/wp-content/uploads/2016/07/20160725024.jpg',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -302,7 +327,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '10',
             'star' => '4',
             'end_time' => '17:00',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '15',
+            'related2' => '16',
+            'related3' => '17'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -314,7 +342,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://ps-q.jp/wp-content/uploads/2019/07/（提供：別府市観光課）地獄蒸し工房-鉄輪_005.jpg',
             'picture2' => 'https://www.mapple.net/cms/wp-content/uploads/2018/01/16311.jpg',
             'picture3' => 'https://www.city.beppu.oita.jp/images/sisetu/sangyou_kankou/11-17jigokumushi.jpg',
-            'picture4' => '',
             'parking' => '有',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -324,6 +351,9 @@ class StoresTableSeeder extends Seeder
             'star' => '3',
             'end_time' => '19:00',
             'start_time' => '10:00',
+            'related1' => '16',
+            'related2' => '17',
+            'related3' => '18'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -335,7 +365,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://www.tabirai.net/sightseeing/column/img/0005314/kiji1Img.JPG',
             'picture2' => 'https://pic1.homemate-research.com/pubuser1/pubuser_facility_img/9/8/3/14092759389/0000026310/14092759389_0000026310_1.jpg',
             'picture3' => 'https://www.tabirai.net/tabirai-uploader/img/0020963/s1_0020963.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -345,6 +374,9 @@ class StoresTableSeeder extends Seeder
             'star' => '2',
             'end_time' => '20:30',
             'start_time' => '10:30',
+            'related1' => '17',
+            'related2' => '18',
+            'related3' => '19'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -356,7 +388,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://tabelog.com/restaurant/images/Rvw/98585/640x640_rect_98585480.jpg',
             'picture2' => 'https://cdn.4travel.jp/img/thumbnails/imk/tips_pict/18/75/56/650x450_18755657.jpg',
             'picture3' => 'https://media-cdn.tripadvisor.com/media/photo-s/09/19/c6/d1/caption.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -366,6 +397,9 @@ class StoresTableSeeder extends Seeder
             'star' => '4',
             'end_time' => '14:30',
             'start_time' => '11:00',
+            'related1' => '18',
+            'related2' => '19',
+            'related3' => '20'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -377,7 +411,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://beppu-yufu-hita.goguynet.jp/wp-content/uploads/sites/171/2021/05/62A3F4DB-AAFD-4114-8AF8-C089281598D1.jpeg',
             'picture2' => 'https://livedoor.blogimg.jp/nekomuranaturu/imgs/9/3/932baf5e.jpg',
             'picture3' => 'https://imgfp.hotp.jp/IMGH/95/21/P036079521/P036079521_480.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -386,7 +419,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '8',
             'star' => '4',
             'end_time' => '16:00',
-            'start_time' => '7:00'
+            'start_time' => '7:00',
+            'related1' => '19',
+            'related2' => '20',
+            'related3' => '21'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -398,7 +434,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://cdn-mapple.net/Normal/大分県/44010327_3895_2.jpg',
             'picture2' => 'https://tabelog.com/restaurant/images/Rvw/77830/640x640_rect_77830418.jpg',
             'picture3' => 'https://fastly.4sqi.net/img/general/600x600/150926306_w212AWu5AHwDvE0Z2EhMMton-nQYnEKYwVqNaNwScyA.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -407,7 +442,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '11',
             'star' => '3',
             'end_time' => '21:00',
-            'start_time' => '11:00'
+            'start_time' => '11:00',
+            'related1' => '20',
+            'related2' => '21',
+            'related3' => '22'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -419,7 +457,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://e-holiday.net/wp-content/uploads/beppu-oita-gourmet-5.jpg',
             'picture2' => 'https://ak-d.tripcdn.com/images/1i61j223488jolrg0A32F_R_600_400_R5_Q90.jpg?proc=source/trip',
             'picture3' => 'https://static.yukoyuko.net/photo/3276/dinner/a1u6F000006xiPXQAY/0001_600.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -429,6 +466,9 @@ class StoresTableSeeder extends Seeder
             'star' => '4',
             'end_time' => '22:00',
             'start_time' => '11:00',
+            'related1' => '21',
+            'related2' => '22',
+            'related3' => '23'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -440,7 +480,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://cdn.4travel.jp/img/thumbnails/imk/tips_pict/18/99/34/650x450_18993467.jpg?updated_at=1667860717',
             'picture2' => 'https://img01.jalannews.jp/img/2019/08/20190806_oita_05.jpg',
             'picture3' => 'https://cdn.4travel.jp/img/thumbnails/imk/tips_pict/17/09/22/650x450_17092277.jpg?updated_at=1580205968',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -449,7 +488,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '4',
             'star' => '3',
             'end_time' => '17:30',
-            'start_time' => '9:00'
+            'start_time' => '9:00',
+            'related1' => '22',
+            'related2' => '23',
+            'related3' => '14'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -461,7 +503,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://www.city.beppu.oita.jp/images/sisetu/shieionsen/11-09kannawa.jpg',
             'picture2' => 'https://i0.wp.com/tabi-mag.jp/wp-content/uploads/OT005401.jpg?w=1200&ssl=1',
             'picture3' => 'https://onsen.nifty.com/kk_image/view/onsen/onsen-detail/onsen004505/0000205275.jpg',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -471,6 +512,9 @@ class StoresTableSeeder extends Seeder
             'star' => '4',
             'end_time' => '19:30',
             'start_time' => '7:30',
+            'related1' => '23',
+            'related2' => '14',
+            'related3' => '15'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -482,7 +526,6 @@ class StoresTableSeeder extends Seeder
             'picture1' => 'https://cdn-ak.f.st-hatena.com/images/fotolife/K/Kazdorado/20170627/20170627204708.jpg',
             'picture2' => 'https://onsendo.beppu-navi.jp/wp-content/uploads/2021/02/38shibunoyu.jpg',
             'picture3' => 'https://cdn.jalan.jp/jalan/img/4/kuchikomi/5374/KL/c2d64_0005374311_1.JPG',
-            'picture4' => '',
             'parking' => '無',
             'area_id' => '2',
             'perfecture_id' => '44',
@@ -491,7 +534,10 @@ class StoresTableSeeder extends Seeder
             'review_count' => '9',
             'star' => '3',
             'end_time' => '21:00',
-            'start_time' => '6:30'
+            'start_time' => '6:30',
+            'related1' => '14',
+            'related2' => '15',
+            'related3' => '16'
         ];
         DB::table('stores')->insert($param);
     }

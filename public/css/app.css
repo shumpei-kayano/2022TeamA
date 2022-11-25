@@ -153,7 +153,7 @@ dialog::backdrop {
 }
 .c-btn--navy {
   background-color: #354260;
-  color: white;
+  color: white !important;
 }
 .c-btn--navy.is-inactive {
   background-color: #c9c9c9;
@@ -546,6 +546,11 @@ dialog::backdrop {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+.c-coupon__moji p {
+  color: #354260;
+  text-align: center;
+  font-weight: bold;
+}
 
 .c-store {
   width: 100%;
@@ -575,6 +580,7 @@ dialog::backdrop {
 .c-store__text {
   font-size: 18px;
   margin: 0;
+  word-break: break-all;
 }
 .c-store__text--addcheck {
   margin: 0;
@@ -599,6 +605,9 @@ dialog::backdrop {
   margin-top: 16px;
   padding: 16px;
 }
+.c-store__card:has(a:hover) {
+  border-color: #354260;
+}
 .c-store__card a {
   display: flex;
   gap: 16px;
@@ -608,6 +617,15 @@ dialog::backdrop {
 .c-store__card a:hover {
   text-decoration: none;
   color: black;
+}
+.c-store__card-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+.c-store__card-header .c-btn {
+  margin: 0;
 }
 .c-store__card-img {
   width: 100px;
@@ -625,21 +643,60 @@ dialog::backdrop {
 }
 .c-store__card-desc h3 {
   margin: 0;
-  font-size: 24px;
-  margin-bottom: 0;
-  font-weight: 500;
-  line-height: 1;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .c-store__card-desc h3 + p {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   padding: 0;
+}
+.c-store__card-desc h4 {
+  margin: 8px 0 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 .c-store__card-desc p {
   font-size: 12px;
   margin-bottom: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.c-star {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.c-star input[type=radio] {
+  display: none;
+}
+.c-star input[type=radio]:checked ~ label {
+  color: #eec94a;
+}
+.c-star label {
+  position: relative;
+  color: #d9d9d9;
+  cursor: pointer;
+  font-size: 48px;
+  padding: 4px;
+  line-height: 1;
+}
+.c-star label:hover {
+  color: #eec94a;
+}
+.c-star label:hover ~ label {
+  color: #eec94a;
 }
 
 .p-gnav {

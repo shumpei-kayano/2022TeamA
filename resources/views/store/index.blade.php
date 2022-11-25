@@ -42,7 +42,7 @@
             <div class="c-coupon__top">
                 {{--  <p class="c-coupon__address">ここから約1.2Km </p>  --}}
                 <a class="c-btn c-btn--navy c-btn--small"
-                    href="https://maps.google.com/maps?saddr=現在地&daddr={{ $items->store_name }}"
+                    href="https://www.google.com/maps/dir/?api=1&destination={{ $items->store_name }}"
                     target="_blank">このお店までの経路を見る</a>
                 <p></p>
             </div>
@@ -81,45 +81,45 @@
 
         <section class="c-store__section">
             <p class="c-store__item">近くの施設</p>
-            {{-- <div class="c-store__card">
-                <a href="">
-                    <p class="c-store__card-img"><img src="/images/coupon.jpg" alt="クーポン"></p>
+            @php
+                $related1 = DB::table('stores')->find($items->related1);
+                $related2 = DB::table('stores')->find($items->related2);
+                $related3 = DB::table('stores')->find($items->related3);
+            @endphp
+            {{-- 近くの施設1 --}}
+            <div class="c-store__card">
+                <a href={{ route('store/index', ['id' => $related1->id]) }}>
+                    <p class="c-store__card-img"><img src={{ $related1->picture1 }} alt="クーポン"></p>
                     <div class="c-store__card-desc">
-                        <h3>cafe Green Brown</h3>
-                        <p>大分市別府市鉄輪499-18</p>
-                        <p>白いスタイリッシュな建物が目印のカフェ。メニューのほとんどを陶芸作家が手掛あああああああああああああああああああああああああああああああああああ</p>
+                        <h3>{{ $related1->store_name }}</h3>
+                        <p>{{ $related1->address }}</p>
+                        <p>{{ $related1->service }}</p>
                     </div>
                 </a>
-            </div> --}}
-            <ol>
-                @php
-                    $counter = 0;
-                    $rands = [];
-                    $min = 1;
-                    $max = 5;
-                    for ($i = $min; $i <= $max; $i++) {
-                        while (true) {
-                            /** 一時的な乱数を作成 */
-                            $tmp = mt_rand($min, $max);
-                    
-                            /*
-                             * 乱数配列に含まれているならwhile続行、
-                             * 含まれてないなら配列に代入してbreak
-                             */
-                            if (!in_array($tmp, $rands)) {
-                                array_push($rands, $tmp);
-                                break;
-                            }
-                        }
-                    }
-                @endphp
-                @while ($counter < $max)
-                    <li>{{ $rands[$counter] }}</li>
-                    @php
-                        $counter++;
-                    @endphp
-                @endwhile
-            </ol>
+            </div>
+            {{-- 近くの施設2 --}}
+            <div class="c-store__card">
+                <a href={{ route('store/index', ['id' => $related2->id]) }}>
+                    <p class="c-store__card-img"><img src={{ $related2->picture1 }} alt="クーポン"></p>
+                    <div class="c-store__card-desc">
+                        <h3>{{ $related2->store_name }}</h3>
+                        <p>{{ $related2->address }}</p>
+                        <p>{{ $related2->service }}</p>
+                    </div>
+                </a>
+            </div>
+            {{-- 近くの施設3 --}}
+            <div class="c-store__card">
+                <a href={{ route('store/index', ['id' => $related3->id]) }}>
+                    <p class="c-store__card-img"><img src={{ $related3->picture1 }} alt="クーポン"></p>
+                    <div class="c-store__card-desc">
+                        <h3>{{ $related3->store_name }}</h3>
+                        <p>{{ $related3->address }}</p>
+                        <p>{{ $related3->service }}</p>
+                    </div>
+                </a>
+            </div>
+
         </section>
 
 
