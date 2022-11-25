@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Good;
 use Auth;
 
 use App\Review;
+use App\Ticket;
 class AdminController extends Controller
 {
     public function watch(){
@@ -33,7 +35,10 @@ class AdminController extends Controller
         return view('coupon.admin');
     }
     public function see(){
-        return view('coupon.admin');
+        $tickets = DB::table('tickets')
+        ->where('flg','=', '1')
+        ->count();
+        return view('coupon.admin',['tickets'=>$tickets]);
     }
     public function rewrite(){
         return view('coupon.admin');
@@ -48,8 +53,10 @@ class AdminController extends Controller
         
     }
     public function view(){
+        $reviews = Review::selectRaw('COUNT(user_id) as count_review')
+        ->get();
         $goods=Good::where('user_id','=','3')->get();
-        return view('review.admin',['goods'=>$goods]);
+        return view('review.admin',['goods'=>$goods],['reviews'=>$reviews]);
     }
     public function __construct()
     {

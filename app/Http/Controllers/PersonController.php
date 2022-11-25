@@ -10,34 +10,40 @@ use App\Good;
 
 class PersonController extends Controller
 {
-    public function out(){
-        return view('login');
+    public function out()
+    {
+        return view('auth.login');
     }
-    public function add(){
+    public function add()
+    {
         return view('auth.register');
     }
-    public function create(){
+    public function create()
+    {
         // $reviews=Review::all();
         // $reviews=Review::orderBy('posted_data')->all();
-        $reviews = Review::orderBy('posted_date','desc')->get();
+        $reviews = Review::orderBy('posted_date', 'desc')->get();
         $good = Good::all();
         // dd($good);
-        return view('person.index',['reviews'=>$reviews, 'good'=>$good]);
+        return view('person.index', ['reviews' => $reviews, 'good' => $good]);
     }
-    public function home(){
+    public function home()
+    {
         return view('person.index');
     }
-    public function unko(Request $request){
-        $good=new Good;
-        $good->review_id=$request->id;
-        $good->user_id=3;
+    public function unko(Request $request)
+    {
+        $good = new Good;
+        $good->review_id = $request->id;
+        $good->user_id = 3;
         $good->save();
         dd($good);
         // return redirect()->route('person/home');
         return view('person/home');
     }
 
-    public function nogood(Request $request){
+    public function nogood(Request $request)
+    {
         $id = $request->id;
         $good = Good::where('review_id', '=', $id);
         $good->delete();
@@ -46,14 +52,15 @@ class PersonController extends Controller
         return view('person/home');
     }
 
-    public function show(){
+    public function show()
+    {
         return view('account.index');
     }
-    public function limit(){
-        
+    public function limit()
+    {
     }
-    public function see(){
+    public function see()
+    {
         return view('person.index');
     }
-
 }

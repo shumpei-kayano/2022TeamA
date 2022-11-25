@@ -43,7 +43,7 @@
                                 <label>これまでに使用されたクーポン:</label>
                             </div>
                             <div class="p-admin__historynumber">
-                                <p>48</p>
+                                <p>{{ $tickets }}</p>
                             </div>
                         </div>
                         <label for="">写真</label>
