@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Good;
+use Auth;
+
 class AdminController extends Controller
 {
     public function watch(){
@@ -13,7 +15,7 @@ class AdminController extends Controller
         return view('welcome.admin');
     }
     public function enter(){
-        
+        return view('store.admin');
     }
     public function show(){
         return view('store.admin');
@@ -46,5 +48,13 @@ class AdminController extends Controller
         $goods=Good::where('user_id','=','3')->get();
         return view('review.admin',['goods'=>$goods]);
     }
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
 
+    public function index()
+    {
+        return view('admins.store');
+    }
 }
