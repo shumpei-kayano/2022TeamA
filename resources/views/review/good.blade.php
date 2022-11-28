@@ -52,7 +52,7 @@
                             <label class="c-hukidashi__good disabled">
                                 <input type="checkbox" class="warning">
                                 <span class="c-hukidashi__good-icon"></span>
-                                <span class="c-hukidashi__good-num">50</span>
+                                <span class="c-hukidashi__good-num">{{ $goods->review->goodnum }}</span>
                             </label>
                         </div>
                     </div>

@@ -82,7 +82,7 @@
                                             <button type="submit">いいね</button>
                                         </form>
                                     @endif
-                                    <span class="c-hukidashi__good-num">50</span>
+                                    <span class="c-hukidashi__good-num">{{ $review->goodnum }}</span>
                                 </label>
                                 <div class="c-fukidashi__container">
                                     {{-- <p class="c-hukidashi__username">{{ $review->user->name }}</p> --}}

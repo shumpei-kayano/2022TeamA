@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Good;
 use Auth;
-
+use App\Models\User;
 use App\Review;
 use App\Ticket;
 class AdminController extends Controller
@@ -56,7 +56,8 @@ class AdminController extends Controller
         $reviews = Review::selectRaw('COUNT(user_id) as count_review')
         ->get();
         $goods=Good::where('user_id','=','3')->get();
-        return view('review.admin',['goods'=>$goods],['reviews'=>$reviews]);
+        $tests=['goods'=>$goods,'reviews'=>$reviews];
+        return view('review.admin',$tests);
     }
     public function __construct()
     {

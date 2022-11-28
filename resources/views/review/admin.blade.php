@@ -67,13 +67,17 @@
                                 <p class="c-hukidashi__honbun">
                                     {{ $goods->review->comment }}
                                 </p>
+
                                 <div class="c-hukidashi__footer">
                                     <label class="c-hukidashi__good disabled">
                                         <input type="checkbox" class="warning">
                                         <span class="c-hukidashi__good-icon"></span>
-                                        <span class="c-hukidashi__good-num">50</span>
+                                        {{--  @foreach ($items ?? [] as $item)  --}}
+                                        <span class="c-hukidashi__good-num">{{ $goods->review->goodnum }}</span>
+                                        {{--  @endforeach  --}}
                                     </label>
                                 </div>
+
                             </div>
                         </div>
                     </div>
