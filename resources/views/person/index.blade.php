@@ -35,7 +35,7 @@
                         {{-- <img src="{{ $review->user->icon_photo }}"> --}}
                     </p>
                     <div class="c-fukidashi__container">
-                        <p class="c-hukidashi__username">{{ $review->user->name }}</p>
+                        {{-- <p class="c-hukidashi__username">{{ $review->user->name }}</p> --}}
                         <div class="c-hukidashi__frame">
                             <div class="c-hukidashi__header">
                                 <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}</p>
@@ -85,7 +85,7 @@
                                     <span class="c-hukidashi__good-num">50</span>
                                 </label>
                                 <div class="c-fukidashi__container">
-                                    <p class="c-hukidashi__username">{{ $review->user->name }}</p>
+                                    {{-- <p class="c-hukidashi__username">{{ $review->user->name }}</p> --}}
                                     <div class="c-hukidashi__frame">
                                         <div class="c-hukidashi__header">
                                             <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}</p>
