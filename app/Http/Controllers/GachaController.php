@@ -13,18 +13,11 @@ class GachaController extends Controller
     {
     }
 
-    public function play()
+    public function play($currentArea = 'oita')
     {
-        $msg = "大分";
-        if ($msg == "大分") {
-            $erea = 1;
-        } else if ($msg == "別府") {
-            $erea = 2;
-        }
-
-        if ($erea == 1) {
+        if ($currentArea == "oita") {
             $ransu = mt_rand(1, 13);
-        } else if ($erea == 2) {
+        } else if ($currentArea == "beppu") {
             $ransu = mt_rand(14, 23);
         }
         $coupons = Coupon::where('id', '=', $ransu)->first();

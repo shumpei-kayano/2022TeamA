@@ -92,7 +92,7 @@ Route::get('gacha/index', 'GachaController@show')->name('gacha/index')->middlewa
 
 
 //ガチャ演出
-Route::get('gacha/staging', 'GachaController@play')->name('gacha/staging')->middleware('auth');
+Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/staging')->middleware('auth');
 // Route::get('gacha/staging', 'GachaController@stag');
 
 //クーポン
