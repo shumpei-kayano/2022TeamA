@@ -35,9 +35,11 @@
                         <div class="c-form__group">
                             <label>これまでに投稿されたクチコミ総数</label>
                         </div>
-                        <div class="p-admin__historynumber">
-                            <p>48</p>
-                        </div>
+                        @foreach ($reviews as $review)
+                            <div class="p-admin__historynumber">
+                                <p>{{ $review->count_review }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <p class="c-hukidashi__date">

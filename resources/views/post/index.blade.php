@@ -13,27 +13,40 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <p>このお店はいかがでしたか？<br>
-            味・雰囲気・コスパなどの感想や、お店の良かった点を教えて下さい。</p>
-        <div class="p-post__star">
-            <p>満足度</p>
-            <img src="/images/star.black.png" alt="">
-            <img src="/images/star.black.png" alt="">
-            <img src="/images/star.black.png" alt="">
-            <img src="/images/star.black.png" alt="">
-            <img src="/images/star.black.png" alt="">
-        </div>
         <form action="" class="c-form">
-            <div class="c-form__group">
-                <label for=" ">クチコミ</label>
-                <textarea rows="10" cols="33"></textarea>
-            </div>
-            <div class="c-form__group">
-                <label for="">訪問日</label>
-                <input type="date">
-            </div>
-            <button type="submit" class="c-btn c-btn--navy">投稿する</button>
-            <p class="c-modal__sineup"><a href="">後で</a></p>
+            <section class="c-store__section--edit">
+                <p>このお店はいかがでしたか？<br>
+                    味・雰囲気・コスパなどの感想や、お店の良かった点を教えて下さい。</p>
+            </section>
+            <section class="c-store__section--edit">
+                <div class="p-post__star">
+                    <p class="c-store__item">満足度</p>
+                    <div class="c-star">
+                        <input id="star5" type="radio" name="rate" value="5">
+                        <label for="star5">★</label>
+                        <input id="star4" type="radio" name="rate" value="4">
+                        <label for="star4">★</label>
+                        <input id="star3" type="radio" name="rate" value="3">
+                        <label for="star3">★</label>
+                        <input id="star2" type="radio" name="rate" value="2">
+                        <label for="star2">★</label>
+                        <input id="star1" type="radio" name="rate" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+            </section>
+            <section class="c-store__section--edit">
+                <div class="c-form__group">
+                    <p class="c-store__item">クチコミ</p>
+                    <textarea rows="10" cols="33"></textarea>
+                </div>
+                <div class="c-form__group">
+                    <p class="c-store__item">訪問日</p>
+                    <input type="date">
+                </div>
+                <button type="submit" class="c-btn c-btn--navy">投稿する</button>
+                <p class="c-modal__sineup"><a href="">後で</a></p>
+            </section>
         </form>
     </div>
 

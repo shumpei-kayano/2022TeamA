@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +64,7 @@ Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->m
 
 
 //近所のおすすめスポット
-Route::get('spot/index', 'CouponConttroller@spot')->middleware('auth');
+Route::get('spot/index', 'CouponController@spot')->middleware('auth');
 
 //クチコミ
 Route::get('account/review', 'AccountController@review')->name('account/review')->middleware('auth');
@@ -132,18 +133,18 @@ Route::get('badge/index', 'BadgeController@see')->name('badge/index')->middlewar
 
 
 //管理者ログイン
-Route::get('welcome/admin', 'AdminController@watch')->middleware('auth');
-Route::get('welcome/admin', 'AdminController@in')->middleware('auth');
+Route::get('welcome/admin', 'Auth\AdminController@watch')->middleware('auth');
+Route::get('welcome/admin', 'Auth\AdminController@in')->middleware('auth');
 
 //店舗情報管理
 
-Route::get('store/admin', 'AdminController@show')->name('store/admin')->middleware('auth');
+Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
 // Route::get('store/admin', 'AdminController@edit');
 // Route::get('store/admin', 'AdminController@update');
 // Route::get('store/admin', 'AdminController@enter');
 
 //クーポン管理
-Route::get('coupon/admin', 'AdminController@see')->name('coupon/admin')->middleware('auth');
+Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin')->middleware('auth');
 // Route::get('coupon/admin', 'AdminController@look');
 // Route::get('coupon/admin', 'AdminController@rewrite');
 // Route::get('coupon/admin', 'AdminController@set');
@@ -151,7 +152,7 @@ Route::get('coupon/admin', 'AdminController@see')->name('coupon/admin')->middlew
 // Route::get('coupon/admin', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin', 'AdminController@view')->name('review/admin')->middleware('auth');
+Route::get('review/admin', 'Auth\AdminController@view')->name('review/admin')->middleware('auth');
 
 //モーダルテスト
 Route::get('modal', function () {
@@ -181,3 +182,15 @@ Route::post('SessionTest', 'HelloController@ses_put');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'Auth\AdminController@enter')->name('admin');
+
+
+// 管理
+Route::prefix('admin')->group(function () {
+    Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login');
+    // Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/', 'Auth\AdminController@index')->name('admins.store');
+});

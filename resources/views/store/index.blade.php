@@ -10,7 +10,8 @@
 </head>
 
 <body>
-
+    @component('components.gnav')
+    @endcomponent
     <div class="c-container">
         <section class="c-store__section">
             <div class="c-header">

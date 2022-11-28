@@ -25,7 +25,7 @@
                 {{--  各お店を押したら店舗詳細に飛ぶ。まだルート記述してないです。11/11。河野  --}}
 
                 <div class="c-store__card">
-                    <a href="">
+                    <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
                         <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }} alt="クーポン"></p>
                         <div class="c-store__card-desc">
                             <h3>{{ $ticket->store->store_name }}</h3>

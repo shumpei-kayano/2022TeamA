@@ -126,13 +126,14 @@
                     <button type="submit" class="c-btn c-btn--pink c-btn--50p">
                         {{ __('ログイン') }}
                     </button>
-                    <div class="c-form__group c-form__group--a">
-                        <a href="{{ route('register') }}">
-                            <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
-                        </a>
-                    </div>
                 </div>
             </div>
+        </form>
+        <div class="c-form__group c-form__group--a">
+            <a href="{{ route('register') }}">
+                <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
+            </a>
+        </div>
     </div>
 
     {{-- ログインエラーホップアップ

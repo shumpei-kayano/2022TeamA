@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head lang="ja">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,22 +29,14 @@
                 <div class="p-admin__contentheader">
                     <div class="p-admin__tittle">
                         <h1>店舗情報</h1>
-                        @foreach ($reviews as $reviews)
-                            <div class="p-admin__star">
-                                <p>平均スコア</p>
-                                @for ($i = 0; $i < $reviews->count_review; $i++)
-                                    <img src="/images/star.png" alt="">
-                                @endfor
-                                @for ($i = 0; $i < 5 - $reviews->count_review; $i++)
-                                    <img src="/images/star.black.png" alt="">
-                                @endfor
-                                {{--  <img src="/images/star.png" alt="">
+                        <div class="p-admin__star">
+                            <p>平均スコア</p>
+                            <img src="/images/star.png" alt="">
                             <img src="/images/star.png" alt="">
                             <img src="/images/star.png" alt="">
                             <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">  --}}
-                            </div>
-                        @endforeach
+                            <img src="/images/star.black.png" alt="">
+                        </div>
                     </div>
                 </div>
                 <form action="" class="c-form">
