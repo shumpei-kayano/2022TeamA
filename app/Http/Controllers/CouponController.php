@@ -34,7 +34,8 @@ class CouponController extends Controller
         // return view('coupon.index', compact('stores'));
         // $id=Auth::id();
         // $tickets=Ticket::where('user_id','=',$id)->get();
-        $cond = ['user_id' =>2 , 'flg' =>0];
+        $id=Auth::id();
+        $cond = ['user_id' =>$id , 'flg' =>0];
         $tickets=Ticket::where($cond)->get();
         // dd($tickets);
         return view('coupon.index', ['tickets'=>$tickets]);
