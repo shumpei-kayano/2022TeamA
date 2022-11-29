@@ -89,10 +89,12 @@ Route::get('review/good', 'AccountController@show')->name('review/good')->middle
 
 Route::get('gacha/index', 'GachaController@show')->name('gacha/index')->middleware('auth');
 
+Route::post('gacha/index', 'GachaController@change_area');
+
 
 
 //ガチャ演出
-Route::get('gacha/staging', 'GachaController@play')->name('gacha/staging')->middleware('auth');
+Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/staging')->middleware('auth');
 // Route::get('gacha/staging', 'GachaController@stag');
 
 //クーポン
@@ -139,13 +141,15 @@ Route::get('welcome/admin', 'Auth\AdminController@in')->middleware('auth');
 
 //店舗情報管理
 
-Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
+// Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
+Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('store/storeupdate')->middleware('auth');
 // Route::get('store/admin', 'AdminController@edit');
 // Route::get('store/admin', 'AdminController@update');
 // Route::get('store/admin', 'AdminController@enter');
 
 //クーポン管理
 Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin')->middleware('auth');
+Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate')->middleware('auth');
 // Route::get('coupon/admin', 'AdminController@look');
 // Route::get('coupon/admin', 'AdminController@rewrite');
 // Route::get('coupon/admin', 'AdminController@set');

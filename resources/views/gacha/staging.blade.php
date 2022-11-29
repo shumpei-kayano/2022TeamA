@@ -21,6 +21,9 @@
             </div>
 
         </div>
+
+        <p>現在地：　{{ Session::get('current_area') }}
+        </p>
     </div>
 
     {{--  ダイアログ1  --}}
@@ -48,102 +51,7 @@
             <a href="{{ route('store/index', ['id' => $coupons->store_id]) }}">店舗詳細を見る</a>
         </div>
     </dialog>
-    {{--  ダイアログ2  --}}
-    {{--  <dialog id="dialog2" class="c-modal__box">
-        <p class="c-modal__title c-modal__title--pink">2が当たりました
-            <small>有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
-        </p>
-        <div class="c-modal__content">
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img">
-                    <img src="/images/coupon.jpg" alt="クーポン">
-                </p>
-                <p class="c-modal__flex__text">
-                    @foreach ($tickets as $ticket)
-                        {{ $ticket->coupon->coupon_name }}
-                        <small>{{ $ticket->store->store_name }}</small>
-                    @endforeach
-                </p>
-            </div>
-        </div>
-        <div class="c-modal__button">
-            <a href="{{ route('coupon/index') }}">
-                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
-        </div>
-    </dialog>  --}}
-    {{--  ダイアログ3  --}}
-    {{--  <dialog id="dialog3" class="c-modal__box">
-        <p class="c-modal__title c-modal__title--pink">3が当たりました
-            <small>有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
-        </p>
-        <div class="c-modal__content">
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img">
-                    <img src="/images/coupon.jpg" alt="クーポン">
-                </p>
-                <p class="c-modal__flex__text">
-                    @foreach ($tickets as $ticket)
-                        {{ $ticket->coupon->coupon_name }}
-                        <small>{{ $ticket->store->store_name }}</small>
-                    @endforeach
-                </p>
-            </div>
-        </div>
-        <div class="c-modal__button">
-            <a href="{{ route('coupon/index') }}">
-                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
-        </div>
-    </dialog>  --}}
-    {{--  ダイアログ4  --}}
-    {{--  <dialog id="dialog4" class="c-modal__box">
-        <p class="c-modal__title c-modal__title--pink">4が当たりました
-            <small>有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
-        </p>
-        <div class="c-modal__content">
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img">
-                    <img src="/images/coupon.jpg" alt="クーポン">
-                </p>
-                <p class="c-modal__flex__text">
-                    @foreach ($tickets as $ticket)
-                        {{ $ticket->coupon->coupon_name }}
-                        <small>{{ $ticket->store->store_name }}</small>
-                    @endforeach
-                </p>
-            </div>
-        </div>
-        <div class="c-modal__button">
-            <a href="{{ route('coupon/index') }}">
-                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
-        </div>
-    </dialog>  --}}
-    {{--  ダイアログ5  --}}
-    {{--  <dialog id="dialog5" class="c-modal__box">
-        <p class="c-modal__title c-modal__title--pink">5が当たりました
-            <small>有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
-        </p>
-        <div class="c-modal__content">
-            <div class="c-modal__flex">
-                <p class="c-modal__flex__img">
-                    <img src="/images/coupon.jpg" alt="クーポン">
-                </p>
-                <p class="c-modal__flex__text">
-                    @foreach ($tickets as $ticket)
-                        {{ $ticket->coupon->coupon_name }}
-                        <small>{{ $ticket->store->store_name }}</small>
-                    @endforeach
-                </p>
-            </div>
-        </div>
-        <div class="c-modal__button">
-            <a href="{{ route('coupon/index') }}">
-                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-            <a href="{{ route('store/index') }}">店舗詳細を見る</a>
-        </div>
-    </dialog>  --}}
+
 
 
     <script>
