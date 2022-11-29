@@ -13,11 +13,14 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <form action="" class="c-form">
-            <section class="c-store__section--edit">
-                <p>このお店はいかがでしたか？<br>
-                    味・雰囲気・コスパなどの感想や、お店の良かった点を教えて下さい。</p>
-            </section>
+
+        <section class="c-store__section--edit">
+            <p>このお店はいかがでしたか？<br>
+                味・雰囲気・コスパなどの感想や、お店の良かった点を教えて下さい。</p>
+        </section>
+        <form action="/post/send" method="POST">
+            @csrf
+            {{--  @foreach ($items as $item)  --}}
             <section class="c-store__section--edit">
                 <div class="p-post__star">
                     <p class="c-store__item">満足度</p>
@@ -38,16 +41,22 @@
             <section class="c-store__section--edit">
                 <div class="c-form__group">
                     <p class="c-store__item">クチコミ</p>
-                    <textarea rows="10" cols="33"></textarea>
+                    <textarea rows="10" cols="33" name="review"></textarea>
                 </div>
                 <div class="c-form__group">
                     <p class="c-store__item">訪問日</p>
-                    <input type="date">
+                    <input type="date" name="visited">
                 </div>
+                <input type="hidden" name="store_id" value="{{ $store_id }}">
+                <input type="hidden" name="user_id" value="{{ $id }}">
+                <input type="hidden" name="goodnum" value="{{ $id }}">
+                <input type="hidden" name="posted_date" value="{{ \Carbon\Carbon::today() }}">
                 <button type="submit" class="c-btn c-btn--navy">投稿する</button>
-                <p class="c-modal__sineup"><a href="">後で</a></p>
+
             </section>
+            {{--  @endforeach  --}}
         </form>
+        <p class="c-modal__sineup"><a href="">後で</a></p>
     </div>
 
 </body>

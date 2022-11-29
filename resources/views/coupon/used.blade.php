@@ -30,21 +30,40 @@
                     </div>
                 @else
                     @foreach ($tickets as $ticket)
-                        <div class="c-store__card">
-                            <div class="c-store__card-header">
-                                <a class="c-btn c-btn--navy c-btn--small" href="{{ route('post/index') }}">クチコミを書く</a>
-                            </div>
-                            <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
-                                <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
-                                        alt="クーポン">
-                                </p>
-                                <div class="c-store__card-desc">
-                                    <h3>{{ $ticket->store->store_name }}</h3>
-                                    <h4>{{ $ticket->coupon->coupon_name }}</h4>
-                                    <p>{{ $ticket->store->address }}</p>
+                        @if ($ticket->reviewflg == 0)
+                            <div class="c-store__card">
+                                <div class="c-store__card-header">
+                                    <a class="c-btn c-btn--navy c-btn--small"
+                                        href={{ route('post/index', ['store_id' => $ticket->store_id]) }}>クチコミを書く</a>
                                 </div>
-                            </a>
-                        </div>
+                                <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
+                                    <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
+                                            alt="クーポン">
+                                    </p>
+                                    <div class="c-store__card-desc">
+                                        <h3>{{ $ticket->store->store_name }}</h3>
+                                        <h4>{{ $ticket->coupon->coupon_name }}</h4>
+                                        <p>{{ $ticket->store->address }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @else($ticket->reviewflg==1)
+                            <div class="c-store__card">
+                                <div class="c-store__card-header">
+                                    <a class="c-btn c-btn--gray c-btn--small" tabindex="-1">クチコミを書く</a>
+                                </div>
+                                <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
+                                    <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
+                                            alt="クーポン">
+                                    </p>
+                                    <div class="c-store__card-desc">
+                                        <h3>{{ $ticket->store->store_name }}</h3>
+                                        <h4>{{ $ticket->coupon->coupon_name }}</h4>
+                                        <p>{{ $ticket->store->address }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
                     @endforeach
                 @endif
             @endif

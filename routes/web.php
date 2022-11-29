@@ -124,8 +124,9 @@ Route::get('coupon/used', 'CouponController@used')->name('coupon/used')->middlew
 
 //クチコミ投稿
 // Route::get('post/index', 'CouponController@view');
+Route::get('post/index/{store_id}', 'CouponController@view')->name('post/index');
 // Route::post('post/index', 'CouponController@post');
-Route::get('post/index', 'CouponController@edit')->name('post/index')->middleware('auth');
+Route::POST('/post/send', 'CouponController@edit')->name('/post/send')->middleware('auth');
 
 
 //バッジ

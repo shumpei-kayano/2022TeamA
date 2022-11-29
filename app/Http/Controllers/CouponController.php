@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Store;
 use App\Ticket;
+use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -37,14 +38,15 @@ class CouponController extends Controller
         $tickets=Ticket::where($cond)->get();
         // dd($tickets);
         return view('coupon.index', ['tickets'=>$tickets]);
-        $tickets = Ticket::where('user_id', '=', '1')->get();
-        return view('coupon.index', ['tickets' => $tickets]);
+        // $tickets = Ticket::where('user_id', '=', '1')->get();
+        // return view('coupon.index', ['tickets' => $tickets]);
     }
 
     public function used()
     {
         // $tickets = Ticket::where('user_id', '=', '3')->get();
-        $cond = ['user_id' => 2, 'flg' =>1];
+        $id=Auth::id();
+        $cond = ['user_id' => $id, 'flg' =>1];
         $tickets=Ticket::where($cond)->get();
         return view('coupon.used', ['tickets' => $tickets]);
     }
@@ -55,9 +57,28 @@ class CouponController extends Controller
         $items = DB::table('stores')->find($id);
         return view('store.index', ['items' => $items]);
     }
-
-    public function edit()
+public function view($store_id){
+    $id=Auth::id();
+    // $items=['store_id'=>$store_id,'id'=>$id];
+    // dd($items);
+    return view('post.index',['store_id'=>$store_id,'id'=>$id]);
+}
+    public function edit(Request $request)
     {
-        return view('post.index');
+        $review=new review;
+        $review->user_id=$request->user_id;
+        $review->visited=$request->visited;
+        $review->comment=$request->review;
+        $review->store_id=$request->store_id;
+        $review->posted_date=$request->posted_date;
+        $review->star=$request->rate;
+        // $review->reviewflg=1;
+        $review->save();
+
+        $cond=['user_id' => $request->user_id, 'store_id' =>$request->store_id];
+        Ticket::where($cond)->update([
+            'reviewflg'=>'1'
+        ]);
+        return redirect()->action('CouponController@used');
     }
 }
