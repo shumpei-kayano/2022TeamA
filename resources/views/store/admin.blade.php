@@ -106,7 +106,9 @@
                             </select>
                         </div>
                     </div>
+                    <input type="hidden" name="id" value="{{ $store->id }}">
                     <p><a class="c-btn c-btn--update c-btn--navy">更新する</a></p>
+                </form>
             </div>
         </div>
     </div>

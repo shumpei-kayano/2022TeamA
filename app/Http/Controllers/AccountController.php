@@ -64,7 +64,7 @@ class AccountController extends Controller
         'comment'=>$request->review,
         'store_id'=>$request->store_id,
         'posted_date'=>$request->posted_date,
-        'star'=>$request->manzoku,
+        'star'=>$request->rate,
         ]);
         return redirect()->action('AccountController@update');
       
