@@ -148,6 +148,7 @@ Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('stor
 
 //クーポン管理
 Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin')->middleware('auth');
+Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate')->middleware('auth');
 // Route::get('coupon/admin', 'AdminController@look');
 // Route::get('coupon/admin', 'AdminController@rewrite');
 // Route::get('coupon/admin', 'AdminController@set');
