@@ -13,22 +13,15 @@ class GachaController extends Controller
     {
     }
 
-    public function play()
+    public function play($currentArea = 'oita')
     {
-        $msg="大分";
-        if($msg == "大分"){
-            $erea=1;
-        }else if($msg == "別府"){
-            $erea=2;
+        if ($currentArea == "oita") {
+            $ransu = mt_rand(1, 13);
+        } else if ($currentArea == "beppu") {
+            $ransu = mt_rand(14, 23);
         }
-
-        if($erea == 1){
-            $ransu=mt_rand(1, 13);
-        }else if($erea == 2){
-            $ransu=mt_rand(14, 23);
-        }
-        $coupons=Coupon::where('id','=',$ransu)->first();
-        return view('gacha.staging', ['coupons'=>$coupons]);
+        $coupons = Coupon::where('id', '=', $ransu)->first();
+        return view('gacha.staging', ['coupons' => $coupons]);
     }
 
     public function stag()
@@ -42,8 +35,26 @@ class GachaController extends Controller
     {
         return view('gacha.index');
     }
-    public function show()
+    public function show(Request $request)
     {
+
+        // 存在チェック
+        if ($request->session()->has('current_area')) {
+            //
+        } else {
+            $request->session()->put('current_area', 'oita');
+        }
+
         return view('gacha.index');
+    }
+    public function change_area(Request $request)
+    {
+        if ($request->has('oita')) {
+            $request->session()->put('current_area', 'oita');
+        } elseif ($request->has('beppu')) {
+            $request->session()->put('current_area', 'beppu');
+        }
+
+        return redirect('gacha/index');
     }
 }

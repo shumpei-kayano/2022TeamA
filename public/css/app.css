@@ -1018,6 +1018,7 @@ dialog::backdrop {
   width: 100%;
   min-height: 100vh;
   position: relative;
+  background-color: #d9d9d9;
 }
 .p-gacha-top video {
   background-color: black;
@@ -1027,7 +1028,7 @@ dialog::backdrop {
 }
 .p-gacha__handle {
   width: 100%;
-  height: 400px;
+  height: 370px;
   background-image: url("/images/bg_gacha-handle.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -1044,16 +1045,13 @@ dialog::backdrop {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 97px;
+  top: 80px;
   left: calc(50% - 130px);
   animation: wakka infinite 5s linear;
 }
-.p-gacha__circle:hover {
-  animation: wakka infinite 1s linear;
-}
 .p-gacha__map {
   width: 100%;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 280px);
 }
 .p-gacha__map iframe {
   width: 100%;
@@ -1065,9 +1063,61 @@ dialog::backdrop {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 195px;
+  cursor: pointer;
+  top: 180px;
   left: calc(50% - 42px);
   animation: bounce infinite alternate 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.p-gacha__control {
+  background-color: white;
+  width: 100%;
+  padding: 8px 16px 32px;
+}
+.p-gacha__control-window {
+  background-color: black;
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.p-gacha__control-window p {
+  margin: 0;
+  padding: 0;
+  color: #00ff00;
+  font-size: 14px;
+}
+.p-gacha__control-window ul {
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  display: flex;
+  list-style: none;
+}
+.p-gacha__control-window ul input {
+  color: #00ff00;
+  font-size: 14px;
+  display: block;
+  padding: 4px;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.p-gacha__control-window ul input:hover {
+  text-decoration: none;
+  background-color: rgba(0, 255, 0, 0.5);
+}
+.p-gacha__control.beppu input#go-kannawa {
+  background-color: #00ff00;
+  color: black;
+  pointer-events: none;
+}
+.p-gacha__control.oita input#go-ohara {
+  background-color: #00ff00;
+  color: black;
+  pointer-events: none;
 }
 
 @keyframes slideup {
