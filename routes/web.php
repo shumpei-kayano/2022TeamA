@@ -89,6 +89,8 @@ Route::get('review/good', 'AccountController@show')->name('review/good')->middle
 
 Route::get('gacha/index', 'GachaController@show')->name('gacha/index')->middleware('auth');
 
+Route::post('gacha/index', 'GachaController@change_area');
+
 
 
 //ガチャ演出

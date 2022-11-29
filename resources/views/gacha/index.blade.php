@@ -38,18 +38,29 @@
 
             </div>
         </div>
-        <div class="p-gacha__control" id="current-area">
-            <div class="p-gacha__control-window">
+        @php
+            $currentArea = session('current_area');
+        @endphp
+        @if ($currentArea == 'oita')
+            <div class="p-gacha__control oita" id="current-area">
+            @elseif ($currentArea == 'beppu')
+                <div class="p-gacha__control beppu" id="current-area">
+                @else
+                    <div class="p-gacha__control" id="current-area">
+        @endif
+        <div class="p-gacha__control-window">
+            <form action="/gacha/index" method="POST">
+                @csrf
                 <ul>
-                    <li><a id="go-kannawa">鉄輪に移動</a></li>
-                    <li><a id="go-ohara">大原周辺に移動</a></li>
+                    <input type="submit" value="鉄輪" id="go-kannawa" name="beppu">
+                    <input type="submit" value="大原周辺" id="go-ohara" name="oita">
                 </ul>
+            </form>
 
-
-                <p id="latlng"></p>
-            </div>
-
+            <p id="latlng"></p>
         </div>
+
+    </div>
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&libraries=geometry"
@@ -126,11 +137,8 @@
                     map: map
                 });
                 addMarker(latlng);
-                document.getElementById("current-area").classList.remove("beppu");
-                document.getElementById("current-area").classList.add("oita");
                 document.getElementById("latlng").innerHTML = latlng;
                 return false;
-                //document.getElementById("res").innerText = "エリア「大原周辺」範囲内にいます。";
             }
             //鉄輪に移動
             function kannawa() {
@@ -156,34 +164,34 @@
                     map: map
                 });
                 addMarker(latlng);
-                document.getElementById("current-area").classList.remove("oita");
-                document.getElementById("current-area").classList.add("beppu");
                 document.getElementById("latlng").innerHTML = latlng;
                 return false;
-                //document.getElementById("res").innerText = "エリア「鉄輪」範囲内にいます。";
             }
-
-
-
 
             //マーカー移動
             function addMarker(pos) {
-                /* var res = google.maps.geometry.poly.containsLocation(pos, polygonObj); */
                 marker = new google.maps.Marker({
                     position: pos,
                     map: map,
                 });
             }
             //初期化
-            ohara();
+            //ohara();
             //鉄輪に行くボタン
-            document.getElementById('go-kannawa').addEventListener('click', (event) => {
+            /* document.getElementById('go-kannawa').addEventListener('click', (event) => {
                 kannawa();
-            });
+            }); */
             //大原に行くボタン
-            document.getElementById('go-ohara').addEventListener('click', (event) => {
+            /* document.getElementById('go-ohara').addEventListener('click', (event) => {
                 ohara();
-            });
+            }); */
+            @if ($currentArea == 'oita')
+                ohara();
+            @elseif ($currentArea == 'beppu')
+                kannawa();
+            @else
+                ohara();
+            @endif
         }
 
         function fail(error) {
@@ -192,32 +200,5 @@
 
         navigator.geolocation.getCurrentPosition(success, fail);
     </script>
-    {{-- <script>
-        function initMap() {
-            function success(pos) {
-                var lat = pos.coords.latitude;
-                var lng = pos.coords.longitude;
-                var latlng = new google.maps.LatLng(lat, lng); //中心の緯度, 経度
-                var map = new google.maps.Map(document.getElementById('googleMap'), {
-                    zoom: 17,
-                    center: latlng
-                });
-                var marker = new google.maps.Marker({
-                    position: latlng, //マーカーの位置（必須）
-                    map: map //マーカーを表示する地図
-                });
-            }
-
-            function fail(error) {
-                alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
-                var latlng = new google.maps.LatLng(35.6812405, 139.7649361); //東京駅
-                var map = new google.maps.Map(document.getElementById('maps'), {
-                    zoom: 10,
-                    center: latlng
-                });
-            }
-            navigator.geolocation.getCurrentPosition(success, fail);
-        }
-    </script> --}}
 
 </html>

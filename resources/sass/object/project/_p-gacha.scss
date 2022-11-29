@@ -84,30 +84,31 @@
             ul {
                 margin: 0;
                 padding: 0;
-                gap: 8px;
+                gap: 4px;
                 display: flex;
                 list-style: none;
-                a {
+                input {
                     color: #00ff00;
-                    font-size: 12px;
+                    font-size: 14px;
                     display: block;
                     padding: 4px;
                     border: 1px solid #00ff00;
                     border-radius: 4px;
+                    background-color: transparent;
                     cursor: pointer;
                     &:hover {
                         text-decoration: none;
-                        background-color: rgba($color: #00ff00, $alpha: 0.2);
+                        background-color: rgba($color: #00ff00, $alpha: 0.5);
                     }
                 }
             }
         }
-        &.beppu a#go-kannawa {
+        &.beppu input#go-kannawa {
             background-color: #00ff00;
             color: black;
             pointer-events: none;
         }
-        &.oita a#go-ohara {
+        &.oita input#go-ohara {
             background-color: #00ff00;
             color: black;
             pointer-events: none;

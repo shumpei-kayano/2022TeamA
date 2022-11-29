@@ -35,8 +35,26 @@ class GachaController extends Controller
     {
         return view('gacha.index');
     }
-    public function show()
+    public function show(Request $request)
     {
+
+        // 存在チェック
+        if ($request->session()->has('current_area')) {
+            //
+        } else {
+            $request->session()->put('current_area', 'oita');
+        }
+
         return view('gacha.index');
+    }
+    public function change_area(Request $request)
+    {
+        if ($request->has('oita')) {
+            $request->session()->put('current_area', 'oita');
+        } elseif ($request->has('beppu')) {
+            $request->session()->put('current_area', 'beppu');
+        }
+
+        return redirect('gacha/index');
     }
 }
