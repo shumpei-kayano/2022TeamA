@@ -19,7 +19,7 @@
     <div class="c-container--pc">
         <div class="p-admin__side">
             <ul>
-                <li> <a href="{{ route('store/admin') }}" class="p-admin__side-store is-current">店舗情報</a></li>
+                <li> <a href="{{ route('admins.store') }}" class="p-admin__side-store is-current">店舗情報</a></li>
                 <li> <a href="{{ route('coupon/admin') }}" class="p-admin__side-coupon">クーポン情報</a></li>
                 <li> <a href="{{ route('review/admin') }}" class="p-admin__side-review">クチコミ</a></li>
             </ul>
@@ -29,79 +29,113 @@
                 <div class="p-admin__contentheader">
                     <div class="p-admin__tittle">
                         <h1>店舗情報</h1>
-                        <div class="p-admin__star">
-                            <p>平均スコア</p>
-                            <img src="/images/star.png" alt="">
+                        @foreach ($reviews as $review)
+                            <div class="p-admin__star">
+                                <p>平均スコア</p>
+                                @for ($i = 0; $i < $review->count_review; $i++)
+                                    <img src="/images/star.png" alt="">
+                                @endfor
+                                @for ($i = 0; $i < 5 - $review->count_review; $i++)
+                                    <img src="/images/star.black.png" alt="">
+                                @endfor
+                                {{--  <img src="/images/star.png" alt="">
                             <img src="/images/star.png" alt="">
                             <img src="/images/star.png" alt="">
                             <img src="/images/star.black.png" alt="">
-                            <img src="/images/star.black.png" alt="">
-                        </div>
+                            <img src="/images/star.black.png" alt="">  --}}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-                <form action="" class="c-form">
-                    <div class="c-form--admin">
-                        <div class="c-form__group">
-                            <label for="">店舗名</label><input type="text">
-                        </div>
-                        <div class="c-form__group">
-                            <label for="">住所</label><input type="text">
-                        </div>
-                        <div class="p-admin__map">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13348.960939626255!2d131.60939519999997!3d33.2340092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1667803739558!5m2!1sja!2sjp"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <div class="c-form__group">
-                            <label for="">電話番号</label><input type="text">
-                        </div>
-                        <div class="c-form__group">
-                            <label for="">ホームページ</label><input type="text">
-                        </div>
-                        <div class="c-form__group">
-                            <label for=" ">サービス内容</label>
-                            <textarea id="servicecontent" name="servicecontent" rows="5" cols="33"></textarea>
-                        </div>
-                        <label for="">写真</label>
-                        <div class="p-admin__photo">
+
+                <form action="store/storeupdate" method="POST" class="c-form">
+                    @csrf
+                    @foreach ($stores as $store)
+                        <div class="c-form--admin">
                             <div class="c-form__group">
-                                <img src="/images/lunch.png" alt="">
+                                <label for="">店舗名</label><input value={{ $store->store_name }} type="text"
+                                    name="store_name">
                             </div>
-                            <div class="c-form__group"> <img src="/images/cake.png" alt="">
+                            <div class="c-form__group">
+                                <label for="">住所</label><input value={{ $store->address }} type="text"
+                                    name="address">
                             </div>
-                            <div class="c-form__group"> <img src="/images/gaikan.png" alt="">
+                            <div class="p-admin__map">
+                                <iframe <iframe
+                                    src="https://www.google.com/maps/embed/v1/place?q={{ $store->store_name }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
+                                    width="360" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-                            <div class="c-form__group"> <img src="/images/plus.png" alt="">
+                            <div class="c-form__group">
+                                <label for="">電話番号</label><input value={{ $store->tel }} type="text"
+                                    name="tel">
                             </div>
-                        </div>
-                        <div class="p-admin__time">
-                            <div class="c-form__group--time">
-                                <label for="">営業開始時間</label><input type="text">
-                                <div class="c-form__group--time">
-                                    <label for="">営業終了時間</label><input type="text">
+                            <div class="c-form__group">
+                                <label for="">ホームページ</label><input value={{ $store->link }} type="text"
+                                    name="link">
+                            </div>
+                            <div class="c-form__group">
+                                <label for=" ">サービス内容</label>
+                                <textarea id="servicecontent" name="service" rows="5" cols="33">{{ $store->service }}</textarea>
+
+                            </div>
+                            <label for="">写真</label>
+                            <div class="p-admin__photo">
+                                <div class="c-form__group"> <img src={{ $store->picture1 }} id="picture1"
+                                        alt="">
+                                </div>
+                                <div class="c-form__group"> <img src={{ $store->picture2 }} id="picture2"
+                                        alt="">
+                                </div>
+                                <div class="c-form__group"> <img src={{ $store->picture3 }} id="picture3"
+                                        alt="">
                                 </div>
                             </div>
-                            <div class="c-form__group">
-                                <label for="">駐車場</label><input type="text">
+                            <div class="p-admin__time">
+                                <div class="c-form__group--time">
+                                    <label for="">営業開始時間</label><input value={{ $store->start_time }}
+                                        type="text" name="start_time">
+                                    <div class="c-form__group--time">
+                                        <label for="">営業終了時間</label><input value={{ $store->end_time }}
+                                            type="text" name="end_time">
+                                    </div>
+                                </div>
+                                <div class="c-form__group">
+                                    <label for="">駐車場</label><input value={{ $store->parking }} type="text"
+                                        name="parking">
+                                </div>
+                                <div class="c-form__group">
+                                    <label>エリア名選択
+                                        {{--  <span class="req">※</span>  --}}
+                                    </label>
+                                    <select name="op">
+                                        <option value="-----------">
+                                            ---------------------------------------------------------</option>
+
+                                        <option value="1">大原周辺</option>
+                                        <option value="2">鉄輪</option>
+                                        {{--  データベースから引っ張ってくる  --}}
+                                    </select>
+                                </div>
                             </div>
-                            <div class="c-form__group">
-                                <label>エリア名選択
-                                    {{--  <span class="req">※</span>  --}}
-                                </label>
-                                <select name="op">
-                                    <option value="-----------">
-                                        ---------------------------------------------------------</option>
-                                    <option value="Option A">Option aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
-                                    <option value="Option B">Option B</option>
-                                    <option value="Option C">Option C</option>
-                                    <option value="Option D">Option D</option>
-                                    {{--  データベースから引っ張ってくる  --}}
-                                </select>
-                            </div>
+                            <input type="hidden" name="id" value="{{ $store->id }}">
+                            <input type="hidden" name="area_id" value="{{ $store->area_id }}">
+                            <input type="hidden" name="perfecture_id" value="{{ $store->perfecture_id }}">
+                            <input type="hidden" name="latitude" value="{{ $store->latitude }}">
+                            <input type="hidden" name="longitude" value="{{ $store->longitude }}">
+                            <input type="hidden" name="review_count" value="{{ $store->review_count }}">
+                            <input type="hidden" name="star" value="{{ $store->star }}">
+                            <input type="hidden" name="related1" value="{{ $store->related1 }}">
+                            <input type="hidden" name="related2" value="{{ $store->related2 }}">
+                            <input type="hidden" name="related3" value="{{ $store->related3 }}">
+                            <input type="hidden" name="picture1" value="{{ $store->picture1 }}">
+                            <input type="hidden" name="picture2" value="{{ $store->picture2 }}">
+                            <input type="hidden" name="picture3" value="{{ $store->picture3 }}">
+                            <button type="submit" class="c-btn c-btn--update c-btn--navy">更新する</button>
                         </div>
-                        <p><a class="c-btn c-btn--update c-btn--navy">更新する</a></p>
-                    </div>
+                    @endforeach
+                </form>
+
             </div>
         </div>
 </body>

@@ -9,6 +9,7 @@ use Auth;
 use App\Models\User;
 use App\Review;
 use App\Ticket;
+use App\Store;
 class AdminController extends Controller
 {
     public function watch(){
@@ -25,11 +26,43 @@ class AdminController extends Controller
         ->get();
         return view('store.admin',['reviews'=>$reviews]);
     }
+    public function storeupdate(Request $request){
+        Store::where('id','=',$request->id)->update([
+        'store_name'=>$request->store_name,
+        'address'=>$request->address,
+        'link'=>$request->link,
+        'tel'=>$request->tel,
+        'service'=>$request->service,
+        'picture1'=>$request->picture1,
+        'picture2'=>$request->picture2,
+        'picture3'=>$request->picture3,
+        // 'picture4'=>$request->picture4,
+        'parking'=>$request->parking,
+        'area_id'=>$request->op,
+        'perfecture_id'=>$request->perfecture_id,
+        'latitude'=>$request->latitude,
+        'longitude'=>$request->longitude,
+        'review_count'=>$request->review_count,
+        'star'=>$request->star,
+        'end_time'=>$request->end_time,
+        'start_time'=>$request->start_time,
+        'related1'=>$request->related1,
+        'related2'=>$request->related2,
+        'related3'=>$request->related3
+        ]);
+        return redirect()->action('Auth\AdminController@index');
+      
+    }
     public function edit(){
         return view('store.admin');
     }
     public function update(){
-        
+        $reviews = Review::selectRaw('round(AVG(star)) as count_review')
+        ->get();
+        $id=Auth::id();
+        $stores=Store::where('id','=',$id)->get();
+        $test=['reviews'=>$reviews,'stores'=>$stores];
+        return view('admins.store',$test); 
     }
     public function look(){
         return view('coupon.admin');
@@ -66,6 +99,11 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admins.store');
+        $reviews = Review::selectRaw('round(AVG(star)) as count_review')
+        ->get();
+        $id=Auth::id();
+        $stores=Store::where('id','=',$id)->get();
+        $test=['reviews'=>$reviews,'stores'=>$stores];
+        return view('admins.store',$test);
     }
 }

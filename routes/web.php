@@ -140,7 +140,8 @@ Route::get('welcome/admin', 'Auth\AdminController@in')->middleware('auth');
 
 //店舗情報管理
 
-Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
+// Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
+Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('store/storeupdate')->middleware('auth');
 // Route::get('store/admin', 'AdminController@edit');
 // Route::get('store/admin', 'AdminController@update');
 // Route::get('store/admin', 'AdminController@enter');
