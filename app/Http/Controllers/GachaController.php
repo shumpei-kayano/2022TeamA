@@ -13,13 +13,15 @@ class GachaController extends Controller
     {
     }
 
-    public function play($currentArea = 'oita')
+    public function play(Request $request)
     {
-        if ($currentArea == "oita") {
+        $area = $request->session()->get('current_area');
+        if (false !== strpos($area, "oita")) {
             $ransu = mt_rand(1, 13);
-        } else if ($currentArea == "beppu") {
+        } elseif (false !== strpos($area, 'beppu')) {
             $ransu = mt_rand(14, 23);
         }
+
         $coupons = Coupon::where('id', '=', $ransu)->first();
         return view('gacha.staging', ['coupons' => $coupons]);
     }

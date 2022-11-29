@@ -48,7 +48,10 @@
                 @else
                     <div class="p-gacha__control" id="current-area">
         @endif
+        <p>現在地：　{{ Session::get('current_area') }}
+        </p>
         <div class="p-gacha__control-window">
+
             <form action="/gacha/index" method="POST">
                 @csrf
                 <ul>
