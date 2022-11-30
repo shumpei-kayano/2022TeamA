@@ -12,4 +12,7 @@ class Get extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+
+    protected $fillable = ['badge_id','user_id','get_date'];
 }
