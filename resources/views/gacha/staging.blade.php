@@ -44,9 +44,10 @@
             </div>
         </div>
         <div class="c-modal__button">
-            <a href="{{ route('coupon/index') }}">
+            <a href={{ route('coupon/get', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}>
                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-            <a href="{{ route('store/index', ['id' => $coupons->store_id]) }}">店舗詳細を見る</a>
+            <a
+                href="{{ route('store/get', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}">店舗詳細を見る</a>
         </div>
     </dialog>
 

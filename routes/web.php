@@ -60,6 +60,7 @@ Route::get('tourist/index', 'AccountController@spot')->name('tourist/index')->mi
 
 //店舗詳細
 // Route::get('store/index', 'AccountController@store');
+Route::get('store/get/{store_id}/{coupon_id}', 'CouponController@storeget')->name('store/get')->middleware('auth');
 Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->middleware('auth');
 
 
@@ -108,10 +109,8 @@ Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/
 // Route::post('coupon/index', 'CouponController@review');
 
 Route::get('coupon/index', 'CouponController@show')->name('coupon/index')->middleware('auth');
+Route::get('coupon/get/{store_id}/{coupon_id}', 'CouponController@get')->name('coupon/get')->middleware('auth');
 // Route::get('coupon/use', 'CouponController@show')->name('coupon/index');
-
-
-
 
 //クーポン確認
 Route::get('coupon/confirmation', function () {
