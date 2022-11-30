@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CouponController extends Controller
 {
-    public function get()
-    {
-    }
+
     public function see()
     {
         return view('coupon.index');
@@ -21,9 +19,7 @@ class CouponController extends Controller
     public function caution()
     {
     }
-    public function use()
-    {
-    }
+
     public function review()
     {
         return view('post.index');
@@ -92,4 +88,29 @@ public function view($store_id,$ticket_id){
         ]);
         return redirect('coupon/used');
     }
+
+    public function get( $store_id,$coupon_id)
+    {
+        $id=Auth::id();
+        $ticket=new Ticket;
+        $ticket->store_id=$store_id;
+        $ticket->user_id=$id;
+        $ticket->coupon_id=$coupon_id;
+        $ticket->term_of_use=\Carbon\Carbon::tomorrow();
+        $ticket->flg=0;
+        $ticket->save();
+        return redirect()->action('CouponController@show');
+    }
+
+    public function storeget($store_id,$coupon_id){
+    $id=Auth::id();
+    $ticket=new Ticket;
+    $ticket->store_id=$store_id;
+    $ticket->user_id=$id;
+    $ticket->coupon_id=$coupon_id;
+    $ticket->term_of_use=\Carbon\Carbon::tomorrow();
+    $ticket->flg=0;
+    $ticket->save();
+    return redirect()->route('store/index', ['id' => $store_id]);
+}
 }
