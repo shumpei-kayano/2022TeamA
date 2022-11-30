@@ -158,6 +158,11 @@ dialog::backdrop {
 .c-btn--navy.is-inactive {
   background-color: #c9c9c9;
 }
+.c-btn--gray {
+  background-color: #c9c9c9;
+  color: white;
+  pointer-events: none;
+}
 .c-btn--small {
   margin: 16px auto 8px;
   padding: 8px 16px;
@@ -495,6 +500,17 @@ dialog::backdrop {
 }
 .c-modal__sineup {
   text-align: center;
+}
+.c-modal__area {
+  background-color: black;
+  color: #00ff00;
+  font-size: 11px;
+  line-height: 1;
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  padding: 8px;
+  border-radius: 4px 4px 0 0;
 }
 
 @keyframes fade-in {

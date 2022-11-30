@@ -93,7 +93,17 @@
     &__sineup {
         text-align: center;
     }
-
+    &__area {
+        background-color: black;
+        color: #00ff00;
+        font-size: 11px;
+        line-height: 1;
+        position: absolute;
+        bottom: 0;
+        left: 16px;
+        padding: 8px;
+        border-radius: 4px 4px 0 0;
+    }
 }
 
 @keyframes fade-in {
