@@ -38,5 +38,5 @@ class Review extends Model
     //     $review->save();
     // }
 
-    protected $fillable = ['user_id', 'visited', 'comment', 'store_id', 'posted_date', 'star'];
+    protected $fillable = ['user_id', 'visited', 'comment', 'store_id', 'posted_date', 'star','goodnum','reviewflg'];
 }

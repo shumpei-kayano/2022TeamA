@@ -77,6 +77,8 @@ Route::get('review/person', 'AccountController@update')->middleware('auth');
 Route::get('review/edit/{id}', 'AccountController@edit')->name('review/edit')->middleware('auth');
 Route::POST('review/edited', 'AccountController@edited')->name('review/edited')->middleware('auth');
 
+// クチコミ削除
+Route::get('review/delete/{id}', 'AccountController@remove')->name('review/delete')->middleware('auth');
 
 //いいね一覧
 Route::get('review/good', 'AccountController@show')->name('review/good')->middleware('auth');
@@ -121,13 +123,17 @@ Route::get('coupon/use', function () {
     return view('coupon.use');
 });
 
+//クーポンフラグ
+Route::get('coupon/flg/{id}','CouponController@flg')->name('coupon/flg');
+
 //クーポン使用済み
 Route::get('coupon/used', 'CouponController@used')->name('coupon/used')->middleware('auth');
 
 //クチコミ投稿
 // Route::get('post/index', 'CouponController@view');
+Route::get('post/index/{store_id}', 'CouponController@view')->name('post/index');
 // Route::post('post/index', 'CouponController@post');
-Route::get('post/index', 'CouponController@edit')->name('post/index')->middleware('auth');
+Route::POST('/post/send', 'CouponController@edit')->name('/post/send')->middleware('auth');
 
 
 //バッジ
@@ -148,6 +154,7 @@ Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('stor
 
 //クーポン管理
 Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin')->middleware('auth');
+Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate')->middleware('auth');
 // Route::get('coupon/admin', 'AdminController@look');
 // Route::get('coupon/admin', 'AdminController@rewrite');
 // Route::get('coupon/admin', 'AdminController@set');

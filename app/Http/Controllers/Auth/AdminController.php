@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Review;
 use App\Ticket;
 use App\Store;
+use App\Coupon;
 class AdminController extends Controller
 {
     public function watch(){
@@ -71,7 +72,21 @@ class AdminController extends Controller
         $tickets = DB::table('tickets')
         ->where('flg','=', '1')
         ->count();
-        return view('coupon.admin',['tickets'=>$tickets]);
+        $id=Auth::id();
+        $coupons=Coupon::where('id','=',$id)->get();
+        $item=['tickets'=>$tickets,'coupons'=>$coupons];
+        return view('coupon.admin',$item);
+    }
+    public function couponupdate(Request $request){
+        Coupon::where('id','=',$request->id)->update([
+        'store_id'=>$request->store_id,
+        'provide'=>$request->provide,
+        'coupon_photo'=>$request->coupon_photo,
+        'coupon_name'=>$request->coupon_name,
+        'closetime'=>$request->closetime
+        ]);
+        return redirect()->action('Auth\AdminController@see');
+    
     }
     public function rewrite(){
         return view('coupon.admin');
@@ -106,4 +121,5 @@ class AdminController extends Controller
         $test=['reviews'=>$reviews,'stores'=>$stores];
         return view('admins.store',$test);
     }
+
 }

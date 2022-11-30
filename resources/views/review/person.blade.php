@@ -61,7 +61,7 @@
 
                 {{--  <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>  --}}
                 {{--  reviewsテーブルからデータを引っ張ってくる  --}}
-                <a href="" class="c-hukidashi__edit-delete">削除</a>
+                <a href="{{ route('review/delete', ['id' => $review->id]) }}" class="c-hukidashi__edit-delete">削除</a>
 
             </div>
         @endforeach
