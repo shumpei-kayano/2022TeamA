@@ -48,8 +48,7 @@
                 @else
                     <div class="p-gacha__control" id="current-area">
         @endif
-        <p>現在地：　{{ Session::get('current_area') }}
-        </p>
+
         <div class="p-gacha__control-window">
 
             <form action="/gacha/index" method="POST">
@@ -60,7 +59,7 @@
                 </ul>
             </form>
 
-            <p id="latlng"></p>
+            <p>{{ Session::get('current_area') }} <span id="latlng"></span></p>
         </div>
 
     </div>
@@ -178,16 +177,6 @@
                     map: map,
                 });
             }
-            //初期化
-            //ohara();
-            //鉄輪に行くボタン
-            /* document.getElementById('go-kannawa').addEventListener('click', (event) => {
-                kannawa();
-            }); */
-            //大原に行くボタン
-            /* document.getElementById('go-ohara').addEventListener('click', (event) => {
-                ohara();
-            }); */
             @if ($currentArea == 'oita')
                 ohara();
             @elseif ($currentArea == 'beppu')
