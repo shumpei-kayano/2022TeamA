@@ -28,9 +28,12 @@ class AccountController extends Controller
     public function delete(){
         return view('review.edit');
     }
-    public function remove(){
-        return view('account/remove');
-    }
+    
+        public function remove($id){
+            Review::find($id)->delete();
+            return redirect()->action('AccountController@update');
+        }
+    
     public function edit($id){
         // return view('review.edit');
         // $reviews =  DB::table('reviews')->find($id);
