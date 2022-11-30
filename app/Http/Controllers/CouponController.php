@@ -58,10 +58,13 @@ class CouponController extends Controller
         $items = DB::table('stores')->find($id);
         return view('store.index', ['items' => $items]);
     }
-public function view($store_id){
+public function view($store_id,$ticket_id){
     $id=Auth::id();
     // $items=['store_id'=>$store_id,'id'=>$id];
     // dd($items);
+    Ticket::where('id','=',$ticket_id)->update([
+        'flg'=>'1'
+    ]);
     return view('post.index',['store_id'=>$store_id,'id'=>$id]);
 }
     public function edit(Request $request)
@@ -87,6 +90,6 @@ public function view($store_id){
         Ticket::where('id','=',$id)->update([
             'flg'=>'1'
         ]);
-        return redirect('coupon/index');
+        return redirect('coupon/used');
     }
 }
