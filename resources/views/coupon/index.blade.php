@@ -78,18 +78,18 @@
 
                         @slot('button')
                             <transition>
-                                <a href={{ route('post/index', ['store_id' => $ticket->store_id]) }}
+                                <a href={{ route('post/index', ['store_id' => $ticket->store_id, 'ticket_id' => $ticket->id]) }}
                                     class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed" key="used">クチコミを書く</a>
 
-                                {{--  <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
-                                    key="use"onclick="location.href={{ route('coupon/flg', ['id' => $ticket->id]) }} ">クーポンを使う</button> 
-                                     --}}
-                                <a href={{ route('coupon/flg', ['id' => $ticket->id]) }}
-                                    class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
-                                    key="use">クーポンを使う</a>
+                                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                                    key="use ">クーポンを使う</button>
+
+                                {{--  <a href="#" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                                    key="use">クーポンを使う</a>  --}}
                             </transition>
                             <transition>
-                                <a href="" v-if="couponUsed" key="used">後で書く</a>
+                                <a href="{{ route('coupon/flg', ['id' => $ticket->id]) }}" v-if="couponUsed"
+                                    key="used">後で書く</a>
                                 <a href="" v-else key="use">後で</a>
                             </transition>
                         @endslot

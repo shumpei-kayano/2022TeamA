@@ -60,6 +60,7 @@ Route::get('tourist/index', 'AccountController@spot')->name('tourist/index')->mi
 
 //店舗詳細
 // Route::get('store/index', 'AccountController@store');
+Route::get('store/get/{store_id}/{coupon_id}', 'CouponController@storeget')->name('store/get')->middleware('auth');
 Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->middleware('auth');
 
 
@@ -108,10 +109,8 @@ Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/
 // Route::post('coupon/index', 'CouponController@review');
 
 Route::get('coupon/index', 'CouponController@show')->name('coupon/index')->middleware('auth');
+Route::get('coupon/get/{store_id}/{coupon_id}', 'CouponController@get')->name('coupon/get')->middleware('auth');
 // Route::get('coupon/use', 'CouponController@show')->name('coupon/index');
-
-
-
 
 //クーポン確認
 Route::get('coupon/confirmation', function () {
@@ -124,14 +123,15 @@ Route::get('coupon/use', function () {
 });
 
 //クーポンフラグ
-Route::get('coupon/flg/{id}','CouponController@flg')->name('coupon/flg');
+Route::get('coupon/flg/{id}', 'CouponController@flg')->name('coupon/flg');
 
 //クーポン使用済み
 Route::get('coupon/used', 'CouponController@used')->name('coupon/used')->middleware('auth');
 
 //クチコミ投稿
 // Route::get('post/index', 'CouponController@view');
-Route::get('post/index/{store_id}', 'CouponController@view')->name('post/index');
+Route::get('post/used/{store_id}', 'CouponController@view')->name('post/used');
+Route::get('post/index/{store_id}/{ticket_id}', 'CouponController@view')->name('post/index');
 // Route::post('post/index', 'CouponController@post');
 Route::POST('/post/send', 'CouponController@edit')->name('/post/send')->middleware('auth');
 
@@ -153,8 +153,8 @@ Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('stor
 // Route::get('store/admin', 'AdminController@enter');
 
 //クーポン管理
-Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin')->middleware('auth');
-Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate')->middleware('auth');
+Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin');
+Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate');
 // Route::get('coupon/admin', 'AdminController@look');
 // Route::get('coupon/admin', 'AdminController@rewrite');
 // Route::get('coupon/admin', 'AdminController@set');
@@ -162,7 +162,7 @@ Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('c
 // Route::get('coupon/admin', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin', 'Auth\AdminController@view')->name('review/admin')->middleware('auth');
+Route::get('review/admin', 'Auth\AdminController@view')->name('review/admin');
 
 //モーダルテスト
 Route::get('modal', function () {

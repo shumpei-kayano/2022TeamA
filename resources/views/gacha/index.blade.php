@@ -125,7 +125,8 @@
                 //
                 var options = {
                     zoom: 17,
-                    center: latlng
+                    center: latlng,
+                    disableDefaultUI: true
                 };
 
                 map = new google.maps.Map(document.getElementById("googleMap"), options);
@@ -152,7 +153,8 @@
                 //
                 var options = {
                     zoom: 18,
-                    center: latlng
+                    center: latlng,
+                    disableDefaultUI: true
                 };
 
                 map = new google.maps.Map(document.getElementById("googleMap"), options);

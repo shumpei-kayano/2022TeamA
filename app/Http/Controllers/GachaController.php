@@ -59,4 +59,6 @@ class GachaController extends Controller
 
         return redirect('gacha/index');
     }
+
+
 }

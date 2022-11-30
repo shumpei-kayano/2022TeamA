@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CouponController extends Controller
 {
-    public function get()
-    {
-    }
+
     public function see()
     {
         return view('coupon.index');
@@ -22,9 +20,7 @@ class CouponController extends Controller
     public function caution()
     {
     }
-    public function use()
-    {
-    }
+
     public function review()
     {
         return view('post.index');
@@ -59,10 +55,13 @@ class CouponController extends Controller
         $items = DB::table('stores')->find($id);
         return view('store.index', ['items' => $items]);
     }
-public function view($store_id){
+public function view($store_id,$ticket_id){
     $id=Auth::id();
     // $items=['store_id'=>$store_id,'id'=>$id];
     // dd($items);
+    Ticket::where('id','=',$ticket_id)->update([
+        'flg'=>'1'
+    ]);
     return view('post.index',['store_id'=>$store_id,'id'=>$id]);
 }
     public function edit(Request $request)
@@ -135,6 +134,31 @@ public function view($store_id){
         Ticket::where('id','=',$id)->update([
             'flg'=>'1'
         ]);
-        return redirect('coupon/index');
+        return redirect('coupon/used');
     }
+
+    public function get( $store_id,$coupon_id)
+    {
+        $id=Auth::id();
+        $ticket=new Ticket;
+        $ticket->store_id=$store_id;
+        $ticket->user_id=$id;
+        $ticket->coupon_id=$coupon_id;
+        $ticket->term_of_use=\Carbon\Carbon::tomorrow();
+        $ticket->flg=0;
+        $ticket->save();
+        return redirect()->action('CouponController@show');
+    }
+
+    public function storeget($store_id,$coupon_id){
+    $id=Auth::id();
+    $ticket=new Ticket;
+    $ticket->store_id=$store_id;
+    $ticket->user_id=$id;
+    $ticket->coupon_id=$coupon_id;
+    $ticket->term_of_use=\Carbon\Carbon::tomorrow();
+    $ticket->flg=0;
+    $ticket->save();
+    return redirect()->route('store/index', ['id' => $store_id]);
+}
 }
