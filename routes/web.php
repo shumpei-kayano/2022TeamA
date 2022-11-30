@@ -121,6 +121,9 @@ Route::get('coupon/use', function () {
     return view('coupon.use');
 });
 
+//クーポンフラグ
+Route::get('coupon/flg/{id}','CouponController@flg')->name('coupon/flg');
+
 //クーポン使用済み
 Route::get('coupon/used', 'CouponController@used')->name('coupon/used')->middleware('auth');
 

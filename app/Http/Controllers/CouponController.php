@@ -82,4 +82,11 @@ public function view($store_id){
         ]);
         return redirect()->action('CouponController@used');
     }
+    public function flg($id)
+    {
+        Ticket::where('id','=',$id)->update([
+            'flg'=>'1'
+        ]);
+        return redirect('coupon/index');
+    }
 }

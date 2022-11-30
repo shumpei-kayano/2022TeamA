@@ -75,12 +75,18 @@
 
                             </div>
                         @endslot
+
                         @slot('button')
                             <transition>
-                                <a href="{{ route('post/index') }}" class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed"
-                                    key="used">クチコミを書く</a>
-                                <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
-                                    key="use">クーポンを使う</button>
+                                <a href={{ route('post/index', ['store_id' => $ticket->store_id]) }}
+                                    class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed" key="used">クチコミを書く</a>
+
+                                {{--  <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                                    key="use"onclick="location.href={{ route('coupon/flg', ['id' => $ticket->id]) }} ">クーポンを使う</button> 
+                                     --}}
+                                <a href={{ route('coupon/flg', ['id' => $ticket->id]) }}
+                                    class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
+                                    key="use">クーポンを使う</a>
                             </transition>
                             <transition>
                                 <a href="" v-if="couponUsed" key="used">後で書く</a>
