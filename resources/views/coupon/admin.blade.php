@@ -12,7 +12,9 @@
     <div class="p-admin__header">
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
-            <p>店舗名</p>
+            @foreach ($coupons as $coupon)
+                <p>{{ $coupon->store->store_name }}</p>
+            @endforeach
             <p><a class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>

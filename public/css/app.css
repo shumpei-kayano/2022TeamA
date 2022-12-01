@@ -1042,6 +1042,28 @@ dialog::backdrop {
   position: absolute;
   transform: translateY(-100px);
 }
+.p-gacha__message {
+  position: absolute;
+  width: 0;
+  opacity: 0;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  padding: 8px;
+  border: 1px solid #a63783;
+  border-radius: 8px;
+  background-color: rgba(166, 55, 131, 0.85);
+  overflow: hidden;
+  animation: open forwards 1s 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.p-gacha__message p {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
 .p-gacha__handle {
   width: 100%;
   height: 370px;
@@ -1158,6 +1180,27 @@ dialog::backdrop {
   }
   100% {
     transform: rotate(-360deg);
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes open {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: calc(100% - 32px);
+    opacity: 1;
   }
 }
 .p-badge__group {
