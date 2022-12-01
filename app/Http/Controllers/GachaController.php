@@ -6,6 +6,8 @@ use App\Store;
 use App\Ticket;
 use App\Coupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GachaController extends Controller
 {
@@ -24,6 +26,8 @@ class GachaController extends Controller
 
         $coupons = Coupon::where('id', '=', $ransu)->first();
         return view('gacha.staging', ['coupons' => $coupons]);
+
+       
     }
 
     public function stag()
