@@ -14,6 +14,9 @@
     @endcomponent
     <div class="c-container u-padding-top--0">
         <div class="p-gacha-top">
+            <div class="p-gacha__message">
+                <p>このエリア<small>（ {{ Session::get('current_area') }} ）</small>のクーポン数：00</p>
+            </div>
             <div id="googleMap" class="p-gacha__map">
 
             </div>
@@ -160,10 +163,10 @@
                 map = new google.maps.Map(document.getElementById("googleMap"), options);
                 polygonObj = new google.maps.Polygon({
                     paths: kannawaArea,
-                    strokeColor: "#FF0000",
+                    strokeColor: "#EEC94A",
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
-                    fillColor: "#FF0000",
+                    fillColor: "#EEC94A",
                     fillOpacity: 0.25,
                     map: map
                 });
