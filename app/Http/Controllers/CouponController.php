@@ -97,7 +97,7 @@ public function view($store_id,$ticket_id){
             $get->badge_id=9;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
-            $get>save();
+            $get->save();
             break;
             case 5:
             $id=Auth::id();
@@ -134,6 +134,47 @@ public function view($store_id,$ticket_id){
         Ticket::where('id','=',$id)->update([
             'flg'=>'1'
         ]);
+
+        $id=Auth::id();
+        $cond=['user_id' =>$id, 'flg'=>'1'];
+        $tickets = DB::table('tickets')
+        ->where($cond)
+        ->count();
+        // dd($tickets);
+        switch($tickets){
+            case 3:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=5;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 5:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=6;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;  
+            case 10:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=7;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 50:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=8;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            }
         return redirect('coupon/used');
     }
 
