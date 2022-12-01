@@ -92,7 +92,7 @@ public function view($store_id,$ticket_id){
 
         switch($reviews){
             case 1:
-             $id=Auth::id();
+            $id=Auth::id();
             $get=new get;
             $get->badge_id=9;
             $get->user_id=$id;
