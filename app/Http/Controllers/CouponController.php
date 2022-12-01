@@ -147,6 +147,50 @@ public function view($store_id,$ticket_id){
         $ticket->term_of_use=\Carbon\Carbon::tomorrow();
         $ticket->flg=0;
         $ticket->save();
+
+        $id=Auth::id();
+        $cond=['user_id' =>$id];
+        $tickets = DB::table('tickets')
+        ->where($cond)
+        ->count();
+        // dd($reviews);
+        // $item=['reviews'=>$reviews];
+        // return redirect()->action('CouponController@used');
+
+        switch($tickets){
+            case 5:
+             $id=Auth::id();
+            $get=new get;
+            $get->badge_id=1;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 20:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=2;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 50:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=3;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 100:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=4;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+        }
         return redirect()->action('CouponController@show');
     }
 
