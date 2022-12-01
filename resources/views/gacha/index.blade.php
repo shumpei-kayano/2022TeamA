@@ -135,10 +135,10 @@
                 map = new google.maps.Map(document.getElementById("googleMap"), options);
                 polygonObj = new google.maps.Polygon({
                     paths: oharaArea,
-                    strokeColor: "#FF0000",
+                    strokeColor: "#EEC94A",
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
-                    fillColor: "#FF0000",
+                    fillColor: "#EEC94A",
                     fillOpacity: 0.25,
                     map: map
                 });
