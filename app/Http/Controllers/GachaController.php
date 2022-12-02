@@ -26,8 +26,6 @@ class GachaController extends Controller
 
         $coupons = Coupon::where('id', '=', $ransu)->first();
         return view('gacha.staging', ['coupons' => $coupons]);
-
-       
     }
 
     public function stag()
@@ -49,6 +47,7 @@ class GachaController extends Controller
             //
         } else {
             $request->session()->put('current_area', 'oita');
+            $request->session()->put('area_count', '13');
         }
 
         return view('gacha.index');
@@ -57,12 +56,12 @@ class GachaController extends Controller
     {
         if ($request->has('oita')) {
             $request->session()->put('current_area', 'oita');
+            $request->session()->put('area_count', '13');
         } elseif ($request->has('beppu')) {
             $request->session()->put('current_area', 'beppu');
+            $request->session()->put('area_count', '10');
         }
 
         return redirect('gacha/index');
     }
-
-
 }

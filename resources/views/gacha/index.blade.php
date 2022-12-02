@@ -15,7 +15,7 @@
     <div class="c-container u-padding-top--0">
         <div class="p-gacha-top">
             <div class="p-gacha__message">
-                <p>このエリア<small>（ {{ Session::get('current_area') }} ）</small>のクーポン数：00</p>
+                <p>このエリア<small>（ {{ Session::get('current_area') }} ）</small>のクーポン数：{{ Session::get('area_count') }}</p>
             </div>
             <div id="googleMap" class="p-gacha__map">
 
@@ -153,6 +153,7 @@
                 var lng = 131.476847;
                 var latlng = new google.maps.LatLng(lat, lng);
                 kannawaPos = latlng;
+
                 //
                 var options = {
                     zoom: 18,
