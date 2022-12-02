@@ -7,6 +7,7 @@ use App\Review;
 use App\Store;
 use App\Models\User;
 use App\Good;
+use Illuminate\Support\Facades\Auth;
 
 class PersonController extends Controller
 {
@@ -23,23 +24,74 @@ class PersonController extends Controller
         // $reviews=Review::all();
         // $reviews=Review::orderBy('posted_data')->all();
         $reviews = Review::orderBy('posted_date', 'desc')->get();
-        $good = Good::all();
+        // $good = Good::all();
         // dd($good);
-        return view('person.index', ['reviews' => $reviews, 'good' => $good]);
+        $id=Auth::id();
+
+        $carbon = new Carbon('2017-01-01 12:30:30');
+        echo $carbon->addDays(3) ;
+
+        return view('person.index', ['reviews' => $reviews, 'id' => $id]);
     }
     public function home()
     {
         return view('person.index');
     }
-    public function unko(Request $request)
+    public function good(Request $request)
     {
+        // dd($request);
+        $id=Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
-        $good->user_id = 3;
+        $good->user_id = $id;
         $good->save();
-        dd($good);
+
+
+
+        $id=Auth::id();
+        // $cond=['user_id' =>$id ];
+        $reviews = Review::where('user_id','=',$id )->sum("goodnum");
+        // dd($reviews);
+        // $item=['reviews'=>$reviews];
+        // return redirect()->action('CouponController@used');
+
+        switch($reviews){
+            case 1:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=13;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 20:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=14;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 50:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=15;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 100:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=16;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+        }
+        
         // return redirect()->route('person/home');
-        return view('person/home');
+        return redirect('person/home');
     }
 
     public function nogood(Request $request)
