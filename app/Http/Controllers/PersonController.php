@@ -7,6 +7,7 @@ use App\Review;
 use App\Store;
 use App\Models\User;
 use App\Good;
+use Illuminate\Support\Facades\Auth;
 
 class PersonController extends Controller
 {
@@ -23,23 +24,26 @@ class PersonController extends Controller
         // $reviews=Review::all();
         // $reviews=Review::orderBy('posted_data')->all();
         $reviews = Review::orderBy('posted_date', 'desc')->get();
-        $good = Good::all();
+        // $good = Good::all();
         // dd($good);
-        return view('person.index', ['reviews' => $reviews, 'good' => $good]);
+        $id=Auth::id();
+        return view('person.index', ['reviews' => $reviews, 'id' => $id]);
     }
     public function home()
     {
         return view('person.index');
     }
-    public function unko(Request $request)
+    public function good(Request $request)
     {
+        dd($request);
+        // $id=Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
-        $good->user_id = 3;
+        $good->user_id = $id;
         $good->save();
-        dd($good);
+        
         // return redirect()->route('person/home');
-        return view('person/home');
+        return redirect('person/home');
     }
 
     public function nogood(Request $request)

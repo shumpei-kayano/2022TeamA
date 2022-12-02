@@ -11,4 +11,5 @@ class Good extends Model
         return $this->belongsTo('App\Review');
     }
 
+    protected $fillable = ['review_id','user_id'];
 }
