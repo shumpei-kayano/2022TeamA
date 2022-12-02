@@ -180,12 +180,13 @@ public function view($store_id,$ticket_id){
 
     public function get( $store_id,$coupon_id)
     {
+        $dt = new \Carbon\Carbon('now','Asia/Tokyo');
         $id=Auth::id();
         $ticket=new Ticket;
         $ticket->store_id=$store_id;
         $ticket->user_id=$id;
         $ticket->coupon_id=$coupon_id;
-        $ticket->term_of_use=\Carbon\Carbon::tomorrow();
+        $ticket->term_of_use=$dt->addHour(24);
         $ticket->flg=0;
         $ticket->save();
 

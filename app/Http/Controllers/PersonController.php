@@ -27,6 +27,10 @@ class PersonController extends Controller
         // $good = Good::all();
         // dd($good);
         $id=Auth::id();
+
+        $carbon = new Carbon('2017-01-01 12:30:30');
+        echo $carbon->addDays(3) ;
+
         return view('person.index', ['reviews' => $reviews, 'id' => $id]);
     }
     public function home()
@@ -35,12 +39,56 @@ class PersonController extends Controller
     }
     public function good(Request $request)
     {
-        dd($request);
-        // $id=Auth::id();
+        // dd($request);
+        $id=Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
         $good->user_id = $id;
         $good->save();
+
+
+
+        $id=Auth::id();
+        // $cond=['user_id' =>$id ];
+        $reviews = Review::where('user_id','=',$id )->sum("goodnum");
+        // dd($reviews);
+        // $item=['reviews'=>$reviews];
+        // return redirect()->action('CouponController@used');
+
+        switch($reviews){
+            case 1:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=13;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 20:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=14;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 50:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=15;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+            case 100:
+            $id=Auth::id();
+            $get=new get;
+            $get->badge_id=16;
+            $get->user_id=$id;
+            $get->get_date=\Carbon\Carbon::today();
+            $get->save();
+            break;
+        }
         
         // return redirect()->route('person/home');
         return redirect('person/home');
