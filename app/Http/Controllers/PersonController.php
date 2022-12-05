@@ -7,7 +7,11 @@ use App\Review;
 use App\Store;
 use App\Models\User;
 use App\Good;
+use App\Notice;
+use App\Ticket;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
 {
@@ -27,11 +31,35 @@ class PersonController extends Controller
         // $good = Good::all();
         // dd($good);
         $id=Auth::id();
-
-        $carbon = new Carbon('2017-01-01 12:30:30');
-        echo $carbon->addDays(3) ;
-
-        return view('person.index', ['reviews' => $reviews, 'id' => $id]);
+        $item = ['user_id' =>$id , 'flg' =>0];
+        $tickets=Ticket::where($item)->get();
+        foreach($tickets as $ticket){
+        $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
+        // $carbon = new \Carbon\Carbon();
+        // $carbon3=$carbon->subHours(3)->format('Y/m/d H:i:s');
+        // dd($carbon3,$get_date);
+        // dd($get_date);
+        //dd($tickets->term_of_use);
+        $first = new Carbon( $ticket->term_of_use);
+        // dd($first);
+        //$first = new Carbon( $get_date);
+        $second = new Carbon( $get_date);
+        $sabun= $first->diffInHours($second); 
+        // dd($tickets->term_of_use,$get_date,$sabun);
+        // dd(date('Y/m/d H:i:s',strtotime($get_date-$carbon3)));
+        if($sabun<=3){
+            // $notices=Notice::where('alert_id','=','1')->get();
+            $id=Auth::id();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 1;
+            $notice->notice=$get_date;
+            $notice->flg=0;
+            $notice->save();
+        }
+    };
+        $cond=['reviews' => $reviews, 'id' => $id];
+        return view('person.index', $cond);
     }
     public function home()
     {
@@ -39,11 +67,13 @@ class PersonController extends Controller
     }
     public function good(Request $request)
     {
-        // dd($request);
+
+    
         $id=Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
         $good->user_id = $id;
+        $good->goodflg=1;
         $good->save();
 
 
@@ -90,10 +120,21 @@ class PersonController extends Controller
             break;
         }
         
-        // return redirect()->route('person/home');
-        return redirect('person/home');
+        
+        return redirect()->route('person/home');
+        // return redirect('person/wasgood');
+
+        // route('post/used', ['store_id' => $ticket->store_id])
     }
 
+    public function wasgood(){
+        $reviews = Review::orderBy('posted_date', 'desc')->get();
+        $id=Auth::id();
+        $goods =DB::table('goods')->get();
+        // dd($reviews);
+        // $items=['reviews' => $reviews, 'id' => $id,'goods' => $goods];
+        return view('person.index', ['reviews' => $reviews, 'id' => $id,'goods' => $goods]);
+    }
     public function nogood(Request $request)
     {
         $id = $request->id;
@@ -104,9 +145,13 @@ class PersonController extends Controller
         return view('person/home');
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        return view('account.index');
+        $id=Auth::id();
+        $cond = ['user_id' =>$id ];
+        $users = DB::table('users')->find($id);
+            return view('account.index', ['users'=>$users]);
+
     }
     public function limit()
     {

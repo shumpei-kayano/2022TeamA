@@ -30,7 +30,7 @@
                     <div class="c-coupon__box">
 
                         <small class="c-coupon__use">
-                            有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
+                            有効期限{{ $ticket->term_of_use }}</small>
                         <div class="c-modal__flex">
                             <p class="c-modal__flex__img">
                                 <img src={{ $ticket->coupon->coupon_photo }}>
