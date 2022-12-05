@@ -7,6 +7,9 @@ use App\Review;
 use App\Store;
 use App\Models\User;
 use App\Good;
+use App\Notice;
+use App\Ticket;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -28,11 +31,35 @@ class PersonController extends Controller
         // $good = Good::all();
         // dd($good);
         $id=Auth::id();
-
-        $carbon = new Carbon('2017-01-01 12:30:30');
-        echo $carbon->addDays(3) ;
-
-        return view('person.index', ['reviews' => $reviews, 'id' => $id]);
+        $item = ['user_id' =>$id , 'flg' =>0];
+        $tickets=Ticket::where($item)->get();
+        foreach($tickets as $ticket){
+        $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
+        // $carbon = new \Carbon\Carbon();
+        // $carbon3=$carbon->subHours(3)->format('Y/m/d H:i:s');
+        // dd($carbon3,$get_date);
+        // dd($get_date);
+        //dd($tickets->term_of_use);
+        $first = new Carbon( $ticket->term_of_use);
+        // dd($first);
+        //$first = new Carbon( $get_date);
+        $second = new Carbon( $get_date);
+        $sabun= $first->diffInHours($second); 
+        // dd($tickets->term_of_use,$get_date,$sabun);
+        // dd(date('Y/m/d H:i:s',strtotime($get_date-$carbon3)));
+        if($sabun<=3){
+            // $notices=Notice::where('alert_id','=','1')->get();
+            $id=Auth::id();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 1;
+            $notice->notice=$get_date;
+            $notice->flg=0;
+            $notice->save();
+        }
+    };
+        $cond=['reviews' => $reviews, 'id' => $id];
+        return view('person.index', $cond);
     }
     public function home()
     {

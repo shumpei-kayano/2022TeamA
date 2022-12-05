@@ -25,6 +25,10 @@ Route::get('login', 'PersonController@out')->name('login');
 //新規登録
 Route::get('register', 'PersonController@add');
 
+//パスワード変更
+Route::get('/password/change', 'Auth\ChangePasswordController@edit');
+Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('password.change');
+
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
 
@@ -137,9 +141,15 @@ Route::get('coupon/used', 'CouponController@used')->name('coupon/used')->middlew
 
 //クチコミ投稿
 // Route::get('post/index', 'CouponController@view');
-Route::get('post/used/{store_id}', 'CouponController@view')->name('post/used');
+
+// 使用済みクーポンからクチコミをかく
+Route::get('post/used/{store_id}/{ticket_id}', 'CouponController@review')->name('post/used');
+
+// 使用可能クーポンからクチコミを書く
 Route::get('post/index/{store_id}/{ticket_id}', 'CouponController@view')->name('post/index');
 // Route::post('post/index', 'CouponController@post');
+
+// 投稿したクチコミの保存
 Route::POST('/post/send', 'CouponController@edit')->name('/post/send')->middleware('auth');
 
 
