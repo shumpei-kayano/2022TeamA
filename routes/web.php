@@ -25,6 +25,10 @@ Route::get('login', 'PersonController@out')->name('login');
 //新規登録
 Route::get('register', 'PersonController@add');
 
+//パスワード変更
+Route::get('/password/change', 'Auth\ChangePasswordController@edit');
+Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('password.change');
+
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
 
