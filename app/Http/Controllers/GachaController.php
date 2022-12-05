@@ -46,8 +46,12 @@ class GachaController extends Controller
         if ($request->session()->has('current_area')) {
             //
         } else {
-            $request->session()->put('current_area', 'oita');
-            $request->session()->put('area_count', '13');
+            $request->session()->put('current_area', '1');
+
+            $reviews = DB::table('stores')
+            ->where('area_id','=','1')
+            ->count();
+            $request->session()->put('area_count', $reviews);
         }
 
         return view('gacha.index');
@@ -55,10 +59,18 @@ class GachaController extends Controller
     public function change_area(Request $request)
     {
         if ($request->has('oita')) {
-            $request->session()->put('current_area', 'oita');
-            $request->session()->put('area_count', '13');
+            // $request->session()->put('current_area', 'oita');
+            // $request->session()->put('area_count', '13');
+            // $id=Auth::id();
+
+            $request->session()->put('current_area','大原周辺');
+
+            $reviews = DB::table('stores')
+            ->where('area_id','=','1')
+            ->count();
+            $request->session()->put('area_count', $reviews);
         } elseif ($request->has('beppu')) {
-            $request->session()->put('current_area', 'beppu');
+            $request->session()->put('current_area', '別府');
             $request->session()->put('area_count', '10');
         }
 
