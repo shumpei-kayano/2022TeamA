@@ -27,7 +27,7 @@
                 class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a
             @else c-hukidashi--b @endif">
                 <div class="c-fukidashi__container">
-                    {{-- <p class="c-hukidashi__username">{{ $review->user->name }}</p>  --}}
+                    <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                     <div class="c-hukidashi__frame">
                         <div class="c-hukidashi__header">
                             <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}</p>

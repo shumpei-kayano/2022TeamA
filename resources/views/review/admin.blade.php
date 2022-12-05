@@ -13,7 +13,7 @@
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
             <p>店舗名</p>
-            <p><a class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
+            <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
     <div class="c-container--pc">
@@ -35,37 +35,37 @@
                         <div class="c-form__group">
                             <label>これまでに投稿されたクチコミ総数</label>
                         </div>
-                        @foreach ($reviews as $review)
-                            <div class="p-admin__historynumber">
-                                <p>{{ $review->count_review }}</p>
-                            </div>
-                        @endforeach
+                        {{--  @foreach ($reviews as $review)  --}}
+                        <div class="p-admin__historynumber">
+                            <p>{{ $reviews }}</p>
+                        </div>
+                        {{--  @endforeach  --}}
                     </div>
                 </div>
                 <p class="c-hukidashi__date">
                     2022/10/29
                 </p>
-                @foreach ($goods as $goods)
+                @foreach ($goods as $good)
                     <div class="c-hukidashi c-hukidashi--b">
-                        <p class="c-hukidashi__photo">
-                            <img src={{ $goods->review->user->icon_photo }}>
-                        </p>
+                        {{--  <p class="c-hukidashi__photo">
+                            <img src={{ $good->review->user->icon_photo }}>
+                        </p>  --}}
                         <div class="c-fukidashi__container">
-                            <p class="c-hukidashi__username"> {{ $goods->review->user->name }}</p>
+                            <p class="c-hukidashi__username"> {{ $good->user->name }}</p>
                             <div class="c-hukidashi__frame">
                                 <div class="c-hukidashi__header">
-                                    <p class="c-hukidashi__visited">訪問日：{{ $goods->review->visited }}</p>
+                                    <p class="c-hukidashi__visited">訪問日：{{ $good->visited }}</p>
                                     <div class="c-hukidashi__stars">
-                                        @for ($i = 0; $i < $goods->review->star; $i++)
+                                        @for ($i = 0; $i < $good->star; $i++)
                                             <img src="/images/star.png" alt="">
                                         @endfor
-                                        @for ($i = 0; $i < 5 - $goods->review->star; $i++)
+                                        @for ($i = 0; $i < 5 - $good->star; $i++)
                                             <img src="/images/star.black.png" alt="">
                                         @endfor
                                     </div>
                                 </div>
                                 <p class="c-hukidashi__honbun">
-                                    {{ $goods->review->comment }}
+                                    {{ $good->comment }}
                                 </p>
 
                                 <div class="c-hukidashi__footer">
@@ -73,7 +73,7 @@
                                         <input type="checkbox" class="warning">
                                         <span class="c-hukidashi__good-icon"></span>
                                         {{--  @foreach ($items ?? [] as $item)  --}}
-                                        <span class="c-hukidashi__good-num">{{ $goods->review->goodnum }}</span>
+                                        <span class="c-hukidashi__good-num">{{ $good->goodnum }}</span>
                                         {{--  @endforeach  --}}
                                     </label>
                                 </div>

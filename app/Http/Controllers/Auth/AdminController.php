@@ -101,11 +101,17 @@ class AdminController extends Controller
         
     }
     public function view(){
-        $reviews = Review::selectRaw('COUNT(user_id) as count_review')
-        ->get();
-        $goods=Good::where('user_id','=','3')->get();
-        $tests=['goods'=>$goods,'reviews'=>$reviews];
-        return view('review.admin',$tests);
+        // $reviews = Review::selectRaw('COUNT(user_id) as count_review')
+        // ->get();
+        // $goods=Good::where('user_id','=','3')->get();
+        // $tests=['goods'=>$goods,'reviews'=>$reviews];
+$id=Auth::id();
+        $reviews = DB::table('reviews')
+        ->where('store_id','=',$id)
+        ->count();
+        $goods=Review::where('store_id','=',$id)->get();
+        // dd($reviews, $goods);
+        return view('review.admin',['reviews'=>$reviews,'goods'=>$goods]);
     }
     public function __construct()
     {

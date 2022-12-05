@@ -15,7 +15,7 @@
             @foreach ($coupons as $coupon)
                 <p>{{ $coupon->store->store_name }}</p>
             @endforeach
-            <p><a class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
+            <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
     <div class="c-container--pc">
