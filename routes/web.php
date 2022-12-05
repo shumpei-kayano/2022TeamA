@@ -28,11 +28,14 @@ Route::get('register', 'PersonController@add');
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
 
-Route::get('person/index', 'PersonController@home')->name('person/index')->middleware('auth');
+// Route::get('person/index', 'PersonController@home')->name('person/index')->middleware('auth');
 // ホーム画面をただ表示
 Route::get('person/home', 'PersonController@create')->name('person/home')->middleware('auth');
 // いいね処理
 Route::POST('/home/good', 'PersonController@good')->name('/home/good')->middleware('auth');
+// いいね処理から戻る時
+Route::get('person/wasgood', 'PersonController@wasgood')->name('person/wasgood')->middleware('auth');
+
 Route::delete('person/home', 'PersonController@nogood')->name('nogood')->middleware('auth');
 
 
