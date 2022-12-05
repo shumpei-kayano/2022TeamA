@@ -50,6 +50,8 @@ Route::get('account/index', 'PersonController@show')->name('account/index')->mid
 
 //アカウント設定
 Route::get('account/setting', 'AccountController@set')->name('account/setting')->middleware('auth');
+Route::POST('account/setting', 'AccountController@setting')->name('account/setting')->middleware('auth');
+
 
 //新規登録確認
 Route::get('person/addcheck', function () {
