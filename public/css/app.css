@@ -512,6 +512,23 @@ dialog::backdrop {
   padding: 8px;
   border-radius: 4px 4px 0 0;
 }
+.c-modal__close {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  border: 1px solid #354260;
+  border-radius: 4px;
+}
+.c-modal__close:hover img {
+  opacity: 0.5;
+}
 
 @keyframes fade-in {
   0% {

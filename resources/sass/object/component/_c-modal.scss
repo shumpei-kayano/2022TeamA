@@ -104,6 +104,23 @@
         padding: 8px;
         border-radius: 4px 4px 0 0;
     }
+    &__close {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        border: 1px solid $plat-navy;
+        border-radius: 4px;
+        &:hover img {
+            opacity: 0.5;
+        }
+    }
 }
 
 @keyframes fade-in {

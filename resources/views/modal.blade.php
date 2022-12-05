@@ -19,6 +19,7 @@
         @component('components.modal')
             @slot('title')
                 <p class="c-modal__title c-modal__title--pink">
+                    <a href="" class="c-modal__close"><img src="/images/close_line.png" alt=""></a>
                     <transition>
                         <span v-if="couponUsed" key="used">
                             この画面を店舗スタッフに提示して下さい。
@@ -74,10 +75,10 @@
         document.getElementById('btn-open').addEventListener('click', (event) => {
             dialog.showModal();
         });
-        // OKが押されたときの処理
-        /* dialog.querySelector('.c-btn').addEventListener('click', () => {
+        // Xが押されたときの処理
+        dialog.querySelector('.c-modal__close').addEventListener('click', () => {
             dialog.close();
-        }); */
+        });
     </script>
 </body>
 
