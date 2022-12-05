@@ -49,7 +49,8 @@
                 </div>
                 <input type="hidden" name="store_id" value="{{ $store_id }}">
                 <input type="hidden" name="user_id" value="{{ $id }}">
-                <input type="hidden" name="goodnum" value="{{ $id }}">
+                <input type="hidden" name="ticket_id" value="{{ $ticket_id }}">
+                {{--  <input type="hidden" name="goodnum" value="{{ $id }}">  --}}
                 <input type="hidden" name="posted_date" value="{{ \Carbon\Carbon::today() }}">
                 <button type="submit" class="c-btn c-btn--navy">投稿する</button>
 
