@@ -19,9 +19,9 @@ class GachaController extends Controller
     public function play(Request $request)
     {
         $area = $request->session()->get('current_area');
-        if (false !== strpos($area, "oita")) {
+        if (false !== strpos($area, "大原周辺")) {
             $ransu = mt_rand(1, 13);
-        } elseif (false !== strpos($area, 'beppu')) {
+        } elseif (false !== strpos($area, '鉄輪')) {
             $ransu = mt_rand(14, 23);
         }
 
@@ -47,8 +47,12 @@ class GachaController extends Controller
         if ($request->session()->has('current_area')) {
             //
         } else {
-            $request->session()->put('current_area', 'oita');
-            $request->session()->put('area_count', '13');
+            $request->session()->put('current_area', '1');
+
+            $reviews = DB::table('stores')
+            ->where('area_id','=','1')
+            ->count();
+            $request->session()->put('area_count', $reviews);
         }
 
         return view('gacha.index');
@@ -56,11 +60,22 @@ class GachaController extends Controller
     public function change_area(Request $request)
     {
         if ($request->has('oita')) {
-            $request->session()->put('current_area', 'oita');
-            $request->session()->put('area_count', '13');
+            // $request->session()->put('current_area', 'oita');
+            // $request->session()->put('area_count', '13');
+            // $id=Auth::id();
+
+            $request->session()->put('current_area','大原周辺');
+
+            $reviews = DB::table('stores')
+            ->where('area_id','=','1')
+            ->count();
+            $request->session()->put('area_count', $reviews);
         } elseif ($request->has('beppu')) {
-            $request->session()->put('current_area', 'beppu');
-            $request->session()->put('area_count', '10');
+            $request->session()->put('current_area', '鉄輪');
+            $reviews = DB::table('stores')
+            ->where('area_id','=','2')
+            ->count();
+            $request->session()->put('area_count',  $reviews);
         }
 
         return redirect('gacha/index');

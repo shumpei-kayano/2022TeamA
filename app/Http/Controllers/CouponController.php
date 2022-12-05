@@ -62,7 +62,7 @@ public function view($store_id,$ticket_id){
     Ticket::where('id','=',$ticket_id)->update([
         'flg'=>'1'
     ]);
-    return view('post.index',['store_id'=>$store_id,'id'=>$id]);
+    return view('post.index',['store_id'=>$store_id,'id'=>$id,'ticket_id'=>$ticket_id]);
 }
 
 // 使用済みクーポンからクチコミを書く
