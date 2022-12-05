@@ -109,6 +109,8 @@ Route::post('gacha/index', 'GachaController@change_area');
 
 //ガチャ演出
 Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/staging')->middleware('auth');
+Route::get('model/test{store_id}/{coupon_id}', 'GachaController@modeldelete')->name('model/test');
+
 // Route::get('gacha/staging', 'GachaController@stag');
 
 //クーポン

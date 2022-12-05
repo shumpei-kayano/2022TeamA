@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Store;
 use App\Ticket;
 use App\Coupon;
+use App\Get;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -64,4 +65,86 @@ class GachaController extends Controller
 
         return redirect('gacha/index');
     }
+
+    public function modeldelete($store_id,$coupon_id)
+{
+    $dt = new \Carbon\Carbon('now','Asia/Tokyo');
+    $id=Auth::id();
+    $ticket=new Ticket;
+    $ticket->store_id=$store_id;
+    $ticket->user_id=$id;
+    $ticket->coupon_id=$coupon_id;
+    $ticket->term_of_use=$dt->addHour(24);
+    $ticket->flg=0;
+    $ticket->save();
+
+    $id=Auth::id();
+    $cond=['user_id' =>$id];
+    $tickets = DB::table('tickets')
+    ->where($cond)
+    ->count();
+    // dd($reviews);
+    // $item=['reviews'=>$reviews];
+    // return redirect()->action('CouponController@used');
+
+    switch($tickets){
+        case 5:
+         $id=Auth::id();
+        $get=new get;
+        $get->badge_id=1;
+        $get->user_id=$id;
+        $get->get_date=\Carbon\Carbon::today();
+        $get->save();
+        $notice = new Notice;
+        $notice->user_id = $id;
+        $notice->	alert_id = 2;
+        $notice->notice=\Carbon\Carbon::today();
+        $notice->flg=0;
+        $notice->save();
+        break;
+        case 20:
+        $id=Auth::id();
+        $get=new get;
+        $get->badge_id=2;
+        $get->user_id=$id;
+        $get->get_date=\Carbon\Carbon::today();
+        $get->save();
+        $notice = new Notice;
+        $notice->user_id = $id;
+        $notice->	alert_id = 2;
+        $notice->notice=\Carbon\Carbon::today();
+        $notice->flg=0;
+        $notice->save();
+        break;
+        case 50:
+        $id=Auth::id();
+        $get=new get;
+        $get->badge_id=3;
+        $get->user_id=$id;
+        $get->get_date=\Carbon\Carbon::today();
+        $get->save();
+        $notice = new Notice;
+        $notice->user_id = $id;
+        $notice->	alert_id = 2;
+        $notice->notice=\Carbon\Carbon::today();
+        $notice->flg=0;
+        $notice->save();
+        break;
+        case 100:
+        $id=Auth::id();
+        $get=new get;
+        $get->badge_id=4;
+        $get->user_id=$id;
+        $get->get_date=\Carbon\Carbon::today();
+        $get->save();
+        $notice = new Notice;
+        $notice->user_id = $id;
+        $notice->	alert_id = 2;
+        $notice->notice=\Carbon\Carbon::today();
+        $notice->flg=0;
+        $notice->save();
+        break;
+    }
+    return redirect()->action('CouponController@show');
+}
 }
