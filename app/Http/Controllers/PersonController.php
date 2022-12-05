@@ -11,6 +11,7 @@ use App\Notice;
 use App\Ticket;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
 {
@@ -66,11 +67,13 @@ class PersonController extends Controller
     }
     public function good(Request $request)
     {
-        // dd($request);
+
+    
         $id=Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
         $good->user_id = $id;
+        $good->goodflg=1;
         $good->save();
 
 
@@ -117,10 +120,21 @@ class PersonController extends Controller
             break;
         }
         
-        // return redirect()->route('person/home');
-        return redirect('person/home');
+        
+        return redirect()->route('person/home');
+        // return redirect('person/wasgood');
+
+        // route('post/used', ['store_id' => $ticket->store_id])
     }
 
+    public function wasgood(){
+        $reviews = Review::orderBy('posted_date', 'desc')->get();
+        $id=Auth::id();
+        $goods =DB::table('goods')->get();
+        // dd($reviews);
+        // $items=['reviews' => $reviews, 'id' => $id,'goods' => $goods];
+        return view('person.index', ['reviews' => $reviews, 'id' => $id,'goods' => $goods]);
+    }
     public function nogood(Request $request)
     {
         $id = $request->id;
@@ -131,9 +145,13 @@ class PersonController extends Controller
         return view('person/home');
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        return view('account.index');
+        $id=Auth::id();
+        $cond = ['user_id' =>$id ];
+        $users = DB::table('users')->find($id);
+            return view('account.index', ['users'=>$users]);
+
     }
     public function limit()
     {
