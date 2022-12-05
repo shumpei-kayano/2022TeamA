@@ -34,7 +34,7 @@
                             <div class="c-store__card">
                                 <div class="c-store__card-header">
                                     <a class="c-btn c-btn--navy c-btn--small"
-                                        href={{ route('post/used', ['store_id' => $ticket->store_id]) }}>クチコミを書く</a>
+                                        href={{ route('post/used', ['store_id' => $ticket->store_id, 'ticket_id' => $ticket->id]) }}>クチコミを書く</a>
                                 </div>
                                 <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
                                     <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
