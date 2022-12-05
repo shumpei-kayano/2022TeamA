@@ -27,6 +27,7 @@
     <dialog id="dialog" class="c-modal__box">
         {{-- <div class="c-modal__area">AREA : {{ Session::get('current_area') }} , ID : {{ $coupons->id }}</div> --}}
         <p class="c-modal__title c-modal__title--pink">クーポンが当たりました
+
             <small> 有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
         </p>
         <div class="c-modal__content">
@@ -48,6 +49,8 @@
                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
             <a
                 href="{{ route('store/get', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}">店舗詳細を見る</a>
+            <a href="{{ route('model/test', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}"
+                class="c-modal__close"><img src="/images/close_line.png" alt=""></a>
         </div>
     </dialog>
 
