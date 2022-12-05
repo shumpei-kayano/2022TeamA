@@ -272,6 +272,12 @@ public function review($store_id,$ticket_id)
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
             case 20:
             $id=Auth::id();
@@ -280,6 +286,12 @@ public function review($store_id,$ticket_id)
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
             case 50:
             $id=Auth::id();
@@ -288,6 +300,12 @@ public function review($store_id,$ticket_id)
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
             case 100:
             $id=Auth::id();
@@ -296,6 +314,12 @@ public function review($store_id,$ticket_id)
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
         }
         return redirect()->action('CouponController@show');
