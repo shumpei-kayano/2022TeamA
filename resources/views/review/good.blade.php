@@ -20,21 +20,21 @@
         <p class="c-hukidashi__date">
             2022/10/29
         </p>
-        @foreach ($goods as $goods)
+        @foreach ($goods as $good)
             <div class="c-hukidashi c-hukidashi--b">
-                <p class="c-hukidashi__photo">
+                {{--  <p class="c-hukidashi__photo">
                     <img src={{ $goods->review->user->icon_photo }}>
-                </p>
+                </p>  --}}
                 <div class="c-fukidashi__container">
-                    <p class="c-hukidashi__username"> {{ $goods->review->user->name }}</p>
+                    <p class="c-hukidashi__username"> {{ $good->review->user->name }}</p>
                     <div class="c-hukidashi__frame">
                         <div class="c-hukidashi__header">
-                            <p class="c-hukidashi__visited">訪問日：{{ $goods->review->visited }}</p>
+                            <p class="c-hukidashi__visited">訪問日：{{ $good->review->visited }}</p>
                             <div class="c-hukidashi__stars">
-                                @for ($i = 0; $i < $goods->review->star; $i++)
+                                @for ($i = 0; $i < $good->review->star; $i++)
                                     <img src="/images/star.png" alt="">
                                 @endfor
-                                @for ($i = 0; $i < 5 - $goods->review->star; $i++)
+                                @for ($i = 0; $i < 5 - $good->review->star; $i++)
                                     <img src="/images/star.black.png" alt="">
                                 @endfor
                                 {{--  <img src="/images/star.png" alt="">

@@ -74,7 +74,9 @@ class AccountController extends Controller
       
     }
     public function show(){
-        $goods=Good::where('user_id','=','1')->get();
+        $id=Auth::id();
+        $goods=Good::where('user_id','=',$id)->get();
+        // dd($goods);
         return view('review.good',['goods'=>$goods]);
     }
     public function good(){
