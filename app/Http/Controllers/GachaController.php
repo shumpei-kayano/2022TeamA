@@ -18,9 +18,9 @@ class GachaController extends Controller
     public function play(Request $request)
     {
         $area = $request->session()->get('current_area');
-        if (false !== strpos($area, "oita")) {
+        if (false !== strpos($area, "大原周辺")) {
             $ransu = mt_rand(1, 13);
-        } elseif (false !== strpos($area, 'beppu')) {
+        } elseif (false !== strpos($area, '鉄輪')) {
             $ransu = mt_rand(14, 23);
         }
 
@@ -70,8 +70,11 @@ class GachaController extends Controller
             ->count();
             $request->session()->put('area_count', $reviews);
         } elseif ($request->has('beppu')) {
-            $request->session()->put('current_area', '別府');
-            $request->session()->put('area_count', '10');
+            $request->session()->put('current_area', '鉄輪');
+            $reviews = DB::table('stores')
+            ->where('area_id','=','2')
+            ->count();
+            $request->session()->put('area_count',  $reviews);
         }
 
         return redirect('gacha/index');
