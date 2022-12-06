@@ -17,12 +17,12 @@ use App\Models\Admin;
             $this->middleware('guest:admin')->except('logout');
         }
     
-        public function showLoginForm()
+        public function showAdminLoginForm()
         {
             return view('admins.login');
         }
     
-        public function login(Request $request)
+        public function adminlogin(Request $request)
         {
             // dd($request);
             // 送られてきてはいる

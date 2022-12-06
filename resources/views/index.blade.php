@@ -35,8 +35,8 @@
             <li><a href="/badge/index" target="_blank">バッジ</a></li>
             <li><a href="/admin/login" target="_blank">管理者ログイン</a></li>
             <li><a href="/store/admin" target="_blank">店舗情報管理</a></li>
-            <li><a href="/coupon/admin" target="_blank">クーポン管理</a></li>
-            <li><a href="/review/admin" target="_blank">クチコミ管理</a></li>
+            <li><a href="/admin/coupon" target="_blank">クーポン管理</a></li>
+            <li><a href="/admin/review" target="_blank">クチコミ管理</a></li>
             <li><a href="/modal" target="_blank">モーダルテスト</a></li>
             <li><a href="/map" target="_blank">Google Mapテスト</a></li>
             <li><a href="/hukidashi" target="_blank">吹き出しテスト</a></li>
