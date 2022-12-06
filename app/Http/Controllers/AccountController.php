@@ -17,7 +17,8 @@ class AccountController extends Controller
 {
    
     public function spot(){
-        $tickets=Ticket::where('user_id','=','1')->get();
+        $id=Auth::id();
+        $tickets=Ticket::where('user_id','=',$id)->get();
         return view('tourist.index', ['tickets'=>$tickets]);
     }
     public function update(){
@@ -86,7 +87,8 @@ class AccountController extends Controller
         return view('account.index');
     }
     public function review(){
-        $reviews=Review::where('user_id','=','2')->get();
+        $id=Auth::id();
+        $reviews=Review::where('user_id','=',$id)->get();
         return view('review.person',['reviews'=>$reviews]);
 
     }
