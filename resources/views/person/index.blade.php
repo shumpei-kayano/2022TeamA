@@ -17,7 +17,7 @@
             <div class="c-header__bell">
                 <img src="/images/bell.png">
                 <div class="c-header__notice">
-                    1
+                    {{ $notices }}
                 </div>
             </div>
         </a>
