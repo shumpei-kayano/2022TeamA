@@ -44,15 +44,15 @@
                                 <img src="/images/star.black.png" alt="">  --}}
                             </div>
                         </div>
-                        <h3 class="c-hukidashi__tittle">{{ $goods->review->store->store_name }}</h3>
+                        <h3 class="c-hukidashi__tittle">{{ $good->review->store->store_name }}</h3>
                         <p class="c-hukidashi__honbun">
-                            {{ $goods->review->comment }}
+                            {{ $good->review->comment }}
                         </p>
                         <div class="c-hukidashi__footer">
                             <label class="c-hukidashi__good disabled">
                                 <input type="checkbox" class="warning">
                                 <span class="c-hukidashi__good-icon"></span>
-                                <span class="c-hukidashi__good-num">{{ $goods->review->goodnum }}</span>
+                                <span class="c-hukidashi__good-num">{{ $good->review->goodnum }}</span>
                             </label>
                         </div>
                     </div>
