@@ -28,10 +28,14 @@ class PersonController extends Controller
     {
         // $reviews=Review::all();
         // $reviews=Review::orderBy('posted_data')->all();
-        $reviews = Review::orderBy('posted_date', 'desc')->get();
-        // $good = Good::all();
-        // dd($good);
         $id=Auth::id();
+        $reviews = Review::orderBy('id', 'desc')->get();
+        
+        $goods=Good::orderBy('review_id','desc')->where('user_id','=',$id)->get();
+    
+        // $good = Good::all();
+
+        // 通知
         $item = ['user_id' =>$id , 'flg' =>0];
         $tickets=Ticket::where($item)->get();
 
@@ -64,7 +68,7 @@ class PersonController extends Controller
             $notice->save();
         }
     };
-        $cond=['reviews' => $reviews, 'id' => $id,'notices'=> $notices];
+        $cond=['reviews' => $reviews, 'id' => $id,'notices'=> $notices,'goods'=>$goods];
         return view('person.index', $cond);
     }
     public function home()
