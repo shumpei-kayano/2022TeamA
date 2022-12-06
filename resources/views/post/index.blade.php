@@ -13,7 +13,10 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-
+        <div class="c-header">
+            <a href="" class="c-back">戻る</a>
+            <h4>クチコミ投稿 </h4>
+        </div>
         <section class="c-store__section--edit">
             <p>このお店はいかがでしたか？<br>
                 味・雰囲気・コスパなどの感想や、お店の良かった点を教えて下さい。</p>
@@ -57,7 +60,7 @@
             </section>
             {{--  @endforeach  --}}
         </form>
-        <p class="c-modal__sineup"><a href="">後で</a></p>
+
     </div>
 
 </body>
