@@ -20,8 +20,8 @@
         <div class="p-admin__side">
             <ul>
                 <li> <a href="{{ route('admins.store') }}" class="p-admin__side-store ">店舗情報</a></li>
-                <li> <a href="{{ route('coupon/admin') }}" class="p-admin__side-coupon">クーポン情報</a></li>
-                <li> <a href="{{ route('review/admin') }}" class="p-admin__side-review is-current">クチコミ</a></li>
+                <li> <a href="{{ route('admin.coupon') }}" class="p-admin__side-coupon">クーポン情報</a></li>
+                <li> <a href="{{ route('admin.review') }}" class="p-admin__side-review is-current">クチコミ</a></li>
             </ul>
         </div>
         <div class="p-admin__content">
