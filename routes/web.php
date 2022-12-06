@@ -160,28 +160,28 @@ Route::get('badge/index', 'BadgeController@see')->name('badge/index')->middlewar
 
 
 //管理者ログイン
-Route::get('welcome/admin', 'Auth\AdminController@watch')->middleware('auth');
-Route::get('welcome/admin', 'Auth\AdminController@in')->middleware('auth');
+// Route::get('welcome/admin', 'Auth\AdminController@watch')->middleware('auth:admin');
+// Route::get('welcome/admin', 'Auth\AdminController@in')->middleware('auth');
 
 //店舗情報管理
 
 // Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
-Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('store/storeupdate')->middleware('auth');
+Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('store/storeupdate')->middleware('auth:admin');
 // Route::get('store/admin', 'AdminController@edit');
 // Route::get('store/admin', 'AdminController@update');
 // Route::get('store/admin', 'AdminController@enter');
 
 //クーポン管理
-Route::get('coupon/admin', 'Auth\AdminController@see')->name('coupon/admin');
-Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate');
-// Route::get('coupon/admin', 'AdminController@look');
-// Route::get('coupon/admin', 'AdminController@rewrite');
-// Route::get('coupon/admin', 'AdminController@set');
-// Route::get('coupon/admin', 'AdminController@add');
-// Route::get('coupon/admin', 'AdminController@create');
+// Route::get('admin/coupon', 'Auth\AdminController@see')->name('admin/coupon')->middleware('admin');
+Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate')->middleware('auth:admin');
+// Route::get('admin/coupon', 'AdminController@look');
+// Route::get('admin/coupon', 'AdminController@rewrite');
+// Route::get('admin/coupon', 'AdminController@set');
+// Route::get('admin/coupon', 'AdminController@add');
+// Route::get('admin/coupon', 'AdminController@create');
 
 //クチコミ管理
-Route::get('review/admin', 'Auth\AdminController@view')->name('review/admin');
+// Route::get('admin/review', 'Auth\AdminController@view')->name('admin/review')->middleware('auth:admin');
 
 //モーダルテスト
 Route::get('modal', function () {
@@ -217,9 +217,12 @@ Route::get('/admin', 'Auth\AdminController@enter')->name('admin');
 
 // 管理
 Route::prefix('admin')->group(function () {
-    Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login');
+    Route::get('/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@adminlogin')->name('admin.login');
     // Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'Auth\AdminController@index')->name('admins.store');
+    Route::get('coupon', 'Auth\AdminController@see')->name('admin.coupon');
+Route::get('review', 'Auth\AdminController@view')->name('admin.review');
+
 });
