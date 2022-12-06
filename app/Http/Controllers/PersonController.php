@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Good;
 use App\Notice;
 use App\Ticket;
+use App\Get;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +77,7 @@ class PersonController extends Controller
         $good->goodflg=1;
         $good->save();
 
-
+        Review::increment('goodnum');
 
         $id=Auth::id();
         // $cond=['user_id' =>$id ];
@@ -93,6 +94,12 @@ class PersonController extends Controller
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
             case 20:
             $id=Auth::id();
@@ -101,6 +108,12 @@ class PersonController extends Controller
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
             case 50:
             $id=Auth::id();
@@ -109,6 +122,12 @@ class PersonController extends Controller
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
             case 100:
             $id=Auth::id();
@@ -117,6 +136,12 @@ class PersonController extends Controller
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
             $get->save();
+            $notice = new Notice;
+            $notice->user_id = $id;
+            $notice->	alert_id = 2;
+            $notice->notice=\Carbon\Carbon::today();
+            $notice->flg=0;
+            $notice->save();
             break;
         }
         

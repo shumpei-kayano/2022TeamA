@@ -51,7 +51,7 @@
                                 <label class="c-hukidashi__good">
                                     <input type="submit" class="warning">
                                     <span class="c-hukidashi__good-icon"></span>
-                                    <span class="c-hukidashi__good-num">50</span>
+                                    <span class="c-hukidashi__good-num">{{ $review->goodnum }}</span>
                                 </label>
                             </form>
 
