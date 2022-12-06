@@ -104,7 +104,7 @@
         input {
             display: none;
             &:checked + .c-hukidashi__good-icon {
-                background-image: url("/images/good-icon-on.png");
+                // background-image: url("/images/good-icon-on.png");
                 animation: jump forwards 0.25s $ease-out-quint;
             }
         }
@@ -112,7 +112,7 @@
             width: 24px;
             height: 24px;
             margin-right: 4px;
-            background-image: url("/images/good-icon.png");
+            // background-image: url("/images/good-icon.png");
             background-repeat: no-repeat;
             background-size: cover;
         }
