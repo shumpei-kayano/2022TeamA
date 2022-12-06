@@ -34,6 +34,11 @@ class PersonController extends Controller
         $id=Auth::id();
         $item = ['user_id' =>$id , 'flg' =>0];
         $tickets=Ticket::where($item)->get();
+
+        $notices = DB::table('notices')
+        ->where($item)
+        ->count();
+        
         foreach($tickets as $ticket){
         $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
         // $carbon = new \Carbon\Carbon();
@@ -59,7 +64,7 @@ class PersonController extends Controller
             $notice->save();
         }
     };
-        $cond=['reviews' => $reviews, 'id' => $id];
+        $cond=['reviews' => $reviews, 'id' => $id,'notices'=> $notices];
         return view('person.index', $cond);
     }
     public function home()

@@ -15,7 +15,7 @@
     <div class="c-container">
         <section class="c-store__section">
             <div class="c-header">
-                <a href="" class="c-back">クーポン一覧</a>
+                <a href="{{ route('coupon/index') }}" class="c-back">クーポン一覧</a>
             </div>
             <p class="c-store u-magin--top--0">
                 <img src={{ $items->picture1 }} alt="PHOTO">
