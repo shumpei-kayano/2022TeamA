@@ -14,7 +14,7 @@
     @endcomponent
     <div class="c-container">
         <div class="c-header">
-            <a href="" class="c-back">戻る</a>
+            <a href="{{ route('person/home') }}"class="c-back">戻る</a>
             <h4>お知らせ一覧</h4>
         </div>
         @foreach ($notices as $notice)

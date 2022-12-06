@@ -12,7 +12,6 @@
 
 <div class="c-container">
     <div class="c-header">
-        <a href="" class="c-back">戻る</a>
         <h4>新規登録が出来ました！</h4>
     </div>
 
