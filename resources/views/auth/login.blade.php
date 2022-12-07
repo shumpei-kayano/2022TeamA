@@ -133,6 +133,9 @@
             <a href="{{ route('register') }}">
                 <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
             </a>
+            <a href="{{ route('password.request') }}">
+                <p class="p-welcome__sineup">{{ __('パスワード変更') }}</p>
+            </a>
         </div>
     </div>
 

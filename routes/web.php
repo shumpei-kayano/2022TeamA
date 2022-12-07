@@ -224,6 +224,11 @@ Route::prefix('admin')->group(function () {
     Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'Auth\AdminController@index')->name('admins.store');
     Route::get('coupon', 'Auth\AdminController@see')->name('admin.coupon');
-Route::get('review', 'Auth\AdminController@view')->name('admin.review');
-
+    Route::get('review', 'Auth\AdminController@view')->name('admin.review');
 });
+
+//パスワードリセット
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
