@@ -155,10 +155,17 @@ class PersonController extends Controller
         }
         
         
+        
         return redirect()->route('person/home');
         // return redirect('person/wasgood');
 
         // route('post/used', ['store_id' => $ticket->store_id])
+    }
+    public function gensan(Request $request)
+    {
+
+        Review::decrement('goodnum');
+        return redirect()->route('person/home');
     }
 
     public function wasgood(){

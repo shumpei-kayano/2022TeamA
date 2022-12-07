@@ -37,6 +37,7 @@ Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('
 Route::get('person/home', 'PersonController@create')->name('person/home')->middleware('auth');
 // いいね処理
 Route::POST('/home/good', 'PersonController@good')->name('/home/good')->middleware('auth');
+Route::POST('/home/gensan', 'PersonController@gensan')->name('/home/gensan')->middleware('auth');
 // いいね処理から戻る時
 Route::get('person/wasgood', 'PersonController@wasgood')->name('person/wasgood')->middleware('auth');
 

@@ -52,7 +52,7 @@
                                     <div class="c-hukidashi__footer">
                                         {{--  ここのformが削除処理  --}}
                                         {{--  action変える。controller@____はなんでも。1減らすの忘れず  --}}
-                                        <form action="/home/good" method="POST">
+                                        <form action="/home/gensan" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $review->id }}">
                                             <label class="c-hukidashi__good">
