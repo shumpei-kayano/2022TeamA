@@ -76,8 +76,8 @@ Route::get('store/get/{store_id}/{coupon_id}', 'CouponController@storeget')->nam
 Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->middleware('auth');
 
 
-//近所のおすすめスポット
-Route::get('spot/index', 'CouponController@spot')->middleware('auth');
+//近所のおすすめスポット（ないからたぶん消す？）
+// Route::get('spot/index', 'CouponController@spot')->middleware('auth');
 
 //クチコミ
 Route::get('account/review', 'AccountController@review')->name('account/review')->middleware('auth');
