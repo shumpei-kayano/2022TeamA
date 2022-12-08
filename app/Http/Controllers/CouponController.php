@@ -82,6 +82,7 @@ public function review($store_id,$ticket_id)
         $review->posted_date=$request->posted_date;
         $review->star=$request->rate;
         $review->ticket_id=$request->ticket_id;
+        $review->goodnum=0;
         // $review->reviewflg=1;
         $review->save();
 
