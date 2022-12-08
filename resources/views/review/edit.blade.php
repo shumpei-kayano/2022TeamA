@@ -26,7 +26,7 @@
                 </section>
                 <section class="c-store__section--edit c-form">
                     <p class="c-store__item">訪問日</p>
-                    <p class="c-form__group"><input type="date" name="visited">
+                    <p class="c-form__group"><input type="date" name="visited" value={{ $review->visited }}>
                 </section>
                 <section class="c-store__section--edit">
                     <div class="p-post__star">
