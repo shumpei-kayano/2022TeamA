@@ -24,16 +24,14 @@
 
 
                     <div class="card-body">
-
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert"
+                                style="margin: 16px 0; color:rgb(203, 71, 120);">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('password.email') }}" class="c-form">
                             @csrf
-
-
-
-
-
-
-
 
                             <div class="form-group row">
                                 <label for="email"
