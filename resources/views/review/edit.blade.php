@@ -49,7 +49,7 @@
 
                     <div class="c-form__group">
                         <p class="c-store__item">クチコミ</p>
-                        <textarea rows="10" cols="33" name="review"></textarea>
+                        <textarea rows="10" cols="33" name="review">{{ $review->comment }}</textarea>
                     </div>
                     <input type="hidden" name="id" value="{{ $review->id }}">
                     <input type="hidden" name="user_id" value="{{ $review->user_id }}">
