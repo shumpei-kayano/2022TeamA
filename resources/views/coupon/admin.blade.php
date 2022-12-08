@@ -32,7 +32,7 @@
                     <h1>クーポン情報</h1>
                 </div>
 
-                <form action="couponupdate" method="POST" class="c-form">
+                <form action="/coupon/couponupdate" method="POST" class="c-form">
                     @csrf
                     @foreach ($coupons as $coupon)
                         <div class="c-form--admin">
