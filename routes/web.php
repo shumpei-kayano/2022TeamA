@@ -22,10 +22,10 @@ Route::get('/', function () {
 //ログイン画面
 Route::get('login', 'PersonController@out')->name('login');
 
-//新規登録
+//新規登録画面表示
 Route::get('register', 'PersonController@add');
 
-//パスワード変更
+//パスワード変更画面表示
 Route::get('/password/change', 'Auth\ChangePasswordController@edit');
 Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('password.change');
 
@@ -47,53 +47,54 @@ Route::delete('person/home', 'PersonController@nogood')->name('nogood')->middlew
 
 // Route::get('person/index', 'PersonController@good');
 
-//アカウント
+//アカウント表示
 Route::get('account/index', 'PersonController@show')->name('account/index')->middleware('auth');
 // Route::get('account/index', 'PersonController@limit');
 // Route::get('account/set', 'AccountController@set');
 
 
-//アカウント設定
+//アカウント設定画面表示
 Route::get('account/setting', 'AccountController@set')->name('account/setting')->middleware('auth');
+// アカウント設定 更新画面表示
 Route::POST('account/setting', 'AccountController@setting')->name('account/setting')->middleware('auth');
 
 
-//新規登録確認
+//新規会員登録確認画面を表示
 Route::get('person/addcheck', function () {
     return view('person.addcheck');
 });
 
 
-//お知らせ
+//お知らせ一覧表示
 Route::get('notice/index', 'NoticeController@show')->name('notice/index')->middleware('auth');
 
-//各店舗
+//訪れたスポット表示
 Route::get('tourist/index', 'AccountController@spot')->name('tourist/index')->middleware('auth');
 
-//店舗詳細
+//店舗詳細画面表示
 // Route::get('store/index', 'AccountController@store');
 Route::get('store/get/{store_id}/{coupon_id}', 'CouponController@storeget')->name('store/get')->middleware('auth');
 Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->middleware('auth');
 
 
-//近所のおすすめスポット
-Route::get('spot/index', 'CouponController@spot')->middleware('auth');
+//近所のおすすめスポット（たぶんないから削除？）
+// Route::get('spot/index', 'CouponController@spot')->middleware('auth');
 
-//クチコミ
+//投稿したクチコミ画面
 Route::get('account/review', 'AccountController@review')->name('account/review')->middleware('auth');
 Route::get('review/person', 'AccountController@update')->middleware('auth');
 // Route::get('review/person', 'AccountController@delete');
 // Route::get('review/person', 'AccountController@remove');
 
-//クチコミ編集
+//クチコミ編集画面
 // Route::get('review/edit', 'AccountController@edit')->name('review/edit');
 Route::get('review/edit/{id}', 'AccountController@edit')->name('review/edit')->middleware('auth');
 Route::POST('review/edited', 'AccountController@edited')->name('review/edited')->middleware('auth');
 
-// クチコミ削除
+// クチコミ削除画面
 Route::get('review/delete/{id}', 'AccountController@remove')->name('review/delete')->middleware('auth');
 
-//いいね一覧
+//いいね一覧表示画面
 Route::get('review/good', 'AccountController@show')->name('review/good')->middleware('auth');
 // Route::get('review/good', 'AccountController@good');
 
