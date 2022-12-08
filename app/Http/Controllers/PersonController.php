@@ -86,7 +86,7 @@ class PersonController extends Controller
         $good->goodflg=1;
         $good->save();
 
-        Review::increment('goodnum');
+        Review::where('id','=',$request->id)->increment('goodnum');
 
         $id=Auth::id();
         // $cond=['user_id' =>$id ];
@@ -163,8 +163,10 @@ class PersonController extends Controller
     }
     public function gensan(Request $request)
     {
-
-        Review::decrement('goodnum');
+        $id = $request->good_id;
+        $good = Good::where('id', '=', $id);
+        $good->delete();
+        Review::where('id','=',$request->id)->decrement('goodnum');
         return redirect()->route('person/home');
     }
 

@@ -55,6 +55,8 @@
                                         <form action="/home/gensan" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $review->id }}">
+                                            <input type="hidden" name="good_id" value="{{ $good->id }}">
+
                                             <label class="c-hukidashi__good">
                                                 <input type="submit" class="warning">
                                                 <span class="c-hukidashi__good-icon"> <img
