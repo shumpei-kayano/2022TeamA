@@ -161,6 +161,6 @@ class GachaController extends Controller
         $notice->save();
         break;
     }
-    return redirect()->action('CouponController@show');
+    return redirect()->action('PersonController@create');
 }
 }
