@@ -22,10 +22,10 @@ Route::get('/', function () {
 //ログイン画面
 Route::get('login', 'PersonController@out')->name('login');
 
-//新規登録画面表示
+//新規登録
 Route::get('register', 'PersonController@add');
 
-//パスワード変更画面表示
+//パスワード変更
 Route::get('/password/change', 'Auth\ChangePasswordController@edit');
 Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('password.change');
 
@@ -47,54 +47,53 @@ Route::delete('person/home', 'PersonController@nogood')->name('nogood')->middlew
 
 // Route::get('person/index', 'PersonController@good');
 
-//アカウント表示
+//アカウント
 Route::get('account/index', 'PersonController@show')->name('account/index')->middleware('auth');
 // Route::get('account/index', 'PersonController@limit');
 // Route::get('account/set', 'AccountController@set');
 
 
-//アカウント設定画面表示
+//アカウント設定
 Route::get('account/setting', 'AccountController@set')->name('account/setting')->middleware('auth');
-// アカウント設定 更新画面表示
 Route::POST('account/setting', 'AccountController@setting')->name('account/setting')->middleware('auth');
 
 
-//新規会員登録確認画面を表示
+//新規登録確認
 Route::get('person/addcheck', function () {
     return view('person.addcheck');
 });
 
 
-//お知らせ一覧表示
+//お知らせ
 Route::get('notice/index', 'NoticeController@show')->name('notice/index')->middleware('auth');
 
-//訪れたスポット表示
+//各店舗
 Route::get('tourist/index', 'AccountController@spot')->name('tourist/index')->middleware('auth');
 
-//店舗詳細画面表示
+//店舗詳細
 // Route::get('store/index', 'AccountController@store');
 Route::get('store/get/{store_id}/{coupon_id}', 'CouponController@storeget')->name('store/get')->middleware('auth');
 Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->middleware('auth');
 
 
-//近所のおすすめスポット（たぶんないから削除？）
-// Route::get('spot/index', 'CouponController@spot')->middleware('auth');
+//近所のおすすめスポット
+Route::get('spot/index', 'CouponController@spot')->middleware('auth');
 
-//投稿したクチコミ画面
+//クチコミ
 Route::get('account/review', 'AccountController@review')->name('account/review')->middleware('auth');
 Route::get('review/person', 'AccountController@update')->middleware('auth');
 // Route::get('review/person', 'AccountController@delete');
 // Route::get('review/person', 'AccountController@remove');
 
-//クチコミ編集画面
+//クチコミ編集
 // Route::get('review/edit', 'AccountController@edit')->name('review/edit');
 Route::get('review/edit/{id}', 'AccountController@edit')->name('review/edit')->middleware('auth');
 Route::POST('review/edited', 'AccountController@edited')->name('review/edited')->middleware('auth');
 
-// クチコミ削除画面
+// クチコミ削除
 Route::get('review/delete/{id}', 'AccountController@remove')->name('review/delete')->middleware('auth');
 
-//いいね一覧表示画面
+//いいね一覧
 Route::get('review/good', 'AccountController@show')->name('review/good')->middleware('auth');
 // Route::get('review/good', 'AccountController@good');
 
@@ -110,12 +109,15 @@ Route::post('gacha/index', 'GachaController@change_area');
 
 
 //ガチャ演出
+//ガチャ演出画面 表示
 Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/staging')->middleware('auth');
+//クーポン→×
 Route::get('model/test{store_id}/{coupon_id}', 'GachaController@modeldelete')->name('model/test');
 
 // Route::get('gacha/staging', 'GachaController@stag');
 
 //クーポン
+//クーポン画面 表示
 // Route::get('coupon/index', 'GachaController@get');
 
 // Route::get('coupon/index', 'CouponController@see');
@@ -124,40 +126,49 @@ Route::get('model/test{store_id}/{coupon_id}', 'GachaController@modeldelete')->n
 // Route::post('coupon/index', 'CouponController@review');
 
 Route::get('coupon/index', 'CouponController@show')->name('coupon/index')->middleware('auth');
+//ガチャ→クーポン一覧
 Route::get('coupon/get/{store_id}/{coupon_id}', 'CouponController@get')->name('coupon/get')->middleware('auth');
 // Route::get('coupon/use', 'CouponController@show')->name('coupon/index');
 
 //クーポン確認
+//クーポン確認画面 表示
 Route::get('coupon/confirmation', function () {
     return view('coupon.confirmation');
 });
 
 //クーポン使用
+//クーポン使用画面 表示
 Route::get('coupon/use', function () {
     return view('coupon.use');
 });
 
 //クーポンフラグ
+//クーポン一覧画面 表示
 Route::get('coupon/flg/{id}', 'CouponController@flg')->name('coupon/flg');
 
 //クーポン使用済み
+//クーポン一覧画面の使用済み 表示
 Route::get('coupon/used', 'CouponController@used')->name('coupon/used')->middleware('auth');
 
 //クチコミ投稿
 // Route::get('post/index', 'CouponController@view');
 
 // 使用済みクーポンからクチコミをかく
+//クチコミ投稿画面 表示
 Route::get('post/used/{store_id}/{ticket_id}', 'CouponController@review')->name('post/used');
 
 // 使用可能クーポンからクチコミを書く
+//クチコミ投稿画面 表示
 Route::get('post/index/{store_id}/{ticket_id}', 'CouponController@view')->name('post/index');
 // Route::post('post/index', 'CouponController@post');
 
 // 投稿したクチコミの保存
+//クチコミ編集の保存
 Route::POST('/post/send', 'CouponController@edit')->name('/post/send')->middleware('auth');
 
 
 //バッジ
+//バッジ画面 表示
 Route::get('badge/index', 'BadgeController@see')->name('badge/index')->middleware('auth');
 
 
@@ -233,10 +244,6 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
