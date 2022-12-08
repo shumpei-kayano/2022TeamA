@@ -24,6 +24,7 @@ class GachaController extends Controller
         } elseif (false !== strpos($area, '鉄輪')) {
             $ransu = mt_rand(14, 23);
         }
+        
 
         $coupons = Coupon::where('id', '=', $ransu)->first();
         return view('gacha.staging', ['coupons' => $coupons]);
