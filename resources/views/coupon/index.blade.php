@@ -50,6 +50,9 @@
                         </div>
                         <button id="btn-open" type="submit"
                             class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
+
+
+
                     </div>
                     @component('components.modal')
                         @slot('title')
@@ -58,6 +61,7 @@
                                     <span v-if="couponUsed" key="used">
                                         この画面を店舗スタッフに提示して下さい。
                                     </span>
+
                                     <span v-else key="use">
                                         本当に使用しますか<small>このクーポンは一回のみ使用できます。</small>
                                     </span>

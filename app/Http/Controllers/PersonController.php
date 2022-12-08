@@ -32,7 +32,7 @@ class PersonController extends Controller
         $reviews = Review::orderBy('id', 'desc')->get();
         
         $goods=Good::orderBy('review_id','desc')->where('user_id','=',$id)->get();
-    
+    // dd( $goods);
         // $good = Good::all();
 
         // 通知

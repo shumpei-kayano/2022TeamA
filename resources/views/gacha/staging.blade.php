@@ -28,7 +28,7 @@
         {{-- <div class="c-modal__area">AREA : {{ Session::get('current_area') }} , ID : {{ $coupons->id }}</div> --}}
         <p class="c-modal__title c-modal__title--pink">クーポンが当たりました
 
-            <small> 有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>
+            {{--  <small> 有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>  --}}
         </p>
         <div class="c-modal__content">
             <div class="c-modal__flex">
