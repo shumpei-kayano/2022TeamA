@@ -248,3 +248,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//プロフィール
+Route::get('profile', function () {
+    return view('account.profile');
+});
