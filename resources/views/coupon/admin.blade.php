@@ -55,45 +55,66 @@
                             </div>
                             <label for="">写真</label>
                             <p>下記より1つ選んでください</p>
-                            <div class="p-admin__photo--check c-form--check">
-                                <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
-                                        name="riyu" value="1" id="check" checked><label for="check"><img
-                                            id="coupon_photo" src={{ $coupon->coupon_photo }} alt=""></label>
-                                </div>
-                                {{--  <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
+
+                            <div id="preview"></div>
+                            <div class="c-form__group"><input type="file" name="example" onChange="imgPreView(event)"
+                                    value="1" id="check" checked><label for="check"><img id="coupon_photo"
+                                        src="/images/{{ $coupon->coupon_photo }}" alt=""></label>
+                            </div>
+                            {{--  <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
                                         name="riyu" value="1" id="check1"><label for="check1"><img
                                             src={{ $coupon->coupon_photo }} alt=""></label></div>
                                 <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
                                         name="riyu" value="1" id="check2"><label for="check2"><img
                                             src={{ $coupon->coupon_photo }} alt=""></label></div>  --}}
-                            </div>
-                            <div class="c-form__group">
-                                <label for="">掲載終了日時</label>
-
-                                <input value={{ $coupon->closetime }} type="date" id="start" name="closetime"
-                                    value="2022-11-01" min="2022-11-01" max="2023-03-31">
-                            </div>
-
-
                         </div>
-                        <div class="c-form--check">
-                            <label>掲載を一時停止</label>
+                        <div class="c-form__group">
+                            <label for="">掲載終了日時</label>
 
-                            <input type="checkbox" name="riyu" value="1">掲載を一時停止する
+                            <input value={{ $coupon->closetime }} type="date" id="start" name="closetime"
+                                value="2022-11-01" min="2022-11-01" max="2023-03-31">
                         </div>
-                        <input type="hidden" name="id" value="{{ $coupon->id }}">
-                        <input type="hidden" name="store_id" value="{{ $coupon->store_id }}">
-                        <input type="hidden" name="coupon_photo" value="{{ $coupon->coupon_photo }}">
-                        <button type="submit" class="c-btn c-btn--update c-btn--navy">更新する</button>
-                    @endforeach
-                </form>
 
 
             </div>
+            <div class="c-form--check">
+                <label>掲載を一時停止</label>
+
+                <input type="checkbox" name="riyu" value="1">掲載を一時停止する
+            </div>
+            <input type="hidden" name="id" value="{{ $coupon->id }}">
+            <input type="hidden" name="store_id" value="{{ $coupon->store_id }}">
+            <input type="hidden" name="coupon_photo" value="{{ $coupon->coupon_photo }}">
+            <button type="submit" class="c-btn c-btn--update c-btn--navy">更新する</button>
+            @endforeach
+            </form>
+
 
         </div>
+
+    </div>
     </div>
     </div>
 </body>
+<script>
+    function imgPreView(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        var preview = document.getElementById("preview");
+        var previewImage = document.getElementById("previewImage");
+
+        if (previewImage != null) {
+            preview.removeChild(previewImage);
+        }
+        reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", reader.result);
+            img.setAttribute("id", "previewImage");
+            preview.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+    }
+</script>
 
 </html>

@@ -14,7 +14,7 @@
     @endcomponent
     <div class="c-container">
         <div class="p-account__top">
-            <p class="p-account__phot"><img src="/images/phot-account.jpg" alt="アバター画像"></p>
+            <p class="p-account__phot"><img src="/images/{{ $users->icon_photo }}" alt="アバター画像"></p>
             <p class="p-account__nickname">
             <p>{{ $users->name }}</p>
             </p>

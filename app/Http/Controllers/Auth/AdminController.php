@@ -34,9 +34,9 @@ class AdminController extends Controller
         'link'=>$request->link,
         'tel'=>$request->tel,
         'service'=>$request->service,
-        'picture1'=>$request->picture1,
-        'picture2'=>$request->picture2,
-        'picture3'=>$request->picture3,
+        'picture1'=>$request->example,
+        'picture2'=>$request->example1,
+        'picture3'=>$request->example2,
         // 'picture4'=>$request->picture4,
         'parking'=>$request->parking,
         'area_id'=>$request->op,
@@ -81,7 +81,7 @@ class AdminController extends Controller
         Coupon::where('id','=',$request->id)->update([
         'store_id'=>$request->store_id,
         'provide'=>$request->provide,
-        'coupon_photo'=>$request->coupon_photo,
+        'coupon_photo'=>$request->example,
         'coupon_name'=>$request->coupon_name,
         'closetime'=>$request->closetime
         ]);

@@ -17,12 +17,19 @@
             <a href="{{ route('account/index') }}" class="c-back">戻る</a>
             <h4>アカウント設定</h4>
         </div>
-        <div class="p-account__top--set">
-            <p class="p-account__phot--set"><img src="/images/phot-account.jpg" alt="アバター画像"></p>
-        </div>
-
         <form action="/account/setting" method="POST" class="c-form">
             @csrf
+            <div class="c-form">
+                <label class="c-form__group" for="">アイコン</label>
+            </div>
+            <div class="p-account__top--set" id="preview"></div>
+            <div class="p-account__top--set">
+                <p class="p-account__phot--set"><input type="file" name="example" accept="/images/phot-account.jpg"
+                        onChange="imgPreView(event)"></p>
+            </div>
+
+
+
             <div class="c-form__group">
                 <label for="">メールアドレス</label><input value={{ $users->email }} name='email' type="email">
             </div>
@@ -43,5 +50,25 @@
         </form>
     </div>
 </body>
+<script>
+    function imgPreView(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        var preview = document.getElementById("preview");
+        var previewImage = document.getElementById("previewImage");
+
+        if (previewImage != null) {
+            preview.removeChild(previewImage);
+        }
+        reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", reader.result);
+            img.setAttribute("id", "previewImage");
+            preview.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+    }
+</script>
 
 </html>
