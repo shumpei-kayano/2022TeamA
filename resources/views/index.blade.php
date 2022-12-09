@@ -42,6 +42,7 @@
             <li><a href="/hukidashi" target="_blank">吹き出しテスト</a></li>
             <li><a href="/store" target="_blank">店舗テスト</a></li>
             <li><a href="/SessionTest" target="_blank">sessionテスト</a></li>
+            <li><a href="/profile" target="_blank">プロフィール</a></li>
         </ul>
     </div>
 </body>
