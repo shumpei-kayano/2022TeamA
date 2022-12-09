@@ -50,7 +50,7 @@
                         {{--  <p class="c-hukidashi__photo">
                             <img src={{ $good->review->user->icon_photo }}>
                         </p>  --}}
-                        <div class="c-fukidashi__container">
+                        <div class="c-hukidashi__container">
                             <p class="c-hukidashi__username"> {{ $good->user->name }}</p>
                             <div class="c-hukidashi__frame">
                                 <div class="c-hukidashi__header">
@@ -86,7 +86,7 @@
                     <p class="c-hukidashi__photo">
                         <img src="/images/phot-account.jpg">
                     </p>
-                    <div class="c-fukidashi__container">
+                    <div class="c-hukidashi__container">
                         <p class="c-hukidashi__username"> ニックネーム</p>
                         <div class="c-hukidashi__frame">
                             <div class="c-hukidashi__header">

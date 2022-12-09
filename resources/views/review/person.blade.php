@@ -26,7 +26,7 @@
 
             <div class="c-hukidashi c-hukidashi--a">
 
-                <div class="c-fukidashi__container">
+                <div class="c-hukidashi__container">
 
                     <div class="c-hukidashi__frame">
                         <div class="c-hukidashi__header">
@@ -71,7 +71,7 @@
 
         <div class="c-hukidashi c-hukidashi--a">
 
-            <div class="c-fukidashi__container">
+            <div class="c-hukidashi__container">
 
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">

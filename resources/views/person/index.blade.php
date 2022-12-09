@@ -38,7 +38,7 @@
                     {{--  赤いいね  --}}
                     <div
                         class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
-                        <div class="c-fukidashi__container">
+                        <div class="c-hukidashi__container">
                             <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                             <div class="c-hukidashi__frame">
                                 <div class="c-hukidashi__header">
@@ -80,7 +80,7 @@
                     {{--  白いいね  --}}
                     <div
                         class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
-                        <div class="c-fukidashi__container">
+                        <div class="c-hukidashi__container">
                             <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                             <div class="c-hukidashi__frame">
                                 <div class="c-hukidashi__header">
@@ -117,7 +117,7 @@
                 @endif
             @else
                 <div class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
-                    <div class="c-fukidashi__container">
+                    <div class="c-hukidashi__container">
                         <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                         <div class="c-hukidashi__frame">
                             <div class="c-hukidashi__header">

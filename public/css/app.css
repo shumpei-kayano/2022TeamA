@@ -265,6 +265,9 @@ dialog::backdrop {
 .c-hukidashi.c-hukidashi--b {
   flex-direction: row;
 }
+.c-hukidashi__container {
+  flex: 1;
+}
 .c-hukidashi__date {
   font-size: 12px;
   text-align: center;
@@ -354,14 +357,12 @@ dialog::backdrop {
   display: none;
 }
 .c-hukidashi__good input:checked + .c-hukidashi__good-icon {
-  background-image: url("/images/good-icon-on.png");
   animation: jump forwards 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .c-hukidashi__good-icon {
   width: 24px;
   height: 24px;
   margin-right: 4px;
-  background-image: url("/images/good-icon.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -371,7 +372,7 @@ dialog::backdrop {
   font-size: 24px;
   font-weight: 700;
 }
-.c-hukidashi__good.disabled {
+.c-hukidashi--a .c-hukidashi__good {
   pointer-events: none;
 }
 .c-hukidashi__edit {

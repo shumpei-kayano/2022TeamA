@@ -21,7 +21,7 @@
             <p class="c-hukidashi__photo">
                 <img src="/images/phot-account.jpg">
             </p>
-            <div class="c-fukidashi__container">
+            <div class="c-hukidashi__container">
                 <p class="c-hukidashi__username"> ニックネーム</p>
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
@@ -53,7 +53,7 @@
             <p class="c-hukidashi__photo">
                 <img src="/images/phot-account.jpg">
             </p>
-            <div class="c-fukidashi__container">
+            <div class="c-hukidashi__container">
                 <p class="c-hukidashi__username"> ニックネーム</p>
                 <div class="c-hukidashi__frame">
                     <div class="c-hukidashi__header">
@@ -66,12 +66,12 @@
                             <img src="/images/star.black.png" alt="">
                         </div>
                     </div>
-                    <h3 class="c-hukidashi__tittle">店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名店舗名</h3>
+                    <h3 class="c-hukidashi__tittle">店舗名</h3>
                     <p class="c-hukidashi__honbun">
-                        職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・
+                        職人さんが経
                     </p>
                     <div class="c-hukidashi__footer">
-                        <label class="c-hukidashi__good disabled">
+                        <label class="c-hukidashi__good">
                             <input type="checkbox" class="warning">
                             <span class="c-hukidashi__good-icon"></span>
                             <span class="c-hukidashi__good-num">50</span>
