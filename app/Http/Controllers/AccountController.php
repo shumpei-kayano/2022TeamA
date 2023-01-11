@@ -99,12 +99,17 @@ class AccountController extends Controller
             return view('account.setting', ['users'=>$users]);
     }
     public function setting(Request $request){
-
+        $validate_rule = [
+            'newpwd' => 'confirmed',
+            'newpwd' => 'min:8',
+            'newpwd__confirmation' => 'min:8'
+        ];
+        $this -> validate($request, $validate_rule);
         $id=Auth::id();
         User::where('id','=',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password' => Hash::make($request->password), 
+            'password' => Hash::make($request->newpwd), 
             'icon_photo' => $request->example, 
         ]);
          return redirect()->route('account/index');

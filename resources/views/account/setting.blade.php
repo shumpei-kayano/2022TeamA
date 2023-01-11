@@ -28,8 +28,6 @@
                         onChange="imgPreView(event)"></p>
             </div>
 
-
-
             <div class="c-form__group">
                 <label for="">メールアドレス</label><input value={{ $users->email }} name='email' type="email">
             </div>
@@ -40,8 +38,26 @@
             </div>
 
             <div class="c-form__group">
-                <label for="">パスワード</label><input type="password" name='password'>
+                <label for="">新規パスワード</label><input type="password" name='newpwd'>
             </div>
+            <div class="col-md-6">
+
+                {{--  @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror  --}}
+            </div>
+
+            <div class="c-form__group">
+                <label for="">新規パスワード（確認）</label><input type="password" name='newpwd_confirmation'>
+                @error('newpwd')
+                    <span class="invalid-feedback" role="alert">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+
 
             <div class="p-add__btn">
                 <button type="submit" class="c-btn c-btn--navy">更新する</button>
