@@ -19,9 +19,9 @@ class GachaController extends Controller
     public function play(Request $request)
     {
         $area = $request->session()->get('current_area');
-        if (false !== strpos($area, "大原周辺")) {
+        if (false !== strpos($area, "oita")) {
             $ransu = mt_rand(1, 13);
-        } elseif (false !== strpos($area, '鉄輪')) {
+        } elseif (false !== strpos($area, 'beppu')) {
             $ransu = mt_rand(14, 23);
         }
 
