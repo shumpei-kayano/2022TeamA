@@ -134,7 +134,10 @@
                 <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
             </a>
             <a href="{{ route('password.request') }}">
-                <p class="p-welcome__sineup">{{ __('パスワード変更') }}</p>
+                <p class="p-welcome__sineup">{{ __('パスワードを忘れた方はこちら') }}</p>
+            </a>
+            <a href="{{ route('admin.login') }}">
+                <p class="p-welcome__sineup">{{ __('管理者の方はこちら') }}</p>
             </a>
         </div>
     </div>
