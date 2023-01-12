@@ -26,7 +26,7 @@
                     <p>使用可能なクーポンはありません</p>
                 </div>
             @else
-                @foreach ($tickets as $ticket)
+                @foreach ($tickets as $key => $ticket)
                     <div class="c-coupon__box">
 
                         <small class="c-coupon__use">
@@ -50,9 +50,6 @@
                         </div>
                         <button id="btn-open" type="submit"
                             class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
-
-
-
                     </div>
                     @component('components.modal')
                         @slot('title')
@@ -84,7 +81,6 @@
                             <transition>
                                 <a href={{ route('post/index', ['store_id' => $ticket->store_id, 'ticket_id' => $ticket->id]) }}
                                     class="c-btn c-btn--navy u-margin-top--0" v-if="couponUsed" key="used">クチコミを書く</a>
-
                                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0" v-else v-on:click="useCoupon"
                                     key="use ">クーポンを使う</button>
 
@@ -110,6 +106,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
+        let tickets = JSON.parse('<?php echo json_encode($tickets); ?>');
+        console.log(tickets);
         new Vue({
             el: '#dialog',
             data: {
@@ -121,8 +119,6 @@
                 }
             }
         })
-    </script>
-    <script>
         // 開くボタンが押されたときの処理
         const dialog = document.getElementById('dialog');
         document.getElementById('btn-open').addEventListener('click', (event) => {
