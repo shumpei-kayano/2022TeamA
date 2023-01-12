@@ -166,7 +166,7 @@ class PersonController extends Controller
         $id = $request->good_id;
         $good = Good::where('id', '=', $id);
         $good->delete();
-        Review::where('id','=',$request->id)->decrement('goodnum');
+        Review::where('id','=',$request->id)->update(['goodnum' => DB::raw('GREATEST(goodnum-1, 0)')]);
         return redirect()->route('person/home');
     }
 
