@@ -1236,6 +1236,21 @@ dialog::backdrop {
   width: 100px;
   height: 100px;
   margin-bottom: 0;
+  position: relative;
+}
+.p-badge__img.new:after {
+  content: "NEW";
+  position: absolute;
+  font-size: 10px;
+  line-height: 16px;
+  color: white;
+  height: 16px;
+  padding: 0 8px;
+  border-radius: 8px;
+  top: 0;
+  right: 0;
+  background-color: #cb4778;
+  z-index: 100;
 }
 .p-badge__date {
   margin: 0;

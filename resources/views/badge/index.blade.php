@@ -16,7 +16,7 @@
                 <h3 class="p-badge__title">ガチャを回した回数</h3>
                 <div class="p-badge__group">
                     <div class="p-badge__item">
-                        <p class="p-badge__img">
+                        <p class="p-badge__img new">
                             <img src="/images/badge_5gacha_off_02.png" alt="5ガチャ">
                         </p>
 
