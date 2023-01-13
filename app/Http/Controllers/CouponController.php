@@ -7,6 +7,7 @@ use App\Ticket;
 use App\Review;
 use App\Get;
 use App\Notice;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -33,10 +34,29 @@ class CouponController extends Controller
         $cond = ['user_id' =>$id , 'flg' =>0];
         $tickets=Ticket::where($cond)->get();
         // dd($tickets);
-        return view('coupon.index', ['tickets'=>$tickets]);
+        // foreach($tickets as $ticket){
+        // $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
+        // $first = new Carbon( $ticket->term_of_use);
+        // $second = new Carbon( $get_date);
+        // $sabun= $first->diffInHours($second); 
+        // if($sabun<=3){
+            // $id=Auth::id();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 1;
+            // $notice->notice=$get_date;
+            // $notice->flg=0;
+            // $notice->save();
+            // $notice=$ticket->id;
+           
+        
+        // dd($notice);
+       
         // $tickets = Ticket::where('user_id', '=', '1')->get();
         // return view('coupon.index', ['tickets' => $tickets]);
-    }
+
+    return view('coupon.index', ['tickets'=>$tickets]);
+}
 
     public function used()
     {

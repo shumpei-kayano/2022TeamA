@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    @php
+        use Carbon\Carbon;
+    @endphp
 
     @component('components.gnav')
     @endcomponent
@@ -31,6 +34,19 @@
 
                         <small class="c-coupon__use">
                             有効期限{{ $ticket->term_of_use }}</small>
+
+                        {{--  foreach($tickets as $ticket){  --}}
+                        @php
+                            $get_date = \Carbon\Carbon::now()->format('Y/m/d H:i:s');
+                            $first = new Carbon($ticket->term_of_use);
+                            $second = new Carbon($get_date);
+                            $sabun = $first->diffInHours($second);
+                            
+                        @endphp
+                        @if ($sabun <= 3)
+                            <small class="c-coupon__use">クーポンの期限が迫ってきています</small>
+                        @endif
+
                         <div class="c-modal__flex">
                             <p class="c-modal__flex__img">
                                 <img src={{ $ticket->coupon->coupon_photo }}>

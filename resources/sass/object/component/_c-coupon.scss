@@ -19,7 +19,7 @@
         padding: 0 16px;
 
         &--spot {
-            
+
             margin-top: 0;
             width: 100%;
             background-color: white;
@@ -33,6 +33,8 @@
     &__use {
         color: #CB4778;
         font-size: 12px;
+
+
     }
 
     &__address {
@@ -41,11 +43,13 @@
         margin-bottom: 0px;
     }
 
-    &__moji{
-        p{
+    &__moji {
+        p {
             color: $plat_navy;
             text-align: center;
-            font-weight:bold;
-         }
-     }
+            font-weight: bold;
+        }
+    }
+
+
 }

@@ -13,14 +13,6 @@
     @component('components.gnav')
     @endcomponent
     <div class="c-container">
-        <a href="{{ route('notice/index') }}">
-            <div class="c-header__bell">
-                <img src="/images/bell.png">
-                <div class="c-header__notice">
-                    {{ $notices }}
-                </div>
-            </div>
-        </a>
 
         @foreach ($reviews as $review)
             @php
