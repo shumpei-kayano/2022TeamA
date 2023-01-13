@@ -32,12 +32,16 @@ class PersonController extends Controller
         $reviews = Review::orderBy('id', 'desc')->get();
         
         $goods=Good::orderBy('review_id','desc')->where('user_id','=',$id)->get();
+        // $gets=Get::where('user_id','=',$id)->get();
+        $gets = Get::where('user_id','=',$id)->get();
+
+        
     // dd( $goods);
         // $good = Good::all();
 
         // 通知
 
-        $cond=['reviews' => $reviews, 'id' => $id,'goods'=>$goods];
+        $cond=['reviews' => $reviews, 'id' => $id,'goods'=>$goods,'gets'=>$gets];
         return view('person.index', $cond);
     }
     public function home()
@@ -71,13 +75,14 @@ class PersonController extends Controller
             $get->badge_id=13;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 20:
             $id=Auth::id();
@@ -85,13 +90,14 @@ class PersonController extends Controller
             $get->badge_id=14;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 50:
             $id=Auth::id();
@@ -99,13 +105,14 @@ class PersonController extends Controller
             $get->badge_id=15;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 100:
             $id=Auth::id();
@@ -113,13 +120,14 @@ class PersonController extends Controller
             $get->badge_id=16;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
         }
         
@@ -162,7 +170,8 @@ class PersonController extends Controller
         $id=Auth::id();
         $cond = ['user_id' =>$id ];
         $users = DB::table('users')->find($id);
-            return view('account.index', ['users'=>$users]);
+        $gets = Get::where('user_id','=',$id)->get();
+            return view('account.index', ['users'=>$users,'gets'=>$gets]);
 
     }
     public function limit()

@@ -9,9 +9,15 @@
 </head>
 
 <body>
-
-    @component('components.gnav')
-    @endcomponent
+    @foreach ($gets as $get)
+        @if ($get->getflg == 0)
+            @component('components.gnav-new')
+            @endcomponent
+        @else
+            @component('components.gnav')
+            @endcomponent
+        @endif
+    @endforeach
     <div class="c-container u-padding-top--0">
         <div class="p-gacha-top">
 

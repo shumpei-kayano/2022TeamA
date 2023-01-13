@@ -54,8 +54,8 @@ class CouponController extends Controller
        
         // $tickets = Ticket::where('user_id', '=', '1')->get();
         // return view('coupon.index', ['tickets' => $tickets]);
-
-    return view('coupon.index', ['tickets'=>$tickets]);
+        $gets = Get::where('user_id','=',$id)->get();
+    return view('coupon.index', ['tickets'=>$tickets,'gets'=>$gets]);
 }
 
     public function used()
@@ -134,13 +134,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=9;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 5:
             $id=Auth::id();
@@ -148,13 +149,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=10;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 10:
             $id=Auth::id();
@@ -162,13 +164,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=11;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 50:
             $id=Auth::id();
@@ -176,13 +179,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=12;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
         }
 
@@ -209,14 +213,15 @@ public function review($store_id,$ticket_id)
             $get->badge_id=5;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
             
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 5:
             $id=Auth::id();
@@ -224,13 +229,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=6;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;  
             case 10:
             $id=Auth::id();
@@ -238,13 +244,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=7;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 50:
             $id=Auth::id();
@@ -252,13 +259,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=8;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             }
         return redirect('coupon/used');
@@ -292,13 +300,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=1;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 20:
             $id=Auth::id();
@@ -306,13 +315,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=2;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 50:
             $id=Auth::id();
@@ -320,13 +330,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=3;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
             case 100:
             $id=Auth::id();
@@ -334,13 +345,14 @@ public function review($store_id,$ticket_id)
             $get->badge_id=4;
             $get->user_id=$id;
             $get->get_date=\Carbon\Carbon::today();
+            $get->getflg=0;
             $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
+            // $notice = new Notice;
+            // $notice->user_id = $id;
+            // $notice->	alert_id = 2;
+            // $notice->notice=\Carbon\Carbon::today();
+            // $notice->flg=0;
+            // $notice->save();
             break;
         }
         return redirect()->action('CouponController@show');

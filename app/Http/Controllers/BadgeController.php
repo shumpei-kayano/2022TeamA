@@ -15,6 +15,7 @@ class BadgeController extends Controller
         // $gets=Get::orderBy('get_date')->get();
         $id=Auth::id();
         $badges=Get::where('user_id','=',$id)->get();
+        // $gets = Get::where('user_id','=',$id)->get();
         return view('badge.index', ['badges'=>$badges]);
     }
     public function get()

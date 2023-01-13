@@ -9,9 +9,15 @@
 </head>
 
 <body>
-
-    @component('components.gnav')
-    @endcomponent
+    @foreach ($gets as $get)
+        @if ($get->getflg == 0)
+            @component('components.gnav-new')
+            @endcomponent
+        @else
+            @component('components.gnav')
+            @endcomponent
+        @endif
+    @endforeach
     <div class="c-container">
         <div class="p-gacha__map" id="googleMap">
             {{-- ここに地図が入る --}}

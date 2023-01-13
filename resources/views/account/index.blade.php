@@ -10,8 +10,15 @@
 
 <body>
 
-    @component('components.gnav')
-    @endcomponent
+    @foreach ($gets as $get)
+        @if ($get->getflg == 0)
+            @component('components.gnav-new')
+            @endcomponent
+        @else
+            @component('components.gnav')
+            @endcomponent
+        @endif
+    @endforeach
     <div class="c-container">
         <div class="p-account__top">
             <p class="p-account__phot"><img src="/images/{{ $users->icon_photo }}" alt="アバター画像"></p>
