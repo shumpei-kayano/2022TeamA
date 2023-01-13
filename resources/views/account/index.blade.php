@@ -10,15 +10,20 @@
 
 <body>
 
-    @foreach ($gets as $get)
-        @if ($get->getflg == 0)
-            @component('components.gnav-new')
-            @endcomponent
-        @else
-            @component('components.gnav')
-            @endcomponent
-        @endif
-    @endforeach
+    @if ($gets->isEmpty())
+        @component('components.gnav')
+        @endcomponent
+    @else
+        @foreach ($gets as $get)
+            @if ($get->getflg == 0)
+                @component('components.gnav-new')
+                @endcomponent
+            @else
+                @component('components.gnav')
+                @endcomponent
+            @endif
+        @endforeach
+    @endif
     <div class="c-container">
         <div class="p-account__top">
             <p class="p-account__phot"><img src="/images/{{ $users->icon_photo }}" alt="アバター画像"></p>

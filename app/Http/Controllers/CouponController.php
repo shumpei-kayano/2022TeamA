@@ -55,6 +55,10 @@ class CouponController extends Controller
         // $tickets = Ticket::where('user_id', '=', '1')->get();
         // return view('coupon.index', ['tickets' => $tickets]);
         $gets = Get::where('user_id','=',$id)->get();
+        $cond = ['user_id' =>$id ];
+        Get::where($cond)->update([
+            'getflg'=>'1'
+        ]);
     return view('coupon.index', ['tickets'=>$tickets,'gets'=>$gets]);
 }
 

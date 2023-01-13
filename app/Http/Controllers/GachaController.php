@@ -54,6 +54,10 @@ class GachaController extends Controller
         }
         $id = Auth::id();
         $gets = Get::where('user_id','=',$id)->get();
+        $cond = ['user_id' =>$id ];
+        Get::where($cond)->update([
+            'getflg'=>'1'
+        ]);
         return view('gacha.index',['gets'=>$gets]);
     }
     public function change_area(Request $request)

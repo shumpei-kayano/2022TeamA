@@ -38,8 +38,11 @@ class PersonController extends Controller
         
     // dd( $goods);
         // $good = Good::all();
-
-        // 通知
+        $cond = ['user_id' =>$id ];
+        Get::where($cond)->update([
+            'getflg'=>'1'
+        ]);
+        
 
         $cond=['reviews' => $reviews, 'id' => $id,'goods'=>$goods,'gets'=>$gets];
         return view('person.index', $cond);
@@ -171,6 +174,10 @@ class PersonController extends Controller
         $cond = ['user_id' =>$id ];
         $users = DB::table('users')->find($id);
         $gets = Get::where('user_id','=',$id)->get();
+        $cond = ['user_id' =>$id ];
+        Get::where($cond)->update([
+            'getflg'=>'1'
+        ]);
             return view('account.index', ['users'=>$users,'gets'=>$gets]);
 
     }

@@ -9,15 +9,20 @@
 </head>
 
 <body>
-    @foreach ($gets as $get)
-        @if ($get->getflg == 0)
-            @component('components.gnav-new')
-            @endcomponent
-        @else
-            @component('components.gnav')
-            @endcomponent
-        @endif
-    @endforeach
+    @if ($gets->isEmpty())
+        @component('components.gnav')
+        @endcomponent
+    @else
+        @foreach ($gets as $get)
+            @if ($get->getflg == 0)
+                @component('components.gnav-new')
+                @endcomponent
+            @else
+                @component('components.gnav')
+                @endcomponent
+            @endif
+        @endforeach
+    @endif
     <div class="c-container">
 
         @foreach ($reviews as $review)
