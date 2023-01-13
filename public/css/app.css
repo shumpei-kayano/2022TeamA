@@ -555,11 +555,22 @@ dialog::backdrop {
 .c-coupon__top .c-btn--small {
   margin-right: 0;
 }
+.c-coupon__alert {
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  background-color: #cb4778;
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 0 0 4px 4px;
+}
 .c-coupon__box {
   width: 100%;
   background-color: white;
-  border: 2px solid #C9C9C9;
+  border: 2px solid #c9c9c9;
   border-radius: 8px;
+  position: relative;
   margin-top: 16px;
   padding: 0 16px;
 }
@@ -567,12 +578,12 @@ dialog::backdrop {
   margin-top: 0;
   width: 100%;
   background-color: white;
-  border: 2px solid #C9C9C9;
+  border: 2px solid #c9c9c9;
   border-radius: 8px;
   padding: 0 16px;
 }
 .c-coupon__use {
-  color: #CB4778;
+  color: #cb4778;
   font-size: 12px;
 }
 .c-coupon__address {

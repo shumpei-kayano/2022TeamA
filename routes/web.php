@@ -217,6 +217,12 @@ Route::get('store', function () {
     return view('store');
 });
 
+
+//クーポンテスト
+Route::get('coupon', function () {
+    return view('coupon');
+});
+
 //セッションテスト
 Route::get('SessionTest', 'HelloController@ses_get');
 Route::post('SessionTest', 'HelloController@ses_put');
