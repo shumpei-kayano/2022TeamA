@@ -10,7 +10,7 @@
 
 <body>
 
-    @component('components.gnav')
+    @component('components.gnav-new')
     @endcomponent
 
 

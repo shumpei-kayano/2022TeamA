@@ -787,6 +787,20 @@ dialog::backdrop {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.p-gnav a.new {
+  position: relative;
+}
+.p-gnav a.new:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #cb4778;
+  top: -4px;
+  right: 28px;
+  z-index: 100;
+}
 .p-gnav__home:before {
   background-image: url("/images/icon_home.svg");
 }

@@ -39,6 +39,20 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+        &.new {
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                border-radius: 8px;
+                background-color: $plat-pink;
+                top: -4px;
+                right: 28px;
+                z-index: 100;
+            }
+        }
     }
     &__home:before {
         background-image: url("/images/icon_home.svg");
