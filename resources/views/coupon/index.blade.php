@@ -44,7 +44,7 @@
                             
                         @endphp
                         @if ($sabun <= 3)
-                            <small class="c-coupon__use">クーポンの期限が迫ってきています</small>
+                            <p class="c-coupon__alert">期限が迫ってきています</p>
                         @endif
 
                         <div class="c-modal__flex">
