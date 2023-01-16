@@ -10,62 +10,76 @@
 
 <body>
 
-    @component('components.gnav')
-    @endcomponent
+    @if ($gets->isEmpty())
+        @component('components.gnav')
+        @endcomponent
+    @else
+        @foreach ($gets as $get)
+            @if ($get->getflg == 0)
+                @component('components.gnav-new')
+                @endcomponent
+            @break
+
+        @else
+            @component('components.gnav')
+            @endcomponent
+        @endif
+    @endforeach
+@endif
 
 
-    <div class="c-container">
-        <div class="c-header">
-            <a href="{{ route('account/index') }}" class="c-back">戻る</a>
-            <h4>投稿したクチコミ</h4>
-        </div>
-        @foreach ($reviews as $review)
-            <p class="c-hukidashi__date">
-                {{ $review->posted_date }}
-            </p>
+<div class="c-container">
+    <div class="c-header">
+        <a href="{{ route('account/index') }}" class="c-back">戻る</a>
+        <h4>投稿したクチコミ</h4>
+    </div>
+    @foreach ($reviews as $review)
+        <p class="c-hukidashi__date">
+            {{ $review->posted_date }}
+        </p>
 
-            <div class="c-hukidashi c-hukidashi--a">
+        <div class="c-hukidashi c-hukidashi--a">
 
-                <div class="c-hukidashi__container">
+            <div class="c-hukidashi__container">
 
-                    <div class="c-hukidashi__frame">
-                        <div class="c-hukidashi__header">
-                            <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}
-                            </p>
-                            <div class="c-hukidashi__stars">
-                                @for ($i = 0; $i < $review->star; $i++)
-                                    <img src="/images/star.png" alt="">
-                                @endfor
-                                @for ($i = 0; $i < 5 - $review->star; $i++)
-                                    <img src="/images/star.black.png" alt="">
-                                @endfor
-                            </div>
-                        </div>
-                        <h3 class="c-hukidashi__tittle">{{ $review->store->store_name }}</h3>
-                        <p class="c-hukidashi__honbun">
-                            {{--  職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・  --}}
-                            {{ $review->comment }}
+                <div class="c-hukidashi__frame">
+                    <div class="c-hukidashi__header">
+                        <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}
                         </p>
-
+                        <div class="c-hukidashi__stars">
+                            @for ($i = 0; $i < $review->star; $i++)
+                                <img src="/images/star.png" alt="">
+                            @endfor
+                            @for ($i = 0; $i < 5 - $review->star; $i++)
+                                <img src="/images/star.black.png" alt="">
+                            @endfor
+                        </div>
                     </div>
+                    <h3 class="c-hukidashi__tittle">{{ $review->store->store_name }}</h3>
+                    <p class="c-hukidashi__honbun">
+                        {{--  職人さんが経営する個人オーナーのイタリアンではなかなかできない演出力である。その反面、こういった資本力のある会社さんのお店だとクオリティが・・・  --}}
+                        {{ $review->comment }}
+                    </p>
+
                 </div>
             </div>
-            <div class="c-hukidashi__edit">
+        </div>
+        <div class="c-hukidashi__edit">
 
 
-                {{--  <form action="{{ route('review/edit', ['id' => $review->id]) }}" method="POST">
+            {{--  <form action="{{ route('review/edit', ['id' => $review->id]) }}" method="POST">
                     @csrf  --}}
-                <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>
-                {{--  </form>  --}}
+            <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>
+            {{--  </form>  --}}
 
 
-                {{--  <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>  --}}
-                {{--  reviewsテーブルからデータを引っ張ってくる  --}}
-                <a href="{{ route('review/delete', ['id' => $review->id]) }}" class="c-hukidashi__edit-delete">削除</a>
+            {{--  <a href="{{ route('review/edit', ['id' => $review->id]) }}" class="c-hukidashi__edit-edit">編集</a>  --}}
+            {{--  reviewsテーブルからデータを引っ張ってくる  --}}
+            <a href="{{ route('review/delete', ['id' => $review->id]) }}" class="c-hukidashi__edit-delete">削除</a>
 
-            </div>
-        @endforeach
-        {{--  <p class="c-hukidashi__date">
+        </div>
+    @endforeach
+    {{--  <p class="c-hukidashi__date">
             2022/10/29
         </p>
 
@@ -94,12 +108,12 @@
         </div>
         <div class="c-hukidashi__edit">  --}}
 
-        {{--  <a href="{{ route('review/edit') }}" class="c-hukidashi__edit-edit">編集</a>
+    {{--  <a href="{{ route('review/edit') }}" class="c-hukidashi__edit-edit">編集</a>
         {{--  reviewsテーブルからデータを引っ張ってくる  --}}
-        {{--  <a href="" class="c-hukidashi__edit-delete">削除</a>  --}}
+    {{--  <a href="" class="c-hukidashi__edit-delete">削除</a>  --}}
 
-        {{--  </div>  --}}
-    </div>
+    {{--  </div>  --}}
+</div>
 </body>
 
 </html>

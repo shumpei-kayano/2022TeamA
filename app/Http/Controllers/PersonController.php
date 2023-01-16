@@ -28,23 +28,21 @@ class PersonController extends Controller
     {
         // $reviews=Review::all();
         // $reviews=Review::orderBy('posted_data')->all();
-        $id=Auth::id();
+        $id = Auth::id();
         $reviews = Review::orderBy('id', 'desc')->get();
-        
-        $goods=Good::orderBy('review_id','desc')->where('user_id','=',$id)->get();
+
+        $goods = Good::orderBy('review_id', 'desc')->where('user_id', '=', $id)->get();
         // $gets=Get::where('user_id','=',$id)->get();
-        $gets = Get::where('user_id','=',$id)->get();
+        $gets = Get::where('user_id', '=', $id)->get();
 
-        
-    // dd( $goods);
+
+        // dd( $goods);
         // $good = Good::all();
-        $cond = ['user_id' =>$id ];
-        Get::where($cond)->update([
-            'getflg'=>'1'
-        ]);
-        
+        $cond = ['user_id' => $id];
 
-        $cond=['reviews' => $reviews, 'id' => $id,'goods'=>$goods,'gets'=>$gets];
+
+
+        $cond = ['reviews' => $reviews, 'id' => $id, 'goods' => $goods, 'gets' => $gets];
         return view('person.index', $cond);
     }
     public function home()
@@ -54,88 +52,88 @@ class PersonController extends Controller
     public function good(Request $request)
     {
 
-    
-        $id=Auth::id();
+
+        $id = Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
         $good->user_id = $id;
-        $good->goodflg=1;
+        $good->goodflg = 1;
         $good->save();
 
-        Review::where('id','=',$request->id)->increment('goodnum');
+        Review::where('id', '=', $request->id)->increment('goodnum');
 
-        $id=Auth::id();
+        $id = Auth::id();
         // $cond=['user_id' =>$id ];
-        $reviews = Review::where('user_id','=',$id )->sum("goodnum");
+        $reviews = Review::where('user_id', '=', $id)->sum("goodnum");
         // dd($reviews);
         // $item=['reviews'=>$reviews];
         // return redirect()->action('CouponController@used');
 
-        switch($reviews){
+        switch ($reviews) {
             case 1:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=13;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->getflg=0;
-            $get->save();
-            // $notice = new Notice;
-            // $notice->user_id = $id;
-            // $notice->	alert_id = 2;
-            // $notice->notice=\Carbon\Carbon::today();
-            // $notice->flg=0;
-            // $notice->save();
-            break;
+                $id = Auth::id();
+                $get = new get;
+                $get->badge_id = 13;
+                $get->user_id = $id;
+                $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
+                $get->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->	alert_id = 2;
+                // $notice->notice=\Carbon\Carbon::today();
+                // $notice->flg=0;
+                // $notice->save();
+                break;
             case 20:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=14;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->getflg=0;
-            $get->save();
-            // $notice = new Notice;
-            // $notice->user_id = $id;
-            // $notice->	alert_id = 2;
-            // $notice->notice=\Carbon\Carbon::today();
-            // $notice->flg=0;
-            // $notice->save();
-            break;
+                $id = Auth::id();
+                $get = new get;
+                $get->badge_id = 14;
+                $get->user_id = $id;
+                $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
+                $get->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->	alert_id = 2;
+                // $notice->notice=\Carbon\Carbon::today();
+                // $notice->flg=0;
+                // $notice->save();
+                break;
             case 50:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=15;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->getflg=0;
-            $get->save();
-            // $notice = new Notice;
-            // $notice->user_id = $id;
-            // $notice->	alert_id = 2;
-            // $notice->notice=\Carbon\Carbon::today();
-            // $notice->flg=0;
-            // $notice->save();
-            break;
+                $id = Auth::id();
+                $get = new get;
+                $get->badge_id = 15;
+                $get->user_id = $id;
+                $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
+                $get->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->	alert_id = 2;
+                // $notice->notice=\Carbon\Carbon::today();
+                // $notice->flg=0;
+                // $notice->save();
+                break;
             case 100:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=16;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->getflg=0;
-            $get->save();
-            // $notice = new Notice;
-            // $notice->user_id = $id;
-            // $notice->	alert_id = 2;
-            // $notice->notice=\Carbon\Carbon::today();
-            // $notice->flg=0;
-            // $notice->save();
-            break;
+                $id = Auth::id();
+                $get = new get;
+                $get->badge_id = 16;
+                $get->user_id = $id;
+                $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
+                $get->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->	alert_id = 2;
+                // $notice->notice=\Carbon\Carbon::today();
+                // $notice->flg=0;
+                // $notice->save();
+                break;
         }
-        
-        
-        
+
+
+
         return redirect()->route('person/home');
         // return redirect('person/wasgood');
 
@@ -146,17 +144,18 @@ class PersonController extends Controller
         $id = $request->good_id;
         $good = Good::where('id', '=', $id);
         $good->delete();
-        Review::where('id','=',$request->id)->update(['goodnum' => DB::raw('GREATEST(goodnum-1, 0)')]);
+        Review::where('id', '=', $request->id)->update(['goodnum' => DB::raw('GREATEST(goodnum-1, 0)')]);
         return redirect()->route('person/home');
     }
 
-    public function wasgood(){
+    public function wasgood()
+    {
         $reviews = Review::orderBy('posted_date', 'desc')->get();
-        $id=Auth::id();
-        $goods =DB::table('goods')->get();
+        $id = Auth::id();
+        $goods = DB::table('goods')->get();
         // dd($reviews);
         // $items=['reviews' => $reviews, 'id' => $id,'goods' => $goods];
-        return view('person.index', ['reviews' => $reviews, 'id' => $id,'goods' => $goods]);
+        return view('person.index', ['reviews' => $reviews, 'id' => $id, 'goods' => $goods]);
     }
     public function nogood(Request $request)
     {
@@ -170,16 +169,15 @@ class PersonController extends Controller
 
     public function show(Request $request)
     {
-        $id=Auth::id();
-        $cond = ['user_id' =>$id ];
+        $id = Auth::id();
+        $cond = ['user_id' => $id];
         $users = DB::table('users')->find($id);
-        $gets = Get::where('user_id','=',$id)->get();
-        $cond = ['user_id' =>$id ];
+        $gets = Get::where('user_id', '=', $id)->get();
+        $cond = ['user_id' => $id];
         Get::where($cond)->update([
-            'getflg'=>'1'
+            'getflg' => '1'
         ]);
-            return view('account.index', ['users'=>$users,'gets'=>$gets]);
-
+        return view('account.index', ['users' => $users, 'gets' => $gets]);
     }
     public function limit()
     {

@@ -13,13 +13,15 @@ class BadgeController extends Controller
     public function see()
     {
         // $gets=Get::orderBy('get_date')->get();
-        $id=Auth::id();
-        $badges=Get::where('user_id','=',$id)->get();
-        // $gets = Get::where('user_id','=',$id)->get();
-        return view('badge.index', ['badges'=>$badges]);
+        $id = Auth::id();
+        $badges = Get::where('user_id', '=', $id)->get();
+        $gets = Get::where('user_id', '=', $id)->get();
+        Get::where('user_id', '=', $id)->update([
+            'getflg' => '1'
+        ]);
+        return view('badge.index', ['badges' => $badges, 'gets' => $gets]);
     }
     public function get()
     {
-      
     }
 }

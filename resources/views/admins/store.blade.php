@@ -63,7 +63,7 @@
                                     name="address">
                             </div>
                             <div class="p-admin__map">
-                                <iframe <iframe
+                                <iframe
                                     src="https://www.google.com/maps/embed/v1/place?q={{ $store->store_name }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
                                     width="360" height="150" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -85,7 +85,8 @@
                             <div class="p-admin__photo">
                                 <div id="preview"></div>
                                 <div class="c-form__group">
-                                    <input type="file" name="example" accept="/images" onChange="imgPreView(event)">
+                                    <input type="file" name="example" accept="/images" multiple="multiple"
+                                        onChange="imgPreView(event)">
                                     </p> <img src="/images/{{ $store->picture1 }}" id="picture1" alt="">
                                 </div>
                                 <div class="c-form__group">
