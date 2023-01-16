@@ -66,14 +66,18 @@ class CouponController extends Controller
         $id = Auth::id();
         $cond = ['user_id' => $id, 'flg' => 1];
         $tickets = Ticket::where($cond)->get();
-        return view('coupon.used', ['tickets' => $tickets]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('coupon.used', ['tickets' => $tickets,'gets'=>$gets]);
     }
 
     public function store($id)
     {
         //$items = Store::where('id', '=', $id)->get();
+        $userid = Auth::id();
         $items = DB::table('stores')->find($id);
-        return view('store.index', ['items' => $items]);
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('store.index', ['items' => $items,'gets'=>$gets]);
     }
 
     // 使用可能クーポンからクチコミを書く
@@ -92,7 +96,9 @@ class CouponController extends Controller
     public function review($store_id, $ticket_id)
     {
         $id = Auth::id();
-        return view('post.index', ['store_id' => $store_id, 'id' => $id, 'ticket_id' => $ticket_id]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('post.index', ['store_id' => $store_id, 'id' => $id, 'ticket_id' => $ticket_id,'gets'=>$gets]);
     }
 
     public function edit(Request $request)

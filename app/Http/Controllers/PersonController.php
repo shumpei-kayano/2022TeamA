@@ -174,9 +174,7 @@ class PersonController extends Controller
         $users = DB::table('users')->find($id);
         $gets = Get::where('user_id', '=', $id)->get();
         $cond = ['user_id' => $id];
-        Get::where($cond)->update([
-            'getflg' => '1'
-        ]);
+        
         return view('account.index', ['users' => $users, 'gets' => $gets]);
     }
     public function limit()

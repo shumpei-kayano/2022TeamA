@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Review;
 use App\Store;
+use App\Get;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Ticket;
@@ -19,12 +20,16 @@ class AccountController extends Controller
     public function spot(){
         $id=Auth::id();
         $tickets=Ticket::where('user_id','=',$id)->get();
-        return view('tourist.index', ['tickets'=>$tickets]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('tourist.index', ['tickets'=>$tickets,'gets'=>$gets]);
     }
     public function update(){
         $id=Auth::id();
         $reviews=Review::where('user_id','=',$id)->get();
-        return view('review.person', ['reviews'=>$reviews]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('review.person', ['reviews'=>$reviews,'gets'=>$gets]);
 
     }
     public function delete(){
@@ -40,7 +45,9 @@ class AccountController extends Controller
         // return view('review.edit');
         // $reviews =  DB::table('reviews')->find($id);
         $reviews=Review::where('id','=',$id)->get();
-        return view('review.edit', ['reviews' => $reviews]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('review.edit', ['reviews' => $reviews,'gets'=>$gets]);
     }
     public function edited(Request $request){
         //  //バリデーション
@@ -78,7 +85,9 @@ class AccountController extends Controller
         $id=Auth::id();
         $goods=Good::where('user_id','=',$id)->get();
         // dd($goods);
-        return view('review.good',['goods'=>$goods]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('review.good',['goods'=>$goods,'gets'=>$gets]);
     }
     public function good(){
 
@@ -89,14 +98,18 @@ class AccountController extends Controller
     public function review(){
         $id=Auth::id();
         $reviews=Review::where('user_id','=',$id)->get();
-        return view('review.person',['reviews'=>$reviews]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+        return view('review.person',['reviews'=>$reviews,'gets'=>$gets]);
 
     }
     public function set(){
         $id=Auth::id();
         $cond = ['user_id' =>$id ];
         $users = DB::table('users')->find($id);
-            return view('account.setting', ['users'=>$users]);
+        $userid = Auth::id();
+        $gets = Get::where('user_id', '=', $userid)->get();
+            return view('account.setting', ['users'=>$users,'gets'=>$gets]);
     }
     public function setting(Request $request){
         $validate_rule = [
