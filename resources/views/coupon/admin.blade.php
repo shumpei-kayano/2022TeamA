@@ -58,8 +58,15 @@
 
                             <div id="preview"></div>
                             <div class="c-form__group"><input type="file" name="example" onChange="imgPreView(event)"
-                                    value="1" id="check" checked><label for="check"><img id="coupon_photo"
-                                        src="/images/{{ $coupon->coupon_photo }}" alt=""></label>
+                                    value="1" id="check" checked>
+                                <input type="file" name="example2" onChange="imgPreView(event)" value="1"
+                                    id="check" checked>
+                                <input type="file" name="example3" onChange="imgPreView(event)" value="1"
+                                    id="check" checked>
+                                <img id="coupon_photo" src="/images/{{ $coupon->coupon_photo }}" alt="">
+                                <img id="coupon_photo" src="/images/{{ $coupon->coupon_photo2 }}"alt="">
+                                <img id="coupon_photo" src="/images/{{ $coupon->coupon_photo3 }}"alt="">
+                                </label>
                             </div>
                             {{--  <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
                                         name="riyu" value="1" id="check1"><label for="check1"><img
