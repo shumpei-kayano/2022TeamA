@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
 {
+   
     public function out()
     {
         return view('auth.login');
@@ -39,9 +40,6 @@ class PersonController extends Controller
         // dd( $goods);
         // $good = Good::all();
         $cond = ['user_id' => $id];
-
-
-
         $cond = ['reviews' => $reviews, 'id' => $id, 'goods' => $goods, 'gets' => $gets];
         return view('person.index', $cond);
     }
@@ -62,78 +60,90 @@ class PersonController extends Controller
 
         Review::where('id', '=', $request->id)->increment('goodnum');
 
-        $id = Auth::id();
-        // $cond=['user_id' =>$id ];
-        $reviews = Review::where('user_id', '=', $id)->sum("goodnum");
-        // dd($reviews);
-        // $item=['reviews'=>$reviews];
-        // return redirect()->action('CouponController@used');
-
-        switch ($reviews) {
-            case 1:
-                $id = Auth::id();
-                $get = new get;
-                $get->badge_id = 13;
-                $get->user_id = $id;
-                $get->get_date = \Carbon\Carbon::today();
-                $get->getflg = 0;
-                $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
-                break;
-            case 20:
-                $id = Auth::id();
-                $get = new get;
-                $get->badge_id = 14;
-                $get->user_id = $id;
-                $get->get_date = \Carbon\Carbon::today();
-                $get->getflg = 0;
-                $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
-                break;
-            case 50:
-                $id = Auth::id();
-                $get = new get;
-                $get->badge_id = 15;
-                $get->user_id = $id;
-                $get->get_date = \Carbon\Carbon::today();
-                $get->getflg = 0;
-                $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
-                break;
-            case 100:
-                $id = Auth::id();
-                $get = new get;
-                $get->badge_id = 16;
-                $get->user_id = $id;
-                $get->get_date = \Carbon\Carbon::today();
-                $get->getflg = 0;
-                $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
-                break;
-        }
+        
 
 
 
+        // $id = Auth::id();
+        // // $cond=['user_id' =>$id ];
+        // $reviews = Review::where('user_id', '=', $id)->sum("goodnum");
+        // // dd($reviews);
+        // // $item=['reviews'=>$reviews];
+        // // return redirect()->action('CouponController@used');
+
+
+        // /*
+        // ミドルウェアで$reviewsを集計とバッチ獲得判定
+        // 獲得したらバッジ獲得処理へリダイレクト
+        // リダイレクトでバッジ獲得のコントローラーアクションが呼ばれる
+        // そのアクション内で、リクエストページにリダイレクト
+        // */ 
+        // switch ($reviews) {
+        //     case 1:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 13;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        //     case 20:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 14;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        //     case 50:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 15;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        //     case 100:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 16;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        // }
+
+
+
+      
         return redirect()->route('person/home');
         // return redirect('person/wasgood');
 
