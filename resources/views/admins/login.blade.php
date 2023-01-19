@@ -53,6 +53,11 @@
                         {{ __('ログイン') }}
                     </button>
                 </div>
+                <div class="c-form__group c-form__group--a">
+                    <a href="{{ route('admin.register') }}">
+                        <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
+                    </a>
+                </div>
             </div>
 
         </form>

@@ -110,8 +110,9 @@ $id=Auth::id();
         ->where('store_id','=',$id)
         ->count();
         $goods=Review::where('store_id','=',$id)->get();
+        $coupons=Coupon::where('id','=',$id)->get();
         // dd($reviews, $goods);
-        return view('review.admin',['reviews'=>$reviews,'goods'=>$goods]);
+        return view('review.admin',['reviews'=>$reviews,'goods'=>$goods,'coupons'=>$coupons]);
     }
     public function __construct()
     {
@@ -128,4 +129,20 @@ $id=Auth::id();
         return view('admins.store',$test);
     }
 
+    public function new(Request $request)
+    {
+       dd($request);
+        $admin=new Admin;
+        $admin->password=Hash::make($request->password);
+        $admin->email=$request->email;
+        $admin->save();
+
+        return view('homeadmin');
+
+
+        // return Admin::create([
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+    }
 }

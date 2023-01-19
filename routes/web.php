@@ -253,3 +253,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('profile', function () {
     return view('account.profile');
 });
+
+//テスト
+Route::get('test', function () {
+    return view('homeadmin');
+});
+
+//管理者ログイン画面から新規登録画面へ
+Route::get('admin/register', function () {
+    return view('admins.register');
+})->name('admin.register');
+
+//管理者新規登録
+Route::post('admin/add', 'Auth\AdminController@new')->name('admin.add');
