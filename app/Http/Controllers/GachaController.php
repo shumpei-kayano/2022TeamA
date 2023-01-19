@@ -25,9 +25,10 @@ class GachaController extends Controller
             $ransu = mt_rand(14, 23);
         }
 
-
+        $id = Auth::id();
         $coupons = Coupon::where('id', '=', $ransu)->first();
-        return view('gacha.staging', ['coupons' => $coupons]);
+        $gets = Get::where('user_id', '=', $id)->get();
+        return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets]);
     }
 
     public function stag()
@@ -51,8 +52,11 @@ class GachaController extends Controller
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', '13');
         }
+        $id = Auth::id();
+        $gets = Get::where('user_id', '=', $id)->get();
+        $cond = ['user_id' => $id];
 
-        return view('gacha.index');
+        return view('gacha.index', ['gets' => $gets]);
     }
     public function change_area(Request $request)
     {
@@ -95,13 +99,14 @@ class GachaController extends Controller
                 $get->badge_id = 1;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
             case 20:
                 $id = Auth::id();
@@ -109,13 +114,14 @@ class GachaController extends Controller
                 $get->badge_id = 2;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
             case 50:
                 $id = Auth::id();
@@ -123,13 +129,14 @@ class GachaController extends Controller
                 $get->badge_id = 3;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
             case 100:
                 $id = Auth::id();
@@ -137,13 +144,14 @@ class GachaController extends Controller
                 $get->badge_id = 4;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
         }
         return redirect()->action('PersonController@create');

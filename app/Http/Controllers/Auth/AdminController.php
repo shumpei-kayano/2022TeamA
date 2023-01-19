@@ -83,7 +83,9 @@ class AdminController extends Controller
         'provide'=>$request->provide,
         'coupon_photo'=>$request->example,
         'coupon_name'=>$request->coupon_name,
-        'closetime'=>$request->closetime
+        'closetime'=>$request->closetime,
+        'coupon_photo2'=>$request->example2,
+        'coupon_photo3'=>$request->example3,
         ]);
         return redirect()->action('Auth\AdminController@see');
     

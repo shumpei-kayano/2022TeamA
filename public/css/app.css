@@ -555,11 +555,22 @@ dialog::backdrop {
 .c-coupon__top .c-btn--small {
   margin-right: 0;
 }
+.c-coupon__alert {
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  background-color: #cb4778;
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 0 0 4px 4px;
+}
 .c-coupon__box {
   width: 100%;
   background-color: white;
-  border: 2px solid #C9C9C9;
+  border: 2px solid #c9c9c9;
   border-radius: 8px;
+  position: relative;
   margin-top: 16px;
   padding: 0 16px;
 }
@@ -567,12 +578,12 @@ dialog::backdrop {
   margin-top: 0;
   width: 100%;
   background-color: white;
-  border: 2px solid #C9C9C9;
+  border: 2px solid #c9c9c9;
   border-radius: 8px;
   padding: 0 16px;
 }
 .c-coupon__use {
-  color: #CB4778;
+  color: #cb4778;
   font-size: 12px;
 }
 .c-coupon__address {
@@ -775,6 +786,20 @@ dialog::backdrop {
   margin-bottom: 4px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.p-gnav a.new {
+  position: relative;
+}
+.p-gnav a.new:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #cb4778;
+  top: -4px;
+  right: 28px;
+  z-index: 100;
 }
 .p-gnav__home:before {
   background-image: url("/images/icon_home.svg");
@@ -1236,6 +1261,21 @@ dialog::backdrop {
   width: 100px;
   height: 100px;
   margin-bottom: 0;
+  position: relative;
+}
+.p-badge__img.new:after {
+  content: "NEW";
+  position: absolute;
+  font-size: 10px;
+  line-height: 16px;
+  color: white;
+  height: 16px;
+  padding: 0 8px;
+  border-radius: 8px;
+  top: 0;
+  right: 0;
+  background-color: #cb4778;
+  z-index: 100;
 }
 .p-badge__date {
   margin: 0;

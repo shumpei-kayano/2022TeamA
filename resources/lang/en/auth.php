@@ -14,6 +14,6 @@ return [
     */
 
     'failed' => 'ニックネームとパスワードが一致しません',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => '現在ログインできません。10秒後に再度ログインしてください。',
 
 ];

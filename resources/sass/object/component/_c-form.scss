@@ -4,6 +4,9 @@
         padding: 8px;
         border: 1px solid $gray;
         border-radius: 8px;
+        &[type="file"] {
+            border: none;
+        }
     }
 
     textarea {
@@ -64,6 +67,12 @@
         width: 100%;
 
         color: $plat_navy;
+    }
+    &__input {
+        padding: 16px 8px;
+        border: 1px solid $gray;
+        border-radius: 8px;
+        display: flex;
     }
 }
 

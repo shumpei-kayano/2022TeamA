@@ -10,57 +10,71 @@
 
 <body>
 
-    @component('components.gnav')
-    @endcomponent
-    <div class="c-container">
-        <div class="c-header">
-            <a href="{{ route('account/index') }}" class="c-back">戻る</a>
-            <h4>いいね一覧 </h4>
-        </div>
-        <p class="c-hukidashi__date">
-            2022/10/29
-        </p>
-        @foreach ($goods as $good)
-            <div class="c-hukidashi c-hukidashi--b">
-                {{--  <p class="c-hukidashi__photo">
+    @if ($gets->isEmpty())
+        @component('components.gnav')
+        @endcomponent
+    @else
+        @foreach ($gets as $get)
+            @if ($get->getflg == 0)
+                @component('components.gnav-new')
+                @endcomponent
+            @break
+
+        @else
+            @component('components.gnav')
+            @endcomponent
+        @endif
+    @endforeach
+@endif
+<div class="c-container">
+    <div class="c-header">
+        <a href="{{ route('account/index') }}" class="c-back">戻る</a>
+        <h4>いいね一覧 </h4>
+    </div>
+    <p class="c-hukidashi__date">
+        2022/10/29
+    </p>
+    @foreach ($goods as $good)
+        <div class="c-hukidashi c-hukidashi--b">
+            {{--  <p class="c-hukidashi__photo">
                     <img src={{ $goods->review->user->icon_photo }}>
                 </p>  --}}
-                <div class="c-hukidashi__container">
-                    <p class="c-hukidashi__username"> {{ $good->review->user->name }}</p>
-                    <div class="c-hukidashi__frame">
-                        <div class="c-hukidashi__header">
-                            <p class="c-hukidashi__visited">訪問日：{{ $good->review->visited }}</p>
-                            <div class="c-hukidashi__stars">
-                                @for ($i = 0; $i < $good->review->star; $i++)
-                                    <img src="/images/star.png" alt="">
-                                @endfor
-                                @for ($i = 0; $i < 5 - $good->review->star; $i++)
-                                    <img src="/images/star.black.png" alt="">
-                                @endfor
-                                {{--  <img src="/images/star.png" alt="">
+            <div class="c-hukidashi__container">
+                <p class="c-hukidashi__username"> {{ $good->review->user->name }}</p>
+                <div class="c-hukidashi__frame">
+                    <div class="c-hukidashi__header">
+                        <p class="c-hukidashi__visited">訪問日：{{ $good->review->visited }}</p>
+                        <div class="c-hukidashi__stars">
+                            @for ($i = 0; $i < $good->review->star; $i++)
+                                <img src="/images/star.png" alt="">
+                            @endfor
+                            @for ($i = 0; $i < 5 - $good->review->star; $i++)
+                                <img src="/images/star.black.png" alt="">
+                            @endfor
+                            {{--  <img src="/images/star.png" alt="">
                                 <img src="/images/star.png" alt="">
                                 <img src="/images/star.png" alt="">
                                 <img src="/images/star.black.png" alt="">
                                 <img src="/images/star.black.png" alt="">  --}}
-                            </div>
                         </div>
-                        <h3 class="c-hukidashi__tittle">{{ $good->review->store->store_name }}</h3>
-                        <p class="c-hukidashi__honbun">
-                            {{ $good->review->comment }}
-                        </p>
-                        <div class="c-hukidashi__footer">
-                            <label class="c-hukidashi__good disabled">
-                                <input type="checkbox" class="warning">
-                                <span class="c-hukidashi__good-icon"></span>
-                                <span class="c-hukidashi__good-num">{{ $good->review->goodnum }}</span>
-                            </label>
-                        </div>
+                    </div>
+                    <h3 class="c-hukidashi__tittle">{{ $good->review->store->store_name }}</h3>
+                    <p class="c-hukidashi__honbun">
+                        {{ $good->review->comment }}
+                    </p>
+                    <div class="c-hukidashi__footer">
+                        <label class="c-hukidashi__good disabled">
+                            <input type="checkbox" class="warning">
+                            <span class="c-hukidashi__good-icon"></span>
+                            <span class="c-hukidashi__good-num">{{ $good->review->goodnum }}</span>
+                        </label>
                     </div>
                 </div>
             </div>
-        @endforeach
+        </div>
+    @endforeach
 
-        {{--  <div class="c-hukidashi c-hukidashi--b">
+    {{--  <div class="c-hukidashi c-hukidashi--b">
             <p class="c-hukidashi__photo">
                 <img src="/images/phot-account.jpg">
             </p>
@@ -125,7 +139,7 @@
                 </div>
             </div>
         </div>  --}}
-    </div>
+</div>
 </body>
 
 </html>

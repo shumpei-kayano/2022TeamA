@@ -25,7 +25,7 @@ Route::get('login', 'PersonController@out')->name('login');
 //新規登録
 Route::get('register', 'PersonController@add');
 
-//パスワード変更
+//パスワード
 Route::get('/password/change', 'Auth\ChangePasswordController@edit');
 Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('password.change');
 
@@ -217,6 +217,12 @@ Route::get('store', function () {
     return view('store');
 });
 
+
+//クーポンテスト
+Route::get('coupon', function () {
+    return view('coupon');
+});
+
 //セッションテスト
 Route::get('SessionTest', 'HelloController@ses_get');
 Route::post('SessionTest', 'HelloController@ses_put');
@@ -239,7 +245,7 @@ Route::prefix('admin')->group(function () {
     Route::get('review', 'Auth\AdminController@view')->name('admin.review');
 });
 
-//パスワードリセット
+//パスワードを忘れた方はこちら
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
@@ -248,6 +254,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// 管理者の方はこちら
+Route::get('admin/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
 
 //プロフィール
 Route::get('profile', function () {
