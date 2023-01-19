@@ -72,9 +72,13 @@ class AdminController extends Controller
         $tickets = DB::table('tickets')
         ->where('flg','=', '1')
         ->count();
+
+        $tickets0 = DB::table('tickets')
+        ->where('flg','=', '0')
+        ->count();
         $id=Auth::id();
         $coupons=Coupon::where('id','=',$id)->get();
-        $item=['tickets'=>$tickets,'coupons'=>$coupons];
+        $item=['tickets'=>$tickets,'coupons'=>$coupons,'tickets0'=>$tickets0];
         return view('coupon.admin',$item);
     }
     public function couponupdate(Request $request){
