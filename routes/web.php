@@ -270,3 +270,15 @@ Route::get('admin/register', 'Auth\AdminController@enter')->name('store.register
 Route::get('coupon/register', 'Auth\AdminController@set')->name('coupon.register');
 Route::get('admins/store', 'Auth\AdminController@update')->name('admins.store');
 Route::get('coupon/admin', 'Auth\AdminController@see')->name('admin.coupon');
+//テスト
+Route::get('test', function () {
+    return view('homeadmin');
+});
+
+//管理者ログイン画面から新規登録画面へ
+Route::get('admin/register', function () {
+    return view('admins.register');
+})->name('admin.register');
+
+//管理者新規登録
+Route::post('admin/add', 'Auth\AdminController@new')->name('admin.add');

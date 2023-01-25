@@ -47,7 +47,13 @@
 
                             <div class="p-admin__a">
                                 <div class="c-form__group">
-                                    <label>これまでに使用されたクーポン:</label>
+                                    <label>利用者に当たったクーポン数:</label>
+                                </div>
+                                <div class="p-admin__historynumber">
+                                    <p>{{ $tickets0 }}</p>
+                                </div>
+                                <div class="c-form__group">
+                                    <label>そのうち使われたクーポン数:</label>
                                 </div>
                                 <div class="p-admin__historynumber">
                                     <p>{{ $tickets }}</p>
