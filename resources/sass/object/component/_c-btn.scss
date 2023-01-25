@@ -9,6 +9,7 @@
     text-align: center;
     font-size: 14px;
     transition: all 0.25s $ease-in-sine;
+
     &:hover {
         filter: brightness(150%);
         text-decoration: none;
@@ -33,7 +34,7 @@
         }
     }
 
-    &--gray{
+    &--gray {
         background-color: $gray;
         color: white;
         pointer-events: none;
@@ -46,6 +47,8 @@
         width: auto;
         font-size: 11px;
     }
+
+
 
     &--update {
         align-items: center;

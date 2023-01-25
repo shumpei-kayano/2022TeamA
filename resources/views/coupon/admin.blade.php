@@ -21,8 +21,8 @@
     <div class="c-container--pc">
         <div class="p-admin__side">
             <ul>
-                <li> <a href="{{ route('admins.store') }}" class="p-admin__side-store ">店舗情報</a></li>
-                <li> <a href="{{ route('admin.coupon') }}" class="p-admin__side-coupon is-current">クーポン情報</a></li>
+                <li> <a href="{{ route('store.register') }}" class="p-admin__side-store ">店舗情報</a></li>
+                <li> <a href="{{ route('coupon.register') }}" class="p-admin__side-coupon is-current">クーポン情報</a></li>
                 <li> <a href="{{ route('admin.review') }}" class="p-admin__side-review">クチコミ</a></li>
             </ul>
         </div>

@@ -34,7 +34,7 @@ use App\Models\Admin;
     
             if (Auth::guard('admin')->attempt(['email' => $request->name, 'password' => $request->password], $request->remember)) {
                 // ログインが成功したとき
-                return redirect()->intended(route('admins.store'));
+                return redirect()->intended(route('store.register'));
             }
     
             // ログインが失敗したとき

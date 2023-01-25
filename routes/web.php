@@ -179,6 +179,7 @@ Route::get('badge/index', 'BadgeController@see')->name('badge/index')->middlewar
 //店舗情報管理
 
 // Route::get('store/admin', 'Auth\AdminController@show')->name('store/admin')->middleware('auth');
+Route::post('store/storeregister', 'Auth\AdminController@storeregister')->name('store/storeregister')->middleware('auth:admin');
 Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('store/storeupdate')->middleware('auth:admin');
 // Route::get('store/admin', 'AdminController@edit');
 // Route::get('store/admin', 'AdminController@update');
@@ -186,6 +187,7 @@ Route::post('store/storeupdate', 'Auth\AdminController@storeupdate')->name('stor
 
 //クーポン管理
 // Route::get('admin/coupon', 'Auth\AdminController@see')->name('admin/coupon')->middleware('admin');
+Route::post('coupon/couponregister', 'Auth\AdminController@couponregister')->name('coupon/couponregister')->middleware('auth:admin');
 Route::post('coupon/couponupdate', 'Auth\AdminController@couponupdate')->name('coupon/couponupdate')->middleware('auth:admin');
 // Route::get('admin/coupon', 'AdminController@look');
 // Route::get('admin/coupon', 'AdminController@rewrite');
@@ -240,6 +242,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', 'Auth\AdminLoginController@adminlogin')->name('admin.login');
     // Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/', 'Auth\AdminController@enter')->name('store.register');
     Route::get('/', 'Auth\AdminController@index')->name('admins.store');
     Route::get('coupon', 'Auth\AdminController@see')->name('admin.coupon');
     Route::get('review', 'Auth\AdminController@view')->name('admin.review');
@@ -262,3 +265,8 @@ Route::get('admin/login', 'Auth\AdminLoginController@showAdminLoginForm')->name(
 Route::get('profile', function () {
     return view('account.profile');
 });
+
+Route::get('admin/register', 'Auth\AdminController@enter')->name('store.register');
+Route::get('coupon/register', 'Auth\AdminController@set')->name('coupon.register');
+Route::get('admins/store', 'Auth\AdminController@update')->name('admins.store');
+Route::get('coupon/admin', 'Auth\AdminController@see')->name('admin.coupon');

@@ -78,8 +78,10 @@
                         <a href={{ route('store/index', ['id' => $ticket->coupon->store_id]) }}
                             class="c-btn c-btn--navy c-btn--small">詳細を見る</a>
                     </div>
+
                     <button id="btn-open" type="submit"
                         class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
+
                 </div>
                 @component('components.modal')
                     @slot('title')
@@ -150,6 +152,7 @@
         }
     })
     // 開くボタンが押されたときの処理
+
     const dialog = document.getElementById('dialog');
     document.getElementById('btn-open').addEventListener('click', (event) => {
         dialog.showModal();
