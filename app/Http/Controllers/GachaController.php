@@ -22,17 +22,33 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         if (false !== strpos($area, "oita")) {
-            $area=Store::select('areanum')->where('area_id','=','1')->count();
-            $ransu = mt_rand(1,$area);
-            $cond=['area_id'=>'1','areanum'=>$ransu];
-            $store=Store::where($cond)->value('id');
-            $coupons = Coupon::where('store_id', '=', $store)->get();
+            $count=0;
+            while($count<2){
+                if($count==0){
+                    $area=Store::select('areanum')->where('area_id','=','1')->count();
+                    $ransu = mt_rand(1,$area);
+                    $cond=['area_id'=>'1','areanum'=>$ransu];
+                    $store=Store::where($cond)->value('id');
+                    $coupons = Coupon::where('store_id', '=', $store)->get();
+                    $count++;
+                }elseif($count==1){
+                    break;
+                }
+            }
         } elseif (false !== strpos($area, 'beppu')) {
-            $area=Store::select('areanum')->where('area_id','=','2')->count();
-            $ransu = mt_rand(1,$area);
-            $cond=['area_id'=>'2','areanum'=>$ransu];
-            $store=Store::where($cond)->value('id');
-            $coupons = Coupon::where('store_id', '=', $store)->get();
+            $count=0;
+            while($count<2){
+                if($count==0){
+                    $area=Store::select('areanum')->where('area_id','=','2')->count();
+                    $ransu = mt_rand(1,$area);
+                    $cond=['area_id'=>'2','areanum'=>$ransu];
+                    $store=Store::where($cond)->value('id');
+                    $coupons = Coupon::where('store_id', '=', $store)->get();
+                    $count++;
+                }elseif($count==1){
+                    break;
+                }
+            }
         }
 
         $id = Auth::id(); 
