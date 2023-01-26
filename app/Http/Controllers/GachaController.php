@@ -22,28 +22,17 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         if (false !== strpos($area, "oita")) {
-            // $store=Store::select('areanum')->where('areanum', 'like', '1%')->get();
-
-            // 今：別府も大分もmaxの数字が同じ
-            // 実現したいこと：別府は2から始まる最大値。大分は1から始まる最大値を取得したい
-            // 最終手段：areanumをもうひとつ用意する
-            // $maxareanum = Store::max('areanum');
-            // $ransu = mt_rand(1,$maxareanum);
             $area=Store::select('areanum')->where('area_id','=','1')->count();
-            // dd($area)
             $ransu = mt_rand(1,$area);
-            // dd($ransu);
             $cond=['area_id'=>'1','areanum'=>$ransu];
             $store=Store::where($cond)->value('id');
-
-        $coupons = Coupon::where('store_id', '=', $store)->get();
+            $coupons = Coupon::where('store_id', '=', $store)->get();
         } elseif (false !== strpos($area, 'beppu')) {
-            // $store=Store::select('areanum')->where('areanum', 'like', '2%')->get();
-            $maxareanum = Store::max('areanum');
-            $ransu = mt_rand(2, $maxareanum);
-            dd($ransu);
-            
-        $coupons = Coupon::where('areanum', '=', $ransu)->first();
+            $area=Store::select('areanum')->where('area_id','=','2')->count();
+            $ransu = mt_rand(1,$area);
+            $cond=['area_id'=>'2','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+            $coupons = Coupon::where('store_id', '=', $store)->get();
         }
 
         $id = Auth::id(); 
