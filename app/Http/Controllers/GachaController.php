@@ -33,8 +33,10 @@ class GachaController extends Controller
             // dd($area)
             $ransu = mt_rand(1,$area);
             // dd($ransu);
-            $store=Store::select('id')->where('areanum','=',$ransu)->get();
-        $coupons = Coupon::where('store_id', '=', $store)->first();
+            $cond=['area_id'=>'1','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+
+        $coupons = Coupon::where('store_id', '=', $store)->get();
         } elseif (false !== strpos($area, 'beppu')) {
             // $store=Store::select('areanum')->where('areanum', 'like', '2%')->get();
             $maxareanum = Store::max('areanum');
