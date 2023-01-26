@@ -12,15 +12,17 @@
     <div class="p-admin__header">
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
-            <p>店舗名</p>
+            @foreach ($coupons as $coupon)
+                <p>{{ $coupon->store->store_name }}</p>
+            @endforeach
             <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
     <div class="c-container--pc">
         <div class="p-admin__side">
             <ul>
-                <li> <a href="{{ route('admins.store') }}" class="p-admin__side-store ">店舗情報</a></li>
-                <li> <a href="{{ route('admin.coupon') }}" class="p-admin__side-coupon">クーポン情報</a></li>
+                <li> <a href="{{ route('store.register') }}" class="p-admin__side-store ">店舗情報</a></li>
+                <li> <a href="{{ route('coupon.register') }}" class="p-admin__side-coupon">クーポン情報</a></li>
                 <li> <a href="{{ route('admin.review') }}" class="p-admin__side-review is-current">クチコミ</a></li>
             </ul>
         </div>

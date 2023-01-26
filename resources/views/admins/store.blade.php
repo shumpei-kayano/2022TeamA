@@ -21,8 +21,8 @@
     <div class="c-container--pc">
         <div class="p-admin__side">
             <ul>
-                <li> <a href="{{ route('admins.store') }}" class="p-admin__side-store is-current">店舗情報</a></li>
-                <li> <a href="{{ route('admin.coupon') }}" class="p-admin__side-coupon">クーポン情報</a></li>
+                <li> <a href="{{ route('store.register') }}" class="p-admin__side-store is-current">店舗情報</a></li>
+                <li> <a href="{{ route('coupon.register') }}" class="p-admin__side-coupon">クーポン情報</a></li>
                 <li> <a href="{{ route('admin.review') }}" class="p-admin__side-review">クチコミ</a></li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <form action="store/storeupdate" method="POST" class="c-form">
+                <form action="/store/storeupdate" method="POST" class="c-form">
                     @csrf
                     @foreach ($stores as $store)
                         <div class="c-form--admin">
@@ -63,8 +63,8 @@
                                     name="address">
                             </div>
                             <div class="p-admin__map">
-                                <iframe <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?q={{ $store->store_name }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
+                                <iframe
+                                    src="https://www.google.com/maps/embed/v1/place?q={{ $store->latitude }},{{ $store->longitude }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
                                     width="360" height="150" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
@@ -85,7 +85,8 @@
                             <div class="p-admin__photo">
                                 <div id="preview"></div>
                                 <div class="c-form__group">
-                                    <input type="file" name="example" accept="/images" onChange="imgPreView(event)">
+                                    <input type="file" name="example" accept="/images" multiple="multiple"
+                                        onChange="imgPreView(event)">
                                     </p> <img src="/images/{{ $store->picture1 }}" id="picture1" alt="">
                                 </div>
                                 <div class="c-form__group">

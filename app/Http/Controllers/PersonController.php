@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
 {
+   
     public function out()
     {
         return view('auth.login');
@@ -28,47 +29,18 @@ class PersonController extends Controller
     {
         // $reviews=Review::all();
         // $reviews=Review::orderBy('posted_data')->all();
-        $id=Auth::id();
+        $id = Auth::id();
         $reviews = Review::orderBy('id', 'desc')->get();
-        
-        $goods=Good::orderBy('review_id','desc')->where('user_id','=',$id)->get();
-    // dd( $goods);
+
+        $goods = Good::orderBy('review_id', 'desc')->where('user_id', '=', $id)->get();
+        // $gets=Get::where('user_id','=',$id)->get();
+        $gets = Get::where('user_id', '=', $id)->get();
+
+
+        // dd( $goods);
         // $good = Good::all();
-
-        // 通知
-        $item = ['user_id' =>$id , 'flg' =>0];
-        $tickets=Ticket::where($item)->get();
-
-        $notices = DB::table('notices')
-        ->where($item)
-        ->count();
-        
-        foreach($tickets as $ticket){
-        $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
-        // $carbon = new \Carbon\Carbon();
-        // $carbon3=$carbon->subHours(3)->format('Y/m/d H:i:s');
-        // dd($carbon3,$get_date);
-        // dd($get_date);
-        //dd($tickets->term_of_use);
-        $first = new Carbon( $ticket->term_of_use);
-        // dd($first);
-        //$first = new Carbon( $get_date);
-        $second = new Carbon( $get_date);
-        $sabun= $first->diffInHours($second); 
-        // dd($tickets->term_of_use,$get_date,$sabun);
-        // dd(date('Y/m/d H:i:s',strtotime($get_date-$carbon3)));
-        if($sabun<=3){
-            // $notices=Notice::where('alert_id','=','1')->get();
-            $id=Auth::id();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 1;
-            $notice->notice=$get_date;
-            $notice->flg=0;
-            $notice->save();
-        }
-    };
-        $cond=['reviews' => $reviews, 'id' => $id,'notices'=> $notices,'goods'=>$goods];
+        $cond = ['user_id' => $id];
+        $cond = ['reviews' => $reviews, 'id' => $id, 'goods' => $goods, 'gets' => $gets];
         return view('person.index', $cond);
     }
     public function home()
@@ -78,84 +50,100 @@ class PersonController extends Controller
     public function good(Request $request)
     {
 
-    
-        $id=Auth::id();
+
+        $id = Auth::id();
         $good = new Good;
         $good->review_id = $request->id;
         $good->user_id = $id;
-        $good->goodflg=1;
+        $good->goodflg = 1;
         $good->save();
 
-        Review::where('id','=',$request->id)->increment('goodnum');
+        Review::where('id', '=', $request->id)->increment('goodnum');
 
-        $id=Auth::id();
-        // $cond=['user_id' =>$id ];
-        $reviews = Review::where('user_id','=',$id )->sum("goodnum");
-        // dd($reviews);
-        // $item=['reviews'=>$reviews];
-        // return redirect()->action('CouponController@used');
+        
 
-        switch($reviews){
-            case 1:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=13;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
-            break;
-            case 20:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=14;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
-            break;
-            case 50:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=15;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
-            break;
-            case 100:
-            $id=Auth::id();
-            $get=new get;
-            $get->badge_id=16;
-            $get->user_id=$id;
-            $get->get_date=\Carbon\Carbon::today();
-            $get->save();
-            $notice = new Notice;
-            $notice->user_id = $id;
-            $notice->	alert_id = 2;
-            $notice->notice=\Carbon\Carbon::today();
-            $notice->flg=0;
-            $notice->save();
-            break;
-        }
-        
-        
-        
+
+
+        // $id = Auth::id();
+        // // $cond=['user_id' =>$id ];
+        // $reviews = Review::where('user_id', '=', $id)->sum("goodnum");
+        // // dd($reviews);
+        // // $item=['reviews'=>$reviews];
+        // // return redirect()->action('CouponController@used');
+
+
+        // /*
+        // ミドルウェアで$reviewsを集計とバッチ獲得判定
+        // 獲得したらバッジ獲得処理へリダイレクト
+        // リダイレクトでバッジ獲得のコントローラーアクションが呼ばれる
+        // そのアクション内で、リクエストページにリダイレクト
+        // */ 
+        // switch ($reviews) {
+        //     case 1:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 13;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        //     case 20:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 14;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        //     case 50:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 15;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        //     case 100:
+        //         $id = Auth::id();
+        //         $get = new get;
+        //         $get->badge_id = 16;
+        //         $get->user_id = $id;
+        //         $get->get_date = \Carbon\Carbon::today();
+        //         $get->getflg = 0;
+        //         $get->save();
+        //         // $notice = new Notice;
+        //         // $notice->user_id = $id;
+        //         // $notice->	alert_id = 2;
+        //         // $notice->notice=\Carbon\Carbon::today();
+        //         // $notice->flg=0;
+        //         // $notice->save();
+        //         break;
+        // }
+
+
+
+      
         return redirect()->route('person/home');
         // return redirect('person/wasgood');
 
@@ -166,17 +154,18 @@ class PersonController extends Controller
         $id = $request->good_id;
         $good = Good::where('id', '=', $id);
         $good->delete();
-        Review::where('id','=',$request->id)->decrement('goodnum');
+        Review::where('id', '=', $request->id)->update(['goodnum' => DB::raw('GREATEST(goodnum-1, 0)')]);
         return redirect()->route('person/home');
     }
 
-    public function wasgood(){
+    public function wasgood()
+    {
         $reviews = Review::orderBy('posted_date', 'desc')->get();
-        $id=Auth::id();
-        $goods =DB::table('goods')->get();
+        $id = Auth::id();
+        $goods = DB::table('goods')->get();
         // dd($reviews);
         // $items=['reviews' => $reviews, 'id' => $id,'goods' => $goods];
-        return view('person.index', ['reviews' => $reviews, 'id' => $id,'goods' => $goods]);
+        return view('person.index', ['reviews' => $reviews, 'id' => $id, 'goods' => $goods]);
     }
     public function nogood(Request $request)
     {
@@ -190,11 +179,13 @@ class PersonController extends Controller
 
     public function show(Request $request)
     {
-        $id=Auth::id();
-        $cond = ['user_id' =>$id ];
+        $id = Auth::id();
+        $cond = ['user_id' => $id];
         $users = DB::table('users')->find($id);
-            return view('account.index', ['users'=>$users]);
-
+        $gets = Get::where('user_id', '=', $id)->get();
+        $cond = ['user_id' => $id];
+        
+        return view('account.index', ['users' => $users, 'gets' => $gets]);
     }
     public function limit()
     {

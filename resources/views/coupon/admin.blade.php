@@ -21,8 +21,8 @@
     <div class="c-container--pc">
         <div class="p-admin__side">
             <ul>
-                <li> <a href="{{ route('admins.store') }}" class="p-admin__side-store ">店舗情報</a></li>
-                <li> <a href="{{ route('admin.coupon') }}" class="p-admin__side-coupon is-current">クーポン情報</a></li>
+                <li> <a href="{{ route('store.register') }}" class="p-admin__side-store ">店舗情報</a></li>
+                <li> <a href="{{ route('coupon.register') }}" class="p-admin__side-coupon is-current">クーポン情報</a></li>
                 <li> <a href="{{ route('admin.review') }}" class="p-admin__side-review">クチコミ</a></li>
             </ul>
         </div>
@@ -47,7 +47,13 @@
 
                             <div class="p-admin__a">
                                 <div class="c-form__group">
-                                    <label>これまでに使用されたクーポン:</label>
+                                    <label>利用者に当たったクーポン数:</label>
+                                </div>
+                                <div class="p-admin__historynumber">
+                                    <p>{{ $tickets0 }}</p>
+                                </div>
+                                <div class="c-form__group">
+                                    <label>そのうち使われたクーポン数:</label>
                                 </div>
                                 <div class="p-admin__historynumber">
                                     <p>{{ $tickets }}</p>
@@ -57,10 +63,19 @@
                             <p>下記より1つ選んでください</p>
 
                             <div id="preview"></div>
-                            <div class="c-form__group"><input type="file" name="example" onChange="imgPreView(event)"
-                                    value="1" id="check" checked><label for="check"><img id="coupon_photo"
-                                        src="/images/{{ $coupon->coupon_photo }}" alt=""></label>
+                            <div class="c-form__group c-form__input">
+                                <input type="file" name="example" onChange="imgPreView(event)" value="1"
+                                    id="check" checked>
+                                <input type="file" name="example2" onChange="imgPreView(event)" value="1"
+                                    id="check" checked>
+                                <input type="file" name="example3" onChange="imgPreView(event)" value="1"
+                                    id="check" checked>
                             </div>
+                            <img id="coupon_photo" src="/images/{{ $coupon->coupon_photo }}" alt="">
+                            <img id="coupon_photo" src="/images/{{ $coupon->coupon_photo2 }}"alt="">
+                            <img id="coupon_photo" src="/images/{{ $coupon->coupon_photo3 }}"alt="">
+                            </label>
+
                             {{--  <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
                                         name="riyu" value="1" id="check1"><label for="check1"><img
                                             src={{ $coupon->coupon_photo }} alt=""></label></div>

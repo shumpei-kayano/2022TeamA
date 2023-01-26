@@ -8,30 +8,37 @@
             margin-right: 0;
         }
     }
-
+    &__alert {
+        position: absolute;
+        top: -15px;
+        right: 10px;
+        background-color: $plat-pink;
+        color: white;
+        font-size: 12px;
+        padding: 4px 12px;
+        border-radius: 0 0 4px 4px;
+    }
     &__box {
         width: 100%;
         background-color: white;
-        border: 2px solid #C9C9C9;
+        border: 2px solid #c9c9c9;
         border-radius: 8px;
-
+        position: relative;
         margin-top: 16px;
         padding: 0 16px;
 
         &--spot {
-            
             margin-top: 0;
             width: 100%;
             background-color: white;
-            border: 2px solid #C9C9C9;
+            border: 2px solid #c9c9c9;
             border-radius: 8px;
             padding: 0 16px;
-
         }
     }
 
     &__use {
-        color: #CB4778;
+        color: #cb4778;
         font-size: 12px;
     }
 
@@ -41,11 +48,11 @@
         margin-bottom: 0px;
     }
 
-    &__moji{
-        p{
+    &__moji {
+        p {
             color: $plat_navy;
             text-align: center;
-            font-weight:bold;
-         }
-     }
+            font-weight: bold;
+        }
+    }
 }

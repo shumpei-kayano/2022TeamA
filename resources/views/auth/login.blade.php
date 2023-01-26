@@ -137,7 +137,7 @@
                 <p class="p-welcome__sineup">{{ __('パスワードを忘れた方はこちら') }}</p>
             </a>
             <a href="{{ route('admin.login') }}">
-                <p class="p-welcome__sineup">{{ __('管理者の方はこちら') }}</p>
+                <p class="p-welcome__sineup">{{ __('店舗管理者の方はこちら') }}</p>
             </a>
         </div>
     </div>

@@ -18,16 +18,37 @@ class GachaController extends Controller
 
     public function play(Request $request)
     {
+       
+        // dd($store);
         $area = $request->session()->get('current_area');
         if (false !== strpos($area, "oita")) {
-            $ransu = mt_rand(1, 13);
+            // $store=Store::select('areanum')->where('areanum', 'like', '1%')->get();
+
+            // 今：別府も大分もmaxの数字が同じ
+            // 実現したいこと：別府は2から始まる最大値。大分は1から始まる最大値を取得したい
+            // 最終手段：areanumをもうひとつ用意する
+            // $maxareanum = Store::max('areanum');
+            // $ransu = mt_rand(1,$maxareanum);
+            $area=Store::select('areanum')->where('area_id','=','1')->count();
+            // dd($area)
+            $ransu = mt_rand(1,$area);
+            // dd($ransu);
+            $cond=['area_id'=>'1','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+
+        $coupons = Coupon::where('store_id', '=', $store)->get();
         } elseif (false !== strpos($area, 'beppu')) {
-            $ransu = mt_rand(14, 23);
+            // $store=Store::select('areanum')->where('areanum', 'like', '2%')->get();
+            $maxareanum = Store::max('areanum');
+            $ransu = mt_rand(2, $maxareanum);
+            dd($ransu);
+            
+        $coupons = Coupon::where('areanum', '=', $ransu)->first();
         }
 
-
-        $coupons = Coupon::where('id', '=', $ransu)->first();
-        return view('gacha.staging', ['coupons' => $coupons]);
+        $id = Auth::id(); 
+        $gets = Get::where('user_id', '=', $id)->get();
+        return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets]);
     }
 
     public function stag()
@@ -51,8 +72,11 @@ class GachaController extends Controller
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', '13');
         }
+        $id = Auth::id();
+        $gets = Get::where('user_id', '=', $id)->get();
+        $cond = ['user_id' => $id];
 
-        return view('gacha.index');
+        return view('gacha.index', ['gets' => $gets]);
     }
     public function change_area(Request $request)
     {
@@ -95,13 +119,14 @@ class GachaController extends Controller
                 $get->badge_id = 1;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
             case 20:
                 $id = Auth::id();
@@ -109,13 +134,14 @@ class GachaController extends Controller
                 $get->badge_id = 2;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
             case 50:
                 $id = Auth::id();
@@ -123,13 +149,14 @@ class GachaController extends Controller
                 $get->badge_id = 3;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
             case 100:
                 $id = Auth::id();
@@ -137,13 +164,14 @@ class GachaController extends Controller
                 $get->badge_id = 4;
                 $get->user_id = $id;
                 $get->get_date = \Carbon\Carbon::today();
+                $get->getflg = 0;
                 $get->save();
-                $notice = new Notice;
-                $notice->user_id = $id;
-                $notice->alert_id = 2;
-                $notice->notice = \Carbon\Carbon::today();
-                $notice->flg = 0;
-                $notice->save();
+                // $notice = new Notice;
+                // $notice->user_id = $id;
+                // $notice->alert_id = 2;
+                // $notice->notice = \Carbon\Carbon::today();
+                // $notice->flg = 0;
+                // $notice->save();
                 break;
         }
         return redirect()->action('PersonController@create');
