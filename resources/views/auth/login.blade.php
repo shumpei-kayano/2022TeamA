@@ -90,13 +90,13 @@
             @csrf
 
             <div class="c-form__group">
-                <label for="name">{{ __('ニックネーム') }}</label>
+                <label for="name">{{ __('メールアドレス') }}</label>
 
                 <div class="c-form__group">
-                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror"
-                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="email" type="name" class="form-control @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                    @error('name')
+                    @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
