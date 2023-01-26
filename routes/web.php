@@ -276,7 +276,7 @@ Route::get('test', function () {
 });
 
 //管理者ログイン画面から新規登録画面へ
-Route::get('admin/register', function () {
+Route::get('admin/open', function () {
     return view('admins.register');
 })->name('admin.register');
 

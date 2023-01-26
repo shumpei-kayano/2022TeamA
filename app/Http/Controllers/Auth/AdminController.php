@@ -46,9 +46,9 @@ class AdminController extends Controller
         $store->parking = $request->parking;
         $store->area_id = $request->op;
         if($request->op==1){
-            $store->areanum='1'.$count+1;
+            $store->areanum=$count+1;
         }else if($request->op==1){
-            $store->areanum='2'.$count+1;
+            $store->areanum=$count+1;
         };
         $store->perfecture_id = $request->perfecture_id;
         $store->latitude = $request->latitude;
@@ -56,7 +56,7 @@ class AdminController extends Controller
         $store->end_time = $request->end_time;
         $store->start_time = $request->start_time;
 
-        $ar_num = range(101,$store->areanum);
+        $ar_num = range(1,$store->areanum);
         shuffle($ar_num);
         $store->related1=$ar_num[0] ;
         $store->related2=$ar_num[1] ;
@@ -143,6 +143,7 @@ class AdminController extends Controller
         $coupon->coupon_photo3 = $request->example3;
         $coupon->coupon_name = $request->coupon_name;
         $coupon->closetime = $request->closetime;
+        $coupon->areanum = $request->areanum;
         $coupon->save();
 
         
@@ -170,7 +171,11 @@ class AdminController extends Controller
         return view('coupon.admin');
     }
     public function set(){
-        return view('coupon.register');
+        $id=Auth::id();
+        $store=Admin::select('store_id')->where('id','=',$id)->get();
+        $stores=Store::find($store);
+        // dd($stores);
+        return view('coupon.register',['stores'=>$stores]);
     }
     public function add(){
         return view('coupon.admin');
