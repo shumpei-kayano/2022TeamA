@@ -71,9 +71,9 @@
                             <input type="file" name="example3" onChange="imgPreView(event)" value="1"
                                 id="check" checked>
                         </div>
-                        <img id="coupon_photo" src="/images/{{ $coupons->coupon_photo }}" alt="">
-                        <img id="coupon_photo" src="/images/{{ $coupons->coupon_photo2 }}"alt="">
-                        <img id="coupon_photo" src="/images/{{ $coupons->coupon_photo3 }}"alt="">
+                        <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo }}" alt="">
+                        <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo2 }}"alt="">
+                        <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo3 }}"alt="">
                         </label>
 
                         {{--  <div class="c-form__group"><input type="radio" class="p-admin__photocheck"

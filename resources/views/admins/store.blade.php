@@ -87,15 +87,15 @@
                                 <div class="c-form__group">
                                     <input type="file" name="example" accept="/images" multiple="multiple"
                                         onChange="imgPreView(event)">
-                                    </p> <img src="/images/{{ $store->picture1 }}" id="picture1" alt="">
+                                    </p> <img src="/upload/{{ $store->picture1 }}" id="picture1" alt="">
                                 </div>
                                 <div class="c-form__group">
                                     <input type="file" name="example1" accept="/images" onChange="imgPreView(event)">
-                                    </p> <img src="/images/{{ $store->picture2 }}" id="picture2" alt="">
+                                    </p> <img src="/upload/{{ $store->picture2 }}" id="picture2" alt="">
                                 </div>
                                 <div class="c-form__group">
                                     <input type="file" name="example2" accept="/images" onChange="imgPreView(event)">
-                                    </p> <img src="/images/{{ $store->picture3 }}" id="picture3" alt="">
+                                    </p> <img src="/upload/{{ $store->picture3 }}" id="picture3" alt="">
                                 </div>
                             </div>
 

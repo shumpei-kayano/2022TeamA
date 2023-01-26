@@ -34,15 +34,37 @@ class AdminController extends Controller
         $count = DB::table('stores')
         ->where($cond)
         ->count();
+        $file=$request->file('example');
+        if(!empty($file)){
+            $filename=$file->getClientOriginalName();
+            $move=$file->move('./upload/',$filename);
+        }else{
+            $filename="";
+        }
+        $file1=$request->file('example1');
+        if(!empty($file1)){
+            $filename1=$file1->getClientOriginalName();
+            $move1=$file1->move('./upload/',$filename1);
+        }else{
+            $filename1="";
+        }
+        $file2=$request->file('example2');
+        if(!empty($file2)){
+            $filename2=$file2->getClientOriginalName();
+            $move2=$file2->move('./upload/',$filename2);
+        }else{
+            $filename2="";
+        }
         $store = new store;
         $store->store_name = $request->store_name;
         $store->address = $request->address;
         $store->link = $request->link;
         $store->tel = $request->tel;
         $store->service = $request->service;
-        $store->picture1 = $request->example;
-        $store->picture2 = $request->example1;
-        $store->picture3 = $request->example2;
+
+        $store->picture1 = $filename;
+        $store->picture2 = $filename1;
+        $store->picture3 = $filename2;
         $store->parking = $request->parking;
         $store->area_id = $request->op;
         if($request->op==1){

@@ -31,15 +31,14 @@
         <a href="{{ route('account/index') }}" class="c-back">戻る</a>
         <h4>アカウント設定</h4>
     </div>
-    <form action="/account/setting" method="POST" class="c-form">
+    <form enctype="multipart/form-data" action="/account/setting" method="POST" class="c-form">
         @csrf
         <div class="c-form">
             <label class="c-form__group" for="">アイコン</label>
         </div>
         <div class="p-account__top--set" id="preview"></div>
         <div class="p-account__top--set">
-            <p class="p-account__phot--set"><input type="file" name="example" accept="/images/phot-account.jpg"
-                    onChange="imgPreView(event)"></p>
+            <p class="p-account__phot--set"><input type="file" name="example"></p>
         </div>
 
         <div class="c-form__group">

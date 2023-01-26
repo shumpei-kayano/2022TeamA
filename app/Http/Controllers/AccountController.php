@@ -119,11 +119,19 @@ class AccountController extends Controller
         ];
         $this -> validate($request, $validate_rule);
         $id=Auth::id();
+        $file=$request->file('example');
+        // dd($file);
+            if(!empty($file)){
+                $filename=$file->getClientOriginalName();
+                $move=$file->move('./upload/',$filename);
+            }else{
+                $filename="";
+            }
         User::where('id','=',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password' => Hash::make($request->newpwd), 
-            'icon_photo' => $request->example, 
+            'password' => Hash::make($request->newpwd),
+            'icon_photo' => $filename, 
         ]);
          return redirect()->route('account/index');
     }

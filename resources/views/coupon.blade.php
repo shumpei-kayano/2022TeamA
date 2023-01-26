@@ -25,7 +25,7 @@
                 <p class="c-coupon__alert">アラートを表示</p>
                 <div class="c-modal__flex">
                     <p class="c-modal__flex__img">
-                        <img src="/images/coupon.jpg" alt="クーポン">
+                        <img src="/upload/coupon.jpg" alt="クーポン">
                     </p>
                     <div class="c-modal__flex__text">
                         <p class="c-modal__flex__coupon">ハロウィン限定アフタヌーンティー50%OFF</p>

@@ -29,7 +29,7 @@
                         <a href="{{ route('admins.store') }}" class="c-btn c-btn--small c-btn--navy ">　　編集　　</a>
                     </div>
                 </div>
-                <form action="/store/storeregister" method="POST" class="c-form">
+                <form enctype="multipart/form-data"action="/store/storeregister" method="POST" class="c-form">
                     @csrf
                     <div class="c-form--admin">
                         <div class="c-form__group">
@@ -52,16 +52,15 @@
                         <div class="p-admin__photo">
                             <div id="preview"></div>
                             <div class="c-form__group">
-                                <input type="file" name="example" accept="/images" multiple="multiple"
-                                    onChange="imgPreView(event)">
+                                <input type="file" name="example">
 
                             </div>
                             <div class="c-form__group">
-                                <input type="file" name="example1" accept="/images" onChange="imgPreView(event)">
+                                <input type="file" name="example1">
 
                             </div>
                             <div class="c-form__group">
-                                <input type="file" name="example2" accept="/images" onChange="imgPreView(event)">
+                                <input type="file" name="example2">
 
                             </div>
                         </div>
