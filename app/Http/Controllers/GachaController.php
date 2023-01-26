@@ -48,6 +48,7 @@ class GachaController extends Controller
 
         $id = Auth::id(); 
         $gets = Get::where('user_id', '=', $id)->get();
+        
         return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets]);
     }
 

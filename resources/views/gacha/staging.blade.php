@@ -38,33 +38,35 @@
 
 {{--  ダイアログ1  --}}
 <dialog id="dialog" class="c-modal__box">
-    {{-- <div class="c-modal__area">AREA : {{ Session::get('current_area') }} , ID : {{ $coupons->id }}</div> --}}
-    <p class="c-modal__title c-modal__title--pink">クーポンが当たりました
+    @foreach ($coupons as $coupon)
+        {{-- <div class="c-modal__area">AREA : {{ Session::get('current_area') }} , ID : {{ $coupons->id }}</div> --}}
+        <p class="c-modal__title c-modal__title--pink">クーポンが当たりました
 
-        {{--  <small> 有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>  --}}
-    </p>
-    <div class="c-modal__content">
-        <div class="c-modal__flex">
-            <p class="c-modal__flex__img">
-                {{--  <img src="/images/coupon.jpg" alt="クーポン">  --}}
-                <img src="{{ $coupons->coupon_photo }}">
-            </p>
-            <p class="c-modal__flex__text">
+            {{--  <small> 有効期限{{ \Carbon\Carbon::tomorrow()->format('Y/m/d ') }}23:59</small>  --}}
+        </p>
+        <div class="c-modal__content">
+            <div class="c-modal__flex">
+                <p class="c-modal__flex__img">
+                    {{--  <img src="/images/coupon.jpg" alt="クーポン">  --}}
+                    <img src="{{ $coupon->coupon_photo }}">
+                </p>
+                <p class="c-modal__flex__text">
 
-                {{ $coupons->coupon_name }}
-                <small>{{ $coupons->store->store_name }}</small>
+                    {{ $coupon->coupon_name }}
+                    <small>{{ $coupon->store->store_name }}</small>
 
-            </p>
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="c-modal__button">
-        <a href={{ route('coupon/get', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}>
-            <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
-        <a
-            href="{{ route('store/get', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}">店舗詳細を見る</a>
-        <a href="{{ route('model/test', ['store_id' => $coupons->store_id, 'coupon_id' => $coupons->id]) }}"
-            class="c-modal__close"><img src="/images/close_line.png" alt=""></a>
-    </div>
+        <div class="c-modal__button">
+            <a href={{ route('coupon/get', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id]) }}>
+                <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
+            <a
+                href="{{ route('store/get', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id]) }}">店舗詳細を見る</a>
+            <a href="{{ route('model/test', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id]) }}"
+                class="c-modal__close"><img src="/images/close_line.png" alt=""></a>
+        </div>
+    @endforeach
 </dialog>
 
 
