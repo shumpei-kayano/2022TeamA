@@ -78,7 +78,7 @@
             <input type="hidden" name="id">
             <input type="hidden" name="store_id">
             {{--  <input type="hidden" name="coupon_photo">  --}}
-            <input type="hidden" name="areanum" value="{{ $stores[0]->areanum }}">
+            <input type="hidden" name="areanum" value="{{ $stores->areanum }}">
             <button type="submit" class="c-btn c-btn--update c-btn--navy">登録する</button>
             </form>
 

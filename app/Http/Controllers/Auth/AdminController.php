@@ -122,11 +122,13 @@ class AdminController extends Controller
         ->where('flg','=', '0')
         ->count();
         $id=Auth::id();
-        $store=Admin::select('coupon_id')->where('id','=',$id)->get();
+        $store=Admin::where('id','=',$id)->value('coupon_id');
+        
         $coupons=Coupon::find($store);
-        $item=['tickets'=>$tickets,'coupons'=>$coupons];
-        $coupons=Coupon::where('id','=',$id)->get();
+        // $item=['tickets'=>$tickets,'coupons'=>$coupons];
+        // $coupons=Coupon::where('id','=',$id)->get();
         $item=['tickets'=>$tickets,'coupons'=>$coupons,'tickets0'=>$tickets0];
+        // dd($coupons);
         return view('coupon.admin',$item);
     }    
     public function couponregister(Request $request){
@@ -172,7 +174,8 @@ class AdminController extends Controller
     }
     public function set(){
         $id=Auth::id();
-        $store=Admin::select('store_id')->where('id','=',$id)->get();
+        $store=Admin::where('id','=',$id)->value('store_id');
+        // dd($store);
         $stores=Store::find($store);
         // dd($stores);
         return view('coupon.register',['stores'=>$stores]);
