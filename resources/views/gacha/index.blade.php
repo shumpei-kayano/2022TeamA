@@ -39,50 +39,52 @@
                 <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
                 <p class="p-gacha__mawasu"><img src="/images/turn.png" alt="ガチャ回す">
                 </p>
-            @else
-                <div class="p-gacha__message">
-                    <p>このエリア<small>（ {{ Session::get('current_area') }}
-                            ）</small>のクーポン数：{{ Session::get('area_count') }}</p>
-                </div>
-                <div id="googleMap" class="p-gacha__map">
-                </div>
-                <div class="p-gacha__handle p-gacha__handle--slideup">
-                    <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
+            </div>
+        @else
+            <div class="p-gacha__message">
+                <p>このエリア<small>（ {{ Session::get('current_area') }}
+                        ）</small>のクーポン数：{{ Session::get('area_count') }}</p>
+            </div>
+            <div id="googleMap" class="p-gacha__map">
+            </div>
+            <div class="p-gacha__handle p-gacha__handle--slideup">
+                <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
 
-                    <p class="p-gacha__mawasu"><a href="{{ route('gacha/staging') }}"><img src="/images/turn.png"
-                                alt="ガチャ回す"></a>
-                    </p>
-                </div>
+                <p class="p-gacha__mawasu"><a href="{{ route('gacha/staging') }}"><img src="/images/turn.png"
+                            alt="ガチャ回す"></a>
+                </p>
+            </div>
         @endif
         {{--  <button id="btn-close" type="submit" class="c-btn c-btn--navy u-margin-top--0">制限オーバー</button>  --}}
 
 
     </div>
+
+    @php
+        $currentArea = session('current_area');
+    @endphp
+    @if ($currentArea == 'oita')
+        <div class="p-gacha__control oita" id="current-area">
+        @elseif ($currentArea == 'beppu')
+            <div class="p-gacha__control beppu" id="current-area">
+            @else
+                <div class="p-gacha__control" id="current-area">
+    @endif
+
+    <div class="p-gacha__control-window">
+
+        <form action="/gacha/index" method="POST">
+            @csrf
+            <ul>
+                <input type="submit" value="鉄輪" id="go-kannawa" name="beppu">
+                <input type="submit" value="大原周辺" id="go-ohara" name="oita">
+            </ul>
+        </form>
+
+        <p>{{ Session::get('current_area') }} <span id="latlng"></span></p>
+    </div>
+
 </div>
-@php
-    $currentArea = session('current_area');
-@endphp
-@if ($currentArea == 'oita')
-    <div class="p-gacha__control oita" id="current-area">
-    @elseif ($currentArea == 'beppu')
-        <div class="p-gacha__control beppu" id="current-area">
-        @else
-            <div class="p-gacha__control" id="current-area">
-@endif
-
-<div class="p-gacha__control-window">
-
-    <form action="/gacha/index" method="POST">
-        @csrf
-        <ul>
-            <input type="submit" value="鉄輪" id="go-kannawa" name="beppu">
-            <input type="submit" value="大原周辺" id="go-ohara" name="oita">
-        </ul>
-    </form>
-
-    <p>{{ Session::get('current_area') }} <span id="latlng"></span></p>
-</div>
-
 </div>
 </div>
 
