@@ -6,6 +6,8 @@ use App\Store;
 use App\Ticket;
 use App\Coupon;
 use App\Get;
+use App\Ball;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,39 +24,25 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         if (false !== strpos($area, "oita")) {
-            $count=0;
-            while($count<2){
-                if($count==0){
                     $area=Store::select('areanum')->where('area_id','=','1')->count();
                     $ransu = mt_rand(1,$area);
                     $cond=['area_id'=>'1','areanum'=>$ransu];
                     $store=Store::where($cond)->value('id');
+                    $areaid=1;
                     $coupons = Coupon::where('store_id', '=', $store)->get();
-                    $count++;
-                }elseif($count==1){
-                    break;
-                }
-            }
         } elseif (false !== strpos($area, 'beppu')) {
-            $count=0;
-            while($count<2){
-                if($count==0){
                     $area=Store::select('areanum')->where('area_id','=','2')->count();
                     $ransu = mt_rand(1,$area);
                     $cond=['area_id'=>'2','areanum'=>$ransu];
                     $store=Store::where($cond)->value('id');
+                    $areaid=2;
                     $coupons = Coupon::where('store_id', '=', $store)->get();
-                    $count++;
-                }elseif($count==1){
-                    break;
-                }
-            }
         }
 
         $id = Auth::id(); 
         $gets = Get::where('user_id', '=', $id)->get();
         
-        return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets]);
+        return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
     }
 
     public function stag()
@@ -70,22 +58,58 @@ class GachaController extends Controller
     }
     public function show(Request $request)
     {
-
+    //    dd($request->session()->current_area);
+    
         // 存在チェック
         if ($request->session()->has('current_area')) {
             //
         } else {
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', '13');
+            
         }
+        
         $id = Auth::id();
         $gets = Get::where('user_id', '=', $id)->get();
-        $cond = ['user_id' => $id];
 
-        return view('gacha.index', ['gets' => $gets]);
+        
+if ($request->session()->get('current_area')=='oita') {
+    $area=1;
+    }else{
+        $area=2;
+    }
+
+
+    $cond = ['user_id' => $id,'area_id'=>$area];
+    $ticket=Ticket::where($cond)->latest('updated_at')->first();
+    if(!empty($ticket)){
+    $now=\Carbon\Carbon::now()->format('Y-m-d H:i:s');
+    if($now<=$ticket->term_of_use){
+        $areaid=Store::where('id','=',$ticket->store_id)->value('area_id');
+        if($areaid==1){
+            // ガチャを回せない
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1]);
+        }elseif($areaid==2) {
+             // ガチャを回せない
+                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1]);
+        }else{
+            // ガチャを回せる
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
+        }
+            } else {
+            // ガチャを回せる
+            // dd('はずれ');
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
+
+        }
+    }else{
+        return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
+    }
+
     }
     public function change_area(Request $request)
     {
+       
         if ($request->has('oita')) {
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', '13');
@@ -97,7 +121,7 @@ class GachaController extends Controller
         return redirect('gacha/index');
     }
 
-    public function modeldelete($store_id, $coupon_id)
+    public function modeldelete($store_id, $coupon_id,$areaid)
     {
         $dt = new \Carbon\Carbon('now', 'Asia/Tokyo');
         $id = Auth::id();
@@ -107,6 +131,7 @@ class GachaController extends Controller
         $ticket->coupon_id = $coupon_id;
         $ticket->term_of_use = $dt->addHour(24);
         $ticket->flg = 0;
+        $ticket->area_id=$areaid;
         $ticket->save();
 
         $id = Auth::id();

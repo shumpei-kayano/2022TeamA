@@ -31,7 +31,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '2',
             'related2' => '3',
-            'related3' => '4'
+            'related3' => '4',
+            'areanum'=>'1'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -54,7 +55,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '3',
             'related2' => '4',
-            'related3' => '5'
+            'related3' => '5',
+            'areanum'=>'2'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -77,7 +79,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:00',
             'related1' => '4',
             'related2' => '5',
-            'related3' => '6'
+            'related3' => '6',
+            'areanum'=>'3'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -100,7 +103,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:00',
             'related1' => '5',
             'related2' => '6',
-            'related3' => '7'
+            'related3' => '7',
+            'areanum'=>'4'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -123,7 +127,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '6',
             'related2' => '7',
-            'related3' => '8'
+            'related3' => '8',
+            'areanum'=>'5'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -146,7 +151,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:00',
             'related1' => '7',
             'related2' => '8',
-            'related3' => '9'
+            'related3' => '9',
+            'areanum'=>'6'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -169,7 +175,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:00',
             'related1' => '8',
             'related2' => '9',
-            'related3' => '10'
+            'related3' => '10',
+            'areanum'=>'7'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -192,7 +199,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:00',
             'related1' => '9',
             'related2' => '10',
-            'related3' => '11'
+            'related3' => '11',
+            'areanum'=>'8'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -215,7 +223,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '10',
             'related2' => '11',
-            'related3' => '12'
+            'related3' => '12',
+            'areanum'=>'9'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -239,6 +248,7 @@ class StoresTableSeeder extends Seeder
             'related1' => '11',
             'related2' => '12',
             'related3' => '13',
+            'areanum'=>'10'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -261,7 +271,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '7:00',
             'related1' => '12',
             'related2' => '13',
-            'related3' => '14'
+            'related3' => '14',
+            'areanum'=>'11'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -284,7 +295,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '13',
             'related2' => '1',
-            'related3' => '2'
+            'related3' => '2',
+            'areanum'=>'12'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -307,7 +319,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '6:30',
             'related1' => '1',
             'related2' => '2',
-            'related3' => '3'
+            'related3' => '3',
+            'areanum'=>'13'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -330,7 +343,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '15',
             'related2' => '16',
-            'related3' => '17'
+            'related3' => '17',
+            'areanum'=>'1'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -353,7 +367,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:00',
             'related1' => '16',
             'related2' => '17',
-            'related3' => '18'
+            'related3' => '18',
+            'areanum'=>'2'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -376,7 +391,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '10:30',
             'related1' => '17',
             'related2' => '18',
-            'related3' => '19'
+            'related3' => '19',
+            'areanum'=>'3'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -399,7 +415,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '18',
             'related2' => '19',
-            'related3' => '20'
+            'related3' => '20',
+            'areanum'=>'4'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -422,7 +439,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '7:00',
             'related1' => '19',
             'related2' => '20',
-            'related3' => '21'
+            'related3' => '21',
+            'areanum'=>'5'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -445,7 +463,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '20',
             'related2' => '21',
-            'related3' => '22'
+            'related3' => '22',
+            'areanum'=>'6'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -468,7 +487,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '11:00',
             'related1' => '21',
             'related2' => '22',
-            'related3' => '23'
+            'related3' => '23',
+            'areanum'=>'7'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -491,7 +511,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '9:00',
             'related1' => '22',
             'related2' => '23',
-            'related3' => '14'
+            'related3' => '14',
+            'areanum'=>'8'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -514,7 +535,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '7:30',
             'related1' => '23',
             'related2' => '14',
-            'related3' => '15'
+            'related3' => '15',
+            'areanum'=>'9'
         ];
         DB::table('stores')->insert($param);
         $param = [
@@ -537,7 +559,8 @@ class StoresTableSeeder extends Seeder
             'start_time' => '6:30',
             'related1' => '14',
             'related2' => '15',
-            'related3' => '16'
+            'related3' => '16',
+            'areanum'=>'10'
         ];
         DB::table('stores')->insert($param);
     }

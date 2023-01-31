@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAreanumToCouponsTable extends Migration
+class AddAreaIdToTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddAreanumToCouponsTable extends Migration
      */
     public function up()
     {
-        Schema::table('coupons', function (Blueprint $table) {
-            $table->integer('areanum');
+        Schema::table('tickets', function (Blueprint $table) {
+            $table->integer('area_id');
         });
     }
 
@@ -25,8 +25,8 @@ class AddAreanumToCouponsTable extends Migration
      */
     public function down()
     {
-        Schema::table('coupons', function (Blueprint $table) {
-            $table->dropColumn('areanum');
+        Schema::table('tickets', function (Blueprint $table) {
+            $table->dropColumn('area_id');
         });
     }
 }

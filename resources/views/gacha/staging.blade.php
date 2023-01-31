@@ -59,11 +59,12 @@
             </div>
         </div>
         <div class="c-modal__button">
-            <a href={{ route('coupon/get', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id]) }}>
+            <a
+                href={{ route('coupon/get', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id, 'areaid' => $areaid]) }}>
                 <button type="submit" class="c-btn c-btn--navy u-margin-top--0">クーポン一覧へ</button></a>
             <a
-                href="{{ route('store/get', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id]) }}">店舗詳細を見る</a>
-            <a href="{{ route('model/test', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id]) }}"
+                href="{{ route('store/get', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id, 'areaid' => $areaid]) }}">店舗詳細を見る</a>
+            <a href="{{ route('model/test', ['store_id' => $coupon->store_id, 'coupon_id' => $coupon->id, 'areaid' => $areaid]) }}"
                 class="c-modal__close"><img src="/images/close_line.png" alt=""></a>
         </div>
     @endforeach

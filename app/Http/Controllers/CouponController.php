@@ -283,7 +283,7 @@ class CouponController extends Controller
         return redirect('coupon/used');
     }
 
-    public function get($store_id, $coupon_id)
+    public function get($store_id, $coupon_id,$areaid)
     {
         $dt = new \Carbon\Carbon('now', 'Asia/Tokyo');
         $id = Auth::id();
@@ -293,16 +293,16 @@ class CouponController extends Controller
         $ticket->coupon_id = $coupon_id;
         $ticket->term_of_use = $dt->addHour(24);
         $ticket->flg = 0;
+        $ticket->area_id=$areaid;
         $ticket->save();
 
+        
         $id = Auth::id();
         $cond = ['user_id' => $id];
         $tickets = DB::table('tickets')
             ->where($cond)
             ->count();
-        // dd($reviews);
-        // $item=['reviews'=>$reviews];
-        // return redirect()->action('CouponController@used');
+      
 
         switch ($tickets) {
             case 5:
@@ -369,7 +369,7 @@ class CouponController extends Controller
         return redirect()->action('CouponController@show');
     }
 
-    public function storeget($store_id, $coupon_id)
+    public function storeget($store_id, $coupon_id,$areaid)
     {
         $id = Auth::id();
         $ticket = new Ticket;
@@ -378,6 +378,7 @@ class CouponController extends Controller
         $ticket->coupon_id = $coupon_id;
         $ticket->term_of_use = \Carbon\Carbon::tomorrow();
         $ticket->flg = 0;
+        $ticket->area_id=$areaid;
         $ticket->save();
         return redirect()->route('store/index', ['id' => $store_id]);
     }

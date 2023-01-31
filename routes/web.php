@@ -72,7 +72,7 @@ Route::get('tourist/index', 'AccountController@spot')->name('tourist/index')->mi
 
 //店舗詳細
 // Route::get('store/index', 'AccountController@store');
-Route::get('store/get/{store_id}/{coupon_id}', 'CouponController@storeget')->name('store/get')->middleware('auth');
+Route::get('store/get/{store_id}/{coupon_id}/{areaid}', 'CouponController@storeget')->name('store/get')->middleware('auth');
 Route::get('store/index/{id}', 'CouponController@store')->name('store/index')->middleware('auth');
 
 
@@ -112,7 +112,7 @@ Route::post('gacha/index', 'GachaController@change_area');
 //ガチャ演出画面 表示
 Route::get('gacha/staging/{currentArea?}', 'GachaController@play')->name('gacha/staging')->middleware('auth');
 //クーポン→×
-Route::get('model/test{store_id}/{coupon_id}', 'GachaController@modeldelete')->name('model/test');
+Route::get('model/test{store_id}/{coupon_id}/{areaid}', 'GachaController@modeldelete')->name('model/test');
 
 // Route::get('gacha/staging', 'GachaController@stag');
 
@@ -127,7 +127,7 @@ Route::get('model/test{store_id}/{coupon_id}', 'GachaController@modeldelete')->n
 
 Route::get('coupon/index', 'CouponController@show')->name('coupon/index')->middleware('auth');
 //ガチャ→クーポン一覧
-Route::get('coupon/get/{store_id}/{coupon_id}', 'CouponController@get')->name('coupon/get')->middleware('auth');
+Route::get('coupon/get/{store_id}/{coupon_id}/{areaid}', 'CouponController@get')->name('coupon/get')->middleware('auth');
 // Route::get('coupon/use', 'CouponController@show')->name('coupon/index');
 
 //クーポン確認
