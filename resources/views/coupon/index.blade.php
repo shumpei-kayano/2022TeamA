@@ -82,7 +82,6 @@
                     {{--  二個目以下のクーポンを使うためにここのIDをかえる  --}}
                     <button id="@php $item="btn-open"; echo $item.$key; @endphp" type="submit"
                         class="c-btn c-btn--navy u-margin-top--0">このクーポンを使う</button>
-                    {{ $item . $key }}
                 </div>
 
                 @if ($loop->iteration == 1)
