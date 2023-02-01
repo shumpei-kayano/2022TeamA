@@ -9,7 +9,7 @@
     <div class="p-admin__header">
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
-            <p><a class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
+            <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
     <div class="c-container--pc">
@@ -26,7 +26,9 @@
                     <div class="p-admin__tittle">
                         <h1>店舗情報</h1>
                         {{--  編集ボタン追加。ルートはadmins.store  --}}
-                        <a href="{{ route('admins.store') }}" class="c-btn c-btn--small c-btn--navy ">　　編集　　</a>
+                        <a href="{{ route('admins.store') }}">
+                            <button class="c-btn c-btn--edit c-btn--navy ">編集</button>
+                        </a>
                     </div>
                 </div>
                 <form enctype="multipart/form-data"action="/store/storeregister" method="POST" class="c-form">

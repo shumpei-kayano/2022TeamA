@@ -24,7 +24,7 @@
 
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.add') }}" class="c-form">
+                        <form method="POST" action="/store/add" class="c-form">
                             @csrf
 
                             <div class="form-group row">

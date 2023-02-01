@@ -9,6 +9,7 @@
     text-align: center;
     font-size: 14px;
     transition: all 0.25s $ease-in-sine;
+    
 
     &:hover {
         filter: brightness(150%);
@@ -47,7 +48,17 @@
         width: auto;
         font-size: 11px;
     }
-
+    
+    &--edit{
+        margin: 16px auto 8px;
+        padding: 8px 32px;
+        // display: inline-block;
+        // width: 200px;
+        // align-items: right;
+        // font-size: 11px;
+        font-size: 14px;
+        // background-color: red;
+    }
 
 
     &--update {

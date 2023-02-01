@@ -281,4 +281,6 @@ Route::get('admin/open', function () {
 })->name('admin.register');
 
 //管理者新規登録
-Route::post('admin/add', 'Auth\AdminController@new')->name('admin.add');
+Route::post
+('/store/add', 'StoreController@new')->name('store.add');
+
