@@ -30,10 +30,7 @@ class CouponController extends Controller
         // return view('coupon.index', compact('stores'));
         // $id=Auth::id();
         // $tickets=Ticket::where('user_id','=',$id)->get();
-        $id = Auth::id();
-        $cond = ['user_id' => $id, 'flg' => 0];
-        $tickets = Ticket::where($cond)->get();
-        // dd($tickets);
+         // dd($tickets);
         // foreach($tickets as $ticket){
         // $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
         // $first = new Carbon( $ticket->term_of_use);
@@ -41,22 +38,27 @@ class CouponController extends Controller
         // $sabun= $first->diffInHours($second); 
         // if($sabun<=3){
         // $id=Auth::id();
-        // $notice = new Notice;
-        // $notice->user_id = $id;
-        // $notice->	alert_id = 1;
-        // $notice->notice=$get_date;
-        // $notice->flg=0;
-        // $notice->save();
-        // $notice=$ticket->id;
-
-
-        // dd($notice);
-
         // $tickets = Ticket::where('user_id', '=', '1')->get();
         // return view('coupon.index', ['tickets' => $tickets]);
+
+        $id = Auth::id();
+        $cond = ['user_id' => $id, 'flg' => 0];
+        $tickets = Ticket::where($cond)->get();
+       
+        foreach($tickets as$ticket){
+        $now=\Carbon\Carbon::now()->format('Y-m-d H:i:s');
+        if($now>$ticket->term_of_use){
+            Ticket::where('id',"=",$ticket->id)->delete();
+        }
+        }
+
+        $id = Auth::id();
+        $cond = ['user_id' => $id, 'flg' => 0];
+        $tickets = Ticket::where($cond)->get();
         $gets = Get::where('user_id', '=', $id)->get();
         $cond = ['user_id' => $id];
 
+       
         return view('coupon.index', ['tickets' => $tickets, 'gets' => $gets]);
     }
 
