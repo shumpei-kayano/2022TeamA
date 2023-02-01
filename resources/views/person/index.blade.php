@@ -43,6 +43,9 @@
                 {{--  赤いいね  --}}
                 <div
                     class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
+                    <p class="c-hukidashi__photo">
+                        <img src="/upload/{{ $review->user->icon_photo }}">
+                    </p>
                     <div class="c-hukidashi__container">
                         <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                         <div class="c-hukidashi__frame">
@@ -85,6 +88,9 @@
                 {{--  白いいね  --}}
                 <div
                     class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
+                    <p class="c-hukidashi__photo">
+                        <img src="/upload/{{ $review->user->icon_photo }}">
+                    </p>
                     <div class="c-hukidashi__container">
                         <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                         <div class="c-hukidashi__frame">
@@ -122,6 +128,9 @@
             @endif
         @else
             <div class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
+                <p class="c-hukidashi__photo">
+                    <img src="/upload/{{ $review->user->icon_photo }}">
+                </p>
                 <div class="c-hukidashi__container">
                     <p class="c-hukidashi__username">{{ $review->user->name }}</p>
                     <div class="c-hukidashi__frame">
