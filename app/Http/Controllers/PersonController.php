@@ -37,6 +37,32 @@ class PersonController extends Controller
         $gets = Get::where('user_id', '=', $id)->get();
 
 
+        // if ($request->session()->get('current_area')=='oita') {
+        //     $area=1;
+        //     }else{
+        //         $area=2;
+        //     }
+        
+        
+        //     $cond = ['user_id' => $id,'area_id'=>2];
+        //     $ticket=Ticket::where($cond)->latest('updated_at')->first();
+        //     if(!empty($ticket)){
+        //     $now=\Carbon\Carbon::now()->format('Y-m-d H:i:s');
+        //     if($now<=$ticket->term_of_use){
+        //         $areaid=Store::where('id','=',$ticket->store_id)->value('area_id');
+        //         if($areaid==1){
+        //             $gachaflg=1;
+        //         }elseif($areaid==2) {
+        //             $gachaflg=1;
+        //         }else{
+        //             $gachaflg=0;
+        //         }
+        //     } else {
+        //         $gachaflg=0;
+        //     }
+        // }else{
+        //     $gachaflg=0; 
+        // }
         // dd( $goods);
         // $good = Good::all();
         $cond = ['user_id' => $id];

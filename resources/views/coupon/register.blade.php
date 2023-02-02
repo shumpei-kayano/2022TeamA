@@ -47,16 +47,22 @@
 
 
                         <label for="">写真</label>
-                        <p>下記より1つ選んでください</p>
-
-                        <div id="preview"></div>
-                        <div class="c-form__group c-form__input">
-                            <input type="file" name="example" onChange="imgPreView(event)" value="1"
-                                id="check" checked>
-                            <input type="file" name="example2" onChange="imgPreView(event)" value="1"
-                                id="check" checked>
-                            <input type="file" name="example3" onChange="imgPreView(event)" value="1"
-                                id="check" checked>
+                        <div class="p-admin__photo">
+                            <div id="preview">
+                                <div class="c-form__group">
+                                    <input type="file" name="example" onChange="imgPreView(event)">
+                                </div>
+                            </div>
+                            <div id="preview1">
+                                <div class="c-form__group">
+                                    <input type="file" name="example1" onChange="imgPreView1(event)">
+                                </div>
+                            </div>
+                            <div id="preview2">
+                                <div class="c-form__group">
+                                    <input type="file" name="example2" onChange="imgPreView2(event)">
+                                </div>
+                            </div>
                         </div>
                         </label>
 
@@ -105,7 +111,53 @@
             var img = document.createElement("img");
             img.setAttribute("src", reader.result);
             img.setAttribute("id", "previewImage");
+            img.classList.add('p-admin__photo');
             preview.appendChild(img);
+
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function imgPreView1(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        var preview = document.getElementById("preview1");
+        var previewImage = document.getElementById("previewImage1");
+
+        if (previewImage != null) {
+            preview.removeChild(previewImage);
+        }
+        reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", reader.result);
+            img.setAttribute("id", "previewImage");
+            img.classList.add('p-admin__photo');
+
+            preview.appendChild(img);
+
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function imgPreView2(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        var preview = document.getElementById("preview2");
+        var previewImage = document.getElementById("previewImage2");
+
+        if (previewImage != null) {
+            preview.removeChild(previewImage);
+        }
+        reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", reader.result);
+            img.setAttribute("id", "previewImage");
+            img.classList.add('p-admin__photo');
+
+            preview.appendChild(img);
+
         };
 
         reader.readAsDataURL(file);
