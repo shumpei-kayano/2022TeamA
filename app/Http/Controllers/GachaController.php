@@ -88,10 +88,18 @@ if ($request->session()->get('current_area')=='oita') {
         $areaid=Store::where('id','=',$ticket->store_id)->value('area_id');
         if($areaid==1){
             // ガチャを回せない
-            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1]);
+            $use = new Carbon( $ticket->term_of_use);
+            $second = new Carbon( $now);
+            $sabun= $use->diffInMinutes($second); 
+            $hour=floor($sabun/60);
+            $hours=number_format($hour,0);
+            $minutes=$sabun%60;
+            // dd($hours,$minutes);
+          
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes]);
         }elseif($areaid==2) {
              // ガチャを回せない
-                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1]);
+                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes]);
         }else{
             // ガチャを回せる
             return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);

@@ -30,8 +30,8 @@
     <div class="p-gacha-top">
         @if ($gatya_flg == 1)
             <div class="p-gacha__message">
-                <p>制限オーバー</p>
-                <p><small>このエリアでは引けません</small></p>
+                <p>ガチャ回数制限オーバー</p>
+                <p><small>このエリアでは{{ $hours }}時間{{ $minutes }}分後に引けます</small></p>
             </div>
             <div id="googleMap" class="p-gacha__map">
             </div>
