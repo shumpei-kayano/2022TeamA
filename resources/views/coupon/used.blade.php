@@ -51,7 +51,7 @@
                                     href={{ route('post/used', ['store_id' => $ticket->store_id, 'ticket_id' => $ticket->id]) }}>クチコミを書く</a>
                             </div>
                             <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
-                                <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
+                                <p class="c-store__card-img"><img src="/upload/{{ $ticket->coupon->coupon_photo }}"
                                         alt="クーポン">
                                 </p>
                                 <div class="c-store__card-desc">
@@ -67,7 +67,7 @@
                                 <a class="c-btn c-btn--gray c-btn--small" tabindex="-1">クチコミを書く</a>
                             </div>
                             <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
-                                <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }}
+                                <p class="c-store__card-img"><img src="/upload/{{ $ticket->coupon->coupon_photo }}"
                                         alt="クーポン">
                                 </p>
                                 <div class="c-store__card-desc">

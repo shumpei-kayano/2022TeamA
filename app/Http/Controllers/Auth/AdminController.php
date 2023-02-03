@@ -157,7 +157,14 @@ class AdminController extends Controller
         $id=Auth::id();
         $storeid=Admin::where('id','=',$id)->value('store_id');
         // dd($storeid);
-
+        $file=$request->file('example');
+        // dd($file);
+            if(!empty($file)){
+                $filename=$file->getClientOriginalName();
+                $move=$file->move('./upload/',$filename);
+            }else{
+                $filename="";
+            }
 
         $coupon = new coupon;
         $coupon->store_id = $storeid;

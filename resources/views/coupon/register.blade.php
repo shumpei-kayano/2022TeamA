@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                <form action="/coupon/couponregister" method="POST" class="c-form">
+                <form enctype="multipart/form-data" action="/coupon/couponregister" method="POST" class="c-form">
                     @csrf
                     <div class="c-form--admin">
 
@@ -51,16 +51,6 @@
                             <div id="preview">
                                 <div class="c-form__group">
                                     <input type="file" name="example" onChange="imgPreView(event)">
-                                </div>
-                            </div>
-                            <div id="preview1">
-                                <div class="c-form__group">
-                                    <input type="file" name="example1" onChange="imgPreView1(event)">
-                                </div>
-                            </div>
-                            <div id="preview2">
-                                <div class="c-form__group">
-                                    <input type="file" name="example2" onChange="imgPreView2(event)">
                                 </div>
                             </div>
                         </div>
@@ -112,50 +102,6 @@
             img.setAttribute("src", reader.result);
             img.setAttribute("id", "previewImage");
             img.classList.add('p-admin__photo');
-            preview.appendChild(img);
-
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    function imgPreView1(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        var preview = document.getElementById("preview1");
-        var previewImage = document.getElementById("previewImage1");
-
-        if (previewImage != null) {
-            preview.removeChild(previewImage);
-        }
-        reader.onload = function(event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", reader.result);
-            img.setAttribute("id", "previewImage");
-            img.classList.add('p-admin__photo');
-
-            preview.appendChild(img);
-
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    function imgPreView2(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        var preview = document.getElementById("preview2");
-        var previewImage = document.getElementById("previewImage2");
-
-        if (previewImage != null) {
-            preview.removeChild(previewImage);
-        }
-        reader.onload = function(event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", reader.result);
-            img.setAttribute("id", "previewImage");
-            img.classList.add('p-admin__photo');
-
             preview.appendChild(img);
 
         };

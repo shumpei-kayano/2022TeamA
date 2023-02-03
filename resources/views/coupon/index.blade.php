@@ -102,7 +102,7 @@
                         @slot('content')
                             <div class="c-modal__flex">
                                 <p class="c-modal__flex__img">
-                                    <img src={{ $tickets[0]->coupon->coupon_photo }} alt="クーポン">
+                                    <img src="/upload/{{ $tickets[0]->coupon->coupon_photo }}" alt="クーポン">
                                 </p>
 
                                 <p class="c-modal__flex__text">
@@ -146,7 +146,7 @@
                         @slot('content')
                             <div class="c-modal__flex">
                                 <p class="c-modal__flex__img">
-                                    <img src={{ $tickets[1]->coupon->coupon_photo }} alt="クーポン">
+                                    <img src="/upload/{{ $tickets[1]->coupon->coupon_photo }}" alt="クーポン">
                                 </p>
 
                                 <p class="c-modal__flex__text">
@@ -190,7 +190,7 @@
                         @slot('content')
                             <div class="c-modal__flex">
                                 <p class="c-modal__flex__img">
-                                    <img src={{ $tickets[2]->coupon->coupon_photo }} alt="クーポン">
+                                    <img src="/upload/{{ $tickets[2]->coupon->coupon_photo }}" alt="クーポン">
                                 </p>
 
                                 <p class="c-modal__flex__text">
