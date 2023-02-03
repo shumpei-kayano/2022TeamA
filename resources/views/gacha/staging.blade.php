@@ -48,7 +48,7 @@
             <div class="c-modal__flex">
                 <p class="c-modal__flex__img">
                     {{--  <img src="/images/coupon.jpg" alt="クーポン">  --}}
-                    <img src="{{ $coupon->coupon_photo }}">
+                    <img src="/upload/{{ $coupon->coupon_photo }}">
                 </p>
                 <p class="c-modal__flex__text">
 

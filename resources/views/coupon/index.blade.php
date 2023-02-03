@@ -63,7 +63,7 @@
 
                     <div class="c-modal__flex">
                         <p class="c-modal__flex__img">
-                            <img src={{ $ticket->coupon->coupon_photo }}>
+                            <img src="/upload/{{ $ticket->coupon->coupon_photo }}">
                         </p>
                         <div class="c-modal__flex__text">
 

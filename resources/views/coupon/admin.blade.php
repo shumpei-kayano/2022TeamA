@@ -32,7 +32,7 @@
                     <h1>クーポン情報</h1>
                 </div>
 
-                <form action="/coupon/couponupdate" method="POST" class="c-form">
+                <form enctype="multipart/form-data" action="/coupon/couponupdate" method="POST" class="c-form">
                     @csrf
                     {{--  @foreach ($coupons as $coupon)  --}}
                     <div class="c-form--admin">
@@ -66,22 +66,13 @@
                                     <input type="file" name="example" onChange="imgPreView(event)">
                                 </div>
                             </div>
-                            <div id="preview1">
-                                <div class="c-form__group">
-                                    <input type="file" name="example2" onChange="imgPreView1(event)">
-                                </div>
-                            </div>
-                            <div id="preview2">
-                                <div class="c-form__group">
-                                    <input type="file" name="example3" onChange="imgPreView2(event)">
-                                </div>
-                            </div>
-                        </div>
-                        <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo }}" alt="">
-                        <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo2 }}"alt="">
-                        <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo3 }}"alt="">
-                        </label>
 
+
+                            {{--  <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo }}" alt="">
+                            <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo2 }}"alt="">
+                            <img id="coupon_photo" src="/upload/{{ $coupons->coupon_photo3 }}"alt="">
+                            </label>  --}}
+                        </div>
                         {{--  <div class="c-form__group"><input type="radio" class="p-admin__photocheck"
                                         name="riyu" value="1" id="check1"><label for="check1"><img
                                             src={{ $coupon->coupon_photo }} alt=""></label></div>
@@ -105,7 +96,8 @@
             </div>
             <input type="hidden" name="id" value="{{ $coupons->id }}">
             <input type="hidden" name="store_id" value="{{ $coupons->store_id }}">
-            <input type="hidden" name="coupon_photo" value="{{ $coupons->coupon_photo }}">
+            {{--  <input type="hidden" name="coupon_photo" value="{{ $coupons->coupon_photo }}">  --}}
+
             <button type="submit" class="c-btn c-btn--update c-btn--navy">更新する</button>
             {{--  @endforeach  --}}
             </form>
@@ -132,50 +124,6 @@
             img.setAttribute("src", reader.result);
             img.setAttribute("id", "previewImage");
             img.classList.add('p-admin__photo');
-            preview.appendChild(img);
-
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    function imgPreView1(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        var preview = document.getElementById("preview1");
-        var previewImage = document.getElementById("previewImage1");
-
-        if (previewImage != null) {
-            preview.removeChild(previewImage);
-        }
-        reader.onload = function(event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", reader.result);
-            img.setAttribute("id", "previewImage");
-            img.classList.add('p-admin__photo');
-
-            preview.appendChild(img);
-
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    function imgPreView2(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        var preview = document.getElementById("preview2");
-        var previewImage = document.getElementById("previewImage2");
-
-        if (previewImage != null) {
-            preview.removeChild(previewImage);
-        }
-        reader.onload = function(event) {
-            var img = document.createElement("img");
-            img.setAttribute("src", reader.result);
-            img.setAttribute("id", "previewImage");
-            img.classList.add('p-admin__photo');
-
             preview.appendChild(img);
 
         };

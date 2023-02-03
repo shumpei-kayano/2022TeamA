@@ -179,14 +179,21 @@ class AdminController extends Controller
     
     }
     public function couponupdate(Request $request){
+        $file=$request->file('example');
+        // dd($file);
+            if(!empty($file)){
+                $filename=$file->getClientOriginalName();
+                $move=$file->move('./upload/',$filename);
+            }else{
+                $filename="";
+            }
+       
         Coupon::where('id','=',$request->id)->update([
         'store_id'=>$request->store_id,
         'provide'=>$request->provide,
-        'coupon_photo'=>$request->example,
+        'coupon_photo'=>$filename,
         'coupon_name'=>$request->coupon_name,
         'closetime'=>$request->closetime,
-        'coupon_photo2'=>$request->example2,
-        'coupon_photo3'=>$request->example3,
         ]);
         return redirect()->action('Auth\AdminController@set');
     
@@ -254,3 +261,5 @@ $id=Auth::id();
         // ]);
     }
 }
+
+
