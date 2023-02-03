@@ -68,12 +68,12 @@
                             </div>
                             <div id="preview1">
                                 <div class="c-form__group">
-                                    <input type="file" name="example1" onChange="imgPreView1(event)">
+                                    <input type="file" name="example2" onChange="imgPreView1(event)">
                                 </div>
                             </div>
                             <div id="preview2">
                                 <div class="c-form__group">
-                                    <input type="file" name="example2" onChange="imgPreView2(event)">
+                                    <input type="file" name="example3" onChange="imgPreView2(event)">
                                 </div>
                             </div>
                         </div>
