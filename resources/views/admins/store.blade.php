@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <form action="/store/storeupdate" method="POST" class="c-form">
+                <form enctype="multipart/form-data" action="/store/storeupdate" method="POST" class="c-form">
                     @csrf
                     @foreach ($stores as $store)
                         <div class="c-form--admin">
@@ -99,7 +99,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="p-admin__time">
                                 <div class="c-form__group--time">
@@ -215,6 +214,7 @@
             reader.readAsDataURL(file);
         }
     </script>
+
 
 </body>
 

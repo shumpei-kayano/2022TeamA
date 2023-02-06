@@ -34,7 +34,10 @@ class AdminController extends Controller
         $count = DB::table('stores')
         ->where($cond)
         ->count();
+
+
         $file=$request->file('example');
+       
         if(!empty($file)){
             $filename=$file->getClientOriginalName();
             $move=$file->move('./upload/',$filename);
@@ -93,15 +96,37 @@ class AdminController extends Controller
       
     }
     public function storeupdate(Request $request){
+        $file=$request->file('example');
+       
+        if(!empty($file)){
+            $filename=$file->getClientOriginalName();
+            $move=$file->move('./upload/',$filename);
+        }else{
+            $filename="";
+        }
+        $file1=$request->file('example1');
+        if(!empty($file1)){
+            $filename1=$file1->getClientOriginalName();
+            $move1=$file1->move('./upload/',$filename1);
+        }else{
+            $filename1="";
+        }
+        $file2=$request->file('example2');
+        if(!empty($file2)){
+            $filename2=$file2->getClientOriginalName();
+            $move2=$file2->move('./upload/',$filename2);
+        }else{
+            $filename2="";
+        }
         Store::where('id','=',$request->id)->update([
         'store_name'=>$request->store_name,
         'address'=>$request->address,
         'link'=>$request->link,
         'tel'=>$request->tel,
         'service'=>$request->service,
-        'picture1'=>$request->example,
-        'picture2'=>$request->example1,
-        'picture3'=>$request->example2,
+        'picture1'=>$filename,
+        'picture2'=>$filename1,
+        'picture3'=>$filename2,
         // 'picture4'=>$request->picture4,
         'parking'=>$request->parking,
         'area_id'=>$request->op,

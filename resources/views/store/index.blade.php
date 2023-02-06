@@ -32,9 +32,9 @@
             <a href="{{ route('coupon/index') }}" class="c-back">クーポン一覧</a>
         </div>
         <p class="c-store u-magin--top--0">
-            <img src={{ $items->picture1 }} alt="PHOTO">
-            <img src={{ $items->picture2 }} alt="PHOTO">
-            <img src={{ $items->picture3 }} alt="PHOTO">
+            <img src="/upload/{{ $items->picture1 }}" alt="PHOTO">
+            <img src="/upload/{{ $items->picture2 }}" alt="PHOTO">
+            <img src="/upload/{{ $items->picture3 }}" alt="PHOTO">
         </p>
         {{--  @foreach ($items as $item)  --}}
         <p class="c-store__name">{{ $items->store_name }}</p>
