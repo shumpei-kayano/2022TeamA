@@ -104,7 +104,7 @@
         {{-- 近くの施設1 --}}
         <div class="c-store__card">
             <a href={{ route('store/index', ['id' => $related1->id]) }}>
-                <p class="c-store__card-img"><img src={{ $related1->picture1 }} alt="クーポン"></p>
+                <p class="c-store__card-img"><img src="/upload/{{ $related1->picture1 }} "alt="クーポン"></p>
                 <div class="c-store__card-desc">
                     <h3>{{ $related1->store_name }}</h3>
                     <p>{{ $related1->address }}</p>
@@ -115,7 +115,7 @@
         {{-- 近くの施設2 --}}
         <div class="c-store__card">
             <a href={{ route('store/index', ['id' => $related2->id]) }}>
-                <p class="c-store__card-img"><img src={{ $related2->picture1 }} alt="クーポン"></p>
+                <p class="c-store__card-img"><img src="/upload/{{ $related2->picture1 }}" alt="クーポン"></p>
                 <div class="c-store__card-desc">
                     <h3>{{ $related2->store_name }}</h3>
                     <p>{{ $related2->address }}</p>
@@ -126,7 +126,7 @@
         {{-- 近くの施設3 --}}
         <div class="c-store__card">
             <a href={{ route('store/index', ['id' => $related3->id]) }}>
-                <p class="c-store__card-img"><img src={{ $related3->picture1 }} alt="クーポン"></p>
+                <p class="c-store__card-img"><img src="/upload/{{ $related3->picture1 }}" alt="クーポン"></p>
                 <div class="c-store__card-desc">
                     <h3>{{ $related3->store_name }}</h3>
                     <p>{{ $related3->address }}</p>
