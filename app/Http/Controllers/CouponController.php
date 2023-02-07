@@ -298,7 +298,17 @@ class CouponController extends Controller
         $ticket->area_id=$areaid;
         $ticket->save();
 
-        
+         // 提供数判定
+         $coupon=Coupon::find($ticket->coupon_id);
+         // dd($coupon->id);
+         $ticket=Ticket::where('coupon_id','=',$coupon->id)->count();
+         // dd($ticket);
+        if($coupon->provide<=$ticket){
+         Coupon::where('id','=',$coupon->id)->update([
+             'provideflg'=>1,
+             ]);
+        }
+         
         $id = Auth::id();
         $cond = ['user_id' => $id];
         $tickets = DB::table('tickets')
@@ -382,6 +392,18 @@ class CouponController extends Controller
         $ticket->flg = 0;
         $ticket->area_id=$areaid;
         $ticket->save();
+
+         // 提供数判定
+         $coupon=Coupon::find($ticket->coupon_id);
+         // dd($coupon->id);
+         $ticket=Ticket::where('coupon_id','=',$coupon->id)->count();
+         // dd($ticket);
+        if($coupon->provide<=$ticket){
+         Coupon::where('id','=',$coupon->id)->update([
+             'provideflg'=>1,
+             ]);
+        }
+         
         return redirect()->route('store/index', ['id' => $store_id]);
     }
 }

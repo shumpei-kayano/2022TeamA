@@ -24,19 +24,37 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         if (false !== strpos($area, "oita")) {
-                    $area=Store::select('areanum')->where('area_id','=','1')->count();
-                    $ransu = mt_rand(1,$area);
-                    $cond=['area_id'=>'1','areanum'=>$ransu];
-                    $store=Store::where($cond)->value('id');
-                    $areaid=1;
-                    $coupons = Coupon::where('store_id', '=', $store)->get();
+            // couponテーブルからprovideflgが0のやつvalue('store_id')する
+            // storeテーブルwhere(id=store_idかつarea_id=1)->count()これがいまでいう$area
+            $coupons=Coupon::where('provideflg','=','0')->get();
+            $count=0;
+           foreach($coupons as $coupon){
+            $cond=['id'=>$coupon->store_id,'area_id'=>'1'];
+            $area=Store::where($cond)->count();
+            $count+=$area;
+           }
+            // $area=Store::select('areanum')->where('area_id','=','1')->count();
+            $ransu = mt_rand(1,$count);
+            $cond=['area_id'=>'1','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+            $areaid=1;
+            $coupons = Coupon::where('store_id', '=', $store)->get();
+
+                    
         } elseif (false !== strpos($area, 'beppu')) {
-                    $area=Store::select('areanum')->where('area_id','=','2')->count();
-                    $ransu = mt_rand(1,$area);
-                    $cond=['area_id'=>'2','areanum'=>$ransu];
-                    $store=Store::where($cond)->value('id');
-                    $areaid=2;
-                    $coupons = Coupon::where('store_id', '=', $store)->get();
+            $coupons=Coupon::where('provideflg','=','0')->get();
+            $count=0;
+           foreach($coupons as $coupon){
+            $cond=['id'=>$coupon->store_id,'area_id'=>'2'];
+            $area=Store::where($cond)->count();
+            $count+=$area;
+           }
+            // $area=Store::select('areanum')->where('area_id','=','2')->count();
+            $ransu = mt_rand(1,$count);
+            $cond=['area_id'=>'2','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+            $areaid=2;
+            $coupons = Coupon::where('store_id', '=', $store)->get();
         }
 
         $id = Auth::id(); 
@@ -147,6 +165,18 @@ if ($request->session()->get('current_area')=='oita') {
         $ticket->flg = 0;
         $ticket->area_id=$areaid;
         $ticket->save();
+
+        // 提供数判定
+        $coupon=Coupon::find($ticket->coupon_id);
+        // dd($coupon->id);
+        $ticket=Ticket::where('coupon_id','=',$coupon->id)->count();
+        // dd($ticket);
+       if($coupon->provide<=$ticket){
+        Coupon::where('id','=',$coupon->id)->update([
+            'provideflg'=>1,
+            ]);
+       }
+        
 
         $id = Auth::id();
         $cond = ['user_id' => $id];

@@ -163,6 +163,8 @@
                 img.setAttribute("src", reader.result);
                 img.setAttribute("id", "previewImage");
                 img.classList.add('p-admin__photo');
+                {{--  img.width = 50 px;
+                img.height = 50 px;  --}}
                 preview.appendChild(img);
 
             };

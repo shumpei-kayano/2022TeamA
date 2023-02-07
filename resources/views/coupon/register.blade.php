@@ -41,9 +41,9 @@
                         <div class="c-form__group">
                             <label for="">クーポン名</label><input type="text" name="coupon_name">
                         </div>
-                        <div class="c-form__group">
+                        {{--  <div class="c-form__group">
                             <label for="">提供数</label><input type="text" name="provide">
-                        </div>
+                        </div>  --}}
 
 
                         <label for="">写真</label>
@@ -63,12 +63,12 @@
                                         name="riyu" value="1" id="check2"><label for="check2"><img
                                             src={{ $coupon->coupon_photo }} alt=""></label></div>  --}}
                     </div>
-                    <div class="c-form__group">
+                    {{--  <div class="c-form__group">
                         <label for="">掲載終了日時</label>
 
                         <input type="date" id="start" name="closetime" value="2022-11-01" min="2022-11-01"
                             max="2023-03-31">
-                    </div>
+                    </div>  --}}
 
 
             </div>

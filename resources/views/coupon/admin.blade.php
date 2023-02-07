@@ -89,11 +89,11 @@
 
 
             </div>
-            <div class="c-form--check">
+            {{--  <div class="c-form--check">
                 <label>掲載を一時停止</label>
 
                 <input type="checkbox" name="riyu" value="1">掲載を一時停止する
-            </div>
+            </div>  --}}
             <input type="hidden" name="id" value="{{ $coupons->id }}">
             <input type="hidden" name="store_id" value="{{ $coupons->store_id }}">
             {{--  <input type="hidden" name="coupon_photo" value="{{ $coupons->coupon_photo }}">  --}}
