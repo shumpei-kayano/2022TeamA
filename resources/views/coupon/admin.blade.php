@@ -12,9 +12,7 @@
     <div class="p-admin__header">
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
-            {{--  @foreach ($coupons as $coupon)  --}}
-            <p>{{ $coupons->store->store_name }}</p>
-            {{--  @endforeach  --}}
+
             <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
@@ -50,7 +48,7 @@
                                 <label>利用者に当たったクーポン数:</label>
                             </div>
                             <div class="p-admin__historynumber">
-                                <p>{{ $tickets0 }}</p>
+                                <p>{{ $tickettotal }}</p>
                             </div>
                             <div class="c-form__group">
                                 <label>そのうち使われたクーポン数:</label>

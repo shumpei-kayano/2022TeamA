@@ -161,20 +161,23 @@ class AdminController extends Controller
         return view('coupon.admin');
     }
     public function see(){
+        $id=Auth::id();
+        $admin=Admin::where('id','=',$id)->value('coupon_id');
+        $cond=['coupon_id'=>$admin,'flg'=>1];
         $tickets = DB::table('tickets')
-        ->where('flg','=', '1')
+        ->where($cond)
         ->count();
 
-        $tickets0 = DB::table('tickets')
-        ->where('flg','=', '0')
+        $tickettotal = DB::table('tickets')
+        ->where('coupon_id','=',$admin)
         ->count();
+
         $id=Auth::id();
         $store=Admin::where('id','=',$id)->value('coupon_id');
-        
         $coupons=Coupon::find($store);
         // $item=['tickets'=>$tickets,'coupons'=>$coupons];
         // $coupons=Coupon::where('id','=',$id)->get();
-        $item=['tickets'=>$tickets,'coupons'=>$coupons,'tickets0'=>$tickets0];
+        $item=['tickets'=>$tickets,'coupons'=>$coupons,'tickettotal'=> $tickettotal];
         // dd($coupons);
         return view('coupon.admin',$item);
     }    
