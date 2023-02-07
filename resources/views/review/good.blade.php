@@ -32,7 +32,7 @@
         <h4>いいね一覧 </h4>
     </div>
     <p class="c-hukidashi__date">
-        2022/10/29
+
     </p>
     @foreach ($goods as $good)
         <div class="c-hukidashi c-hukidashi--b">

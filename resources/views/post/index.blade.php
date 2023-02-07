@@ -68,7 +68,11 @@
             <input type="hidden" name="user_id" value="{{ $id }}">
             <input type="hidden" name="ticket_id" value="{{ $ticket_id }}">
             {{--  <input type="hidden" name="goodnum" value="{{ $id }}">  --}}
-            <input type="hidden" name="posted_date" value="{{ \Carbon\Carbon::today() }}">
+            @php
+                use Carbon\Carbon;
+                $dt = Carbon::now();
+            @endphp
+            <input type="hidden" name="posted_date" value="{{ $dt }}">
             <button type="submit" class="c-btn c-btn--navy">投稿する</button>
 
         </section>

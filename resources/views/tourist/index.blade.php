@@ -40,7 +40,8 @@
 
             <div class="c-store__card">
                 <a href={{ route('store/index', ['id' => $ticket->store->id]) }}>
-                    <p class="c-store__card-img"><img src={{ $ticket->coupon->coupon_photo }} alt="クーポン"></p>
+                    <p class="c-store__card-img"><img src="/upload/{{ $ticket->coupon->coupon_photo }}"
+                            alt="クーポン"></p>
                     <div class="c-store__card-desc">
                         <h3>{{ $ticket->store->store_name }}</h3>
                         <p>{{ $ticket->store->address }}</p>
