@@ -26,21 +26,6 @@ class CouponController extends Controller
 
     public function show()
     {
-        // $stores = DB::table('stores')->get();
-        // return view('coupon.index', compact('stores'));
-        // $id=Auth::id();
-        // $tickets=Ticket::where('user_id','=',$id)->get();
-         // dd($tickets);
-        // foreach($tickets as $ticket){
-        // $get_date=\Carbon\Carbon::now()->format('Y/m/d H:i:s');
-        // $first = new Carbon( $ticket->term_of_use);
-        // $second = new Carbon( $get_date);
-        // $sabun= $first->diffInHours($second); 
-        // if($sabun<=3){
-        // $id=Auth::id();
-        // $tickets = Ticket::where('user_id', '=', '1')->get();
-        // return view('coupon.index', ['tickets' => $tickets]);
-
         $id = Auth::id();
         $cond = ['user_id' => $id, 'flg' => 0];
         $tickets = Ticket::where($cond)->get();
@@ -64,7 +49,6 @@ class CouponController extends Controller
 
     public function used()
     {
-        // $tickets = Ticket::where('user_id', '=', '3')->get();
         $id = Auth::id();
         $cond = ['user_id' => $id, 'flg' => 1];
         $tickets = Ticket::where($cond)->get();
@@ -75,7 +59,6 @@ class CouponController extends Controller
 
     public function store($id)
     {
-        //$items = Store::where('id', '=', $id)->get();
         $userid = Auth::id();
         $items = DB::table('stores')->find($id);
         $gets = Get::where('user_id', '=', $userid)->get();
@@ -86,8 +69,6 @@ class CouponController extends Controller
     public function view($store_id, $ticket_id)
     {
         $id = Auth::id();
-        // $items=['store_id'=>$store_id,'id'=>$id];
-        // dd($items);
         Ticket::where('id', '=', $ticket_id)->update([
             'flg' => '1'
         ]);
@@ -116,16 +97,8 @@ class CouponController extends Controller
         $review->star = $request->rate;
         $review->ticket_id = $request->ticket_id;
         $review->goodnum = 0;
-        // $review->reviewflg=1;
         $review->save();
 
-        // $cond=['user_id' => $request->user_id, 'store_id' =>$request->store_id];
-
-        // Ticket::where()->update([
-        //     'review_id'=>$review->id
-        // ]);
-        // $cond=['review_id'=>$review->id];
-        // // dd($cond);
         $ticket_id = $request->ticket_id;
         Ticket::where('id', '=', $ticket_id)->update([
             'reviewflg' => '1'
@@ -136,10 +109,7 @@ class CouponController extends Controller
         $reviews = DB::table('tickets')
             ->where($cond)
             ->count();
-        // dd($reviews);
-        // $item=['reviews'=>$reviews];
-        // return redirect()->action('CouponController@used');
-
+      
         switch ($reviews) {
             case 1:
                 $id = Auth::id();
@@ -149,12 +119,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 5:
                 $id = Auth::id();
@@ -164,12 +128,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 10:
                 $id = Auth::id();
@@ -179,12 +137,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 50:
                 $id = Auth::id();
@@ -194,12 +146,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
         }
 
@@ -218,7 +164,6 @@ class CouponController extends Controller
         $tickets = DB::table('tickets')
             ->where($cond)
             ->count();
-        // dd($tickets);
         switch ($tickets) {
             case 3:
                 $id = Auth::id();
@@ -228,13 +173,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 5:
                 $id = Auth::id();
@@ -244,12 +182,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 10:
                 $id = Auth::id();
@@ -259,12 +191,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 50:
                 $id = Auth::id();
@@ -274,12 +200,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
         }
         return redirect('coupon/used');
@@ -300,9 +220,7 @@ class CouponController extends Controller
 
          // 提供数判定
          $coupon=Coupon::find($ticket->coupon_id);
-         // dd($coupon->id);
          $ticket=Ticket::where('coupon_id','=',$coupon->id)->count();
-         // dd($ticket);
         if($coupon->provide<=$ticket){
          Coupon::where('id','=',$coupon->id)->update([
              'provideflg'=>1,
@@ -325,12 +243,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 20:
                 $id = Auth::id();
@@ -340,12 +252,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 50:
                 $id = Auth::id();
@@ -355,12 +261,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
             case 100:
                 $id = Auth::id();
@@ -370,12 +270,6 @@ class CouponController extends Controller
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->	alert_id = 2;
-                // $notice->notice=\Carbon\Carbon::today();
-                // $notice->flg=0;
-                // $notice->save();
                 break;
         }
         return redirect()->action('CouponController@show');
@@ -395,9 +289,7 @@ class CouponController extends Controller
 
          // 提供数判定
          $coupon=Coupon::find($ticket->coupon_id);
-         // dd($coupon->id);
          $ticket=Ticket::where('coupon_id','=',$coupon->id)->count();
-         // dd($ticket);
         if($coupon->provide<=$ticket){
          Coupon::where('id','=',$coupon->id)->update([
              'provideflg'=>1,

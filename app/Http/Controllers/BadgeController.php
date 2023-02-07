@@ -12,7 +12,6 @@ class BadgeController extends Controller
 {
     public function see()
     {
-        // $gets=Get::orderBy('get_date')->get();
         $id = Auth::id();
         $badges = Get::where('user_id', '=', $id)->get();
         $gets = Get::where('user_id', '=', $id)->get();

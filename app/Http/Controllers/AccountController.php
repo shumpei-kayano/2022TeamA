@@ -42,34 +42,12 @@ class AccountController extends Controller
         }
     
     public function edit($id){
-        // return view('review.edit');
-        // $reviews =  DB::table('reviews')->find($id);
         $reviews=Review::where('id','=',$id)->get();
         $userid = Auth::id();
         $gets = Get::where('user_id', '=', $userid)->get();
         return view('review.edit', ['reviews' => $reviews,'gets'=>$gets]);
     }
     public function edited(Request $request){
-        //  //バリデーション
-        //  $validator = Validator::make($request->all(), Review::$rules);
-        //  //バリデーション:エラー
-        //  if ($validator->fails()) {
-        //      return redirect('/')
-        //          ->withInput()
-        //          ->withErrors($validator);
-        //  }
-        //  Review::reviewUpdate($request);
-        //  return redirect('/');
-        // $reviw->fill($request->all())->save();
-        // $review=new review;
-        // $review->user_id=3;
-        // $review->visited=$request->visited;
-        // $review->comment=$request->review;
-        // $review->store_id=$request->store_id;
-        // $review->posted_date=$request->posted_date;
-        // $review->star=$request->manzoku;
-        // $review->save();
-
         Review::where('id','=',$request->id)->update([
         'user_id'=>$request->user_id,
         'visited'=>$request->visited,
@@ -84,7 +62,6 @@ class AccountController extends Controller
     public function show(){
         $id=Auth::id();
         $goods=Good::where('user_id','=',$id)->get();
-        // dd($goods);
         $userid = Auth::id();
         $gets = Get::where('user_id', '=', $userid)->get();
         return view('review.good',['goods'=>$goods,'gets'=>$gets]);
@@ -120,7 +97,6 @@ class AccountController extends Controller
         $this -> validate($request, $validate_rule);
         $id=Auth::id();
         $file=$request->file('example');
-        // dd($file);
             if(!empty($file)){
                 $filename=$file->getClientOriginalName();
                 $move=$file->move('./upload/',$filename);

@@ -24,8 +24,6 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         if (false !== strpos($area, "oita")) {
-            // couponテーブルからprovideflgが0のやつvalue('store_id')する
-            // storeテーブルwhere(id=store_idかつarea_id=1)->count()これがいまでいう$area
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
            foreach($coupons as $coupon){
@@ -33,7 +31,6 @@ class GachaController extends Controller
             $area=Store::where($cond)->count();
             $count+=$area;
            }
-            // $area=Store::select('areanum')->where('area_id','=','1')->count();
             $ransu = mt_rand(1,$count);
             $cond=['area_id'=>'1','areanum'=>$ransu];
             $store=Store::where($cond)->value('id');
@@ -49,7 +46,6 @@ class GachaController extends Controller
             $area=Store::where($cond)->count();
             $count+=$area;
            }
-            // $area=Store::select('areanum')->where('area_id','=','2')->count();
             $ransu = mt_rand(1,$count);
             $cond=['area_id'=>'2','areanum'=>$ransu];
             $store=Store::where($cond)->value('id');
@@ -112,7 +108,6 @@ if ($request->session()->get('current_area')=='oita') {
             $hour=floor($sabun/60);
             $hours=number_format($hour,0);
             $minutes=$sabun%60;
-            // dd($hours,$minutes);
           
             return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes]);
         }elseif($areaid==2) {
@@ -130,7 +125,6 @@ if ($request->session()->get('current_area')=='oita') {
         }
             } else {
             // ガチャを回せる
-            // dd('はずれ');
             return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
 
         }
@@ -168,9 +162,9 @@ if ($request->session()->get('current_area')=='oita') {
 
         // 提供数判定
         $coupon=Coupon::find($ticket->coupon_id);
-        // dd($coupon->id);
+        
         $ticket=Ticket::where('coupon_id','=',$coupon->id)->count();
-        // dd($ticket);
+        
        if($coupon->provide<=$ticket){
         Coupon::where('id','=',$coupon->id)->update([
             'provideflg'=>1,
@@ -183,9 +177,7 @@ if ($request->session()->get('current_area')=='oita') {
         $tickets = DB::table('tickets')
             ->where($cond)
             ->count();
-        // dd($reviews);
-        // $item=['reviews'=>$reviews];
-        // return redirect()->action('CouponController@used');
+       
 
         switch ($tickets) {
             case 5:
@@ -196,12 +188,6 @@ if ($request->session()->get('current_area')=='oita') {
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->alert_id = 2;
-                // $notice->notice = \Carbon\Carbon::today();
-                // $notice->flg = 0;
-                // $notice->save();
                 break;
             case 20:
                 $id = Auth::id();
@@ -211,12 +197,6 @@ if ($request->session()->get('current_area')=='oita') {
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->alert_id = 2;
-                // $notice->notice = \Carbon\Carbon::today();
-                // $notice->flg = 0;
-                // $notice->save();
                 break;
             case 50:
                 $id = Auth::id();
@@ -226,12 +206,6 @@ if ($request->session()->get('current_area')=='oita') {
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->alert_id = 2;
-                // $notice->notice = \Carbon\Carbon::today();
-                // $notice->flg = 0;
-                // $notice->save();
                 break;
             case 100:
                 $id = Auth::id();
@@ -241,12 +215,6 @@ if ($request->session()->get('current_area')=='oita') {
                 $get->get_date = \Carbon\Carbon::today();
                 $get->getflg = 0;
                 $get->save();
-                // $notice = new Notice;
-                // $notice->user_id = $id;
-                // $notice->alert_id = 2;
-                // $notice->notice = \Carbon\Carbon::today();
-                // $notice->flg = 0;
-                // $notice->save();
                 break;
         }
         return redirect()->action('PersonController@create');
