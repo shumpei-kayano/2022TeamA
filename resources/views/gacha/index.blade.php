@@ -28,20 +28,8 @@
 @endif
 <div class="c-container u-padding-top--0">
     <div class="p-gacha-top">
-        @if ($gatya_flg == 1)
-            <div class="p-gacha__message">
-                <p>ガチャ回数制限オーバー</p>
-                <p><small>このエリアでは{{ $hours }}時間{{ $minutes }}分後に引けます。</small></p>
-            </div>
-            <div id="googleMap" class="p-gacha__map">
-            </div>
-            <div class="p-gacha__handle p-gacha__handle--slideup">
-                <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
-                <p class="p-gacha__mawasu"><img src="/images/turn.png" alt="ガチャ回す">
-                </p>
-            </div>
-        @else
-            <div class="p-gacha__message">
+        @if ($gatya_flg == 0)
+            <div id="a" class="p-gacha__message">
                 <p>このエリア<small>（ {{ Session::get('current_area') }}
                         ）</small>のクーポン数：{{ Session::get('area_count') }}</p>
             </div>
@@ -54,6 +42,23 @@
                             alt="ガチャ回す"></a>
                 </p>
             </div>
+        @elseif($gatya_flg == 1)
+            <div class="p-gacha__message">
+                <p>ガチャ回数制限オーバー</p>
+                <p><small>このエリアでは{{ $hours }}時間{{ $minutes }}分後に引けます。</small></p>
+            </div>
+            <div id="googleMap" class="p-gacha__map">
+            </div>
+            <div class="p-gacha__handle p-gacha__handle--slideup">
+                <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
+                <p class="p-gacha__mawasu"><img src="/images/turn.png" alt="ガチャ回す">
+                </p>
+            </div>
+            {{--  @elseif($gatya_flg == 2)
+            <div id="a" class="p-gacha__message">
+                <p>エリア外です</p>
+                <p><small>エリア内に入ってください</small></p>
+            </div>  --}}
         @endif
         {{--  <button id="btn-close" type="submit" class="c-btn c-btn--navy u-margin-top--0">制限オーバー</button>  --}}
 
@@ -78,6 +83,8 @@
             <ul>
                 <input type="submit" value="鉄輪" id="go-kannawa" name="beppu">
                 <input type="submit" value="大原周辺" id="go-ohara" name="oita">
+                <input type="hidden" value="lat" id="lat">
+                <input type="hidden" value="lng" id="lng">
             </ul>
         </form>
 
@@ -90,9 +97,16 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&libraries=geometry"
     async defer></script>
-
 <script>
+    //DBから緯度経度とってくる(緯度は横。経度は縦。)
+    //if文で大分鉄輪分けてwhereで大分鉄輪を取得する
+    //successの上にlatlngを定義する（別府は直打ち）
+
     function success(pos) {
+        /* 現在地の緯度経度 */
+        var lat = 33.315699;
+        var lng = 131.476847;
+
         var map;
         var marker;
         var polygonObj;
@@ -100,52 +114,52 @@
         var exPos;
         var oharaPos;
         var oharaArea = [{
-                lat: 33.23498,
-                lng: 131.60622
+                //左上の緯度・経度
+                lat: {{ $arealatlng->left_top_ido }},
+                lng: {{ $arealatlng->left_top_keido }}
             },
             {
-                lat: 33.23334,
-                lng: 131.60942
+                //右上の緯度・経度
+                lat: {{ $arealatlng->right_top_ido }},
+                lng: {{ $arealatlng->right_top_keido }}
             },
             {
-                lat: 33.2307,
-                lng: 131.60731
+                //右下の緯度・経度
+                lat: {{ $arealatlng->right_bottom_ido }},
+                lng: {{ $arealatlng->right_bottom_keido }}
             },
             {
-                lat: 33.23227,
-                lng: 131.6045
+                //左下の緯度・経度
+                lat: {{ $arealatlng->left_bottom_ido }},
+                lng: {{ $arealatlng->left_bottom_keido }}
             }
         ];
         var kannawaPos;
         var kannawaArea = [{
-                lat: 33.31615,
-                lng: 131.4758
+                lat: {{ $arealatlng->left_top_ido }},
+                lng: {{ $arealatlng->left_top_keido }}
             },
             {
-                lat: 33.31619,
-                lng: 131.47793
+                lat: {{ $arealatlng->right_top_ido }},
+                lng: {{ $arealatlng->right_top_keido }}
             },
             {
-                lat: 33.31534,
-                lng: 131.47773
+                lat: {{ $arealatlng->right_bottom_ido }},
+                lng: {{ $arealatlng->right_bottom_keido }}
             },
             {
-                lat: 33.31534,
-                lng: 131.47559
+                lat: {{ $arealatlng->left_bottom_ido }},
+                lng: {{ $arealatlng->left_bottom_keido }}
             }
         ];
 
         //大原に移動
         function ohara() {
-            //大原周辺
-            /* var lat = pos.coords.latitude;
-            var lng = pos.coords.longitude; */
-            /* ↑現在地を取得する場合はこっち */
-            var lat = 33.231344;
-            var lng = 131.606886;
+            /*var lat = 33.231344;
+            var lng = 131.606886; */
             var latlng = new google.maps.LatLng(lat, lng);
             oharaPos = latlng;
-            //
+
             var options = {
                 zoom: 17,
                 center: latlng,
@@ -164,14 +178,28 @@
             });
             addMarker(latlng);
             document.getElementById("latlng").innerHTML = latlng;
+
+            //エリア内判定
+            if (lat >= {{ $arealatlng->left_bottom_ido }} &&
+                lat <= {{ $arealatlng->right_top_ido }} &&
+                lng >= {{ $arealatlng->left_bottom_keido }} &&
+                lng <= {{ $arealatlng->right_bottom_keido }}) {
+
+            } else {
+
+                let text = document.getElementById('a').innerHTML;
+                document.getElementById('a').innerHTML = ' <p>エリア内に入ってください</p>';
+
+            }
+
             return false;
         }
         //鉄輪に移動
         function kannawa() {
             //鉄輪
-            var lat = 33.315699;
-            var lng = 131.476847;
-            var latlng = new google.maps.LatLng(lat, lng);
+            var lat2 = 33.315699;
+            var lng2 = 131.476847;
+            var latlng = new google.maps.LatLng(lat2, lng2);
             kannawaPos = latlng;
 
             //
@@ -193,6 +221,18 @@
             });
             addMarker(latlng);
             document.getElementById("latlng").innerHTML = latlng;
+
+            //エリア内判定
+            if (lat2 >= {{ $arealatlng->left_bottom_ido }} &&
+                lat2 <= {{ $arealatlng->right_top_ido }} &&
+                lng2 >= {{ $arealatlng->left_bottom_keido }} &&
+                lng2 <= {{ $arealatlng->right_bottom_keido }}) {
+
+            } else {
+                var p_element = document.getElementById("a");
+                document.write(p_element.textContent);
+
+            }
             return false;
         }
 
@@ -216,6 +256,7 @@
         alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
     }
 
+    {{--  端末現在位置の取得  --}}
     navigator.geolocation.getCurrentPosition(success, fail);
 
     {{--  ガチャ制限  --}}

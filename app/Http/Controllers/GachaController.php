@@ -7,6 +7,7 @@ use App\Ticket;
 use App\Coupon;
 use App\Get;
 use App\Ball;
+use App\Area;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,25 +76,30 @@ class GachaController extends Controller
     //    dd($request->session()->current_area);
     
         // 存在チェック
-        if ($request->session()->has('current_area')) {
-            //
-        } else {
-            $request->session()->put('current_area', 'oita');
-            $request->session()->put('area_count', '13');
+        // if ($request->session()->has('current_area')) {
+        //     //
+        // } else {
+        //     $request->session()->put('current_area', 'oita');
+        //     $request->session()->put('area_count', '13');
             
+        // }
+        // dd($request->lat);
+
+        //ポリゴン用のデータ取得
+        if($request->session()->get('current_area')=='oita'){
+            $arealatlng=Area::find(1);
+        }else{
+            $arealatlng=Area::find(2);
         }
-        
+        // エリア内判定
         $id = Auth::id();
         $gets = Get::where('user_id', '=', $id)->get();
 
-        
-if ($request->session()->get('current_area')=='oita') {
-    $area=1;
-    }else{
-        $area=2;
-    }
-
-
+        if ($request->session()->get('current_area')=='oita') {
+            $area=1;
+            }else{
+                $area=2;
+            }
     $cond = ['user_id' => $id,'area_id'=>$area];
     $ticket=Ticket::where($cond)->latest('updated_at')->first();
     if(!empty($ticket)){
@@ -109,7 +115,7 @@ if ($request->session()->get('current_area')=='oita') {
             $hours=number_format($hour,0);
             $minutes=$sabun%60;
           
-            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes]);
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes,'arealatlng'=>$arealatlng]);
         }elseif($areaid==2) {
              // ガチャを回せない
              $use = new Carbon( $ticket->term_of_use);
@@ -118,30 +124,32 @@ if ($request->session()->get('current_area')=='oita') {
             $hour=floor($sabun/60);
             $hours=number_format($hour,0);
             $minutes=$sabun%60;
-                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes]);
+                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes,'arealatlng'=>$arealatlng]);
         }else{
             // ガチャを回せる
-            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0,'arealatlng'=>$arealatlng]);
         }
             } else {
             // ガチャを回せる
-            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
+            return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0,'arealatlng'=>$arealatlng]);
 
         }
     }else{
-        return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0]);
+        return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0,'arealatlng'=>$arealatlng]);
     }
 
     }
     public function change_area(Request $request)
     {
-       
+    //    エリアごとのクーポン数取得。13のとこに変数埋め込む
+    $store1=Store::where('area_id','=','1')->count();
+    $store2=Store::where('area_id','=','2')->count();
         if ($request->has('oita')) {
             $request->session()->put('current_area', 'oita');
-            $request->session()->put('area_count', '13');
+            $request->session()->put('area_count', $store1);
         } elseif ($request->has('beppu')) {
             $request->session()->put('current_area', 'beppu');
-            $request->session()->put('area_count', '10');
+            $request->session()->put('area_count', $store2);
         }
 
         return redirect('gacha/index');

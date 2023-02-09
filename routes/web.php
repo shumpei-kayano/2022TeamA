@@ -106,6 +106,9 @@ Route::get('gacha/index', 'GachaController@show')->name('gacha/index')->middlewa
 
 Route::post('gacha/index', 'GachaController@change_area');
 
+Route::post('/gacha/latlng','GachaController@show')->name('/gacha/latlng')->middleware('auth');
+
+
 
 
 //ガチャ演出
