@@ -38,8 +38,8 @@
             <div class="p-gacha__handle p-gacha__handle--slideup">
                 <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
 
-                <p class="p-gacha__mawasu"><a href="{{ route('gacha/staging') }}"><img src="/images/turn.png"
-                            alt="ガチャ回す"></a>
+                <p id="b"class="p-gacha__mawasu"><a href="{{ route('gacha/staging') }}"><img
+                            src="/images/turn.png" alt="ガチャ回す"></a>
                 </p>
             </div>
         @elseif($gatya_flg == 1)
@@ -104,8 +104,8 @@
 
     function success(pos) {
         /* 現在地の緯度経度 */
-        var lat = 33.315699;
-        var lng = 131.476847;
+        var lat = pos.coords.latitude;
+        var lng = pos.coords.longitude;
 
         var map;
         var marker;
@@ -189,7 +189,8 @@
 
                 let text = document.getElementById('a').innerHTML;
                 document.getElementById('a').innerHTML = ' <p>エリア内に入ってください</p>';
-
+                {{--  let text = document.getElementById('b').innerHTML;
+                document.getElementById('b').innerHTML = ' <img src="/images/turn.png" alt="ガチャ回す">';  --}}
             }
 
             return false;
@@ -229,8 +230,8 @@
                 lng2 <= {{ $arealatlng->right_bottom_keido }}) {
 
             } else {
-                var p_element = document.getElementById("a");
-                document.write(p_element.textContent);
+                let text = document.getElementById('a').innerHTML;
+                document.getElementById('a').innerHTML = ' <p>エリア内に入ってください</p>';
 
             }
             return false;

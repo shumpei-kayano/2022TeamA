@@ -6,6 +6,7 @@ use App\Store;
 use App\Ticket;
 use App\Review;
 use App\Get;
+use App\Coupon;
 use App\Notice;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
