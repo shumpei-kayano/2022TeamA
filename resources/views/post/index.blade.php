@@ -50,7 +50,7 @@
                     <label for="star3">★</label>
                     <input id="star2" type="radio" name="rate" value="2">
                     <label for="star2">★</label>
-                    <input id="star1" type="radio" name="rate" value="1">
+                    <input id="star1" type="radio" name="rate" value="1" required="required">
                     <label for="star1">★</label>
                 </div>
             </div>
@@ -58,11 +58,11 @@
         <section class="c-store__section--edit">
             <div class="c-form__group">
                 <p class="c-store__item">クチコミ</p>
-                <textarea rows="10" cols="33" name="review"></textarea>
+                <textarea rows="10" cols="33" name="review" required="required"></textarea>
             </div>
             <div class="c-form__group">
                 <p class="c-store__item">訪問日</p>
-                <input type="date" name="visited">
+                <input type="date" required="required" name="visited">
             </div>
             <input type="hidden" name="store_id" value="{{ $store_id }}">
             <input type="hidden" name="user_id" value="{{ $id }}">
