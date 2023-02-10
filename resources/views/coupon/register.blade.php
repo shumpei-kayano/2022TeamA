@@ -39,10 +39,11 @@
                     <div class="c-form--admin">
 
                         <div class="c-form__group">
-                            <label for="">クーポン名</label><input type="text" name="coupon_name">
+                            <label for="">クーポン名</label><input type="text" name="coupon_name"
+                                required="required">
                         </div>
                         <div class="c-form__group">
-                            <label for="">提供数</label><input type="text" name="provide">
+                            <label for="">提供数</label><input type="text" name="provide" required="required">
                         </div>
 
 
@@ -50,7 +51,8 @@
                         <div class="p-admin__photo">
                             <div id="preview">
                                 <div class="c-form__group">
-                                    <input type="file" name="example" onChange="imgPreView(event)">
+                                    <input type="file" name="example" onChange="imgPreView(event)"
+                                        required="required">
                                 </div>
                             </div>
                         </div>
@@ -67,7 +69,7 @@
                         <label for="">掲載終了日時</label>
 
                         <input type="date" id="start" name="closetime" value="2022-11-01" min="2022-11-01"
-                            max="2023-03-31">
+                            max="2023-03-31" required="required">
                     </div>
 
 

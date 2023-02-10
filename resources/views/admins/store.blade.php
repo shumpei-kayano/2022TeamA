@@ -12,9 +12,7 @@
     <div class="p-admin__header">
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
-            @foreach ($stores as $store)
-                <p>{{ $store->store_name }}</p>
-            @endforeach
+            <p>{{ $stores->store_name }}</p>
             <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>
@@ -52,98 +50,101 @@
 
                 <form enctype="multipart/form-data" action="/store/storeupdate" method="POST" class="c-form">
                     @csrf
-                    @foreach ($stores as $store)
-                        <div class="c-form--admin">
-                            <div class="c-form__group">
-                                <label for="">店舗名</label><input value={{ $store->store_name }} type="text"
-                                    name="store_name">
-                            </div>
-                            <div class="c-form__group">
-                                <label for="">住所</label><input value={{ $store->address }} type="text"
-                                    name="address">
-                            </div>
-                            <div class="p-admin__map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?q={{ $store->latitude }},{{ $store->longitude }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
-                                    width="360" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                            <div class="c-form__group">
-                                <label for="">電話番号</label><input value={{ $store->tel }} type="text"
-                                    name="tel">
-                            </div>
-                            <div class="c-form__group">
-                                <label for="">ホームページ</label><input value={{ $store->link }} type="text"
-                                    name="link">
-                            </div>
-                            <div class="c-form__group">
-                                <label for=" ">サービス内容</label>
-                                <textarea id="servicecontent" name="service" rows="5" cols="33">{{ $store->service }}</textarea>
 
-                            </div>
-                            <label for="">写真</label>
-                            <div class="p-admin__photo">
-                                <div id="preview">
-                                    <div class="c-form__group">
-                                        <input type="file" name="example" onChange="imgPreView(event)">
-                                    </div>
-                                </div>
-                                <div id="preview1">
-                                    <div class="c-form__group">
-                                        <input type="file" name="example1" onChange="imgPreView1(event)">
-                                    </div>
-                                </div>
-                                <div id="preview2">
-                                    <div class="c-form__group">
-                                        <input type="file" name="example2" onChange="imgPreView2(event)">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="p-admin__time">
-                                <div class="c-form__group--time">
-                                    <label for="">営業開始時間</label><input value={{ $store->start_time }}
-                                        type="text" name="start_time">
-                                    <div class="c-form__group--time">
-                                        <label for="">営業終了時間</label><input value={{ $store->end_time }}
-                                            type="text" name="end_time">
-                                    </div>
-                                </div>
-                                <div class="c-form__group">
-                                    <label for="">駐車場</label><input value={{ $store->parking }} type="text"
-                                        name="parking">
-                                </div>
-                                <div class="c-form__group">
-                                    <label>エリア名選択
-                                        {{--  <span class="req">※</span>  --}}
-                                    </label>
-                                    <select name="op">
-                                        <option value="-----------">
-                                            ---------------------------------------------------------</option>
-
-                                        <option value="1">大原周辺</option>
-                                        <option value="2">鉄輪</option>
-                                        {{--  データベースから引っ張ってくる  --}}
-                                    </select>
-                                </div>
-                            </div>
-                            <input type="hidden" name="id" value="{{ $store->id }}">
-                            <input type="hidden" name="area_id" value="{{ $store->area_id }}">
-                            <input type="hidden" name="perfecture_id" value="{{ $store->perfecture_id }}">
-                            <input type="hidden" name="latitude" value="{{ $store->latitude }}">
-                            <input type="hidden" name="longitude" value="{{ $store->longitude }}">
-                            <input type="hidden" name="review_count" value="{{ $store->review_count }}">
-                            <input type="hidden" name="star" value="{{ $store->star }}">
-                            <input type="hidden" name="related1" value="{{ $store->related1 }}">
-                            <input type="hidden" name="related2" value="{{ $store->related2 }}">
-                            <input type="hidden" name="related3" value="{{ $store->related3 }}">
-                            <input type="hidden" name="picture1" value="{{ $store->picture1 }}">
-                            <input type="hidden" name="picture2" value="{{ $store->picture2 }}">
-                            <input type="hidden" name="picture3" value="{{ $store->picture3 }}">
-                            <button type="submit" class="c-btn c-btn--update c-btn--navy">更新する</button>
+                    <div class="c-form--admin">
+                        <div class="c-form__group">
+                            <label for="">店舗名</label><input value={{ $stores->store_name }} type="text"
+                                name="store_name" required="required">
                         </div>
+                        <div class="c-form__group">
+                            <label for="">住所</label><input value={{ $stores->address }} type="text"
+                                name="address" required="required">
+                        </div>
+                        <div class="p-admin__map">
+                            <iframe
+                                src="https://www.google.com/maps/embed/v1/place?q={{ $stores->latitude }},{{ $stores->longitude }}&key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&zoom=15"
+                                width="360" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="c-form__group">
+                            <label for="">電話番号</label><input value={{ $stores->tel }} type="text"
+                                name="tel" required="required">
+                        </div>
+                        <div class="c-form__group">
+                            <label for="">ホームページ</label><input value={{ $stores->link }} type="text"
+                                name="link" required="required">
+                        </div>
+                        <div class="c-form__group">
+                            <label for=" ">サービス内容</label>
+                            <textarea id="servicecontent" name="service" rows="5" cols="33" required="required">{{ $stores->service }}</textarea>
+
+                        </div>
+                        <label for="">写真</label>
+                        <div class="p-admin__photo">
+                            <div id="preview">
+                                <div class="c-form__group">
+                                    <input type="file" name="example" onChange="imgPreView(event)"
+                                        required="required">
+                                </div>
+                            </div>
+                            <div id="preview1">
+                                <div class="c-form__group">
+                                    <input type="file" name="example1" onChange="imgPreView1(event)"
+                                        required="required">
+                                </div>
+                            </div>
+                            <div id="preview2">
+                                <div class="c-form__group">
+                                    <input type="file" name="example2" onChange="imgPreView2(event)"
+                                        required="required">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-admin__time">
+                            <div class="c-form__group--time">
+                                <label for="">営業開始時間</label><input value={{ $stores->start_time }}
+                                    type="text" name="start_time" required="required">
+                                <div class="c-form__group--time">
+                                    <label for="">営業終了時間</label><input value={{ $stores->end_time }}
+                                        type="text" name="end_time" required="required">
+                                </div>
+                            </div>
+                            <div class="c-form__group">
+                                <label for="">駐車場</label><input value={{ $stores->parking }} type="text"
+                                    name="parking" required="required">
+                            </div>
+                            <div class="c-form__group">
+                                <label>エリア名選択
+                                    {{--  <span class="req">※</span>  --}}
+                                </label>
+                                <select name="op">
+                                    <option>
+                                        ---------------------------------------------------------</option>
+
+                                    <option value="1" required="required">大原周辺</option>
+                                    <option value="2" required="required">鉄輪</option>
+                                    {{--  データベースから引っ張ってくる  --}}
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" value="{{ $stores->id }}">
+                        <input type="hidden" name="area_id" value="{{ $stores->area_id }}">
+                        <input type="hidden" name="perfecture_id" value="{{ $stores->perfecture_id }}">
+                        <input type="hidden" name="latitude" value="{{ $stores->latitude }}">
+                        <input type="hidden" name="longitude" value="{{ $stores->longitude }}">
+                        <input type="hidden" name="review_count" value="{{ $stores->review_count }}">
+                        <input type="hidden" name="star" value="{{ $stores->star }}">
+                        <input type="hidden" name="related1" value="{{ $stores->related1 }}">
+                        <input type="hidden" name="related2" value="{{ $stores->related2 }}">
+                        <input type="hidden" name="related3" value="{{ $stores->related3 }}">
+                        <input type="hidden" name="picture1" value="{{ $stores->picture1 }}">
+                        <input type="hidden" name="picture2" value="{{ $stores->picture2 }}">
+                        <input type="hidden" name="picture3" value="{{ $stores->picture3 }}">
+                        <button type="submit" class="c-btn c-btn--update c-btn--navy">更新する</button>
+                    </div>
             </div>
-            @endforeach
+
             </form>
 
         </div>

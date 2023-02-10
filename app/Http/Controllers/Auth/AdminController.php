@@ -149,11 +149,22 @@ class AdminController extends Controller
         return view('store.admin');
     }
     public function update(){
-        $reviews = Review::selectRaw('round(AVG(star)) as count_review')
-        ->get();
         $id=Auth::id();
-        $store=Admin::select('store_id')->where('id','=',$id)->get();
+        $store=Admin::select('store_id')->where('id','=',$id)->value('store_id');
+        // dd($store);
+        // dd($store);
+        // $reviews = Review::where('store_id','=',$store)->selectRaw('round(AVG(star)) as count_review')->get();
+        $reviews = DB::table('reviews')
+        ->select('store_id',DB::raw('round(AVG(star)) as count_review'))
+        ->groupBy('store_id')
+        ->having('store_id','=',$store)
+        ->get();
+    //  dd($reviews);
+        // $star=Review::select('star')->where('store_id','=',$store)->get();
+        // $starnum=Review::where('store_id','=',$store)->count();
+        // $reviews=$star/$starnum;
         $stores=Store::find($store);
+        // dd($stores);
         $test=['reviews'=>$reviews,'stores'=>$stores];
         return view('admins.store',$test); 
     }
