@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ガチャ画面</title>
     <link href="/css/app.css" rel="stylesheet">
 </head>
 
@@ -189,8 +190,6 @@
 
                 let text = document.getElementById('a').innerHTML;
                 document.getElementById('a').innerHTML = ' <p>エリア内に入ってください</p>';
-                {{--  let text = document.getElementById('b').innerHTML;
-                document.getElementById('b').innerHTML = ' <img src="/images/turn.png" alt="ガチャ回す">';  --}}
             }
 
             return false;

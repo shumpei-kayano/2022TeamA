@@ -25,15 +25,17 @@ class PersonController extends Controller
     {
         return view('auth.register');
     }
-    public function create()
+    public function create(Request $request)
     {
         $id = Auth::id();
         $reviews = Review::orderBy('id', 'desc')->get();
-
         $goods = Good::orderBy('review_id', 'desc')->where('user_id', '=', $id)->get();
         $gets = Get::where('user_id', '=', $id)->get();
         $cond = ['user_id' => $id];
         $cond = ['reviews' => $reviews, 'id' => $id, 'goods' => $goods, 'gets' => $gets];
+        $request->session()->put('current_area', 'oita');
+        $store1=Store::where('area_id','=','1')->count();
+        $request->session()->put('area_count', $store1);
         return view('person.index', $cond);
     }
     public function home()
