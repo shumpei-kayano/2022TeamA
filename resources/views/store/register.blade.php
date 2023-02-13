@@ -36,7 +36,7 @@
                     @csrf
                     <div class="c-form--admin">
                         <div class="c-form__group">
-                            <label for="">店舗名</label><input type="text" name="store_name"
+                            <label for="">店舗名</label><input type="text" name="store_name" id="store_name"
                                 required="required">
                         </div>
                         <div class="c-form__group">
@@ -104,6 +104,10 @@
                             <label for="">都道府県コード</label><input type="text" name="perfecture_id"
                                 required="required">
                         </div>
+
+                        <a class="c-btn c-btn--small c-btn--navy" id="store_latlng"
+                            href="https://www.google.com/maps/place" target="_blank">緯度・経度を調べる</a>
+
                         <div class="c-form__group">
                             <label for="">緯度</label><input type="text" name="latitude"
                                 required="required">
@@ -185,6 +189,13 @@
         };
 
         reader.readAsDataURL(file);
+    }
+    let store_name = document.getElementById('store_name');
+    store_name.addEventListener('change', inputChange);
+
+    function inputChange(event) {
+        document.getElementById("store_latlng").setAttribute("href", "https://www.google.com/maps/place/" +
+            store_name.value);
     }
 </script>
 
