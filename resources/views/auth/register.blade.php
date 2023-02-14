@@ -23,11 +23,13 @@
                 <div class="card">
                     <div class="p-add__text">全ての項目を入力して、会員登録を行って下さい</div>
 
-
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" class="c-form">
+                        <form enctype="multipart/form-data" method="POST" action="{{ route('userRegister') }}"
+                            class="c-form">
                             @csrf
-
+                            <div class="p-account__top--set">
+                                <p class="p-account__phot--set"><input type="file" name="example"></p>
+                            </div>
                             <div class="form-group row">
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>

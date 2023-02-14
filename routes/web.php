@@ -24,6 +24,7 @@ Route::get('login', 'PersonController@out')->name('login');
 
 //新規登録
 Route::get('register', 'PersonController@add');
+Route::POST('userRegister', 'PersonController@userRegister')->name('userRegister');
 
 //パスワード
 Route::get('/password/change', 'Auth\ChangePasswordController@edit');

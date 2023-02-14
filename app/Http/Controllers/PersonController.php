@@ -13,6 +13,7 @@ use App\Get;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PersonController extends Controller
 {
@@ -101,5 +102,24 @@ class PersonController extends Controller
     public function see()
     {
         return view('person.index');
+    }
+
+    public function userRegister(Request $request)
+    {
+        // dd($request);
+        $file=$request->file('example');
+            if(!empty($file)){
+                $filename=$file->getClientOriginalName();
+                $move=$file->move('./upload/',$filename);
+            }else{
+                $filename="";
+            }
+            $user = new user;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->icon_photo = $filename;
+            $user->save();
+        return redirect('/login');
     }
 }
