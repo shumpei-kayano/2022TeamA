@@ -30,6 +30,8 @@ Route::POST('userRegister', 'PersonController@userRegister')->name('userRegister
 Route::get('/password/change', 'Auth\ChangePasswordController@edit');
 Route::patch('/password/change', 'Auth\ChangePasswordController@update')->name('password.change');
 
+Route::get('userlogout', 'AccountController@userlogout')->name('userlogout');
+
 //ホーム
 // Route::POST('person/index', 'PersonController@create')->name('person/index');
 

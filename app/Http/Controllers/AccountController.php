@@ -111,4 +111,9 @@ class AccountController extends Controller
         ]);
          return redirect()->route('account/index');
     }
+    public function userlogout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
