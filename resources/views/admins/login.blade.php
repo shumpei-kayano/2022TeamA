@@ -67,6 +67,9 @@
                 <p class="p-welcome__sineup">{{ __('パスワードを忘れた方はこちら') }}</p>
             </a>
         </div>
+        <a href="{{ route('login') }}">
+            <p class="p-welcome__sineup">{{ __('ユーザーの方はこちら') }}</p>
+        </a>
         {{--  <div class="c-form__group c-form__group--a">
             <a href="{{ route('register') }}">
                 <p class="p-welcome__sineup">{{ __('新規会員登録') }}</p>
