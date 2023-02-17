@@ -120,6 +120,6 @@ class PersonController extends Controller
             $user->password = Hash::make($request->password);
             $user->icon_photo = $filename;
             $user->save();
-        return redirect('/login');
+        return view('home');
     }
 }
