@@ -73,8 +73,12 @@
         <div class="p-gacha__control oita" id="current-area">
         @elseif ($currentArea == 'beppu')
             <div class="p-gacha__control beppu" id="current-area">
-            @else
-                <div class="p-gacha__control" id="current-area">
+            @elseif($currentArea == 'hakata')
+                <div class="p-gacha__control hakata" id="current-area">
+                @elseif($currentArea == 'dazaifu')
+                    <div class="p-gacha__control dazaifu" id="current-area">
+                    @else
+                        <div class="p-gacha__control" id="current-area">
     @endif
 
     <div class="p-gacha__control-window">
@@ -84,6 +88,8 @@
             <ul>
                 <input type="submit" value="鉄輪" id="go-kannawa" name="beppu">
                 <input type="submit" value="大原周辺" id="go-ohara" name="oita">
+                <input type="submit" value="太宰府" id="go-dazaifu" name="dazaifu">
+                <input type="submit" value="博多" id="go-hakata" name="hakata">
                 <input type="hidden" value="lat" id="lat">
                 <input type="hidden" value="lng" id="lng">
             </ul>
@@ -236,6 +242,86 @@
             return false;
         }
 
+        function hakata() {
+            var lat3 = 33.595595474615564;
+            var lng3 = 130.4075020843385;
+            var latlng = new google.maps.LatLng(lat3, lng3);
+            oharaPos = latlng;
+
+            var options = {
+                zoom: 17,
+                center: latlng,
+                disableDefaultUI: true
+            };
+
+            map = new google.maps.Map(document.getElementById("googleMap"), options);
+            polygonObj = new google.maps.Polygon({
+                paths: oharaArea,
+                strokeColor: "#EEC94A",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#EEC94A",
+                fillOpacity: 0.25,
+                map: map
+            });
+            addMarker(latlng);
+            document.getElementById("latlng").innerHTML = latlng;
+
+            //エリア内判定
+            if (lat3 >= {{ $arealatlng->left_bottom_ido }} &&
+                lat3 <= {{ $arealatlng->right_top_ido }} &&
+                lng3 >= {{ $arealatlng->left_bottom_keido }} &&
+                lng3 <= {{ $arealatlng->right_bottom_keido }}) {
+
+            } else {
+
+                let text = document.getElementById('a').innerHTML;
+                document.getElementById('a').innerHTML = ' <p>エリア内に入ってください</p>';
+            }
+
+            return false;
+        }
+
+        function dazaifu() {
+            var lat4 = 33.521378625168126;
+            var lng4 = 130.53483462666347;
+            var latlng = new google.maps.LatLng(lat4, lng4);
+            oharaPos = latlng;
+
+            var options = {
+                zoom: 17,
+                center: latlng,
+                disableDefaultUI: true
+            };
+
+            map = new google.maps.Map(document.getElementById("googleMap"), options);
+            polygonObj = new google.maps.Polygon({
+                paths: oharaArea,
+                strokeColor: "#EEC94A",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#EEC94A",
+                fillOpacity: 0.25,
+                map: map
+            });
+            addMarker(latlng);
+            document.getElementById("latlng").innerHTML = latlng;
+
+            //エリア内判定
+            if (lat4 >= {{ $arealatlng->left_bottom_ido }} &&
+                lat4 <= {{ $arealatlng->right_top_ido }} &&
+                lng4 >= {{ $arealatlng->left_bottom_keido }} &&
+                lng4 <= {{ $arealatlng->right_bottom_keido }}) {
+
+            } else {
+
+                let text = document.getElementById('a').innerHTML;
+                document.getElementById('a').innerHTML = ' <p>エリア内に入ってください</p>';
+            }
+
+            return false;
+        }
+
         //マーカー移動
         function addMarker(pos) {
             marker = new google.maps.Marker({
@@ -247,6 +333,10 @@
             ohara();
         @elseif ($currentArea == 'beppu')
             kannawa();
+        @elseif ($currentArea == 'hakata')
+            hakata();
+        @elseif ($currentArea == 'dazaifu')
+            dazaifu();
         @else
             ohara();
         @endif

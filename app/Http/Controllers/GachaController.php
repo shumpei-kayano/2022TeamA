@@ -52,6 +52,32 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
+        }elseif (false !== strpos($area, 'hakata')) {
+            $coupons=Coupon::where('provideflg','=','0')->get();
+            $count=0;
+           foreach($coupons as $coupon){
+            $cond=['id'=>$coupon->store_id,'area_id'=>'3'];
+            $area=Store::where($cond)->count();
+            $count+=$area;
+           }
+            $ransu = mt_rand(1,$count);
+            $cond=['area_id'=>'3','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+            $areaid=2;
+            $coupons = Coupon::where('store_id', '=', $store)->get();
+        }elseif (false !== strpos($area, 'dazaifu')) {
+            $coupons=Coupon::where('provideflg','=','0')->get();
+            $count=0;
+           foreach($coupons as $coupon){
+            $cond=['id'=>$coupon->store_id,'area_id'=>'4'];
+            $area=Store::where($cond)->count();
+            $count+=$area;
+           }
+            $ransu = mt_rand(1,$count);
+            $cond=['area_id'=>'4','areanum'=>$ransu];
+            $store=Store::where($cond)->value('id');
+            $areaid=2;
+            $coupons = Coupon::where('store_id', '=', $store)->get();
         }
 
         $id = Auth::id(); 
@@ -88,8 +114,12 @@ class GachaController extends Controller
         //ポリゴン用のデータ取得
         if($request->session()->get('current_area')=='oita'){
             $arealatlng=Area::find(1);
-        }else{
+        }elseif($request->session()->get('current_area')=='beppu'){
             $arealatlng=Area::find(2);
+        }elseif($request->session()->get('current_area')=='hakata'){
+            $arealatlng=Area::find(3);
+        }elseif($request->session()->get('current_area')=='dazaifu'){
+            $arealatlng=Area::find(4);
         }
         // エリア内判定
         $id = Auth::id();
@@ -97,8 +127,12 @@ class GachaController extends Controller
 
         if ($request->session()->get('current_area')=='oita') {
             $area=1;
-            }else{
+            }elseif($request->session()->get('current_area')=='beppu'){
                 $area=2;
+            }elseif($request->session()->get('current_area')=='hakata'){
+                $area=3;
+            }elseif($request->session()->get('current_area')=='dazaifu'){
+                $area=4;
             }
     $cond = ['user_id' => $id,'area_id'=>$area];
     $ticket=Ticket::where($cond)->latest('updated_at')->first();
@@ -144,12 +178,20 @@ class GachaController extends Controller
     //    エリアごとのクーポン数取得。13のとこに変数埋め込む
     $store1=Store::where('area_id','=','1')->count();
     $store2=Store::where('area_id','=','2')->count();
+    $store3=Store::where('area_id','=','3')->count();
+    $store4=Store::where('area_id','=','4')->count();
         if ($request->has('oita')) {
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', $store1);
         } elseif ($request->has('beppu')) {
             $request->session()->put('current_area', 'beppu');
             $request->session()->put('area_count', $store2);
+        }elseif ($request->has('hakata')) {
+            $request->session()->put('current_area', 'hakata');
+            $request->session()->put('area_count', $store3);
+        }elseif ($request->has('dazaifu')) {
+            $request->session()->put('current_area', 'dazaifu');
+            $request->session()->put('area_count', $store4);
         }
 
         return redirect('gacha/index');
