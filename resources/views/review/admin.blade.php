@@ -45,9 +45,7 @@
                         {{--  @endforeach  --}}
                     </div>
                 </div>
-                <p class="c-hukidashi__date">
-                    2022/10/29
-                </p>
+
                 @foreach ($goods as $good)
                     <div class="c-hukidashi c-hukidashi--b">
                         {{--  <p class="c-hukidashi__photo">
