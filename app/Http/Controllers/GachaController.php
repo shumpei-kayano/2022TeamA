@@ -24,6 +24,8 @@ class GachaController extends Controller
        
         // dd($store);
         $area = $request->session()->get('current_area');
+        $area_coupon = $request->session()->get('"$area"_time');
+        if($area_coupon == 0) {
         if (false !== strpos($area, "oita")) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -36,8 +38,7 @@ class GachaController extends Controller
             $cond=['area_id'=>'1','areanum'=>$ransu];
             $store=Store::where($cond)->value('id');
             $areaid=1;
-            $coupons = Coupon::where('store_id', '=', $store)->get();
-            $request->session()->put('oita_time', 1);
+            $coupons = Coupon::where('store_id', '=', $store)->get();            
 
                     
         } elseif (false !== strpos($area, 'beppu')) {
@@ -53,7 +54,7 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $request->session()->put('beppu_time', 1);
+            
         }elseif (false !== strpos($area, 'hakata')) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -67,7 +68,7 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $request->session()->put('hakata_time', 1);
+            
         }elseif (false !== strpos($area, 'dazaifu')) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -81,13 +82,17 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $request->session()->put('dazaifu_time', 1);
+            
         }
 
         $id = Auth::id(); 
         $gets = Get::where('user_id', '=', $id)->get();
+        $area_coupon = 1;
         
         return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
+        } else {
+            return back();
+        }
     }
 
     public function stag()

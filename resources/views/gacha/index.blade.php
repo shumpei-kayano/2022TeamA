@@ -29,7 +29,7 @@
 @endif
 <div class="c-container u-padding-top--0">
     <div class="p-gacha-top">
-        @if ($gatya_flg == 0 && Session::get('Session::get("current_area")_time') == 0)
+        @if ($gatya_flg == 0 )
             <div id="a" class="p-gacha__message">
                 <p>このエリア<small>（ {{ Session::get('current_area') }}
                         ）</small>のクーポン数：{{ Session::get('area_count') }}</p>
@@ -104,6 +104,7 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&libraries=geometry"
     async defer></script>
+
 <script>
     //DBから緯度経度とってくる(緯度は横。経度は縦。)
     //if文で大分鉄輪分けてwhereで大分鉄輪を取得する

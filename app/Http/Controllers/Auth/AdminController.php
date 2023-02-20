@@ -72,7 +72,11 @@ class AdminController extends Controller
         $store->area_id = $request->op;
         if($request->op==1){
             $store->areanum=$count+1;
-        }else if($request->op==1){
+        }else if($request->op==2){
+            $store->areanum=$count+1;
+        }else if($request->op==3){
+            $store->areanum=$count+1;
+        }else if($request->op==4){
             $store->areanum=$count+1;
         };
         $store->perfecture_id = $request->perfecture_id;
@@ -209,11 +213,10 @@ class AdminController extends Controller
         $coupon->store_id = $storeid;
         $coupon->provide = $request->provide;
         $coupon->coupon_photo = $request->example;
-        $coupon->coupon_photo2 = $request->example2;
-        $coupon->coupon_photo3 = $request->example3;
         $coupon->coupon_name = $request->coupon_name;
         $coupon->closetime = $request->closetime;
         $coupon->areanum = $request->areanum;
+        $coupon->provideflg=0;
         $coupon->save();
 
         
@@ -266,7 +269,7 @@ class AdminController extends Controller
         // ->get();
         // $goods=Good::where('user_id','=','3')->get();
         // $tests=['goods'=>$goods,'reviews'=>$reviews];
-$id=Auth::id();
+        $id=Auth::id();
         $reviews = DB::table('reviews')
         ->where('store_id','=',$id)
         ->count();

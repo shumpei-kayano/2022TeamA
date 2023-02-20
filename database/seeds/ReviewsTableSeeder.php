@@ -19,7 +19,8 @@ class ReviewsTableSeeder extends Seeder
             'store_id'=>'4',
             'posted_date'=>'2022/11/01',
             'star'=>'3',
-            'goodnum' => '8'
+            'goodnum' => '8',
+            'ticket_id' => '13'
         ];
         DB::table('reviews')->insert($param);
 
@@ -31,7 +32,8 @@ class ReviewsTableSeeder extends Seeder
             'store_id'=>'11',
             'posted_date'=>'2022/11/10',
             'star'=>'3',
-            'goodnum' => '8'
+            'goodnum' => '8',
+            'ticket_id' => '46'
         ];
         DB::table('reviews')->insert($param);
 
@@ -43,7 +45,8 @@ class ReviewsTableSeeder extends Seeder
             'store_id'=>'7',
             'posted_date'=>'2022/10/18',
             'star'=>'4',
-            'goodnum' => '8'
+            'goodnum' => '8',
+            'ticket_id' => '51'
         ];
         DB::table('reviews')->insert($param);
         $param=[
@@ -54,7 +57,8 @@ class ReviewsTableSeeder extends Seeder
             'store_id'=>'15',
             'posted_date'=>'2022/11/16',
             'star'=>'3',
-            'goodnum' => '8'
+            'goodnum' => '77',
+            'ticket_id' => '77'
         ];
         DB::table('reviews')->insert($param);
 

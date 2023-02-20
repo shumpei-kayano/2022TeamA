@@ -27,7 +27,9 @@
                         <form enctype="multipart/form-data" method="POST" action="{{ route('userRegister') }}"
                             class="c-form">
                             @csrf
-                            <div class="p-account__top--set">
+                            <div class="form-group row">
+                                <label for=""
+                                    class="col-md-4 col-form-label text-md-right">{{ __('アイコン') }}</label>
                                 <p class="p-account__phot--set"><input type="file" name="example"></p>
                             </div>
                             <div class="form-group row">
