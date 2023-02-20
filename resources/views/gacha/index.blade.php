@@ -29,7 +29,7 @@
 @endif
 <div class="c-container u-padding-top--0">
     <div class="p-gacha-top">
-        @if ($gatya_flg == 0 && Session::get('Session::get('current_area')_time') == 0)
+        @if ($gatya_flg == 0 && Session::get('Session::get("current_area")_time') == 0)
             <div id="a" class="p-gacha__message">
                 <p>このエリア<small>（ {{ Session::get('current_area') }}
                         ）</small>のクーポン数：{{ Session::get('area_count') }}</p>
