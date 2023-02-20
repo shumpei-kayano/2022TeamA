@@ -25,7 +25,7 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         $area_coupon = $request->session()->get('"$area"_time');
-        var_dump($area_coupon);
+        if($area_coupon == 0) {
         if (false !== strpos($area, "oita")) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -38,8 +38,7 @@ class GachaController extends Controller
             $cond=['area_id'=>'1','areanum'=>$ransu];
             $store=Store::where($cond)->value('id');
             $areaid=1;
-            $coupons = Coupon::where('store_id', '=', $store)->get();
-            
+            $coupons = Coupon::where('store_id', '=', $store)->get();            
 
                     
         } elseif (false !== strpos($area, 'beppu')) {
@@ -88,8 +87,12 @@ class GachaController extends Controller
 
         $id = Auth::id(); 
         $gets = Get::where('user_id', '=', $id)->get();
+        $area_coupon = 1;
         
         return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
+        } else {
+            return back();
+        }
     }
 
     public function stag()
