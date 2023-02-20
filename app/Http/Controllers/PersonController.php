@@ -106,6 +106,12 @@ class PersonController extends Controller
     public function userRegister(Request $request)
     {
         // dd($request);
+        $validate_rule = [
+            'email' => 'required',
+            'name' => 'required',
+            'password' => 'min:8|required|confirmed'
+        ];
+        $this -> validate($request, $validate_rule);
         $file=$request->file('example');
             if(!empty($file)){
                 $filename=$file->getClientOriginalName();
@@ -117,6 +123,7 @@ class PersonController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
+            $user->password_confirmation = $request->password_confirmation;
             $user->icon_photo = $filename;
             $user->save();
         return view('home');

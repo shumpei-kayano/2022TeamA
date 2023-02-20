@@ -21,8 +21,14 @@ class StoreController extends Controller
     public function new(Request $request)
     {
     //    dd($request);
+    $validate_rule = [
+        'email' => 'required',
+        'password' => 'min:8|required|confirmed'
+    ];
+    $this -> validate($request, $validate_rule);
         $admin=new Admin;
         $admin->password=Hash::make($request->password);
+        $admin->password_confirmation = $request->password_confirmation;
         $admin->email=$request->email;
         $admin->save();
 
