@@ -37,7 +37,7 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=1;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $coupon_time = Session::put('oita_time', 1);
+            $request->session()->put('oita_time', 1);
 
                     
         } elseif (false !== strpos($area, 'beppu')) {
@@ -53,7 +53,7 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $coupon_time = Session::put('beppu_time', 1);
+            $request->session()->put('beppu_time', 1);
         }elseif (false !== strpos($area, 'hakata')) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -67,7 +67,7 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $coupon_time = Session::put('hakata_time', 1);
+            $request->session()->put('hakata_time', 1);
         }elseif (false !== strpos($area, 'dazaifu')) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -81,7 +81,7 @@ class GachaController extends Controller
             $store=Store::where($cond)->value('id');
             $areaid=2;
             $coupons = Coupon::where('store_id', '=', $store)->get();
-            $coupon_time = Session::put('dazaifu_time', 1);
+            $request->session()->put('dazaifu_time', 1);
         }
 
         $id = Auth::id(); 
