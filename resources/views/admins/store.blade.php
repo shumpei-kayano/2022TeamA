@@ -122,9 +122,10 @@
                                 <select name="op">
                                     <option>
                                         ---------------------------------------------------------</option>
-
                                     <option value="1" required="required">大原周辺</option>
                                     <option value="2" required="required">鉄輪</option>
+                                    <option value="3" required="required">福岡IT情報</option>
+                                    <option value="4" required="required">大宰府</option>
                                     {{--  データベースから引っ張ってくる  --}}
                                 </select>
                             </div>

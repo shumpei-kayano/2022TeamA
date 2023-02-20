@@ -216,6 +216,7 @@ class AdminController extends Controller
         $coupon->coupon_name = $request->coupon_name;
         $coupon->closetime = $request->closetime;
         $coupon->areanum = $request->areanum;
+        $coupon->provideflg=0;
         $coupon->save();
 
         
