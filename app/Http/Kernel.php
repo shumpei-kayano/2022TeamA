@@ -21,7 +21,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\GoodMiddleware::class,
         \App\Http\Middleware\provideMiddleware::class,
-        \App\Http\Middleware\UserIdLogMiddleware::class, //追加分
 
     ];
 
@@ -39,7 +38,6 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            'user.log', //add
         ],
 
         'api' => [
@@ -66,7 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'user.log' => \App\Http\Middleware\UserIdLogMiddleware::class, //add
+
     ];
 
     /**
