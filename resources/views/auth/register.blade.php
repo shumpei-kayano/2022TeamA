@@ -23,7 +23,9 @@
                 <div class="card">
                     <div class="p-add__text">全ての項目を入力して、会員登録を行って下さい</div>
 
+
                     <div class="card-body">
+                        <div class="p-account__user_icon">ユーザアイコン画像</div>
                         <form enctype="multipart/form-data" method="POST" action="{{ route('userRegister') }}"
                             class="c-form">
                             @csrf

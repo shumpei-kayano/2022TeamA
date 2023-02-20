@@ -837,6 +837,11 @@ dialog::backdrop {
   align-items: center;
   gap: 8px;
 }
+/*追加: ユーザ新規会員登録画面の説明文字の設定 */
+.p-account__user_icon{
+  color:#354260;
+  font-size:12px;
+}
 .p-account__top--set {
   width: 100%;
   text-align: center;

@@ -164,6 +164,8 @@
                 var img = document.createElement("img");
                 img.setAttribute("src", reader.result);
                 img.setAttribute("id", "previewImage");
+                img.setAttribute("width", "150px"); //追加:店舗情報登録画面の画像横幅サイズ調整
+                img.setAttribute("height", "150px"); //追加:店舗情報登録画面の画像高さサイズ調整
                 img.classList.add('p-admin__photo');
                 {{--  img.width = 50 px;
                 img.height = 50 px;  --}}
@@ -187,7 +189,9 @@
                 var img = document.createElement("img");
                 img.setAttribute("src", reader.result);
                 img.setAttribute("id", "previewImage");
-                img.classList.add('p-admin__photo');
+                img.setAttribute("width", "150px");
+                img.setAttribute("height", "150px"); //追加:店舗情報登録画面の画像横幅サイズ調整
+                img.classList.add('p-admin__photo'); //追加:店舗情報登録画面の画像高さサイズ調整
 
                 preview.appendChild(img);
 
@@ -209,6 +213,8 @@
                 var img = document.createElement("img");
                 img.setAttribute("src", reader.result);
                 img.setAttribute("id", "previewImage");
+                img.setAttribute("width", "150px"); //追加:店舗情報登録画面の画像横幅サイズ調整
+                img.setAttribute("height", "150px"); //追加:店舗情報登録画面の画像高さサイズ調整
                 img.classList.add('p-admin__photo');
 
                 preview.appendChild(img);
