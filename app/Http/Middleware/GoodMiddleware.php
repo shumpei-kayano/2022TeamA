@@ -19,7 +19,7 @@ class GoodMiddleware
     public function handle($request, Closure $next)
     {
         // ログインユーザーでいいね集計処理
-        $id = Auth::id();
+        $id = Auth::user()->id;
         dd($id);
         $reviews = Review::where('user_id', '=', $id)->sum("goodnum");
         switch ($reviews) {
