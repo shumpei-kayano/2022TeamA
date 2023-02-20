@@ -42,6 +42,8 @@
             @endforeach
             @if ($flg == 1)
                 {{--  赤いいね  --}}
+                {{--  <div
+                    class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">  --}}
                 <div
                     class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
                     <p class="c-hukidashi__photo">
@@ -49,7 +51,8 @@
                     </p>
                     <div class="c-hukidashi__container">
                         <p class="c-hukidashi__username">{{ $review->user->name }}</p>
-                        <div class="c-hukidashi__frame">
+                        <div class="c-hukidashi__frame @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif"
+                            style="@if ($review->user_id == $id) background-color:#c9c9c9;@else background-color:#fff; @endif">
                             <div class="c-hukidashi__header">
                                 <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}</p>
                                 <div class="c-hukidashi__stars">
@@ -87,6 +90,8 @@
                 </div>
             @else
                 {{--  白いいね  --}}
+                {{--  <div
+                    class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">  --}}
                 <div
                     class="c-hukidashi @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif">
                     <p class="c-hukidashi__photo">
@@ -94,7 +99,10 @@
                     </p>
                     <div class="c-hukidashi__container">
                         <p class="c-hukidashi__username">{{ $review->user->name }}</p>
-                        <div class="c-hukidashi__frame">
+                        {{--  <div class="c-hukidashi__frame">  --}}
+                        <div class="c-hukidashi__frame @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif"
+                            style="@if ($review->user_id == $id) background-color:#c9c9c9;@else background-color:#fff; @endif">
+
                             <div class="c-hukidashi__header">
                                 <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}</p>
                                 <div class="c-hukidashi__stars">
@@ -134,7 +142,10 @@
                 </p>
                 <div class="c-hukidashi__container">
                     <p class="c-hukidashi__username">{{ $review->user->name }}</p>
-                    <div class="c-hukidashi__frame">
+                    {{--  <div class="c-hukidashi__frame">  --}}
+                    <div class="c-hukidashi__frame @if ($review->user_id == $id) c-hukidashi--a @else c-hukidashi--b @endif"
+                        style="@if ($review->user_id == $id) background-color:#c9c9c9;@else background-color:#fff; @endif">
+
                         <div class="c-hukidashi__header">
                             <p class="c-hukidashi__visited">訪問日：{{ $review->visited }}</p>
                             <div class="c-hukidashi__stars">
