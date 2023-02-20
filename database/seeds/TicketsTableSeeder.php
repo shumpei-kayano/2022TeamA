@@ -16,80 +16,98 @@ class TicketsTableSeeder extends Seeder
             'user_id' => '3',
             'coupon_id' => '4',
             'term_of_use' => '2022/12/13',
-            'flg' => '0'
+            'flg' => '0',
+            'reviewflg' => '1',
+            'area_id' => '1',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '21',
             'user_id' => '3',
             'coupon_id' => '23',
             'term_of_use' => '2022/12/13',
-            'flg' => '0'
+            'flg' => '0',
+            'reviewflg' => '1',
+            'area_id' => '2',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '8',
             'user_id' => '1',
             'coupon_id' => '7',
             'term_of_use' => '2022/12/13',
-            'flg' => '1'
+            'flg' => '1',
+            'reviewflg' => '1',
+            'area_id' => '1',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '22',
             'user_id' => '1',
             'coupon_id' => '19',
             'term_of_use' => '2022/12/13',
-            'flg' => '0'
+            'flg' => '0',
+            'reviewflg' => '1',
+            'area_id' => '2',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '14',
             'user_id' => '2',
             'coupon_id' => '14',
             'term_of_use' => '2022/12/13',
-            'flg' => '1'
+            'flg' => '1',
+            'reviewflg' => '1',
+            'area_id' => '2',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '18',
             'user_id' => '2',
             'coupon_id' => '21',
             'term_of_use' => '2022/12/13',
-            'flg' => '1'
+            'flg' => '1',
+            'reviewflg' => '1',
+            'area_id' => '2',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '7',
             'user_id' => '4',
             'coupon_id' => '6',
             'term_of_use' => '2022/12/13',
-            'flg' => '0'
+            'flg' => '0',
+            'reviewflg' => '1',
+            'area_id' => '1',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
 
         $param = [
             'store_id' => '7',
             'user_id' => '4',
             'coupon_id' => '6',
             'term_of_use' => '2022/12/13',
-            'flg' => '0'
+            'flg' => '0',
+            'reviewflg' => '1',
+            'area_id' => '1',
         ];
 
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
         $param = [
             'store_id' => '7',
             'user_id' => '4',
             'coupon_id' => '6',
             'term_of_use' => '2022/12/13',
-            'flg' => '1'
+            'flg' => '1',
+            'reviewflg' => '1',
+            'area_id' => '1',
         ];
-        DB::table('Tickets')->insert($param);
+        DB::table('tickets')->insert($param);
     }
 }

@@ -57,7 +57,7 @@
     <section class="c-store__section">
         <div class="c-coupon__top">
             {{--  <p class="c-coupon__address">ここから約1.2Km </p>  --}}
-            <a class="c-btn c-btn--navy c-btn--small"
+            <a class="c-btn c-btn--navy c-btn--small" id="map"
                 href="https://www.google.com/maps/dir/?api=1&destination={{ $items->store_name }}"
                 target="_blank">このお店までの経路を見る</a>
             <p></p>
@@ -158,6 +158,20 @@
     autoplay: true,
     autoplayButtonOutput:false
   });
+
+  {{--  navigator.geolocation.getCurrentPosition(success, fail);
+  function success(pos) {
+    var lat = pos.coords.latitude;
+        var lng = pos.coords.longitude;
+  }
+
+
+  let map = document.getElementById('map');
+   map.addEventListener('change', inputChange);
+
+    function inputChange(event) {
+        document.getElementById("map").setAttribute("href", "https://www.google.com/maps/dir/lat,lng/?api=1&destination={{ $items->store_name }}");
+    }  --}}
   </script>
 </body>
 

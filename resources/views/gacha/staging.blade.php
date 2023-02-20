@@ -29,7 +29,7 @@
 <div class="c-container u-padding-top--0">
     <div class="p-gacha-top">
 
-        <video video src="/images/gatcha_animation.mp4" autoplay muted></video>
+        <video video src="/images/gatcha_animation.mp4" autoplay muted playsinline></video>
         <div class="p-gacha__handle">
             <p class="p-gacha__circle"><img src="/images/gacha-circle.png" alt="ガチャワッカ"></p>
         </div>

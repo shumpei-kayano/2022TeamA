@@ -44,7 +44,7 @@
         <a href="{{ route('account/setting') }}" class="p-account__nav">アカウント設定</a>
         {{--  userテーブルから引っ張ってくる  --}}
     </div>
-    <form method="POST" action="{{ route('logout') }}" class="c-form">
+    <form action="{{ route('userlogout') }}" class="c-form">
         @csrf
         <button type="submit" class="c-btn c-btn--navy">ログアウト</button>
     </form>
