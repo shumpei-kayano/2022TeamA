@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Hash;
 
 class PersonController extends Controller
 {
-   
+
     public function out()
     {
         return view('auth.login');
@@ -35,7 +35,7 @@ class PersonController extends Controller
         $cond = ['user_id' => $id];
         $cond = ['reviews' => $reviews, 'id' => $id, 'goods' => $goods, 'gets' => $gets];
         $request->session()->put('current_area', 'oita');
-        $store1=Store::where('area_id','=','1')->count();
+        $store1 = Store::where('area_id', '=', '1')->count();
         $request->session()->put('area_count', $store1);
         return view('person.index', $cond);
     }
@@ -55,9 +55,8 @@ class PersonController extends Controller
         $good->save();
 
         Review::where('id', '=', $request->id)->increment('goodnum');
-    
+
         return redirect()->route('person/home');
-       
     }
     public function gensan(Request $request)
     {
@@ -73,7 +72,7 @@ class PersonController extends Controller
         $reviews = Review::orderBy('posted_date', 'desc')->get();
         $id = Auth::id();
         $goods = DB::table('goods')->get();
-        
+
         return view('person.index', ['reviews' => $reviews, 'id' => $id, 'goods' => $goods]);
     }
     public function nogood(Request $request)
@@ -82,7 +81,7 @@ class PersonController extends Controller
         $good = Good::where('review_id', '=', $id);
         $good->delete();
         dd($good);
-        
+
         return view('person/home');
     }
 
@@ -93,7 +92,7 @@ class PersonController extends Controller
         $users = DB::table('users')->find($id);
         $gets = Get::where('user_id', '=', $id)->get();
         $cond = ['user_id' => $id];
-        
+
         return view('account.index', ['users' => $users, 'gets' => $gets]);
     }
     public function limit()
@@ -107,19 +106,19 @@ class PersonController extends Controller
     public function userRegister(Request $request)
     {
         // dd($request);
-        $file=$request->file('example');
-            if(!empty($file)){
-                $filename=$file->getClientOriginalName();
-                $move=$file->move('./upload/',$filename);
-            }else{
-                $filename="";
-            }
-            $user = new user;
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-            $user->icon_photo = $filename;
-            $user->save();
+        $file = $request->file('example');
+        if (!empty($file)) {
+            $filename = $file->getClientOriginalName();
+            $move = $file->move('./upload/', $filename);
+        } else {
+            $filename = "icon_account3.svg"; // 画像がない時アイコンを表示
+        }
+        $user = new user;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->icon_photo = $filename;
+        $user->save();
         return redirect('/login');
     }
 }
