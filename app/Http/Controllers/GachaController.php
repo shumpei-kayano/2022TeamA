@@ -25,7 +25,7 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         $area_coupon = $request->session()->get('"$area"_time');
-        if($area_coupon == 0) {
+        if(empty($area_coupon)) {
         if (false !== strpos($area, "oita")) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
@@ -87,10 +87,14 @@ class GachaController extends Controller
 
         $id = Auth::id(); 
         $gets = Get::where('user_id', '=', $id)->get();
-        $area_coupon = 1;
+        $area_coupon += 1;
+        $request->session()->put('"$area"_time', $area_coupon);
         
         return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
         } else {
+            $id = Auth::id(); 
+            $gets = Get::where('user_id', '=', $id)->get();
+            // return view('gatya.index', ['coupons' => $coupons, 'gets' => $gets, 'gatya_flg' => 1]);
             return back();
         }
     }
