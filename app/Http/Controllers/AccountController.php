@@ -90,9 +90,7 @@ class AccountController extends Controller
     }
     public function setting(Request $request){
         $validate_rule = [
-            'newpwd' => 'confirmed',
-            'newpwd' => 'min:8',
-            'newpwd__confirmation' => 'min:8'
+            'newpwd' => 'confirmed|min:8',
         ];
         $this -> validate($request, $validate_rule);
         $id=Auth::id();
@@ -107,6 +105,7 @@ class AccountController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password' => Hash::make($request->newpwd),
+            'password_confirmation' => $request->password_confirmation,
             'icon_photo' => $filename, 
         ]);
          return redirect()->route('account/index');
