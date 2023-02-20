@@ -111,7 +111,7 @@ class PersonController extends Controller
                 $filename=$file->getClientOriginalName();
                 $move=$file->move('./upload/',$filename);
             }else{
-                $filename="";
+                $filename = "icon_account3.svg"; // 画像がない時アイコンを表示
             }
             $user = new user;
             $user->name = $request->name;
