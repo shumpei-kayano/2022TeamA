@@ -64,7 +64,10 @@
                                     @endfor
                                 </div>
                             </div>
-                            <h3 class="c-hukidashi__tittle">{{ $review->store->store_name }}</h3>
+                            <h3 class="c-hukidashi__tittle"><a
+                                    href={{ route('store/index', ['id' => $review->store_id]) }}>{{ $review->store->store_name }}</a>
+                            </h3>
+
                             <p class="c-hukidashi__honbun">
                                 {{ $review->comment }}
                             </p>
@@ -114,7 +117,10 @@
                                     @endfor
                                 </div>
                             </div>
-                            <h3 class="c-hukidashi__tittle">{{ $review->store->store_name }}</h3>
+                            <h3 class="c-hukidashi__tittle"><a
+                                    href={{ route('store/index', ['id' => $review->store_id]) }}>{{ $review->store->store_name }}</a>
+                            </h3>
+
                             <p class="c-hukidashi__honbun">
                                 {{ $review->comment }}
                             </p>
@@ -157,7 +163,9 @@
                                 @endfor
                             </div>
                         </div>
-                        <h3 class="c-hukidashi__tittle">{{ $review->store->store_name }}</h3>
+                        <h3 class="c-hukidashi__tittle"><a
+                                href={{ route('store/index', ['id' => $review->store_id]) }}>{{ $review->store->store_name }}</a>
+                        </h3>
                         <p class="c-hukidashi__honbun">
                             {{ $review->comment }}
                         </p>
