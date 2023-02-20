@@ -92,10 +92,7 @@ class GachaController extends Controller
         
         return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
         } else {
-            $id = Auth::id(); 
-            $gets = Get::where('user_id', '=', $id)->get();
-            // return view('gatya.index', ['coupons' => $coupons, 'gets' => $gets, 'gatya_flg' => 1]);
-            return back();
+            return redirect()->route('gacha/index');
         }
     }
 
