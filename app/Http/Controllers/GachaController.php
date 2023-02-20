@@ -25,7 +25,7 @@ class GachaController extends Controller
         // dd($store);
         $area = $request->session()->get('current_area');
         $area_coupon = $request->session()->get('"$area"_time');
-        dd($area_coupon);
+        var_dump($area_coupon);
         if (false !== strpos($area, "oita")) {
             $coupons=Coupon::where('provideflg','=','0')->get();
             $count=0;
