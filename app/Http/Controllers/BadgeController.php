@@ -30,9 +30,8 @@ class BadgeController extends Controller
                         $badge_id = 16;
                         break;
                     default:
-                        $badge_id = 0;
-                        break;
-
+                    $badges = Get::where('user_id', '=', $id)->get();
+                    return view('badge.index', ['badges' => $badges]);
                 }
         
                 // バッジ獲得判定
