@@ -214,7 +214,7 @@ class AdminController extends Controller
         $coupon = new coupon;
         $coupon->store_id = $storeid;
         $coupon->provide = $request->provide;
-        $coupon->coupon_photo = $request->example;
+        $coupon->coupon_photo = $filename;
         $coupon->coupon_name = $request->coupon_name;
         $coupon->closetime = $request->closetime;
         $coupon->areanum = $request->areanum;
