@@ -42,8 +42,8 @@
                                 name="coupon_name" required="required">
                         </div>
                         <div class="c-form__group">
-                            <label for="">提供数</label><input value={{ $coupons->provide }} type="text"
-                                name="provide" required="required">
+                            <label for="">提供数</label><input value={{ $coupons->provide }} type="number"
+                                name="provide" required="required" min="0" max="100">
                         </div>
 
                         <div class="p-admin__a">

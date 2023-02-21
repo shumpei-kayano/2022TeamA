@@ -44,7 +44,7 @@
                                 required="required">
                         </div>
                         <div class="c-form__group">
-                            <label for="">提供数</label><input type="text" name="provide" required="required">
+                            <label for="">提供数</label><input type="number" name="provide" required="required" min="0" max="100">
                         </div>
 
 

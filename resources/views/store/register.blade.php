@@ -104,10 +104,7 @@
                                 {{--  データベースから引っ張ってくる  --}}
                             </select>
                         </div>
-                        {{--  <div class="c-form__group">
-                            <label for="">都道府県コード</label><input type="text" name="perfecture_id"
-                                required="required">
-                        </div>  --}}
+                        <input type="hidden" name="perfecture_id" value="44">
 
                         <a class="c-btn c-btn--small c-btn--navy" id="store_latlng"
                             href="https://www.google.com/maps/place" target="_blank">緯度・経度を調べる</a>
