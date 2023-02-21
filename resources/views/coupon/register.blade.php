@@ -29,9 +29,9 @@
                 <div class="p-admin__contentheader">
                     <div class="p-admin__tittle">
                         <h1>クーポン情報</h1>
-                        <a href="{{ route('admin.coupon') }}">
+                        {{--  <a href="{{ route('admin.coupon') }}">
                             <button class="c-btn c-btn--edit c-btn--navy ">編集</button>
-                        </a>
+                        </a>  --}}
                     </div>
                 </div>
 

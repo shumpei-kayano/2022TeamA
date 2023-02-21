@@ -276,11 +276,38 @@ class AdminController extends Controller
     }
     public function set(){
         $id=Auth::id();
+        $cond = Admin::where('id',$id)->first();
+        $store=$cond->coupon_id;
+
+        if($store==0){
+
         $store=Admin::where('id','=',$id)->value('store_id');
         // dd($store);
         $stores=Store::find($store);
         // dd($stores);
         return view('coupon.register',['stores'=>$stores]);
+    }else{
+        $admin=Admin::where('id','=',$id)->value('coupon_id');
+        $cond=['coupon_id'=>$admin,'flg'=>1];
+        $tickets = DB::table('tickets')
+        ->where($cond)
+        ->count();
+
+        $tickettotal = DB::table('tickets')
+        ->where('coupon_id','=',$admin)
+        ->count();
+
+        $id=Auth::id();
+        $storeid=Admin::where('id','=',$id)->value('store_id');
+        $store=Admin::where('store_id','=',$storeid)->value('coupon_id');
+        $coupons=Coupon::find($store);
+        // $item=['tickets'=>$tickets,'coupons'=>$coupons];
+        // $coupons=Coupon::where('id','=',$id)->get();
+        
+        $item=['tickets'=>$tickets,'coupons'=>$coupons,'tickettotal'=> $tickettotal];
+        // dd($coupons);
+        return view('coupon.admin',$item);
+    }
     }
     public function add(){
         return view('coupon.admin');
