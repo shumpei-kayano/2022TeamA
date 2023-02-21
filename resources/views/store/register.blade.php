@@ -43,11 +43,12 @@
                             <label for="">住所</label><input type="text" name="address" required="required">
                         </div>
                         <div class="c-form__group">
-                            <label for="">電話番号</label><input type="text" name="tel" required="required">
+                            <label for="">電話番号</label><input type="text" name="tel" required="required"
+                                placeholder="000-000-0000">
                         </div>
                         <div class="c-form__group">
-                            <label for="">ホームページ</label><input type="text" name="link"
-                                required="required">
+                            <label for="">ホームページ</label><input type="text" name="link" required="required"
+                                placeholder="https://sample.com">
                         </div>
                         <div class="c-form__group">
                             <label for=" ">サービス内容</label>
@@ -76,16 +77,17 @@
                         </div>
                         <div class="p-admin__time">
                             <div class="c-form__group--time">
-                                <label for="">営業開始時間</label><input type="text" name="start_time"
+                                <label for="">営業開始時間</label><input type="time" name="start_time"
                                     required="required">
                             </div>
                             <div class="c-form__group--time">
-                                <label for="">営業終了時間</label><input type="text" name="end_time"
+                                <label for="">営業終了時間</label><input type="time" name="end_time"
                                     required="required">
                             </div>
                         </div>
                         <div class="c-form__group">
-                            <label for="">駐車場</label><input type="text" name="parking" required="required">
+                            <label for="">駐車場</label><input type="text" name="parking" required="required"
+                                placeholder="有：10台">
                         </div>
                         <div class="c-form__group">
                             <label>エリア名選択
@@ -95,17 +97,17 @@
                                 <option value="-----------">
                                     ---------------------------------------------------------</option>
 
-                                <option value="1" required="required">大原周辺</option>
-                                <option value="2" required="required">鉄輪</option>
-                                <option value="3" required="required">福岡IT情報</option>
+                                <option value="1" required="required">大分</option>
+                                <option value="2" required="required">別府</option>
+                                <option value="3" required="required">福岡</option>
                                 <option value="4" required="required">大宰府</option>
                                 {{--  データベースから引っ張ってくる  --}}
                             </select>
                         </div>
-                        <div class="c-form__group">
+                        {{--  <div class="c-form__group">
                             <label for="">都道府県コード</label><input type="text" name="perfecture_id"
                                 required="required">
-                        </div>
+                        </div>  --}}
 
                         <a class="c-btn c-btn--small c-btn--navy" id="store_latlng"
                             href="https://www.google.com/maps/place" target="_blank">緯度・経度を調べる</a>

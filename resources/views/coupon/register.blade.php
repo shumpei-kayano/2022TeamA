@@ -69,8 +69,8 @@
                     <div class="c-form__group">
                         <label for="">掲載終了日時</label>
 
-                        <input type="date" id="start" name="closetime" value="2022-11-01" min="2022-11-01"
-                            max="2023-03-31" required="required">
+                        <input type="date" id="start" name="closetime" value="2023-02-22" min="2022-02-22"
+                            required="required">
                     </div>
 
 
@@ -79,7 +79,11 @@
             <input type="hidden" name="id">
             <input type="hidden" name="store_id">
             {{--  <input type="hidden" name="coupon_photo">  --}}
-            <input type="hidden" name="areanum" value="{{ $stores->areanum }}">
+            @if (!isset($stores->areanum))
+                <input type="hidden">
+            @else
+                <input type="hidden" name="areanum" value="{{ $stores->areanum }}">
+            @endif
             <button type="submit" class="c-btn c-btn--update c-btn--navy">登録する</button>
             </form>
 

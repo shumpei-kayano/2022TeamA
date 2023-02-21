@@ -86,7 +86,7 @@
                         <label for="">掲載終了日時</label>
 
                         <input value={{ $coupons->closetime }} type="date" id="start" name="closetime"
-                            value="2022-11-01" min="2022-11-01" max="2023-03-31" required="required">
+                            min="2022-11-01" max="2023-03-31" required="required">
                     </div>
 
 

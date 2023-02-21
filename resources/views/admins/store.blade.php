@@ -105,10 +105,10 @@
                         <div class="p-admin__time">
                             <div class="c-form__group--time">
                                 <label for="">営業開始時間</label><input value={{ $stores->start_time }}
-                                    type="text" name="start_time" required="required">
+                                    type="time" name="start_time" required="required">
                                 <div class="c-form__group--time">
                                     <label for="">営業終了時間</label><input value={{ $stores->end_time }}
-                                        type="text" name="end_time" required="required">
+                                        type="time" name="end_time" required="required">
                                 </div>
                             </div>
                             <div class="c-form__group">
@@ -122,9 +122,9 @@
                                 <select name="op">
                                     <option>
                                         ---------------------------------------------------------</option>
-                                    <option value="1" required="required">大原周辺</option>
-                                    <option value="2" required="required">鉄輪</option>
-                                    <option value="3" required="required">福岡IT情報</option>
+                                    <option value="1" required="required">大分</option>
+                                    <option value="2" required="required">別府</option>
+                                    <option value="3" required="required">福岡</option>
                                     <option value="4" required="required">大宰府</option>
                                     {{--  データベースから引っ張ってくる  --}}
                                 </select>

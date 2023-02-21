@@ -20,7 +20,7 @@
                 <label for="name">{{ __('メールアドレス') }}</label>
 
                 <div class="c-form__group">
-                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror"
+                    <input id="name" type="email" class="form-control @error('name') is-invalid @enderror"
                         name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                     @error('name')
