@@ -207,10 +207,10 @@ class GachaController extends Controller
     $store2=Store::where('area_id','=','2')->count();
     $store3=Store::where('area_id','=','3')->count();
     $store4=Store::where('area_id','=','4')->count();
-        if ($request->oita == '大原周辺') {
+        if ($request->oita == '大分') {
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', $store1);
-        } elseif ($request->beppu == '鉄輪') {
+        } elseif ($request->beppu == '別府') {
             $request->session()->put('current_area', 'beppu');
             $request->session()->put('area_count', $store2);
         }elseif ($request->hakata == '博多') {

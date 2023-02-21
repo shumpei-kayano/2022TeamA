@@ -87,8 +87,8 @@
         <form action="/gacha/index" method="POST">
             @csrf
             <ul>
-                <input type="submit" value="鉄輪" id="go-kannawa" name="beppu">
-                <input type="submit" value="大原周辺" id="go-ohara" name="oita">
+                <input type="submit" value="別府" id="go-kannawa" name="beppu">
+                <input type="submit" value="大分" id="go-ohara" name="oita">
                 <input type="submit" value="太宰府" id="go-dazaifu" name="dazaifu">
                 <input type="submit" value="博多" id="go-hakata" name="hakata">
                 <input type="hidden" value="lat" id="lat">
@@ -246,13 +246,14 @@
         }
 
         function hakata() {
-            var lat3 = 33.595595474615564;
-            var lng3 = 130.4075020843385;
-            var latlng = new google.maps.LatLng(lat3, lng3);
+            /*var lat3 = 33.595595474615564;
+            var lng3 = 130.4075020843385;*/
+            
+            var latlng = new google.maps.LatLng(lat, lng);
             oharaPos = latlng;
 
             var options = {
-                zoom: 17,
+                zoom: 15,
                 center: latlng,
                 disableDefaultUI: true
             };
@@ -292,7 +293,7 @@
             oharaPos = latlng;
 
             var options = {
-                zoom: 17,
+                zoom: 13,
                 center: latlng,
                 disableDefaultUI: true
             };
