@@ -21,8 +21,6 @@ class GachaController extends Controller
 
     public function play(Request $request)
     {
-       
-        // dd($store);
         $area = $request->session()->get('current_area');
         $area_coupon = $request->session()->get('"$area"_time');
         if(empty($area_coupon)) {
@@ -109,7 +107,6 @@ class GachaController extends Controller
     }
     public function show(Request $request)
     {
-    //    dd($request->session()->current_area);
     
         // 存在チェック
         // if ($request->session()->has('current_area')) {

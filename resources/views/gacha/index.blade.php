@@ -102,9 +102,10 @@
 </div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&libraries=geometry"
+{{--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtYsX-DTTQHaRPfZ3xTaCrtPoKVv2k6nM&libraries=geometry"
+    async defer></script>  --}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5NYJ-k6o2Ftd4J9FJ_QORJZ3ZDuZPJ4E&libraries=geometry"
     async defer></script>
-
 <script>
     //DBから緯度経度とってくる(緯度は横。経度は縦。)
     //if文で大分鉄輪分けてwhereで大分鉄輪を取得する
