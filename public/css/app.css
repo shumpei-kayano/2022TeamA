@@ -974,6 +974,7 @@ dialog::backdrop {
 .p-account__user_icon{
   color:#354260;
   font-size:12px;
+  margin-bottom:-15px;   /* 追加：ユーザアイコン画像の下の余白を狭める */
 }
 
 .p-account__top--set {

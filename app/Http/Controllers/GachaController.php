@@ -109,7 +109,6 @@ class GachaController extends Controller
     }
     public function show(Request $request)
     {
-    //    dd($request->session()->current_area);
     
         // 存在チェック
         // if ($request->session()->has('current_area')) {
