@@ -31,6 +31,10 @@ class BadgeController extends Controller
                         break;
                     default:
                     $badges = Get::where('user_id', '=', $id)->get();
+                    Get::where('user_id', '=', $id)->update([
+                        // getflgはバッジの既読（１）
+                        'getflg' => '1'
+                    ]);
                     return view('badge.index', ['badges' => $badges]);
                 }
         
