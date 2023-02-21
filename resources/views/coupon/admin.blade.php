@@ -14,6 +14,8 @@
         <div class="p-admin__logo"><img src="/images/admin_header_logo.png" alt="店舗管理画面ロゴ"></div>
         <div class="p-admin__logout">
 
+            <p>{{ $coupons->store->store_name }}</p>
+
             <p><a href="{{ route('admin.logout') }}" class="c-btn c-btn--small c-btn--navy">ログアウト</a></p>
         </div>
     </div>

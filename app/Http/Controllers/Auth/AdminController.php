@@ -188,10 +188,12 @@ class AdminController extends Controller
         ->count();
 
         $id=Auth::id();
-        $store=Admin::where('id','=',$id)->value('coupon_id');
+        $storeid=Admin::where('id','=',$id)->value('store_id');
+        $store=Admin::where('store_id','=',$storeid)->value('coupon_id');
         $coupons=Coupon::find($store);
         // $item=['tickets'=>$tickets,'coupons'=>$coupons];
         // $coupons=Coupon::where('id','=',$id)->get();
+        
         $item=['tickets'=>$tickets,'coupons'=>$coupons,'tickettotal'=> $tickettotal];
         // dd($coupons);
         return view('coupon.admin',$item);
@@ -275,7 +277,7 @@ class AdminController extends Controller
         ->where('store_id','=',$storeid)
         ->count();
         $goods=Review::where('store_id','=',$storeid)->get();
-        $coupons=Coupon::where('id','=',$storeid)->get();
+        $coupons=Coupon::where('store_id','=',$storeid)->get();
         // dd($reviews, $goods);
         return view('review.admin',['reviews'=>$reviews,'goods'=>$goods,'coupons'=>$coupons]);
     }
