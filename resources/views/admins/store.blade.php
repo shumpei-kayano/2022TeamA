@@ -30,6 +30,9 @@
                 <div class="p-admin__contentheader">
                     <div class="p-admin__tittle">
                         <h1>店舗情報</h1>
+                        <a href="{{ route('store.registers') }}">
+                            <button class="c-btn c-btn--edit c-btn--navy ">登録</button>
+                        </a>
                         @foreach ($reviews as $review)
                             <div class="p-admin__star">
                                 <p>平均スコア</p>

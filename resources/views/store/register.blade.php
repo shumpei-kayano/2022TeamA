@@ -27,9 +27,9 @@
                     <div class="p-admin__tittle">
                         <h1>店舗情報</h1>
                         {{--  編集ボタン追加。ルートはadmins.store  --}}
-                        <a href="{{ route('admins.store') }}">
+                        {{--  <a href="{{ route('admins.store') }}">
                             <button class="c-btn c-btn--edit c-btn--navy ">編集</button>
-                        </a>
+                        </a>  --}}
                     </div>
                 </div>
                 <form enctype="multipart/form-data"action="/store/storeregister" method="POST" class="c-form">
