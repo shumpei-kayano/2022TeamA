@@ -29,6 +29,10 @@ class BadgeController extends Controller
                     case 100:
                         $badge_id = 16;
                         break;
+                    default:
+                        $badge_id = 0;
+                        break;
+
                 }
         
                 // バッジ獲得判定
