@@ -22,77 +22,77 @@ class GachaController extends Controller
     public function play(Request $request)
     {
        
-        // dd($store);
         $area = $request->session()->get('current_area');
-        $area_coupon = $request->session()->get('"$area"_time');
+        $area_time = $area.'_time';
+        $area_coupon = $request->session()->get($area_time);
+        // dd($area_coupon);
         if(empty($area_coupon)) {
-        if (false !== strpos($area, "oita")) {
-            $coupons=Coupon::where('provideflg','=','0')->get();
-            $count=0;
-           foreach($coupons as $coupon){
-            $cond=['id'=>$coupon->store_id,'area_id'=>'1'];
-            $area=Store::where($cond)->count();
-            $count+=$area;
-           }
-            $ransu = mt_rand(1,$count);
-            $cond=['area_id'=>'1','areanum'=>$ransu];
-            $store=Store::where($cond)->value('id');
-            $areaid=1;
-            $coupons = Coupon::where('store_id', '=', $store)->get();            
+            if (false !== strpos($area, "oita")) {
+                $coupons=Coupon::where('provideflg','=','0')->get();
+                $count=0;
+            foreach($coupons as $coupon){
+                $cond=['id'=>$coupon->store_id,'area_id'=>'1'];
+                $area=Store::where($cond)->count();
+                $count+=$area;
+            }
+                $ransu = mt_rand(1,$count);
+                $cond=['area_id'=>'1','areanum'=>$ransu];
+                $store=Store::where($cond)->value('id');
+                $areaid=1;
+                $coupons = Coupon::where('store_id', '=', $store)->get();            
 
-                    
-        } elseif (false !== strpos($area, 'beppu')) {
-            $coupons=Coupon::where('provideflg','=','0')->get();
-            $count=0;
-           foreach($coupons as $coupon){
-            $cond=['id'=>$coupon->store_id,'area_id'=>'2'];
-            $area=Store::where($cond)->count();
-            $count+=$area;
-           }
-            $ransu = mt_rand(1,$count);
-            $cond=['area_id'=>'2','areanum'=>$ransu];
-            $store=Store::where($cond)->value('id');
-            $areaid=2;
-            $coupons = Coupon::where('store_id', '=', $store)->get();
-            
-        }elseif (false !== strpos($area, 'hakata')) {
-            $coupons=Coupon::where('provideflg','=','0')->get();
-            $count=0;
-           foreach($coupons as $coupon){
-            $cond=['id'=>$coupon->store_id,'area_id'=>'3'];
-            $area=Store::where($cond)->count();
-            $count+=$area;
-           }
-            $ransu = mt_rand(1,$count);
-            $cond=['area_id'=>'3','areanum'=>$ransu];
-            $store=Store::where($cond)->value('id');
-            $areaid=2;
-            $coupons = Coupon::where('store_id', '=', $store)->get();
-            
-        }elseif (false !== strpos($area, 'dazaifu')) {
-            $coupons=Coupon::where('provideflg','=','0')->get();
-            $count=0;
-           foreach($coupons as $coupon){
-            $cond=['id'=>$coupon->store_id,'area_id'=>'4'];
-            $area=Store::where($cond)->count();
-            $count+=$area;
-           }
-            $ransu = mt_rand(1,$count);
-            $cond=['area_id'=>'4','areanum'=>$ransu];
-            $store=Store::where($cond)->value('id');
-            $areaid=2;
-            $coupons = Coupon::where('store_id', '=', $store)->get();
-            
-        }
+                        
+            } elseif (false !== strpos($area, 'beppu')) {
+                $coupons=Coupon::where('provideflg','=','0')->get();
+                $count=0;
+            foreach($coupons as $coupon){
+                $cond=['id'=>$coupon->store_id,'area_id'=>'2'];
+                $area=Store::where($cond)->count();
+                $count+=$area;
+            }
+                $ransu = mt_rand(1,$count);
+                $cond=['area_id'=>'2','areanum'=>$ransu];
+                $store=Store::where($cond)->value('id');
+                $areaid=2;
+                $coupons = Coupon::where('store_id', '=', $store)->get();
+                
+            }elseif (false !== strpos($area, 'hakata')) {
+                $coupons=Coupon::where('provideflg','=','0')->get();
+                $count=0;
+            foreach($coupons as $coupon){
+                $cond=['id'=>$coupon->store_id,'area_id'=>'3'];
+                $area=Store::where($cond)->count();
+                $count+=$area;
+            }
+                $ransu = mt_rand(1,$count);
+                $cond=['area_id'=>'3','areanum'=>$ransu];
+                $store=Store::where($cond)->value('id');
+                $areaid=3;
+                $coupons = Coupon::where('store_id', '=', $store)->get();
+                
+            }elseif (false !== strpos($area, 'dazaifu')) {
+                $coupons=Coupon::where('provideflg','=','0')->get();
+                $count=0;
+            foreach($coupons as $coupon){
+                $cond=['id'=>$coupon->store_id,'area_id'=>'4'];
+                $area=Store::where($cond)->count();
+                $count+=$area;
+            }
+                $ransu = mt_rand(1,$count);
+                $cond=['area_id'=>'4','areanum'=>$ransu];
+                $store=Store::where($cond)->value('id');
+                $areaid=4;
+                $coupons = Coupon::where('store_id', '=', $store)->get();
+                
+            }
 
-        $id = Auth::id(); 
-        $gets = Get::where('user_id', '=', $id)->get();
-        $area_coupon += 1;
-        $request->session()->put('"$area"_time', $area_coupon);
-        
-        return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
+            $id = Auth::id(); 
+            $gets = Get::where('user_id', '=', $id)->get();
+            $request->session()->put($area_time, 1);
+            return view('gacha.staging', ['coupons' => $coupons, 'gets' => $gets,'areaid'=>$areaid]);
+
         } else {
-            return redirect()->route('gacha/index');
+            return redirect()->route('gacha/index');//->with('current_area' => $area);
         }
     }
 
@@ -169,6 +169,24 @@ class GachaController extends Controller
             $hours=number_format($hour,0);
             $minutes=$sabun%60;
                 return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes,'arealatlng'=>$arealatlng]);
+        }elseif($areaid==3) {
+             // ガチャを回せない
+             $use = new Carbon( $ticket->term_of_use);
+            $second = new Carbon( $now);
+            $sabun= $use->diffInMinutes($second); 
+            $hour=floor($sabun/60);
+            $hours=number_format($hour,0);
+            $minutes=$sabun%60;
+                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes,'arealatlng'=>$arealatlng]);
+        }elseif($areaid==4) {
+             // ガチャを回せない
+             $use = new Carbon( $ticket->term_of_use);
+            $second = new Carbon( $now);
+            $sabun= $use->diffInMinutes($second); 
+            $hour=floor($sabun/60);
+            $hours=number_format($hour,0);
+            $minutes=$sabun%60;
+                return view('gacha.index', ['gets' => $gets,'gatya_flg' => 1,'hours'=> $hours,'minutes'=>$minutes,'arealatlng'=>$arealatlng]);
         }else{
             // ガチャを回せる
             return view('gacha.index', ['gets' => $gets,'gatya_flg' => 0,'arealatlng'=>$arealatlng]);
@@ -190,16 +208,16 @@ class GachaController extends Controller
     $store2=Store::where('area_id','=','2')->count();
     $store3=Store::where('area_id','=','3')->count();
     $store4=Store::where('area_id','=','4')->count();
-        if ($request->has('oita')) {
+        if ($request->oita == '大原周辺') {
             $request->session()->put('current_area', 'oita');
             $request->session()->put('area_count', $store1);
-        } elseif ($request->has('beppu')) {
+        } elseif ($request->beppu == '鉄輪') {
             $request->session()->put('current_area', 'beppu');
             $request->session()->put('area_count', $store2);
-        }elseif ($request->has('hakata')) {
+        }elseif ($request->hakata == '博多') {
             $request->session()->put('current_area', 'hakata');
             $request->session()->put('area_count', $store3);
-        }elseif ($request->has('dazaifu')) {
+        }elseif ($request->dazaifu == '太宰府') {
             $request->session()->put('current_area', 'dazaifu');
             $request->session()->put('area_count', $store4);
         }

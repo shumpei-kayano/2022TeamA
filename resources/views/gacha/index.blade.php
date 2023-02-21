@@ -27,6 +27,7 @@
         @endif
     @endforeach
 @endif
+
 <div class="c-container u-padding-top--0">
     <div class="p-gacha-top">
         @if ($gatya_flg == 0 )
