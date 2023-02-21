@@ -270,11 +270,12 @@ class AdminController extends Controller
         // $goods=Good::where('user_id','=','3')->get();
         // $tests=['goods'=>$goods,'reviews'=>$reviews];
         $id=Auth::id();
+        $storeid=Admin::where('id','=',$id)->value('store_id');
         $reviews = DB::table('reviews')
-        ->where('store_id','=',$id)
+        ->where('store_id','=',$storeid)
         ->count();
-        $goods=Review::where('store_id','=',$id)->get();
-        $coupons=Coupon::where('id','=',$id)->get();
+        $goods=Review::where('store_id','=',$storeid)->get();
+        $coupons=Coupon::where('id','=',$storeid)->get();
         // dd($reviews, $goods);
         return view('review.admin',['reviews'=>$reviews,'goods'=>$goods,'coupons'=>$coupons]);
     }
