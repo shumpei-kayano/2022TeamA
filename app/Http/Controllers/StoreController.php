@@ -30,6 +30,8 @@ class StoreController extends Controller
         $admin->password=Hash::make($request->password);
         $admin->password_confirmation = $request->password_confirmation;
         $admin->email=$request->email;
+        $admin->store_id=0;
+        $admin->coupon_id=0;
         $admin->save();
 
         return view('homeadmin');

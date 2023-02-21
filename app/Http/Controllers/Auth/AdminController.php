@@ -20,9 +20,31 @@ class AdminController extends Controller
     public function in(){
         return view('welcome.admin');
     }
+    // $reviews = Review::selectRaw('round(AVG(star)) as count_review')
+    //     ->get();
+    //     $id=Auth::id();
+    //     $stores=Store::where('id','=',$id)->get();
+    //     $test=['reviews'=>$reviews,'stores'=>$stores];
+    //     return view('store.register',$test);
     public function enter(){
+        $id=Auth::id();
+        $cond = Admin::where('id',$id)->first();
+        $store=$cond->store_id;
+
+        if($store==0){
         return view('store.register');
+    }else{
+        $store=Admin::select('store_id')->where('id','=',$id)->value('store_id');
+        $reviews = DB::table('reviews')
+        ->select('store_id',DB::raw('round(AVG(star)) as count_review'))
+        ->groupBy('store_id')
+        ->having('store_id','=',$store)
+        ->get();
+        $stores=Store::find($store);
+        $test=['reviews'=>$reviews,'stores'=>$stores];
+        return view('admins.store',$test); 
     }
+}
     public function show(){
         $reviews = Review::selectRaw('round(AVG(star)) as count_review')
         ->get();
@@ -96,7 +118,7 @@ class AdminController extends Controller
         Admin::where('id','=',$id)->update([
             'store_id'=>$store->id
         ]);
-        return redirect()->action('Auth\AdminController@index');
+        return redirect()->action('Auth\AdminController@enter');
       
     }
     public function storeupdate(Request $request){
@@ -146,7 +168,7 @@ class AdminController extends Controller
         'related3'=>$request->related3
         ]);
 
-        return redirect()->action('Auth\AdminController@index');
+        return redirect()->action('Auth\AdminController@enter');
       
     }
     public function edit(){
@@ -214,7 +236,7 @@ class AdminController extends Controller
         $coupon = new coupon;
         $coupon->store_id = $storeid;
         $coupon->provide = $request->provide;
-        $coupon->coupon_photo = $request->example;
+        $coupon->coupon_photo = $filename;
         $coupon->coupon_name = $request->coupon_name;
         $coupon->closetime = $request->closetime;
         $coupon->areanum = $request->areanum;
@@ -311,6 +333,9 @@ class AdminController extends Controller
         //     'email' => $data['email'],
         //     'password' => Hash::make($data['password']),
         // ]);
+    }
+    public function send(){
+        return view('store.register');
     }
 }
 
