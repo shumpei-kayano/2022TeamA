@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin;
 
 //INDEX
 Route::get('/', function () {
-    return view('index');
+   return redirect('/login');
 });
 
 
