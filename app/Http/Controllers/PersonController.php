@@ -107,7 +107,7 @@ class PersonController extends Controller
     {
         // dd($request);
         $validate_rule = [
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'name' => 'required',
             'password' => 'min:8|required|confirmed'
         ];

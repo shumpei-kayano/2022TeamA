@@ -78,11 +78,11 @@
                         <div class="p-admin__time">
                             <div class="c-form__group--time">
                                 <label for="">営業開始時間</label><input type="time" name="start_time"
-                                    required="required">
+                                    required="required" value="10:00">
                             </div>
                             <div class="c-form__group--time">
                                 <label for="">営業終了時間</label><input type="time" name="end_time"
-                                    required="required">
+                                    required="required" value="22:00">
                             </div>
                         </div>
                         <div class="c-form__group">
